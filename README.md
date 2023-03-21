@@ -33,7 +33,7 @@
 
 
 
-## ***Deploy on [Heroku]( https://dashboard.heroku.com/new?template=)***
+### ***Deploy on [Heroku]( https://dashboard.heroku.com/new?template=https://github.com/SuhailTechInfo/Secktor-Md)***
 
 5. ***[Deploy on Koyeb](https://secktoruserbot.onrender.com/koyeb)***
 
