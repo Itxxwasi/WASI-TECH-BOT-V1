@@ -1,6 +1,6 @@
 {
   "__JSON__": true,
-  "AUTHOR": "SamPandey001",
+  "AUTHOR": "SuhailTechInfo",
   "LANGUAGE": "English",
   "LANGCODE": "en",
   "STRINGS": {
@@ -10,7 +10,7 @@
           "UPDATED_LOCAL": "*Successfully Updated!*"
       },
       "global": {
-          "botName": " Powered by Secktor",
+          "botName": " Powered by SuhailTechInfo",
           "body": "𝑊ℎ𝑎𝑡𝑠𝑎𝑝𝑝 𝐵𝑜𝑡",
           "greet2" : "Sir",
           "pic1": "https://raw.githubusercontent.com/SecktorBot/Brandimages/main/new/first.jpg",
@@ -32,9 +32,9 @@
           "antlink": "Link Detected.\n*Good Bye Sir*",
           "session": "\n*This is your session.sam.json,keep it safe and store it properly*\n_Now Upload This json file in Your Forked Repo_\n Connect your repo to Heroku and *Deploy Branch* and Bot will run for Always\n\n*Powered by Secktor*",
           "mention": " Please mention any user Sir",
-          "title": "Secktor",
-          "footer": "Secktor",
-          "by": "Made by: *CitelVoid*",
+          "title": "Luffy",
+          "footer": "sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo",
+          "by": "Made by: *SuhailTech*",
           "chat_desc": "Options Avilable* : 1. mute\n2. unmute\n3. archive\n4. unarchive\n5. read\n6. unread\n7. delete",
           "success": "Done ✓",
           "dot": "Did you mean *help?*",
