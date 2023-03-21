@@ -1,3 +1,6 @@
+  ## ***Deploy on [Heroku]( https://dashboard.heroku.com/new?template=https://github.com/SuhailTechInfo/Secktor-Md)***
+  
+  
   <p align="center">  
   <a href="https://secktoruserbot.onrender.com/">
     <img alt="secktor docs" height="300" src="https://secktoruserbot.onrender.com//main.jpg">
