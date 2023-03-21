@@ -23,7 +23,7 @@ Secktor.cmd({
             alias: ["menu"],
             desc: "Help list",
             category: "general",
-            react: "✨",
+            react: "👀",
             filename: __filename
         },
         async(Void, citel, text) => {
@@ -65,6 +65,7 @@ Secktor.cmd({
 │ │ Mem:- ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
 │ │ Time:- ${time}
 │ │ Date:- ${date}
+│ │ Ytube : youtube.com/c/SuhailTechInfo
 │ ╰───────✧❁✧───────»
 ╰───────────────⊷\n
 ` + '```'
@@ -117,7 +118,7 @@ Secktor.cmd({
             pattern: "list",
             desc: "list menu",
             category: "general",
-            react: "✅"
+            react: "🥀"
         },
         async(Void, citel) => {
             const { commands } = require('../lib');
@@ -132,7 +133,7 @@ Secktor.cmd({
 ┃ ⛥│ Commands: ${commands.length}
 ┃ ⛥│ Uptime: ${runtime(process.uptime())}
 ┃ ⛥│ Mem: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
-┃ ⛥│  
+┃ ⛥│ Ytube : youtube.com/c/SuhailTechInfo
 ┃ ⛥╰───────────
 ╰━━━━━━━━━━━──⊷\n` + '```'
             str += `╭━━━━━━━━━━━────⊷\n`
