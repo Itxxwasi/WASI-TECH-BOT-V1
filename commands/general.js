@@ -49,19 +49,18 @@ cmd({
 cmd({
         pattern: "repo",
         alias: ["git", "sc", "script"],
-        desc: "Sends info about repo.",
+        desc: "Sends info about repo.\n _CheckOut :_ www.Youtube.com/c/SuhailTechInfo",
         category: "general",
         filename: __filename,
     },
     async(Void, citel) => {
-        let { data } = await axios.get('https://api.github.com/repos/SamPandey001/Secktor-Md')
+        let { data } = await axios.get('https://api.github.com/repos/SuhailTechInfo/Secktor-Md')
         let cap = `Hey ${citel.pushName}\n
 *⭐ Total Stars:* ${data.stargazers_count} stars
 *🍽️ Forks:* ${data.forks_count} forks
-*🍁 Repo:* secktorbot.tech/repo
-*Group:* secktorbot.tech/support
+*🍁 Repo:* _github.com/SuhailTechInfo/Secktor-Md_
 *Deploy Your Own:*-
- SecktorBot.tech/youtube`
+ _Www.Youtube.com/c/SuhailTechInfo_`
         let buttonMessaged = {
             image: { url: await botpic() },
             caption: cap,
@@ -114,12 +113,13 @@ cmd({
         latensie = speed() - timestampe;
         let ter = `
 🔰 *${tlang().title}* 🔰
-*🌟Description:* A WhatsApp bot with rich features, build in NodeJs to make your WhatsApp enjoyable.
+*🌟Description:* A WhatsApp bot with rich features, Created By *Suhail Tech Info*.
 *⚡Speed:* ${latensie.toFixed(4)} ms
 *🚦Uptime:* ${runtime(process.uptime())}
 *🕸Version:* 1.0.0
 *👤Owner:*  ${Config.ownername}
-*Powered by ${tlang().title}*
+*Powered by Suhail Tech Info*
+*Youtube : _youtube.com/c/SuhailTechInfo_ 
 `;
         let buttonMessaged = {
             image: {
