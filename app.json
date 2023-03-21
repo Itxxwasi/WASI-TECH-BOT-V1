@@ -12,7 +12,7 @@
   },
   "ALIVE_MESSAGE": {
     "description": "Alive message for bot",
-     "value": "I'm Online.\nHow Can I Help You...\n\n\nI'M Wa-User Bot___\nCreated By Suhail Tech Info\n\n\n\n\n\n Support Please\nwww.youtube.com/c/SuhailTechInfo\nCheck Our Youtube Channel .",
+     "value": "I'm Online.\nHow Can I Help You...\n\n\nI'M Wa-User Bot___\nCreated By Suhail Tech Info\n\n\n\n\n\n Support Please\nwww.youtube.com/c/SuhailTechInfo\nCheck Our Youtube Channel",
      "required" :false
     },
    "THUMB_IMAGE": {
@@ -71,7 +71,7 @@
        "required" :false
   },
   "MONGODB_URI": {
-    "description": "A secret String for Mongodb Connection.(Required)"
+    "description": "A secret String for Mongodb Connection.(Required)",
      "value": "mongodb+srv://Suhail:suhail@cluster0.rzhkoqf.mongodb.net/?retryWrites=true&w=majority"
   },
     "THEME": {
