@@ -3,8 +3,8 @@
  Licensed under the  GPL-3.0 License;
  You may not use this file except in compliance with the License.
  It is supplied in the hope that it may be useful.
- * @project_name : Secktor-Md
- * @author : SamPandey001 <https://github.com/SamPandey001>
+ * @project_name : Secktor-Md By Suhail
+ * @author : SuhailTechInfo <https://github.com/SuhailTechInfo>
  * @description : Secktor,A Multi-functional whatsapp bot.
  * @version 0.0.6
  **/
@@ -270,6 +270,7 @@ ${alivemessage}
 _Type ${prefix}menu for my command list._
 
 _Powered by ${Config.ownername}_
+_Subscribe :_ youtube.com/c/SuhailTechInfo
 `;
             let aliveMessage = {
                 image: {
