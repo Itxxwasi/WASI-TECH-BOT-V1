@@ -2,15 +2,15 @@
   
   
   <p align="center">  
-  <a href="https://secktoruserbot.onrender.com/">
-    <img alt="secktor docs" height="300" src="https://secktoruserbot.onrender.com//main.jpg">
+  <a href="https://i.imgur.com/XAJae8F.jpeg">
+    <img alt="secktor docs" height="300" src="https://i.imgur.com/XAJae8F.jpeg">
     <h1 align="center">Secktor MD Whatsapp bot</h1>
   </a>
 </p>
    
 <p align="center">
 
-  <a aria-label="Join our chats" href="https://chat.whatsapp.com/Fo5bT3lQSF53NfJp0u9BqJ" target="_blank">
+  <a aria-label="Join our chats" href="https://chat.whatsapp.com/F0HqDfJTvz66zzApYHrHHo" target="_blank">
     <img alt="whatsapp" src="https://img.shields.io/badge/Join Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
   </a>
  
