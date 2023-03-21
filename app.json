@@ -1,6 +1,6 @@
 {
-  "name": "Secktor-Md",
-  "description": "A Whatsapp md bot built in NodeJs to make experience better",
+  "name": "Secktor-Md By Suhail Tech Info",
+  "description": "A Whatsapp md bot built in NodeJs to make experience better\n\t if Any Problem : www.youtube.com/c/SuhailTechInfo",
   "logo": "https://raw.githubusercontent.com/SecktorBot/Brandimages/main/logos/SocialLogo%201.png",
   "keywords": ["nodejs", "bot", "whatsapp bot", "Zero-Two", "SecktorBot", "Secktor","SecktorMD","theme bot","multi device"],
   "success_url": "/",
@@ -62,7 +62,7 @@
   },
     "OPENAI_API_KEY": {
     "description": "Please put your OPENAI api key here.Get it from beta.openai.com ",
-       "value": "Replace Me(optional)",
+       "value": "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",
        "required" :false
   },
   "WELCOME_MESSAGE": {
