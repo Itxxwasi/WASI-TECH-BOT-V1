@@ -94,15 +94,11 @@
   }
 },
 
-  "addons": [{
-
-      "plan": "heroku-postgresql"
-
-    }],
-
-    "buildpacks": [{
-
-      "url": "heroku-community/apt"
-
-      }]
+ "formation": {
+      "worker": {
+          "quantity": 1,
+          "size": "free"
+      }
+  }
+ 
 }
