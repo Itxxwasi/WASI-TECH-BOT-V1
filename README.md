@@ -31,6 +31,10 @@
 3.  ***Click [FORK](https://github.com/SamPandey001/Secktor-MD/fork)***
 4.  ***Deploy on [Heroku](https://secktoruserbot.onrender.com/heroku)***
 
+
+
+## ***Deploy on [Heroku]( https://dashboard.heroku.com/new?template=)***
+
 5. ***[Deploy on Koyeb](https://secktoruserbot.onrender.com/koyeb)***
 
 6.  ***[Deploy on Railway](https://secktoruserbot.onrender.com/railway)***
