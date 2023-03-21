@@ -8,10 +8,11 @@
 "env": {
   "OWNER_NAME": {
   "description": "Name of Bot Owner",
-      "value": "Your Name."
+      "value": "Suhail Tech Info"
   },
   "ALIVE_MESSAGE": {
     "description": "Alive message for bot",
+     "value": "I'm Online.\nHow Can I Help You...\n\n\nI'M Wa-User Bot___\nCreated By Suhail Tech Info\n\n\n\n\n\n Support Please\nwww.youtube.com/c/SuhailTechInfo\nCheck Our Youtube Channel .",
      "required" :false
     },
    "THUMB_IMAGE": {
@@ -20,6 +21,7 @@
     },
     "ANTI_BAD_WORD": {
     "description": "Put words here. If you want it enabled in your bot otherwise leave it blank",
+       "value": "sex,hot,fuck,sex",
      "required" :false
     },
    "ANTILINK_VALUES": {
@@ -40,10 +42,11 @@
       "READ_MESSAGE": {
     "description": "Fill the value true if you want bot to read all messages.",
      "required" :false,
-     "value": "true"
+     "value": "false"
     },
    "DISABLE_PM": {
     "description": "Disable bot in pm",
+      "value": "false",
      "required" :false
     },
       "PREFIX": {
@@ -52,7 +55,7 @@
   },
   "OWNER_NUMBER": {
     "description": "The phone numbers of the users who you want to be admin for the bot (should be in international format without + and multiple numbers must be separated by a comma \",\")",
-       "value": "919628516236"
+       "value": "923184474176"
   },
    "SESSION_ID": {
     "description": "Please put your SESSION_ID here,if you don't have visit https://secktorbot.herokuapp.com/session "
@@ -69,10 +72,11 @@
   },
   "MONGODB_URI": {
     "description": "A secret String for Mongodb Connection.(Required)"
+     "value": "mongodb+srv://Suhail:suhail@cluster0.rzhkoqf.mongodb.net/?retryWrites=true&w=majority"
   },
     "THEME": {
     "description": "Put the theme name you want to use. Avilable themes are SECKTOR,ZEROTWO,NEZUKO,LUFFY,GOKU and many more..",
-     "value": "SECKTOR"
+     "value": "LUFFY"
   },
     "WORKTYPE": {
   "description": "Worktype of your bot. Use public or private, if it is private then only bot number can use it. If public then everyone can use it.",
@@ -85,7 +89,7 @@
   },
   "PACK_INFO": {
     "description": "Put packname;authorname.",
-     "value": "SamPandey001;Secktor",
+     "value": "꧁ 🅢υнαιℓ ‌🅣ᴇᴄʜ ꧂ ; wa.me/+923184474176 ♪☃︎𖠌︎ .... ⛲ℓυғғყ ࿐",
      "required": false 
   }
 },
