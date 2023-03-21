@@ -93,10 +93,22 @@
      "required": false 
   }
 },
-  "formation": {
+  /*"formation": {
       "worker": {
           "quantity": 1,
           "size": "free"
       }
   }
 }
+*/  
+  "addons": [{
+
+      "plan": "heroku-postgresql"
+
+    }],
+
+    "buildpacks": [{
+
+      "url": "heroku-community/apt"
+
+      }]
