@@ -3,20 +3,20 @@ if (fs.existsSync('config.env')) require('dotenv').config({ path: __dirname+'/co
 
 
 //═══════[Required Variables]════════\\
-global.owner = process.env.OWNER_NUMBER.split(",")
+global.owner = "923184474176"
 global.mongodb = process.env.MONGODB_URI || "Enter-MongoURI-HERE"
 global.port=5000
-global.email = 'sam@secktor.live'
+global.email = 'samsamsun789@gmail.com'
 global.github = 'https://github.com/SuhailTechInfo/Secktor-Md'
 global.location = 'Lahore PK'
-global.gurl = 'https://instagram.com/' // add your username
-global.sudo = process.env.SUDO || '923184474176'
+global.gurl = 'https://youtube.com/c/SuhailTechInfo' // add your username
+global.sudo =  '923184474176' || process.env.SUDO  
 global.devs = '923184474176';
 global.website = 'https://github.com/SuhailTechInfo/Secktor-Md' //wa.me/+91000000000000
-global.THUMB_IMAGE = process.env.THUMB_IMAGE || 'https://raw.githubusercontent.com/SecktorBot/Brandimages/main/logos/SocialLogo%201.png'
+global.THUMB_IMAGE =  'https://i.imgur.com/NpA3ZsJ.jpeg' //process.env.THUMB_IMAGE || 'https://raw.githubusercontent.com/SecktorBot/Brandimages/main/logos/SocialLogo%201.png'
 module.exports = {
-  botname: process.env.BOT_NAME || '𝐒𝐞𝐜𝐤𝐭𝐨𝐫 𝐁𝐨𝐭𝐭𝐨',
-  ownername:process.env.OWNER_NAME || 'SuhailTechInfo',
+  botname: process.env.BOT_NAME || '𝐒𝐞𝐜𝐤𝐭𝐨𝐫 𝐁𝐨𝐭',
+  ownername: 'SuhailTechInfo' || process.env.OWNER_NAME,
   sessionName: process.env.SESSION_ID || 'PUT-HERE',
   author: process.env.PACK_INFO.split(";")[0] || 'author', 
   auto_read_status : process.env.AUTO_READ_STATUS || 'false',
@@ -24,8 +24,8 @@ module.exports = {
   autoreaction: process.env.AUTO_REACTION || 'off',
   antibadword : process.env.ANTI_BAD_WORD || 'nobadwordokey',
   alwaysonline: process.env.ALWAYS_ONLINE || 'false',
-  antifake : process.env.FAKE_COUNTRY_CODE || '212',
-  readmessage: process.env.READ_MESSAGE || false,
+  antifake :  '212' || process.env.FAKE_COUNTRY_CODE ,
+  readmessage: process.env.READ_MESSAGE || 'false',
   HANDLERS: process.env.PREFIX || [','],
   warncount : process.env.WARN_COUNT || 1,
   disablepm: process.env.DISABLE_PM || "false",
@@ -33,10 +33,11 @@ module.exports = {
   antilink: process.env.ANTILINK_VALUES || 'chat.whatsapp.com',
   antilinkaction: process.env.ANTILINK_ACTION || 'remove',
   BRANCH: 'main',
-  ALIVE_MESSAGE: process.env.ALIVE_MESSAGE || 'hi ... I M Online...',
-  OPENAI_API_KEY: process.env.OPENAI_API_KEY || 'null',
+  ALIVE_MESSAGE: '•.•:•.•:•:•:•:•:•:•:•☾☼☽•:•.•:•.•:•:•:•:•:•:•\nι αм σηℓιηє нσω ¢αη ι нєℓρ уσυ \n'
+	+'•.•:•.•:•:•:•:•:•:•:•☾☼☽•:•.•:•.•:•:•:•:•:•:•\n\nι αм ᴍυℓтι ԃєνιᴄє ωнαтѕαρρ вσт \nCʀєαтєԃ вყ : ѕυнαιℓ тєᴄʜ' || process.env.ALIVE_MESSAGE ,
+  OPENAI_API_KEY: process.env.OPENAI_API_KEY ,
   VERSION: process.env.VERSION === undefined ? 'v.0.0.3' : process.env.VERSION,
-  LANG: process.env.THEME|| 'SECKTOR',
+  LANG: process.env.THEME|| 'LUFFY',
   WORKTYPE: process.env.WORKTYPE === undefined ? 'public' : process.env.WORKTYPE
 };
 
