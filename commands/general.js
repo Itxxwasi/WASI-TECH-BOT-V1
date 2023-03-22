@@ -77,6 +77,35 @@ cmd({
 
     }
 )
+
+
+cmd({
+        pattern: "link",
+        alias: ["ytube", "yt", "myyt"],
+        desc: "Sends info about My Ytube Channel\n _CheckOut :_ www.Youtube.com/c/SuhailTechInfo",
+        category: "general",
+        filename: __filename,
+    },
+    async(Void, citel) => {
+        let { data } = await axios.get('https://api.github.com/repos/SuhailTechInfo/Secktor-Md')
+        let cap = `Hey ${citel.pushName}\n
+*⭐ Content Type:* How To Create Whatsapp Bot
+*🍽️ Total Subscriber:* 2.45k Subscribers
+*🍁 Channel Link:* _youtube.com/c/SuhailTechInfo_
+\n\n*Visit More About Wa-Bot:-*
+ _www.github.com/SuhailTechInfo_ \n*Please Support Ytube Channel*`
+        let buttonMessaged = 
+            {
+            image: { url: await botpic() },
+            caption: cap,
+            footer: tlang().footer,
+            headerType: 4
+            };
+           
+        return await Void.sendMessage(citel.chat, buttonMessaged, {   quoted: citel, });
+
+    }
+)
 //---------------------------------------------------------------------------
 //                  BOT STATUS COMMAND
 //---------------------------------------------------------------------------
