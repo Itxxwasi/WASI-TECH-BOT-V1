@@ -54,7 +54,7 @@ Secktor.cmd({
                 let total = await sck1.countDocuments()
                 let str = `╭────《 ` + fancytext(Config.ownername.split(' ')[0], 58) + ` 》─────⊷\n`
                 str +=
-                    '```' + `│ ╭───────✧❁✧───────«
+                    '' + `│ ╭───────✧❁✧───────«
 │ │ User:- ${citel.pushName}
 │ │ Theme:- ${tlang().title}
 │ │ Prefix:- [ ${prefix} ]
@@ -68,7 +68,7 @@ Secktor.cmd({
 │ │ Ytube : youtube.com/c/SuhailTechInfo
 │ ╰───────✧❁✧───────»
 ╰───────────────⊷\n
-` + '```'
+` + ''
                 str += `╭───『 ` + fancytext('Commands', 57) + `』──◆`
                 for (const category in cmds) {
                     str += `
@@ -87,18 +87,6 @@ Secktor.cmd({
                     buttonId: `${prefix}owner`,
                     buttonText: {
                         displayText: 'Owner'
-                    },
-                    type: 1
-                },{
-                    buttonId: `${prefix}ping`,
-                    buttonText: {
-                        displayText: 'SPEED'
-                    },
-                    type: 1
-                }, {
-                    buttonId: `${prefix}list`,
-                    buttonText: {
-                        displayText: 'List Menu'
                     },
                     type: 1
                 }]
@@ -124,7 +112,7 @@ Secktor.cmd({
             const { commands } = require('../lib');
             let str = `
 ╭━━〘 ` + fancytext(Config.ownername.split(' ')[0], 58) + ` 〙━━──⊷`
-            str += '```' + `
+            str += '' + `
 ┃ ⛥╭──────────────      
 ┃ ⛥│ User: ${citel.pushName}
 ┃ ⛥│ Theme: ${tlang().title}
@@ -135,7 +123,7 @@ Secktor.cmd({
 ┃ ⛥│ Mem: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
 ┃ ⛥│ Ytube : youtube.com/c/SuhailTechInfo
 ┃ ⛥╰───────────
-╰━━━━━━━━━━━──⊷\n` + '```'
+╰━━━━━━━━━━━──⊷\n` + ''
             str += `╭━━━━━━━━━━━────⊷\n`
             str += `┃ ⛥ ╭─────────────\n`
             for (let i = 0; i < commands.length; i++) {
