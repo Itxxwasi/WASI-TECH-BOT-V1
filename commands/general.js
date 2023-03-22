@@ -70,7 +70,7 @@ cmd({
             image: { url: await botpic() },
             caption: cap,
             footer: tlang().footer,
-            headerType: 4            
+            headerType: 4
             };
            
         return await Void.sendMessage(citel.chat, buttonMessaged, {   quoted: citel, });
@@ -88,7 +88,6 @@ cmd({
         filename: __filename,
     },
     async(Void, citel) => {
-        //const dbut = [{ buttonId: `${prefix}help`,   buttonText: { displayText: "Menu", },      type: 1,    },  ];
  
  
         const uptime = process.uptime();
@@ -108,7 +107,6 @@ cmd({
             image: { url: await botpic() },
             caption: ter,
             footer: tlang().footer,
-            //buttons: dbut,
             headerType: 4
             
         };
