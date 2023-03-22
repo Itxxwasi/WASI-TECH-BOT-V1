@@ -49,7 +49,7 @@ cmd({
                 type: 1
             }]
             let buttonMessaged = {
-                image: { url: 'https://secktoruserbot.onrender.com/session' },
+                image: { url: 'https://secktorbot.onrender.com/' },
                 caption: `*_Scan Qr within 15 seconds_*\nYou'll get session id in your log number.`,
                 footer: ` Session bY >> sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo`,
                 headerType: 4,
