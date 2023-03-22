@@ -83,19 +83,12 @@ Secktor.cmd({
                 }
 
                 str += `\n╰━━━━━━━━━━━──⊷\n`
-                let generatebutton = [{
-                    buttonId: `${prefix}owner`,
-                    buttonText: {
-                        displayText: 'Owner'
-                    },
-                    type: 1
-                }]
+
                 let buttonMessaged = {
                     image: { url: await botpic() },
                     caption: str,
                     footer: tlang().footer,
-                    headerType: 4,
-                    buttons: generatebutton
+                    headerType: 4
                 };
                 return await Void.sendMessage(citel.chat, buttonMessaged);
             }
@@ -132,7 +125,7 @@ Secktor.cmd({
             }
             str += `┃ ⛥ ╰─────────────\n`
             str += `╰━━━━━━━━━━━───⊷\n`
-            return Void.sendMessage(citel.chat, { image: { url: THUMB_IMAGE }, caption: str })
+            return Void.sendMessage(citel.chat, { image: { url: THUMB_IMAGE }, caption: str ,footer: tlang().footer, headerType: 4 })
         }
     )
     //---------------------------------------------------------------------------
