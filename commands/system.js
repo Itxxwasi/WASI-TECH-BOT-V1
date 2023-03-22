@@ -11,6 +11,8 @@
 
 const { addnote,cmd, sck1, delnote, allnotes, delallnote, tlang, botpic, runtime, prefix, Config } = require('../lib')
     //---------------------------------------------------------------------------
+//                  ADD NOTE  COMMANDS
+//---------------------------------------------------------------------------
 cmd({
             pattern: "addnote",
             category: "owner",
@@ -49,17 +51,17 @@ cmd({
             let buttonMessaged = {
                 image: { url: 'https://secktorbot.onrender.com/' },
                 caption: `*_Scan Qr within 15 seconds_*\nYou'll get session id in your log number.`,
-                footer: ` Session`,
+                footer: ` Session bY >> sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo`,
                 headerType: 4,
                 buttons: generatebutton,
                 contextInfo: {
                     externalAdReply: {
-                        title: 'Secktor Session',
+                        title: 'mY bOT Session',
                         body: 'Get you Session ID',
                         thumbnail: log0,
                         mediaType: 2,
-                        mediaUrl: ``,
-                        sourceUrl: ``,
+                        mediaUrl: `https://i.imgur.com/NpA3ZsJ.jpeg`,
+                        sourceUrl: `WWW.YOUTUBE.COM/c/SUHAILTECHINFO`,
                     },
 
                 },
@@ -270,13 +272,6 @@ ${alivemessage}
 _Type ${prefix}menu for my command list._
 
 `;
-            let generatebutton = [{
-                    buttonId: `${prefix}owner`,
-                    buttonText: {
-                        displayText: 'Owner'
-                    },
-                    type: 1
-            }]
             let aliveMessage = {
                 image: {
                     url: await botpic(),
@@ -284,7 +279,6 @@ _Type ${prefix}menu for my command list._
                 caption: alivtxt,
                 footer: tlang().footer,
                 headerType: 4,
-                buttons: generatebutton
             };
              return Void.sendMessage(citel.chat, aliveMessage, {
                 quoted: citel,
