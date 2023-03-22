@@ -27,7 +27,7 @@
 
   <p align="center"> Introducing Secktor,Secktor is designed to bring a whole new level of excitement to your boring WhatsApp use. </p
  
-- Install [External Plugins](https://github.com/SamPandey001/Secktor-Plugins)
+- Install [External Plugins](https://github.com/SuhailTechInfo/Secktor-Plugins)
 ## Deployment Methods
 ---
 1. ***Get [SESSION-ID](https://secktoruserbot.onrender.com/) by scanning QR code. `Whatapp>Three dots>Linked Devices`***
