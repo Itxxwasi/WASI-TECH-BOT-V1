@@ -102,13 +102,15 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "play",
+            alias: ["song","music"],
             desc: "Sends info about the query(of youtube video/audio).",
             category: "downloader",
             filename: __filename,
             use: '<faded-Alan walker.>',
         },
         async(Void, citel, text) => {
-            if (!text) return citel.reply(`Use ${command} Back in Black`);
+            if (!citel.quoted) return citel.reply("*Use .song Bad Liar *");
+            if (!text) return citel.reply('*Use ${command} Back in Black*');
             let yts = require("secktor-pack");
             let search = await yts(text);
             let anu = search.videos[0];
@@ -126,18 +128,9 @@ cmd({
                     },
                     type: 1,
                 },
-                  {
-                    buttonId: `${prefix}ytdoc ${anu.url}`,
-                    buttonText: {
-                        displayText: "♫ Document",
-                    },
-                    type: 1,
-                },
             ];
             let buttonMessage = {
-                image: {
-                    url: anu.thumbnail,
-                },
+                image: { url: anu.thumbnail, },
                 caption: `
 ╭───────────────◆
 │⿻ ${tlang().title} 
@@ -196,16 +189,14 @@ cmd({
                 let buttons = [{
                         buttonId: `${prefix}pint ${text}`,
                         buttonText: {
-                            displayText: 'Next Image🎀'
+                            displayText: 'Next Image'
                         },
                         type: 1
                     }
 
                 ]
                 let buttonMessage = {
-                    image: {
-                        url: result
-                    },
+                    image: { url: result },
                     caption: ` `,
                     footer: tlang().footer,
                     buttons: buttons,
