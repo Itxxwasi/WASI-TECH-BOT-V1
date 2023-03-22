@@ -3,9 +3,9 @@
  Licensed under the  GPL-3.0 License;
  You may not use this file except in compliance with the License.
  It is supplied in the hope that it may be useful.
- * @project_name : Secktor-Md
- * @author : SamPandey001 <https://github.com/SamPandey001>
- * @description : Secktor,A Multi-functional whatsapp bot.
+ * @project_name : Secktor-Md By Suhail Tech
+ * @author : SuhailTech <https://www.youtube.com/c/SuhailTechInfo>
+ * @description : Secktor Bot ,A Multi-functional whatsapp bot.
  * @version 0.0.6
  **/
 
@@ -124,11 +124,11 @@ async(Void, citel, text,{ isCreator }) => {
              var author;
              if (text) {
                  anu = text.split("|");
-                 pack = anu[0] !== "" ? anu[0] : citel.pushName + '♥️';
-                 author = anu[1] !== "" ? anu[1] : Config.author;
+                 pack= global.packname;
+                 author= global.author;
              } else {
-                 pack = citel.pushName;
-                 author = "♥️";
+                     pack= global.packname;
+                     author= global.author;
              }
                  let media = await citel.quoted.download();
                  citel.reply("*Processing Your request*");
