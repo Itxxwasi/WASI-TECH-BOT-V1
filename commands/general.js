@@ -65,8 +65,8 @@ cmd({
             image: { url: await botpic() },
             caption: cap,
             footer: tlang().footer,
-            headerType: 4,
-            },
+            headerType: 4
+            
         };
         return await Void.sendMessage(citel.chat, buttonMessaged, {
             quoted: citel,
@@ -113,14 +113,12 @@ cmd({
 *Youtube : _youtube.com/c/SuhailTechInfo_ 
 `;
         let buttonMessaged = {
-            image: {
-                url: await botpic(),
-            },
+            image: { url: await botpic() },
             caption: ter,
             footer: tlang().footer,
             buttons: dbut,
-            headerType: 4,
-            },
+            headerType: 4
+            
         };
         return await Void.sendMessage(citel.chat, buttonMessaged, {
             quoted: citel,
