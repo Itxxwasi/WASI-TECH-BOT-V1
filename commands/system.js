@@ -259,7 +259,7 @@ cmd({
             let alivemessage = Config.ALIVE_MESSAGE || `*A bot developed by SamPandey001.*`
             const alivtxt = `
 *Hello, ${citel.pushName},*
-_This is  ${tlang().title}._
+This is  ${tlang().title}._
 ${alivemessage}
 
 *Version:-* _0.0.6_
@@ -269,9 +269,14 @@ ${alivemessage}
 
 _Type ${prefix}menu for my command list._
 
-_Powered by ${Config.ownername}_
-_Subscribe :_ youtube.com/c/SuhailTechInfo
 `;
+            let generatebutton = [{
+                    buttonId: `${prefix}owner`,
+                    buttonText: {
+                        displayText: 'Owner'
+                    },
+                    type: 1
+            }]
             let aliveMessage = {
                 image: {
                     url: await botpic(),
@@ -279,6 +284,7 @@ _Subscribe :_ youtube.com/c/SuhailTechInfo
                 caption: alivtxt,
                 footer: tlang().footer,
                 headerType: 4,
+                buttons: generatebutton
             };
              return Void.sendMessage(citel.chat, aliveMessage, {
                 quoted: citel,
