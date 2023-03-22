@@ -12,7 +12,9 @@
 const DB = require('../lib/scraper')
 const { execSync } = require('child_process')
 const { tlang, Config, prefix,cmd } = require('../lib')
-    //---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+//                  UPDATE COMMANDS
+//---------------------------------------------------------------------------
 cmd({
             pattern: "update",
             desc: "Shows repo\'s refreshed commits.",
@@ -35,7 +37,7 @@ cmd({
                 }]
                   let buttonMessaged = {
                     text: update,
-                    footer: 'UPDATER',
+                    footer: 'UPDATER --- sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo"',
                     headerType: 4,
                     buttons: button
                 };
