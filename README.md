@@ -1,21 +1,14 @@
   ## ***Deploy on [Heroku]( https://dashboard.heroku.com/new?template=https://github.com/SuhailTechInfo/Secktor-Md)***
  #Deploy tutorial [Youtube Video](https://www.YouTube.com/c/SuhailTechInfo).
   
-  <div align="center">
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Bungee+Shade&size=50&pause=1000&color=F710B1&center=true&width=910&height=100&lines=I'M Secktor-MD;Multi+Device+Whatsapp+Bot;Coded+By+Suhail Tech  " alt="Typing SVG" /></a>
+
 
  
  <p align="center">
-<a href="https://youtube.com/c/SuhailTechInfo"><img align="center" src="https://github-cardname.caliph.my.id/api?name=Secktor-MD&description=Hello,%20I%20am%20Secktor%20MD, A%20Multi-device%20Whatsapp%20Bot Created By Suhail,%20You%20Can%20Deploy%20Me%20And%20%20enjoy%20Cool Futures&image=https://i.imgur.com/TCgaM2D.jpeg&backgroundColor=%23ecf0f1&instagram=@SuhailTechInfo&github=SuhailTechInfo&pattern=ticTacToe&colorPattern=%23eaeaea&site=youtube.com/SuhailTechInfo"/></a>
+<a href="https://youtube.com/c/SuhailTechInfo"><img align="center" src="https://github-cardname.caliph.my.id/api?name=Secktor-MD&description=Hello,%20I%20am%20Secktor%20MD, A%20Multi-device%20Whatsapp%20Bot Created By Suhail,%20You%20Can%20Deploy%20Me%20And%20%20enjoy%20Cool Futures&image=https://i.imgur.com/XAJae8F.jpeg&backgroundColor=%23ecf0f1&instagram=@SuhailTechInfo&github=SuhailTechInfo&pattern=ticTacToe&colorPattern=%23eaeaea&site=youtube.com/SuhailTechInfo"/></a>
 </p>
   
   
-  <p align="center">  
-  <a href="https://i.imgur.com/XAJae8F.jpeg">
-    <img alt="secktor docs" height="300" src="https://i.imgur.com/XAJae8F.jpeg">
-    <h1 align="center">Secktor MD Whatsapp bot</h1>
-  </a>
-</p>
    
 <p align="center">
 
