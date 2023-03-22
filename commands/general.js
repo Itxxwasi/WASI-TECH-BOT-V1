@@ -36,7 +36,7 @@ cmd({
             model: "text-davinci-002",
             prompt: text,
             temperature: 0.5,
-            max_tokens: 80,
+            max_tokens: 200,
             top_p: 1.0,
             frequency_penalty: 0.5,
             presence_penalty: 0.0,
@@ -65,7 +65,7 @@ cmd({
             image: { url: await botpic() },
             caption: cap,
             footer: tlang().footer,
-            headerType: 4
+            headerType: 4,
             },
         };
         return await Void.sendMessage(citel.chat, buttonMessaged, {
@@ -119,7 +119,7 @@ cmd({
             caption: ter,
             footer: tlang().footer,
             buttons: dbut,
-            headerType: 4
+            headerType: 4,
             },
         };
         return await Void.sendMessage(citel.chat, buttonMessaged, {
