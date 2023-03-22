@@ -17,7 +17,7 @@ cmd({
         pattern: "chat",
         desc: "chat with an AI",
         category: "general",
-        use: '<Hii,Secktor>',
+        use: '<Hii, Suhail Tech Info>',
         filename: __filename,
     },
     async(Void, citel,text) => {
@@ -65,7 +65,8 @@ cmd({
             image: { url: await botpic() },
             caption: cap,
             footer: tlang().footer,
-            headerType: 4,
+            headerType: 4
+
             contextInfo: {
                 externalAdReply: {
                     title: "Secktor-Repo",
