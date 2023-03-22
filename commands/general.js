@@ -66,16 +66,6 @@ cmd({
             caption: cap,
             footer: tlang().footer,
             headerType: 4
-
-            contextInfo: {
-                externalAdReply: {
-                    title: "Secktor-Repo",
-                    body: "Easy to Use",
-                    thumbnail: log0,
-                    mediaType: 4,
-                    mediaUrl: '',
-                    sourceUrl: ``,
-                },
             },
         };
         return await Void.sendMessage(citel.chat, buttonMessaged, {
@@ -129,16 +119,7 @@ cmd({
             caption: ter,
             footer: tlang().footer,
             buttons: dbut,
-            headerType: 4,
-            contextInfo: {
-                externalAdReply: {
-                    title: tlang().title,
-                    body: `Bot-Status`,
-                    thumbnail: log0,
-                    mediaType: 2,
-                    mediaUrl: ``,
-                    sourceUrl: ``,
-                },
+            headerType: 4
             },
         };
         return await Void.sendMessage(citel.chat, buttonMessaged, {
