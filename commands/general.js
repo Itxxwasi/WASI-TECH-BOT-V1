@@ -63,18 +63,17 @@ cmd({
 *⭐ Total Stars:* ${data.stargazers_count} stars
 *🍽️ Forks:* ${data.forks_count} forks
 *🍁 Repo:* _github.com/SuhailTechInfo/Secktor-Md_
-*Deploy Your Own:*-
- _Www.Youtube.com/c/SuhailTechInfo_`
-        let buttonMessaged = {
+\n\n*Visit More About Wa-Bot:-*
+ _Www.Youtube.com/c/SuhailTechInfo_ \n*Please Support Ytube Channel*`
+        let buttonMessaged = 
+            {
             image: { url: await botpic() },
             caption: cap,
             footer: tlang().footer,
-            headerType: 4
-            
-        };
-        return await Void.sendMessage(citel.chat, buttonMessaged, {
-            quoted: citel,
-        });
+            headerType: 4            
+            };
+           
+        return await Void.sendMessage(citel.chat, buttonMessaged, {   quoted: citel, });
 
     }
 )
@@ -83,46 +82,33 @@ cmd({
 //---------------------------------------------------------------------------
 cmd({
         pattern: "status",
-        alias: ["about"],
+        alias: ["about" , "info"],
         desc: "To check bot status",
         category: "general",
         filename: __filename,
     },
     async(Void, citel) => {
-        const dbut = [{
-                buttonId: `${prefix}help`,
-                buttonText: {
-                    displayText: "Menu",
-                },
-                type: 1,
-            },
-
-            {
-                buttonId: `${prefix}rank`,
-                buttonText: {
-                    displayText: "Rank",
-                },
-                type: 1,
-            },
-        ];
+        //const dbut = [{ buttonId: `${prefix}help`,   buttonText: { displayText: "Menu", },      type: 1,    },  ];
+ 
+ 
         const uptime = process.uptime();
         timestampe = speed();
         latensie = speed() - timestampe;
         let ter = `
 🔰 *${tlang().title}* 🔰
-*🌟Description:* A WhatsApp bot with rich features, Created By *Suhail Tech Info*.
+*🌟Description:* A WhatsApp bot with rich features, Created By *Suhail Tech Info*.\n
 *⚡Speed:* ${latensie.toFixed(4)} ms
 *🚦Uptime:* ${runtime(process.uptime())}
 *🕸Version:* 1.0.0
-*👤Owner:*  ${Config.ownername}
+*👤Owner:*  ${Config.ownername}\n
 *Powered by Suhail Tech Info*
-*Youtube : _youtube.com/c/SuhailTechInfo_ 
+*Youtube :* _youtube.com/c/SuhailTechInfo_ 
 `;
         let buttonMessaged = {
             image: { url: await botpic() },
             caption: ter,
             footer: tlang().footer,
-            buttons: dbut,
+            //buttons: dbut,
             headerType: 4
             
         };
