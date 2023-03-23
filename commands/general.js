@@ -14,28 +14,7 @@ const axios = require('axios')
 const speed = require('performance-now')
 const API_KEY = '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'
 
-//CHATGPT COMMAND FUNCTIONS
 
-    async function getGPT3Response(prompt)
-    {
-    	     const response = await axios.get
-          ({
-		                 method: 'post',
-		                 url: 'https://api.openai.com/v1/engines/text-davinci-003/completions',
-		                 headers: {
-		                         	'Content-Type': 'application/json',
-		                          	Authorization: `Bearer ${API_KEY}`,
-	                           },
-	              	   data: {
-		                        	prompt: prompt,
-                        			max_tokens: 1024,
-                           n: 1,
-		                        	stop: null,
-                        			temperature: 0.5,
-                         	},
-           }); //RESPONCE FUNC
-          	 return citel.reply(responce.data.choices[0].text);
-     })
 //---------------------------------------------------------------------------
 //                  AI  CHAT  COMMAND
 //---------------------------------------------------------------------------
@@ -49,7 +28,7 @@ cmd({
     async(Void, citel,text) => {
         let zx = text.length;
         if (zx < 30) {
-            let {data} = await axios.get(`http://api.brainshop.ai/get?bid=167991&key=aozpOoNOy3dfLgmB&uid=[${citel.sender.split("@")[0]}]&msg=[${text}]`);
+            let {data} = await axios.get(`https://api.openai.com/v1/engines/text-davinci-003/completions`);
             return citel.reply(data.cnt);  
         }
         if (!text) return citel.reply(`Hey there! ${citel.pushName}. How are you doing these days?`);
@@ -76,7 +55,28 @@ cmd({
 //---------------------------------------------------------------------------
 //                  TRY GPT COMMAND
 //---------------------------------------------------------------------------
+//CHATGPT COMMAND FUNCTIONS
 
+    async function getGPT3Response(prompt)
+    {
+    	     const response = await axios.get
+          ({
+		                 method: 'post',
+		                 url: 'https://api.openai.com/v1/engines/text-davinci-003/completions',
+		                 headers: {
+		                         	'Content-Type': 'application/json',
+		                          	Authorization: `Bearer ${API_KEY}`,
+	                           },
+	              	   data: {
+		                        	prompt: prompt,
+                        			max_tokens: 1024,
+                           n: 1,
+		                        	stop: null,
+                        			temperature: 0.5,
+                         	},
+           }); //RESPONCE FUNC
+          	 return citel.reply(responce.data.choices[0].text);
+     })
 cmd({
         pattern: "gpt",
         desc: "chat with an AI",
