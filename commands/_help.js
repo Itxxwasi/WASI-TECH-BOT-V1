@@ -50,7 +50,7 @@ Secktor.cmd({
                     .format('HH:mm:ss')
                 moment.tz.setDefault('Asia/KOLKATA')
                     .locale('id')
-                const date = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
+                const date = moment.tz('asia/karachi').format('DD/MM/YYYY')
                 let total = await sck1.countDocuments()
                 let str = `╭────《 ` + fancytext(Config.ownername.split(' ')[0], 58) + ` 》─────⊷\n`
                 str +=
@@ -82,7 +82,7 @@ Secktor.cmd({
                     str += `┃  ╰─────────────◆`
                 }
 
-                str += `\n╰━━━━━━━━━━━──⊷\n`
+                str += `\n╰━━━━━━━━━━━──⊷\nsᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo`
 
                 let buttonMessaged = {
                     image: { url: await botpic() },
@@ -125,7 +125,7 @@ Secktor.cmd({
                 str += `┃ ⛥ │ ➛ ${i+1}. ` + commands[i].pattern + '\n'
             }
             str += `┃ ⛥ ╰─────────────\n`
-            str += `╰━━━━━━━━━━━───⊷\n`
+            str += `╰━━━━━━━━━━━───⊷\nsᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo`
             return Void.sendMessage(citel.chat, { image: { url: THUMB_IMAGE }, caption: str ,footer: tlang().footer, headerType: 4 })
         }
     )
