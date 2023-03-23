@@ -18,7 +18,7 @@ const API_KEY = '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'
 
     async function getGPT3Response(prompt)
     {
-    	     const response = await axios
+    	     const response = await axios.get
           ({
 		                 method: 'post',
 		                 url: 'https://api.openai.com/v1/engines/text-davinci-003/completions',
