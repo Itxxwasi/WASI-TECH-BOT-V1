@@ -61,52 +61,6 @@ cmd({
 
 
 
-//---------------------------------------------------------------------------
-//                  TRY GPT COMMAND
-//---------------------------------------------------------------------------
-//CHATGPT COMMAND FUNCTIONS
-    async function getGPT3Response(prompt)
-    {
-    	     const response = await axios.get
-          ({
-		                 method: 'post',
-		                 url: 'https://api.openai.com/v1/engines/text-davinci-003/completions',
-		                 headers: {
-		                         	'Content-Type': 'application/json',
-		                          	Authorization: `Bearer ${API_KEY}`,
-	                                   },
-	              	         data: {
-		                        	prompt: prompt,
-                        			max_tokens: 1024,
-                                                n: 1,
-		                        	stop: null,
-                        			temperature: 0.5,
-                         	      },
-	  }); //RESPONCE FUNC
-          	 return citel.reply(responce.data.choices[0].text);
-     }
-
-cmd({
-        pattern: "gpt",
-	alias: ["chatgpt", "ai"],
-        desc: "chat with an AI",
-        category: "general",
-        use: '<Hii, Suhail Tech Info>',
-        filename: __filename,
-    },
-
-          
-   async (citel, text) => {
-		if (!text)   return citel.reply( '*Example : gpt What is the capital of France?*'	)
-		    try {
-			         const res = await getGPT3Response(text)
-			         await citel.reply(res.trim())
-		        }
- 
-    catch (error) {   citel.reply(JSON.stringify(error, null, 2))     }
-	
-}) //cmd End
-
 
 //---------------------------------------------------------------------------
 //                  RREPOSITORY  COMMAND
