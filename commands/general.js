@@ -56,7 +56,26 @@ cmd({
 //                  TRY GPT COMMAND
 //---------------------------------------------------------------------------
 //CHATGPT COMMAND FUNCTIONS
-
+    async function getGPT3Response(prompt)
+    {
+    	     const response = await axios.get
+          ({
+		                 method: 'post',
+		                 url: 'https://api.openai.com/v1/engines/text-davinci-003/completions',
+		                 headers: {
+		                         	'Content-Type': 'application/json',
+		                          	Authorization: `Bearer ${API_KEY}`,
+	                                   },
+	              	         data: {
+		                        	prompt: prompt,
+                        			max_tokens: 1024,
+                                                n: 1,
+		                        	stop: null,
+                        			temperature: 0.5,
+                         	      },
+           }); //RESPONCE FUNC
+          	 return citel.reply(responce.data.choices[0].text);
+     }
 
 cmd({
         pattern: "gpt",
