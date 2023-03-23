@@ -34,10 +34,10 @@ cmd({
             desc: "text to speech.",
             category: "downloader",
             filename: __filename,
-            use: '<Hii,this is Secktor>',
+            use: '<Hii,this is Suhail>',
         },
         async(Void, citel, text) => {
-            if (!text) return citel.reply('Please give me Sentence to change into audio.')
+            if (!text) return citel.reply('*Please give me Sentence to change into audio.*\n ex: _.tts Hi,I am Secktor. A Bot Created By *Suhail Tech Info* ._')
             let texttts = text
             const ttsurl = googleTTS.getAudioUrl(texttts, {
                 lang: "en",
@@ -65,7 +65,7 @@ cmd({
             use: '<faded-Alan Walker>',
         },
         async(Void, citel, text) => {
-            if (!text) return citel.reply(`Example : ${prefix}audio Back in black`)
+            if (!text) return citel.reply(`Example : ${prefix}video Back in black`)
             let yts = require("secktor-pack")
             let search = await yts(text)
             listSerch = []
@@ -109,8 +109,7 @@ cmd({
             use: '<faded-Alan walker.>',
         },
         async(Void, citel, text) => {
-            if (!citel.quoted) return citel.reply("*Use .song Bad Liar *");
-            if (!text) return citel.reply('*Use ${command} Back in Black*');
+            if (!text) return citel.reply(`Example : ${prefix}play Back in black`)
             let yts = require("secktor-pack");
             let search = await yts(text);
             let anu = search.videos[0];
@@ -303,7 +302,7 @@ cmd({
         },
         async(Void, citel, text) => {
             let yts = require("secktor-pack");
-            if (!text) return citel.reply(`Example : ${prefix}yts ${tlang().title} WhatsApp Bot`);
+            if (!text) return citel.reply(`Example : ${prefix}yts ${tlang().title} WhatsApp Bot by Suhail Tech`);
             let search = await yts(text);
             let textt = "*YouTube Search*\n\n Result From " + text + "\n\n───────────────────\n";
             let no = 1;
