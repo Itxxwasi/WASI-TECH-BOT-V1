@@ -104,9 +104,18 @@ cmd({
     async(Void, citel) => {
         let { data } = await axios.get('https://api.github.com/repos/SuhailTechInfo/Secktor-Md')
         let cap = `Hey ${citel.pushName}\n
-*⭐ Content Type:* How To Create Whatsapp Bot
+╔══════════════════════════╗
+   ☞𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐓𝐎 𝐒𝐔𝐇𝐀𝐈𝐋 𝐓𝐄C𝐇 𝐈𝐍F𝐎☜
+╚══════════════════════════╝\n\n
+*⭐ Youtube Content :* How To Create Whatsapp Bot
 *🍽️ Total Subscriber:* 2.45k Subscribers
-*🍁 Channel Link:* _youtube.com/c/SuhailTechInfo_
+*🍁 Channel Link:* _youtube.com/c/SuhailTechInfo_\n\n 
+╭━━━━━━━━━━━━━━━━━━━━╮
+┇  ╔═╦╗╔╦╗╔═╦═╦╦╦╦╗╔═╗
+┇  ║╚╣║║║╚╣╚╣╔╣╔╣║╚╣═╣
+┇  ╠╗║╚╝║║╠╗║╚╣║║║║║═╣
+┇  ╚═╩══╩═╩═╩═╩╝╚╩═╩═╝
+╰━━━━━━━━━━━━━━━━━━━━╯
 \n\n*Visit More About Wa-Bot:-*
  _www.github.com/SuhailTechInfo_ \n*Please Support Ytube Channel*`
         let buttonMessaged = 
