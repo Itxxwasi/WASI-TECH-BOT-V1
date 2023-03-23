@@ -17,48 +17,7 @@ const API_KEY = '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'
 //---------------------------------------------------------------------------
 //                  TRY GPT COMMAND 2ND VERSION
 //---------------------------------------------------------------------------
-const API_KEY = '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'
-async function getGPT3Response(text) {
-	const response = await axios({
-		method: 'post',
-		url: 'https://api.openai.com/v1/engines/text-davinci-003/completions',
-		headers: {
-			'Content-Type': 'application/json',
-			Authorization: `Bearer ${API_KEY}`,
-		},
-		data: {
-			prompt: text,
-			max_tokens: 1024,
-			n: 1,
-			stop: null,
-			temperature: 0.5,
-		},
-	})
 
-	return response.data.choices[0].text
-}
-
-cmd({
-        pattern: "ai",
-	alias: ["chatgpt"],
-        desc: "chat with an AI",
-        category: "general",
-        use: '<Hii, Suhail Tech Info>',
-        filename: __filename,
-    },
-	async (message, match) => {
-		if (!match)
-			return await message.send(
-				'*Example : gpt What is the capital of France?*'
-			)
-		try {
-			const res = await getGPT3Response(match)
-			await message.send(res.trim())
-		} catch (error) {
-			message.send(JSON.stringify(error, null, 2))
-		}
-	}
-)
 //---------------------------------------------------------------------------
 //                  AI  CHAT  COMMAND
 //---------------------------------------------------------------------------
@@ -69,17 +28,22 @@ cmd({
         use: '<Hii, Suhail Tech Info>',
         filename: __filename,
     },
-    async(Void, citel,text) => {
+    async(Void, citel,text) => 
+    {
         let zx = text.length;
-        if (zx < 30) {
+        if (zx < 100) {
             let {data} = await axios.get(`http://api.brainshop.ai/get?bid=167991&key=aozpOoNOy3dfLgmB&uid=[${citel.sender.split("@")[0]}]&msg=[${text}]`);
             return citel.reply(data.cnt);  
-        }
-        if (!text) return citel.reply(`Hey there! ${citel.pushName}. How are you doing these days?`);
+    }
+	
+        if (!text) return citel.reply(`Hey there! ${citel.pushName}. How are you doing these days?`); // for null text 
+	
         const { Configuration, OpenAIApi } = require("openai");
-        const configuration = new Configuration({
-            apiKey: Config.OPENAI_API_KEY || "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",
-        });
+        const configuration = new Configuration
+				({
+           				apiKey: Config.OPENAI_API_KEY || "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",
+				});
+	
         const openai = new OpenAIApi(configuration);
         const completion = await openai.createCompletion({
             model: "text-davinci-002",
@@ -118,7 +82,7 @@ cmd({
 		                        	stop: null,
                         			temperature: 0.5,
                          	      },
-           }); //RESPONCE FUNC
+	  }); //RESPONCE FUNC
           	 return citel.reply(responce.data.choices[0].text);
      }
 
