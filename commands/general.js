@@ -90,8 +90,8 @@ cmd({
    async (citel, text) => {
 		if (!text)   return citel.reply( '*Example : gpt What is the capital of France?*'	)
 		    try {
-			       //  const res = await getGPT3Response(text)
-			        // await citel.reply(res.trim())
+			         const res = await getGPT3Response(text)
+			         await citel.reply(res.trim())
 		        }
  
     catch (error) {   citel.reply(JSON.stringify(error, null, 2))     }
