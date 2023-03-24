@@ -77,7 +77,7 @@ cmd({
         let cap = `Hey ${citel.pushName}\n
 *⭐ Total Stars:* ${data.stargazers_count} stars
 *🍽️ Forks:* ${data.forks_count} forks
-*🍁 Repo:* _github.com/SuhailTechInfo/Secktor-Md_
+*🍁 Repo:* _https://github.com/SuhailTechInfo/Secktor-bot_
 \n\n*Visit More About Wa-Bot:-*
  _Www.Youtube.com/c/SuhailTechInfo_ \n*Please Support Ytube Channel*`
         let buttonMessaged = 
