@@ -1,0 +1,53 @@
+const {cmd} = require('../lib')
+const axios = require('axios')
+const speed = require('performance-now')
+const API_KEY = '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'
+//'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'
+
+async function getGPT3Response(prompt) {
+	const response = await axios.get ({
+		method: 'post',
+		url: 'https://api.openai.com/v1/chat/completions',
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: `Bearer ${API_KEY}`,
+		},
+		data: {
+			messages: [{ role: 'user', content: prompt }],
+			model: 'gpt-3.5-turbo',
+			temperature: 0.5,
+		},
+	})
+	return response.data.choices[0].message.content.trim()
+}
+
+
+
+cmd({
+        pattern: "aii",
+        desc: "chat with an AI",
+        category: "general",
+        use: '<Hii, Suhail Tech Info>',
+        filename: __filename,
+    },
+	async (message, match) => {
+		if (!match)
+			return await message.send(
+				'*Example : gpt What is the capital of France?*'
+			)
+		try {
+			const res = await getGPT3Response(match)
+			await message.send(res)
+		} catch (error) {
+			message.send(error.message)
+		}
+	}
+)
+
+
+
+
+
+
+
+
