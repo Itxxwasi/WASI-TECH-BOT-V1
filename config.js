@@ -20,7 +20,7 @@ module.exports = {
   sessionName: process.env.SESSION_ID || 'PUT-HERE',
   author:  process.env.PACK_INFO.split(";")[0] || '', 
   auto_read_status : process.env.AUTO_READ_STATUS || 'false',
-  packname:   "\t 𓅋 ₊₉₂⃗⃗₃₁᩺₈ͦ₄ͪ₄ᷧ₇ͥ₄ᷞ₁⃗₇₆ 𓃮 \n\nᴋɪss ʍᴇ... 💋\n\nᴄʟօsᴇ ყσυɾ ᴇყᴇs... 👁️🙈\n\nʍɪss ʍᴇ...♥️\n\n\n    -ᴘʟᴇᴀsᴇ ᴅᴏɴ'ᴛ ᴛᴀӄᴇ 🚮 \n\n--- ρυвʟɪᴄ вσт нᴇʀᴇ ---" || process.env.PACK_INFO.split(";")[1] ,
+  packname:   "\t   𓅋 ₊₉₂⃗⃗₃₁᩺₈ͦ₄ͪ₄ᷧ₇ͥ₄ᷞ₁⃗₇₆ 𓃮 \n\nᴋɪss ʍᴇ... 💋\n\nᴄʟօsᴇ ყσυɾ ᴇყᴇs... 👁️🙈\n\nʍɪss ʍᴇ...♥️\n\n\n    -ᴘʟᴇᴀsᴇ ᴅᴏɴ'ᴛ ᴛᴀӄᴇ 🚮 \n\n--- ρυвʟɪᴄ вσт нᴇʀᴇ ---" || process.env.PACK_INFO.split(";")[1] ,
   autoreaction: process.env.AUTO_REACTION || 'off',
   antibadword : process.env.ANTI_BAD_WORD || 'nobadwordokey',
   alwaysonline: process.env.ALWAYS_ONLINE || 'false',
@@ -34,7 +34,8 @@ module.exports = {
   antilinkaction: process.env.ANTILINK_ACTION || 'remove',
   BRANCH: 'main',
   ALIVE_MESSAGE: '•.•:•.•:•:•:•:•:•:•:•☾☼☽•:•.•:•.•:•:•:•:•:•:•\nι αм σηℓιηє нσω ¢αη ι нєℓρ уσυ \n'
-	+'•.•:•.•:•:•:•:•:•:•:•☾☼☽•:•.•:•.•:•:•:•:•:•:•\n\nι αм ᴍυℓтι ԃєνιᴄє ωнαтѕαρρ вσт \nCʀєαтєԃ вყ : ѕυнαιℓ тєᴄʜ' || process.env.ALIVE_MESSAGE ,
+	+'•.•:•.•:•:•:•:•:•:•:•☾☼☽•:•.•:•.•:•:•:•:•:•:•\n\n*ι αм ᴍυℓтι ԃєνιᴄє ωнαтѕαρρ вσт* \n*Cʀєαтєԃ вყ : ѕυнαιℓ тєᴄʜ*'
+	+'\n\nWhatsapp : wa.me/923184474176 \n Subscribe: www.youtube.com/c/SuhailTechInfo'|| process.env.ALIVE_MESSAGE ,
   OPENAI_API_KEY: process.env.OPENAI_API_KEY ,
   VERSION: process.env.VERSION === undefined ? 'v.0.0.3' : process.env.VERSION,
   LANG: process.env.THEME|| 'LUFFY',
