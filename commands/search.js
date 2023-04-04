@@ -139,7 +139,7 @@ cmd({
             filename: __filename,
         },
         async(Void, citel, text) => {
-            if (!text) throw `Example : ${prefix}google Secktor Md`
+            if (!text) throw `*Example : ${prefix}google Who is Suhail Tech.*`
             let google = require('google-it')
             google({ 'query': text }).then(res => {
                 let text = `Google Search From : ${text}\n\n`
@@ -156,6 +156,7 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "image",
+            alias: ["img" , "pic"],
             category: "search",
             desc: "Searches Image on Google",
             use: '<text>',
@@ -165,7 +166,7 @@ cmd({
             if (!text) return citel.reply("Provide me a query!")
             if (!text) return reply("Hey bie please tell me for which pic you're looking");
             let name1 = text.split("|")[0]
-            let name2 = text.split("|")[1] || `1`
+            let name2 = text.split("|")[1] || `5`
             citel.reply(`Sending ${name2} image(s) of ${name1} in chat`)
             let nn = name2
             for (let i = 0; i < nn; i++) {
@@ -177,7 +178,7 @@ cmd({
                         image: {
                             url: images,
                         },
-                        caption: ` `,
+                        caption: `  sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo `,
                         headerType: 4,
                     };
                     Void.sendMessage(citel.chat, buttonMessage, {
@@ -204,6 +205,7 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
         pattern: "iswa",
+        alias: ["nowa","oldwa"],
         category: "search",
         desc: "Searches in given rage about given number.",
         use: '9112345678xx',
@@ -211,8 +213,8 @@ cmd({
     },
     async(Void, citel, text) => {
         var inputnumber = text.split(" ")[0]
-        if (!inputnumber.includes('x')) return citel.reply('You did not add x\nExample: iswa 9196285162xx')
-        citel.reply(`Searching for WhatsApp account in given range...`)
+        if (!inputnumber.includes('x')) return citel.reply('*You did not add x*\nExample: iswa 9196285162xx \n\nSupprt : sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo')
+        citel.reply(`*Searching for WhatsApp account in given range...* \n *Support PLease :*  \n www.youtube.com/c/SuhailTechInfo`)
 
         function countInstances(string, word) {
             return string.split(word).length - 1;
