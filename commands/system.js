@@ -260,17 +260,9 @@ cmd({
         async(Void, citel, text, isAdmins) => {
             let alivemessage = Config.ALIVE_MESSAGE || `*A bot developed by SuhailTechInfo.*`
             const alivtxt = `
-*Hello, ${citel.pushName},*
-This is  ${tlang().title}._
 ${alivemessage}
 
-*Version:-* _0.0.6_
-*Uptime:-* _${runtime(process.uptime())}_
-*Owner:-* _${Config.ownername}_
-*Branch:-* _${Config.BRANCH}_
-
-_Type ${prefix}menu for my command list._
-
+*Type ${prefix}menu for my command list.*
 `;
             let aliveMessage = {
                 image: { url: await botpic(), },
