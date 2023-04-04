@@ -1,4 +1,4 @@
-  ## ***Deploy on [Heroku]( https://dashboard.heroku.com/new?template=https://github.com/SuhailTechInfo/Secktor-Md)***
+  ## ***Deploy on [Heroku]( https://dashboard.heroku.com/new?template=https://github.com/SuhailTechInfo/Secktor-bot)***
  #Deploy tutorial [Youtube Video](https://www.YouTube.com/c/SuhailTechInfo).
   
 
