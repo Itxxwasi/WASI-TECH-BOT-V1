@@ -12,12 +12,14 @@
   },
   "ALIVE_MESSAGE": {
     "description": "Alive message for bot",
-     "value": "I'm Online.\nHow Can I Help You...\n\n\nI'M Wa-User Bot___\nCreated By Suhail Tech Info\n\n\n\n\n\n Support Please\nwww.youtube.com/c/SuhailTechInfo\nCheck Our Youtube Channel",
+     "value": '•.•:•.•:•:•:•:•:•:•:•☾☼☽•:•.•:•.•:•:•:•:•:•:•\nι αм σηℓιηє нσω ¢αη ι нєℓρ уσυ \n'
+	+'•.•:•.•:•:•:•:•:•:•:•☾☼☽•:•.•:•.•:•:•:•:•:•:•\n\n*ι αм ᴍυℓтι ԃєνιᴄє ωнαтѕαρρ вσт* \n*Cʀєαтєԃ вყ : ѕυнαιℓ тєᴄʜ*'
+	+'\n\nWhatsapp : wa.me/923184474176 \n Subscribe: www.youtube.com/c/SuhailTechInfo',
      "required" :false
     },
    "THUMB_IMAGE": {
     "description": "THUMBNAIL for bot.",
-     "value": "https://github.com/SecktorBot/Brandimages/blob/main/SocialLogo%201.jpg?raw=true"
+     "value": "https://i.imgur.com/NpA3ZsJ.jpeg"
     },
     "ANTI_BAD_WORD": {
     "description": "Put words here. If you want it enabled in your bot otherwise leave it blank",
