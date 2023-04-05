@@ -31,7 +31,7 @@ cmd({
     async(Void, citel,text) => 
     {
         let zx = text.length;
-        if (zx < 100) {
+        if (zx < 2) {
             let {data} = await axios.get(`http://api.brainshop.ai/get?bid=167991&key=aozpOoNOy3dfLgmB&uid=[${citel.sender.split("@")[0]}]&msg=[${text}]`);
             return citel.reply(data.cnt);  
     }
@@ -73,7 +73,7 @@ cmd({
         filename: __filename,
     },
     async(Void, citel) => {
-        let { data } = await axios.get('https://api.github.com/repos/SuhailTechInfo/Secktor-Md')
+        let { data } = await axios.get('https://api.github.com/repos/SuhailTechInfo/Secktor-bot')
         let cap = `Hey ${citel.pushName}\n
 *⭐ Total Stars:* ${data.stargazers_count} stars
 *🍽️ Forks:* ${data.forks_count} forks
@@ -97,19 +97,19 @@ cmd({
 cmd({
         pattern: "link",
         alias: ["ytube", "yt", "myyt"],
-        desc: "Sends info about My Ytube Channel\n _CheckOut :_ www.Youtube.com/c/SuhailTechInfo",
+        desc: "Sends info about My Ytube Channel __CheckOut :_ www.Youtube.com/c/SuhailTechInfo",
         category: "general",
         filename: __filename,
     },
     async(Void, citel) => {
-        let { data } = await axios.get('https://api.github.com/repos/SuhailTechInfo/Secktor-Md')
-        let cap = `Hey ${citel.pushName}\n
+        let { data } = await axios.get('https://api.github.com/repos/SuhailTechInfo/Secktor-bot')
+        let cap = `
 ╔══════════════════════════╗
    ☞𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐓𝐎 𝐒𝐔𝐇𝐀𝐈𝐋 𝐓𝐄C𝐇 𝐈𝐍F𝐎☜
 ╚══════════════════════════╝\n\n
 *⭐ Youtube Content :* How To Create Whatsapp Bot
 *🍽️ Total Subscriber:* 2.45k Subscribers
-*🍁 Channel Link:* _youtube.com/c/SuhailTechInfo_\n\n 
+*🍁 Channel Link:* _https://youtube.com/c/SuhailTechInfo?sub_confirmation=1_\n\n 
 ╭━━━━━━━━━━━━━━━━━━━━╮
 ┇  ╔═╦╗╔╦╗╔═╦═╦╦╦╦╗╔═╗
 ┇  ║╚╣║║║╚╣╚╣╔╣╔╣║╚╣═╣
@@ -117,7 +117,7 @@ cmd({
 ┇  ╚═╩══╩═╩═╩═╩╝╚╩═╩═╝
 ╰━━━━━━━━━━━━━━━━━━━━╯
 \n\n*Visit More About Wa-Bot:-*
- _www.github.com/SuhailTechInfo_ \n*Please Support Ytube Channel*`
+ _www.github.com/SuhailTechInfo_ \n*𝐏𝐋𝐄𝐀𝐒𝐄 𝐒𝐔𝐏𝐏𝐎𝐑𝐓 𝐌𝐘 𝐘𝐎𝐔𝐓𝐔𝐁𝐄 𝐂𝐇𝐀𝐍𝐍𝐄𝐋*`
         let buttonMessaged = 
             {
             image: { url: await botpic() },
