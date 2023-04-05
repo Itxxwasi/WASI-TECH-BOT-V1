@@ -45,8 +45,8 @@
      "value": "false"
     },
    "DISABLE_PM": {
-    "description": "Disable bot in pm",
-      "value": "false",
+    "description": "Disable bot in pm, Take it false if you wanna run bot in your pm",
+      "value": "true",
      "required" :false
     },
       "PREFIX": {
@@ -58,11 +58,11 @@
        "value": "923184474176"
   },
    "SESSION_ID": {
-    "description": "Please put your SESSION_ID here,if you don't have visit https://secktorbot.herokuapp.com/session "
+    "description": "Please put your SESSION_ID here,if you don't have visit\nhttps://replit.com/@SuhailTechInfo/Secktor-Md "
   },
     "OPENAI_API_KEY": {
     "description": "Please put your OPENAI api key here.Get it from beta.openai.com ",
-       "value": "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",
+       "value": "",
        "required" :false
   },
   "WELCOME_MESSAGE": {
@@ -89,7 +89,7 @@
   },
   "PACK_INFO": {
     "description": "Put packname;authorname.",
-     "value": "꧁ 🅢υнαιℓ ‌🅣ᴇᴄʜ ꧂ ; wa.me/+923184474176 ♪☃︎𖠌︎ .... ⛲ℓυғғყ ࿐",
+     "value": "; ꧁ 🅢υнαιℓ ‌🅣ᴇᴄʜ ꧂ wa.me/+923184474176 ♪☃︎𖠌︎ .... ⛲ℓυғғყ ࿐",
      "required": false 
   }
 },
