@@ -14,9 +14,7 @@ const axios = require('axios')
 const speed = require('performance-now')
 const API_KEY = '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'
 
-//---------------------------------------------------------------------------
-//                  TRY GPT COMMAND 2ND VERSION
-//---------------------------------------------------------------------------
+
 
 //---------------------------------------------------------------------------
 //                  AI  CHAT  COMMAND
@@ -41,7 +39,7 @@ cmd({
         const { Configuration, OpenAIApi } = require("openai");
         const configuration = new Configuration
 				({
-           				apiKey: Config.OPENAI_API_KEY || "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",
+           				apiKey:"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"  ||  Config.OPENAI_API_KEY ,
 				});
 	
         const openai = new OpenAIApi(configuration);
@@ -50,6 +48,37 @@ cmd({
             prompt: text,
             temperature: 0.5,
             max_tokens: 200,
+            top_p: 1.0,
+            frequency_penalty: 0.5,
+            presence_penalty: 0.0,
+            stop: ['"""'],
+        });
+        citel.reply(completion.data.choices[0].text);
+    }
+)
+//---------------------------------------------------------------------------
+//                  TRY GPT COMMAND 2ND VERSION
+//---------------------------------------------------------------------------
+
+cmd({
+        pattern: "gpt",
+        desc: "chat with an AI",
+        category: "general",
+        use: '<Hii, Suhail Tech Info>',
+        filename: __filename,
+    },
+    async(Void, citel,text) =>{
+	 if (!text) return citel.reply(`Hey there! ${citel.pushName}. How are you doing these days?`);
+        const { Configuration, OpenAIApi } = require("openai");
+        const configuration = new Configuration({
+            apiKey: "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"  ||  Config.OPENAI_API_KEY ,
+        });
+        const openai = new OpenAIApi(configuration);
+        const completion = await openai.createCompletion({
+            model: "text-davinci-002",
+            prompt: text,
+            temperature: 0.5,
+            max_tokens: 80,
             top_p: 1.0,
             frequency_penalty: 0.5,
             presence_penalty: 0.0,
@@ -152,8 +181,8 @@ cmd({
 *⚡Speed:* ${latensie.toFixed(4)} ms
 *🚦Uptime:* ${runtime(process.uptime())}
 *🕸Version:* 1.0.0
-*👤Owner:*  ${Config.ownername}\n
-*Powered by Suhail Tech Info*
+*👤Owner:*  ${Config.ownername}\n\n
+*Powered by 'Suhail Tech Info'*
 *Youtube :* _youtube.com/c/SuhailTechInfo_ 
 `;
         let buttonMessaged = {
