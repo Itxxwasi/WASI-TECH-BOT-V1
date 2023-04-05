@@ -56,37 +56,6 @@ cmd({
         citel.reply(completion.data.choices[0].text);
     }
 )
-//---------------------------------------------------------------------------
-//                  TRY GPT COMMAND 2ND VERSION
-//---------------------------------------------------------------------------
-
-cmd({
-        pattern: "gpt",
-        desc: "chat with an AI",
-        category: "general",
-        use: '<Hii, Suhail Tech Info>',
-        filename: __filename,
-    },
-    async(Void, citel,text) =>{
-	 if (!text) return citel.reply(`Hey there! ${citel.pushName}. How are you doing these days?`);
-        const { Configuration, OpenAIApi } = require("openai");
-        const configuration = new Configuration({
-            apiKey: "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"  ||  Config.OPENAI_API_KEY ,
-        });
-        const openai = new OpenAIApi(configuration);
-        const completion = await openai.createCompletion({
-            model: "text-davinci-002",
-            prompt: text,
-            temperature: 0.5,
-            max_tokens: 80,
-            top_p: 1.0,
-            frequency_penalty: 0.5,
-            presence_penalty: 0.0,
-            stop: ['"""'],
-        });
-        citel.reply(completion.data.choices[0].text);
-    }
-)
 
 
 
