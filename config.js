@@ -13,7 +13,7 @@ global.gurl = 'https://youtube.com/c/SuhailTechInfo' // add your username
 global.sudo =  '923184474176' || process.env.SUDO  
 global.devs = '923184474176';
 global.website = 'https://github.com/SuhailTechInfo/Secktor-Md' //wa.me/+91000000000000
-global.THUMB_IMAGE =  'https://i.imgur.com/NpA3ZsJ.jpeg' //process.env.THUMB_IMAGE || 'https://raw.githubusercontent.com/SecktorBot/Brandimages/main/logos/SocialLogo%201.png'
+global.THUMB_IMAGE = process.env.THUMB_IMAGE || 'https://raw.githubusercontent.com/SecktorBot/Brandimages/main/logos/SocialLogo%201.png'
 module.exports = {
   botname: process.env.BOT_NAME || '𝐒𝐞𝐜𝐤𝐭𝐨𝐫 𝐁𝐨𝐭',
   ownername: 'SuhailTechInfo' || process.env.OWNER_NAME,
@@ -33,9 +33,9 @@ module.exports = {
   antilink: process.env.ANTILINK_VALUES || 'chat.whatsapp.com',
   antilinkaction: process.env.ANTILINK_ACTION || 'remove',
   BRANCH: 'main',
-  ALIVE_MESSAGE: '•.•:•.•:•:•:•:•:•:•:•☾☼☽•:•.•:•.•:•:•:•:•:•:•\nι αм σηℓιηє нσω ¢αη ι нєℓρ уσυ \n'
+  ALIVE_MESSAGE: process.env.ALIVE_MESSAGE || '•.•:•.•:•:•:•:•:•:•:•☾☼☽•:•.•:•.•:•:•:•:•:•:•\nι αм σηℓιηє нσω ¢αη ι нєℓρ уσυ \n'
 	+'•.•:•.•:•:•:•:•:•:•:•☾☼☽•:•.•:•.•:•:•:•:•:•:•\n\n*ι αм ᴍυℓтι ԃєνιᴄє ωнαтѕαρρ вσт* \n*Cʀєαтєԃ вყ : ѕυнαιℓ тєᴄʜ*'
-	+'\n\nWhatsapp : wa.me/923184474176 \n Subscribe: www.youtube.com/c/SuhailTechInfo'|| process.env.ALIVE_MESSAGE ,
+	+'\n\nWhatsapp : wa.me/923184474176 \n Subscribe: www.youtube.com/c/SuhailTechInfo'  ,
   OPENAI_API_KEY: process.env.OPENAI_API_KEY ,
   VERSION: process.env.VERSION === undefined ? 'v.0.0.3' : process.env.VERSION,
   LANG: process.env.THEME|| 'LUFFY',
