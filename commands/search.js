@@ -165,9 +165,9 @@ cmd({
         async(Void, citel, text) => {
             if (!text) return citel.reply("Provide me a query!")
             if (!text) return reply("Hey bie please tell me for which pic you're looking");
-            let name1 = text.split("|")[0]
-            let name2 = text.split("|")[1] || `5`
-            citel.reply(`Sending ${name2} image(s) of ${name1} in chat`)
+            let name1 = text.split(" ")[0]
+            let name2 = text.split(" ")[1] || `10`
+            citel.reply(`Sending image(s) of ${name1} in chat`)
             let nn = name2
             for (let i = 0; i < nn; i++) {
 
@@ -205,7 +205,7 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
         pattern: "iswa",
-        alias: ["nowa","oldwa"],
+        alias: ["nowa","oldwa","bio","onwa"],
         category: "search",
         desc: "Searches in given rage about given number.",
         use: '9112345678xx',
