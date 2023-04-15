@@ -337,7 +337,10 @@ cmd({
             use: '<text>',
         },
         async(Void, citel, text) => {
-            if (!text) return citel.reply(`Example : ${prefix + command} Back in black`)
+            if (!text) {
+                        citel.reply(`Example : ${prefix + command} Back in black`);
+                        return ;
+                       }
             let yts = require("secktor-pack")
             let search = await yts(text)
             listSerch = []
