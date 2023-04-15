@@ -108,45 +108,43 @@ cmd({
             filename: __filename,
             use: '<faded-Alan walker.>',
         },
-        async(Void, citel, text) => {
+async(Void, citel, text) => {
         const getRandom = (ext) => {
             return `${Math.floor(Math.random() * 10000)}${ext}`;
         };
-
-        if (text.length == 0) {
-            citel.reply(`❌ URL is empty! \nSend ${prefix}tube3 url or ${prefix}tube3 back in black `);
+        
+        if (text.length == 0 && !citel.quoted) {
+            citel.reply(`❌ URL is empty! \nSend ${prefix}play url or ${prefix}play back in black `);
             return;
         }
         try {
             let urlYt = text;
-            
+            if(citel.quoted)
+            {
+                text=citel.quoted.text;
+            }
+
             if (!urlYt.startsWith("http")) 
             {
                 let yts = require("secktor-pack");
                 let search = await yts(text);
                 let anu = search.videos[0];
                 urlYt = anu.url; 
-                
-              
             }
             let infoYt = await ytdl.getInfo(urlYt);
             //30 MIN
-            if (infoYt.videoDetails.lengthSeconds >= videotime) {
-                citel.reply(`❌ I can't download that long video!`);
-                return;
-            }
-         
-            let titleYt = infoYt.videoDetails.title;
+            if (infoYt.videoDetails.lengthSeconds >= videotime) {  citel.reply(`❌ I can't download that long video!`);    return;  }
+            let titleYt = infoYt.videoDetails.title;   citel.reply(`_Downloading ${infoYt.videoDetails.title}?_`);
+            
             let randomName = getRandom(".mp3");
             const stream = ytdl(urlYt, {
-                    filter: (info) => info.audioBitrate == 160 || info.audioBitrate == 128,
-                })
+                    filter: (info) => info.audioBitrate == 160 || info.audioBitrate == 128, })
                 .pipe(fs.createWriteStream(`./${randomName}`));
             await new Promise((resolve, reject) => {
                 stream.on("error", reject);
                 stream.on("finish", resolve);
             });
-
+            
             let stats = fs.statSync(`./${randomName}`);
             let fileSizeInBytes = stats.size;
             let fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
@@ -161,14 +159,14 @@ cmd({
                     fileName: titleYt + ".mp3",
                     headerType: 4,
                  }
-                
+                 
                 await Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
                 return fs.unlinkSync(`./${randomName}`);
             } 
-           else {  citel.reply(`❌ File size bigger than 100mb.`);  }
-         
-         fs.unlinkSync(`./${randomName}`); } 
-         catch (e) {  console.log(e)  }
+            else {   citel.reply(`❌ File size bigger than 100mb.`);    }
+            fs.unlinkSync(`./${randomName}`);
+        } 
+        catch (e) {  console.log(e) }
 })
     
 
@@ -266,7 +264,7 @@ cmd({
                 }, {
                     quoted: citel,
                 })
-                .catch((err) => reply("could not found anything"));
+                .catch((err) => citel.reply("could not found anything"));
 
         }
     )
@@ -281,7 +279,7 @@ cmd({
         },
         async(Void, citel, text) => {
             if (!text) {
-                        citel.reply(`Example : ${prefix + command} Back in black`);
+                        citel.reply(`Give me a Query! \n *Example : ${prefix}song Back in black*`);
                         return ;
                        }
             let yts = require("secktor-pack")
@@ -326,7 +324,7 @@ cmd({
         },
         async(Void, citel, text) => {
             let yts = require("secktor-pack");
-            if (!text) return citel.reply(`Example : ${prefix}yts ${tlang().title} WhatsApp Bot by Suhail Tech`);
+            if (!text) return citel.reply(`Example : ${prefix}yts WhatsApp Bot by Suhail Tech`);
             let search = await yts(text);
             let textt = "*YouTube Search*\n\n Result From " + text + "\n\n───────────────────\n";
             let no = 1;
