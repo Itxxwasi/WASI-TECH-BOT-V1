@@ -135,6 +135,7 @@ cmd({
                 citel.reply(`❌ I can't download that long video!`);
                 return;
             }
+         
             let titleYt = infoYt.videoDetails.title;
             let randomName = getRandom(".mp3");
             const stream = ytdl(urlYt, {
@@ -169,7 +170,7 @@ cmd({
                             mediaUrl: text,
                             mediaType: 1,
                             thumbnail: await getBuffer(search.all[0].thumbnail),
-                            sourceUrl: youtube.com/c/SuhailTechInfo,
+                            sourceUrl: text,
                             },
                          },
                     }
@@ -488,7 +489,7 @@ cmd({
                             mediaUrl: text,
                             mediaType: 1,
                             thumbnail: await getBuffer(search.all[0].thumbnail),
-                            sourceUrl: youtube.com/c/SuhailTechInfo,
+                            sourceUrl: text,
                         },
                     },
                 }
