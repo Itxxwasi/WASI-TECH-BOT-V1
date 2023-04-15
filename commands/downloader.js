@@ -109,6 +109,83 @@ cmd({
             use: '<faded-Alan walker.>',
         },
         async(Void, citel, text) => {
+        const getRandom = (ext) => {
+            return `${Math.floor(Math.random() * 10000)}${ext}`;
+        };
+
+        if (text.length == 0) {
+            citel.reply(`❌ URL is empty! \nSend ${prefix}tube3 url or ${prefix}tube3 back in black `);
+            return;
+        }
+        try {
+            let urlYt = text;
+            
+            if (!urlYt.startsWith("http")) 
+            {
+                let yts = require("secktor-pack");
+                let search = await yts(text);
+                let anu = search.videos[0];
+                urlYt = anu.url; 
+                
+              
+            }
+            let infoYt = await ytdl.getInfo(urlYt);
+            //30 MIN
+            if (infoYt.videoDetails.lengthSeconds >= videotime) {
+                citel.reply(`❌ I can't download that long video!`);
+                return;
+            }
+            let titleYt = infoYt.videoDetails.title;
+            let randomName = getRandom(".mp3");
+            const stream = ytdl(urlYt, {
+                    filter: (info) => info.audioBitrate == 160 || info.audioBitrate == 128,
+                })
+                .pipe(fs.createWriteStream(`./${randomName}`));
+            await new Promise((resolve, reject) => {
+                stream.on("error", reject);
+                stream.on("finish", resolve);
+            });
+
+            let stats = fs.statSync(`./${randomName}`);
+            let fileSizeInBytes = stats.size;
+            let fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
+            if (fileSizeInMegabytes <= dlsize) 
+            {
+                let yts = require("secktor-pack");
+                let search = await yts(text);
+                let buttonMessage = 
+                    {
+                    audio: fs.readFileSync(`./${randomName}`),
+                    mimetype: 'audio/mpeg',
+                    fileName: titleYt + ".mp3",
+                    headerType: 4,
+                    contextInfo: 
+                         {  externalAdReply: 
+                            {
+                            title: titleYt,
+                            body: citel.pushName,
+                            renderLargerThumbnail: true,
+                            thumbnailUrl: search.all[0].thumbnail,
+                            mediaUrl: text,
+                            mediaType: 1,
+                            thumbnail: await getBuffer(search.all[0].thumbnail),
+                            sourceUrl: youtube.com/c/SuhailTechInfo,
+                            },
+                         },
+                    }
+                await Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
+                return fs.unlinkSync(`./${randomName}`);
+              } 
+         else {  citel.reply(`❌ File size bigger than 100mb.`);  }
+         
+         fs.unlinkSync(`./${randomName}`); } 
+         catch (e) {  console.log(e)  }
+})
+    
+
+
+    // For Button menu
+    /*async(Void, citel, text) => {
             if (!text) return citel.reply(`Example : ${prefix}play Back in black`)
             let yts = require("secktor-pack");
             let search = await yts(text);
@@ -151,7 +228,7 @@ cmd({
             });
 
         }
-    )
+    )*/
     //---------------------------------------------------------------------------
 cmd({
             pattern: "ringtone",
@@ -207,7 +284,7 @@ cmd({
                             thumbnail: log0,
                             mediaType: 2,
                             mediaUrl: ``,
-                            sourceUrl: ``
+                            sourceUrl: `youtube.com/c/SuhailTechInfo`
                         }
                     }
                 }
@@ -407,7 +484,7 @@ cmd({
         };
 
         if (text.length === 0) {
-            reply(`❌ URL is empty! \nSend ${prefix}ytmp3 url`);
+            citel.reply(`❌ URL is empty! \nSend ${prefix}ytmp3 url`);
             return;
         }
         try {
@@ -419,7 +496,7 @@ cmd({
             let infoYt = await ytdl.getInfo(urlYt);
             //30 MIN
             if (infoYt.videoDetails.lengthSeconds >= videotime) {
-                reply(`❌ I can't download that long video!`);
+                citel.reply(`❌ I can't download that long video!`);
                 return;
             }
             let titleYt = infoYt.videoDetails.title;
@@ -453,7 +530,7 @@ cmd({
                             mediaUrl: text,
                             mediaType: 1,
                             thumbnail: await getBuffer(search.all[0].thumbnail),
-                            sourceUrl: text,
+                            sourceUrl: youtube.com/c/SuhailTechInfo,
                         },
                     },
                 }
@@ -483,7 +560,7 @@ cmd({
         };
 
         if (text.length === 0) {
-            reply(`❌ URL is empty! \nSend ${prefix}ytmp3 url`);
+            citel.reply(`❌ URL is empty! \nSend ${prefix}ytmp3 url`);
             return;
         }
         try {
@@ -495,7 +572,7 @@ cmd({
             let infoYt = await ytdl.getInfo(urlYt);
             //30 MIN
             if (infoYt.videoDetails.lengthSeconds >= videotime) {
-                reply(`❌ I can't download that long video!`);
+                citel.reply(`❌ I can't download that long video!`);
                 return;
             }
             let titleYt = infoYt.videoDetails.title;
