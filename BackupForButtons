@@ -1,0 +1,49 @@
+// Backup For Buttons Menu   
+   //------------------------------------------------------
+   //               Play Command
+   //------------------------------------------------------
+   // For Button menu
+    /*async(Void, citel, text) => {
+            if (!text) return citel.reply(`Example : ${prefix}play Back in black`)
+            let yts = require("secktor-pack");
+            let search = await yts(text);
+            let anu = search.videos[0];
+            let buttons = [{
+                    buttonId: `${prefix}ytmp4 ${anu.url}`,
+                    buttonText: {
+                        displayText: "► Video",
+                    },
+                    type: 1,
+                },
+                {
+                    buttonId: `${prefix}ytmp3 ${anu.url}`,
+                    buttonText: {
+                        displayText: "♫ Audio",
+                    },
+                    type: 1,
+                },
+            ];
+            let buttonMessage = {
+                image: { url: anu.thumbnail, },
+                caption: `
+╭───────────────◆
+│⿻ ${tlang().title} 
+│  *Youtube Player* ✨
+│⿻ *Title:* ${anu.title}
+│⿻ *Duration:* ${anu.timestamp}
+│⿻ *Viewers:* ${anu.views}
+│⿻ *Uploaded:* ${anu.ago}
+│⿻ *Author:* ${anu.author.name}
+╰────────────────◆
+⦿ *Url* : ${anu.url}
+`,
+                footer: tlang().footer,
+                buttons: buttons,
+                headerType: 4,
+            };
+            return Void.sendMessage(citel.chat, buttonMessage, {
+                quoted: citel,
+            });
+
+        }
+    )*/
