@@ -102,7 +102,7 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "play",
-            alias: ["song","music"],
+            alias: ["music"],
             desc: "Sends info about the query(of youtube video/audio).",
             category: "downloader",
             filename: __filename,
@@ -329,7 +329,8 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "audio",
+            pattern: "song",
+            alias: ["audio"],
             desc: "Downloads audio from youtube.",
             category: "downloader",
             filename: __filename,
