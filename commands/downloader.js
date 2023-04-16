@@ -37,8 +37,16 @@ cmd({
             use: '<Hii,this is Suhail>',
         },
         async(Void, citel, text) => {
-            if (!text) return citel.reply('*Please give me Sentence to change into audio.*\n ex: _.tts Hi,I am Secktor. A Bot Created By *Suhail Tech Info* ._')
-            let texttts = text
+            if (!text && !citel.quoted)
+            { 
+              citel.reply('*Please give me Sentence to change into audio.*\n ex: _.tts Hi,I am Secktor. A Bot Created By *Suhail Tech Info* ._');
+             return;
+            }
+            if (!text) 
+            {
+              text=citel.quoted.text;
+            }
+             let texttts = text
             const ttsurl = googleTTS.getAudioUrl(texttts, {
                 lang: "en",
                 slow: false,
