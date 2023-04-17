@@ -21,7 +21,7 @@
     },
     "ANTI_BAD_WORD": {
     "description": "Put words here. If you want it enabled in your bot otherwise leave it blank",
-       "value": "sex,hot,fuck,sex",
+       "value": "sex,hot",
      "required" :false
     },
    "ANTILINK_VALUES": {
@@ -46,7 +46,7 @@
     },
    "DISABLE_PM": {
     "description": "Disable bot in pm, Take it false if you wanna run bot in your pm",
-      "value": "true",
+      "value": "false",
      "required" :false
     },
       "PREFIX": {
@@ -72,7 +72,7 @@
   },
   "MONGODB_URI": {
     "description": "A secret String for Mongodb Connection.(Required)",
-     "value": "mongodb+srv://Suhail:suhail@cluster0.rzhkoqf.mongodb.net/?retryWrites=true&w=majority"
+     "value": ""
   },
     "THEME": {
     "description": "Put the theme name you want to use. Avilable themes are SECKTOR,ZEROTWO,NEZUKO,LUFFY,GOKU and many more..",
