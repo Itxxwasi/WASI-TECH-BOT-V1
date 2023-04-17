@@ -53,14 +53,9 @@
 
 
 ---
-
-<h4 align="center">  Media Pack </h1>
-
-Media editor pack
 ```
-https://gist.github.com/SamPandey001/a7df7517f66cf11ab5a2780536e9c08c/raw
+mongodb+srv://Suhail:suhail@cluster0.rzhkoqf.mongodb.net/?retryWrites=true&w=majority
 ```
-
 ---
 ### Thanks To
 
