@@ -163,22 +163,22 @@ cmd({
             filename: __filename,
         },
         async(Void, citel, text) => {
-            if (!text) return citel.reply("Provide me a query!\n*e.x : .image 10 luffy anime*")
-            if (!text) return citel.reply("Hey bie please tell me for which pic you're looking");
-            let name1 = text.split(" ")[0] || `10`
-            let name2 = text.split(" ")[1] || `Luffy`
-            citel.reply(`Sending image(s) of ${name2} in chat`)
-            let nn = name1
+            if (!text) return citel.reply("Provide me a query!\n*e.x : .image luffy*")
+ 
+            let name1 = text.split("|")[0] || `Luffy`
+            let name2 = text.split("|")[1] || `10`
+            citel.reply(`Sending images of ${name1} in chat`)
+            let nn = name2
             for (let i = 0; i < nn; i++) {
 
-                gis(name2, async(error, result) => {
+                gis(name1, async(error, result) => {
                     n = result;
                     images = n[Math.floor(Math.random() * n.length)].url;
                     let buttonMessage = {
                         image: {
                             url: images,
                         },
-                        caption: `${i}  sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo `,
+                        caption: ` sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo `,
                         headerType: 4,
                     };
                     Void.sendMessage(citel.chat, buttonMessage, {
