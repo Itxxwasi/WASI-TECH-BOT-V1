@@ -52,7 +52,7 @@ Secktor.cmd({
                     .locale('id')
                 const date = moment.tz('asia/karachi').format('DD/MM/YYYY')
                 let total = await sck1.countDocuments()
-                let str = `╭────《 ` + fancytext(Config.ownername.split(' ')[0], 58) + ` 》─────⊷\n`
+                let str = `╭────《 ` + fancytext('SUHAIL-MD'[0], 50) + ` 》─────⊷\n`
                 str +=
                     '' + `│ ╭───────✧❁✧───────«
 │ │ User:- ${citel.pushName}
@@ -89,7 +89,7 @@ Secktor.cmd({
                     caption: str,
                     footer: tlang().footer,
                     headerType: 4,
-                    buttons:''
+                   
                 };
                 return await Void.sendMessage(citel.chat, buttonMessaged);
             }
@@ -105,7 +105,7 @@ Secktor.cmd({
         async(Void, citel) => {
             const { commands } = require('../lib');
             let str = `
-╭━━〘 ` + fancytext(Config.ownername.split(' ')[0], 58) + ` 〙━━──⊷`
+╭━━〘 ` + fancytext('SUHAIL-MD'[0], 58) + ` 〙━━──⊷`
             str += '' + `
 ┃ ⛥╭──────────────      
 ┃ ⛥│ User: ${citel.pushName}
