@@ -115,6 +115,7 @@ async(Void, citel, text,{ isCreator }) => {
      //---------------------------------------------------------------------------
  cmd({
              pattern: "steal",
+             alias:["take"]
              desc: "Makes sticker of replied image/video.",
              category: "sticker",
              filename: __filename,
@@ -127,10 +128,10 @@ async(Void, citel, text,{ isCreator }) => {
              if (text) {
                  anu = text.split("|");
                  pack = anu[0] !== "" ? anu[0] : citel.pushName + '♥️';
-                 author = anu[1] !== "" ? anu[1] : Config.author;
+                 author = anu[1] !== "" ? anu[1] : Config.packname;
              } else {
                  pack = citel.pushName;
-                 author =Config.auther;
+                 author =Config.packname;
              }
                  let media = await citel.quoted.download();
                  citel.reply("*Processing Your request*");
