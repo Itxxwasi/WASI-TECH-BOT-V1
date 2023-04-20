@@ -124,11 +124,11 @@ async(Void, citel, text,{ isCreator }) => {
              var author;
              if (text) {
                  anu = text.split("|");
-                 pack= global.packname;
-                 author= global.author;
+                 pack = anu[0] !== "" ? anu[0] : citel.pushName + '♥️';
+                 author = anu[1] !== "" ? anu[1] : Config.author;
              } else {
-                     pack= global.packname;
-                     author= global.author;
+                 pack = citel.pushName;
+                 author = "♥️";
              }
                  let media = await citel.quoted.download();
                  citel.reply("*Processing Your request*");
@@ -160,7 +160,7 @@ async(Void, citel, text,{ isCreator }) => {
      )
      //---------------------------------------------------------------------------
  cmd({
-             pattern: "wm",
+             pattern: "wa",
              desc: "Makes wa me of quoted or mentioned user.",
              category: "misc",
              filename: __filename,
