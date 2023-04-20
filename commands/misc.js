@@ -130,7 +130,7 @@ async(Void, citel, text,{ isCreator }) => {
                  author = anu[1] !== "" ? anu[1] : Config.author;
              } else {
                  pack = citel.pushName;
-                 author =config.auther;
+                 author =Config.auther;
              }
                  let media = await citel.quoted.download();
                  citel.reply("*Processing Your request*");
