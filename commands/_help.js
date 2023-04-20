@@ -55,17 +55,14 @@ Secktor.cmd({
                 let str = `╭────《 ` + fancytext(Config.Bot_Name,58) || fancytext('SUHAIL-MD', 58) + ` 》─────⊷\n`
                 str +=
                     '' + `│ ╭───────✧❁✧───────«
-│ │ User:- ${citel.pushName}
 │ │ Theme:- ${tlang().title}
-│ │ Prefix:- [ ${prefix} ]
 │ │ Owner:- ${Config.ownername}
 │ │ Plugins:- ${commands.length}
-│ │ Users:- ${total}
 │ │ Uptime:- ${runtime(process.uptime())}
 │ │ Mem:- ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
 │ │ Time:- ${time}
 │ │ Date:- ${date}
-│ │ Ytube : youtube.com/c/SuhailTechInfo
+│ │ youtube.com/c/SuhailTechInfo
 │ ╰───────✧❁✧───────»
 ╰───────────────⊷\n
 ` + ''
