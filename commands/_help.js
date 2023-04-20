@@ -52,7 +52,7 @@ Secktor.cmd({
                     .locale('id')
                 const date = moment.tz('asia/karachi').format('DD/MM/YYYY')
                 let total = await sck1.countDocuments()
-                let str = `╭────《 ` + fancytext('SUHAIL-MD'[0], 50) + ` 》─────⊷\n`
+                let str = `╭────《 ` + fancytext(Config.Bot_Name,58) || fancytext('SUHAIL-MD', 58) + ` 》─────⊷\n`
                 str +=
                     '' + `│ ╭───────✧❁✧───────«
 │ │ User:- ${citel.pushName}
@@ -77,7 +77,7 @@ Secktor.cmd({
 ┃  ╰┬──────✧❁✧───────»
 ┃  ┌┤\n`
                     for (const plugins of cmds[category]) {
-                        str += `┃  │ ✭ ${plugins}\n`
+                        str += `┃  │ ✭ ${tiny(plugins)}\n`
                     }
                     str += `┃  ╰─────────────◆`
                 }
@@ -105,10 +105,9 @@ Secktor.cmd({
         async(Void, citel) => {
             const { commands } = require('../lib');
             let str = `
-╭━━〘 ` + fancytext('SUHAIL-MD'[0], 58) + ` 〙━━──⊷`
+╭━━〘 ` +fancytext(Config.Bot_Name,58) || fancytext('SUHAIL-MD', 58)+ ` 〙━━──⊷`
             str += '' + `
 ┃ ⛥╭──────────────      
-┃ ⛥│ User: ${citel.pushName}
 ┃ ⛥│ Theme: ${tlang().title}
 ┃ ⛥│ Prefix: ${prefix}
 ┃ ⛥│ Owner: ${Config.ownername}
