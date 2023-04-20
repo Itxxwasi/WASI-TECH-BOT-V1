@@ -52,7 +52,7 @@ Secktor.cmd({
                     .locale('id')
                 const date = moment.tz('asia/karachi').format('DD/MM/YYYY')
                 let total = await sck1.countDocuments()
-                let str = `╭────《 ` + fancytext(Config.Bot_Name,58) || fancytext('SUHAIL-MD', 58) + ` 》─────⊷\n`
+                let str = `╭────《 ` + fancytext('SUHAIL-MD', 58) + ` 》─────⊷\n`
                 str +=
                     '' + `│ ╭───────✧❁✧───────«
 │ │ Theme:- ${tlang().title}
@@ -74,7 +74,7 @@ Secktor.cmd({
 ┃  ╰┬──────✧❁✧───────»
 ┃  ┌┤\n`
                     for (const plugins of cmds[category]) {
-                        str += `┃  │ ✭ ${tiny(plugins)}\n`
+                        str += `┃  │ ✭ ${plugins}\n`
                     }
                     str += `┃  ╰─────────────◆`
                 }
@@ -102,7 +102,7 @@ Secktor.cmd({
         async(Void, citel) => {
             const { commands } = require('../lib');
             let str = `
-╭━━〘 ` +fancytext(Config.Bot_Name,58) || fancytext('SUHAIL-MD', 58)+ ` 〙━━──⊷`
+╭━━〘 ` +fancytext('SUHAIL-MD', 58)+ ` 〙━━──⊷`
             str += '' + `
 ┃ ⛥╭──────────────      
 ┃ ⛥│ Theme: ${tlang().title}
@@ -118,7 +118,7 @@ Secktor.cmd({
             str += `┃ ⛥ ╭─────────────\n`
             for (let i = 0; i < commands.length; i++) {
              if(commands[i].pattern==undefined) continue
-                str += `┃ ⛥ │ ➛ ${i+1 } ` +tiny(commands[i].pattern) + '\n'
+                str += `┃ ⛥ │ ➛ ${i+1 } ` +commands[i].pattern + '\n'
             }
             str += `┃ ⛥ ╰─────────────\n`
             str += `╰━━━━━━━━━━━───⊷\nsᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo`
