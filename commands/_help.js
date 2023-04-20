@@ -121,7 +121,7 @@ Secktor.cmd({
             str += `┃ ⛥ ╭─────────────\n`
             for (let i = 0; i < commands.length; i++) {
              if(commands[i].pattern==undefined) continue
-                str += `┃ ⛥ │ ➛ ${i+1}. ` + commands[i].pattern + '\n'
+                str += `┃ ⛥ │ ➛ ${i+1 } ` +tiny(commands[i].pattern) + '\n'
             }
             str += `┃ ⛥ ╰─────────────\n`
             str += `╰━━━━━━━━━━━───⊷\nsᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo`
