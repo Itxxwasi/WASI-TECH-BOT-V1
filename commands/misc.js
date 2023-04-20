@@ -17,7 +17,7 @@ const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter")
   //---------------------------------------------------------------------------
  cmd({
     pattern: "welcome",
-    alias:["setwelcome"]
+    alias:["setwelcome"],
     desc: "sets welcome message in specific group.",
     category: "misc",
 },
