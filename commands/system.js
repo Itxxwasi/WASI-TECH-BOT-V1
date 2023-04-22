@@ -92,17 +92,17 @@ cmd({
                 let pushnamer = Void.getName(users);
                 sck1.findOne({ id: users }).then(async(usr) => {
                     if (!usr) {
-                        console.log(usr.ban)
-                        return citel.reply(`${pushnamer} is unbanned.`)
+                        console.log(usr.ban);
+                        return citel.reply(`${pushnamer} is unbanned.`);
                     } else {
                         console.log(usr.ban)
-                        if (usr.ban !== "true") return citel.reply(`${usr.name} is already unbanned.`)
+                        if (usr.ban !== "true") return citel.reply(`${usr.name} is already unbanned.`);
                         await sck1.updateOne({ id: users }, { ban: "false" })
-                        return citel.reply(`${usr.name} is free as a bird now`)
+                        return citel.reply(`${usr.name} is free as a bird now`);
                     }
                 })
             } catch {
-                return citel.reply("Please mention any user.❌")
+                return citel.reply("Please mention any user.❌");
             }
 
 
@@ -127,6 +127,8 @@ cmd({
                 await fs.unlinkSync(media);
                 return citel.reply(`Here is url of your uploaded Media on Telegraph.\n\n` + util.format(anu));
             }
+ citel.reply(`Here is url of your uploaded Media on Telegraph.\n\n`);
+  return citel.reply (util.format(anu));
             await fs.unlinkSync(media);
         }
     )
@@ -144,7 +146,7 @@ cmd({
             let textt = citel.quoted.text;
             whole = await translatte(textt, {
                 from: text[1] || "auto",
-                to: text.split(" ")[0] || "hi",
+                to: text.split(" ")[0] || "en",
             });
             if ("text" in whole) {
                 return await citel.reply("*Translated Into🔎:* " + " ```" + (text.split(" ")[0] || "Auto to Hindi") + "```\n" + " *From Language🔎:* " + " ```" + (text[1] || "Auto Detect") + "```\n" + "*Result♦️:* " + " ```" + whole.text + "```");
