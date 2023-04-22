@@ -52,7 +52,7 @@ Secktor.cmd({
                     .locale('id')
                 const date = moment.tz('asia/karachi').format('DD/MM/YYYY')
                 let total = await sck1.countDocuments()
-                let str = `╭────《 ` + fancytext('SUHAIL-MD', 58) + ` 》─────⊷\n`
+                let str = `╭────《 ₊₉₂⃗⃗₃₁᩺₈ͦ₄ͪ₄ᷧ₇ͥ₄ᷞ₇₆ 》─────⊷\n`
                 str +=
                     '' + `│ ╭───────✧❁✧───────«
 │ │ Theme:- ${tlang().title}
@@ -102,7 +102,7 @@ Secktor.cmd({
         async(Void, citel) => {
             const { commands } = require('../lib');
             let str = `
-╭━━〘 ` +fancytext('SUHAIL-MD', 58)+ ` 〙━━──⊷`
+╭━━〘 ₊₉₂⃗⃗₃₁᩺₈ͦ₄ͪ₄ᷧ₇ͥ₄ᷞ₇₆ 〙━━──⊷`
             str += '' + `
 ┃ ⛥╭──────────────      
 ┃ ⛥│ Theme: ${tlang().title}
