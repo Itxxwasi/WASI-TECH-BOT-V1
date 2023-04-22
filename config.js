@@ -16,10 +16,10 @@ global.website = 'https://github.com/SuhailTechInfo/Secktor-Md' //wa.me/+9100000
 global.THUMB_IMAGE = process.env.THUMB_IMAGE || 'https://raw.githubusercontent.com/SecktorBot/Brandimages/main/logos/SocialLogo%201.png'
 module.exports = {
   botname: process.env.BOT_NAME || '𝐒𝐞𝐜𝐤𝐭𝐨𝐫 𝐁𝐨𝐭',
-  ownername: 'SuhailTechInfo' || process.env.OWNER_NAME,
+  ownername:  process.env.OWNER_NAME || 'SuhailTechInfo',
   sessionName: process.env.SESSION_ID || 'PUT-HERE',
   author:  process.env.PACK_INFO.split(";")[0] || '', 
-  auto_read_status : process.env.AUTO_READ_STATUS || 'false',
+  auto_read_status : process.env.AUTO_READ_STATUS || 'true',
   packname:   "\t   𓅋 ₊₉₂⃗⃗₃₁᩺₈ͦ₄ͪ₄ᷧ₇ͥ₄ᷞ₁⃗₇₆ 𓃮 \n\nᴋɪss ʍᴇ... 💋\n\nᴄʟօsᴇ ყσυɾ ᴇყᴇs... 👁️🙈\n\nʍɪss ʍᴇ...♥️\n\n\n    -ᴘʟᴇᴀsᴇ ᴅᴏɴ'ᴛ ᴛᴀӄᴇ 🚮 \n\n--- ρυвʟɪᴄ вσт нᴇʀᴇ ---" || process.env.PACK_INFO.split(";")[1] ,
   autoreaction: process.env.AUTO_REACTION || 'off',
   antibadword : process.env.ANTI_BAD_WORD || 'nobadwordokey',
