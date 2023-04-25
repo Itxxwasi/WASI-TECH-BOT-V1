@@ -48,7 +48,7 @@ cmd({
             filename: __filename
         },
         async(Void, citel, text) => {
-            if (!citel.quoted) return citel.reply("Please quote/reply to any message");
+            if (!citel.quoted) return citel.reply(`Please quote/reply to any message`);
             let textt = citel.quoted.text;
             let pfp;
             try {
@@ -88,7 +88,7 @@ cmd({
             };
             let res = await axios.post("https://bot.lyo.su/quote/generate", body);
             let img = Buffer.alloc(res.data.result.image.length, res.data.result.image, "base64");
-            return citel.reply(img,{packname:'Suhail Tech',author:'Quotely'},"sticker")
+            return citel.reply(img,{packname:Config.packname,author:''},"sticker")
 
         }
     )
@@ -104,9 +104,9 @@ cmd({
         async(Void, citel, text) => {
             if (isNaN(text.split(" ")[0]) || !text) {
                 let text = tiny(
-                    "Fancy text generator\n\nExample: .fancy 32 Secktor\n\n"
+                    "Fancy text generator\n\n*_______________________________*\n*Example: .fancy 32 Suhail Md*\n*_______________________________*\n\n"
                 );
-                listall("Secktor Bot").forEach((txt, num) => {
+                listall("Suhail MD").forEach((txt, num) => {
                     text += `${(num += 1)} ${txt}\n`;
                 });
                 return await citel.reply(text);
@@ -127,7 +127,7 @@ cmd({
             filename: __filename
         },
         async(Void, citel, text) => {
-            if (!text) return citel.reply('Provide me a link')
+            if (!text) return citel.reply(`Provide me a link`)
             try {
                 link = text.split(" ")[0];
                 anu = await axios.get(`https://tinyurl.com/api-create.php?url=${link}`);
@@ -146,7 +146,7 @@ cmd({
         filename: __filename
     },
     async(Void, citel, text) => {
-        if (!citel.quoted) return citel.reply('_Need Media._')
+        if (!citel.quoted) return citel.reply(`_Need Media._`)
         let mime = citel.quoted.mtype
         let media = await Void.downloadAndSaveMediaMessage(citel.quoted);
         const { toAudio } = require('../lib')
