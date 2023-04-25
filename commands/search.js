@@ -102,7 +102,7 @@ cmd({
             filename: __filename,
         },
         async(Void, citel, text) => {
-            if (!text) return citel.reply("Provide me a sign!")
+            if (!text) return citel.reply(`Provide me a sign!`)
             try {
                 const URL = `https://aztro.sameerkumar.website/?sign=${text}&day=today`;
                 fetch(URL, {
@@ -139,8 +139,8 @@ cmd({
             filename: __filename,
         },
         async(Void, citel, text) => {
-            if (!text) throw `*Example : ${prefix}google Who is Suhail Tech.*`
-            let google = require('google-it')
+            if (!text) return citel.reply(`*Example : ${prefix}google Who is Suhail Tech.*`);
+            let google = require('google-it');
             google({ 'query': text }).then(res => {
                 let text = `Google Search From : ${text}\n\n`
                 for (let g of res) {
@@ -163,7 +163,7 @@ cmd({
             filename: __filename,
         },
         async(Void, citel, text) => {
-            if (!text) return citel.reply("Provide me a query!\n*e.x : .image luffy*")
+            if (!text) return citel.reply(`Provide me a query!\n*e.x : .image luffy*`)
  
             let name1 = text.split("|")[0] || `Luffy`
             let name2 = text.split("|")[1] || `10`
@@ -213,7 +213,7 @@ cmd({
     },
     async(Void, citel, text) => {
         var inputnumber = text.split(" ")[0]
-        if (!inputnumber.includes('x')) return citel.reply('*You did not add x*\nExample: iswa 9196285162xx \n\nSupprt : sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo')
+        if (!inputnumber.includes('x')) return citel.reply(`*You did not add x*\nExample: iswa 923184474176xx \n\nSupprt : sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo`)
         citel.reply(`*Searching for WhatsApp account in given range...* \n *Support PLease :*  \n www.youtube.com/c/SuhailTechInfo`)
 
         function countInstances(string, word) {
