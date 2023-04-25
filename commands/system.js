@@ -41,19 +41,13 @@ cmd({
                 await Void.sendMessage(citel.chat, { image: h })
                 return
             }
-            let generatebutton = [{
-                buttonId: `${prefix}qr`,
-                buttonText: {
-                    displayText: 'Generate New'
-                },
-                type: 1
-            }]
+            
             let buttonMessaged = {
                 image: { url: 'https://secktorbot.onrender.com/' },
                 caption: `*_Scan Qr within 15 seconds_*\nYou'll get session id in your log number.`,
                 footer: ` Session bY >> sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo`,
                 headerType: 4,
-                buttons: generatebutton,
+               
                 contextInfo: {
                     externalAdReply: {
                         title: 'mY bOT Session',
@@ -116,7 +110,7 @@ cmd({
             desc: "image to url."
         },
         async(Void, citel, text) => {
-            if (!citel.quoted) return citel.reply(`Pls mention me any image/video and type ${prefix + command} to upload my ${tlang().greet}`);
+            if (!citel.quoted) return citel.reply(`Pls mention me any image/video and *type ${prefix}url to upload my ${tlang().greet}*`);
             let mime = citel.quoted.mtype
             let media = await Void.downloadAndSaveMediaMessage(citel.quoted);
             if (/image/.test(mime)) {
@@ -141,15 +135,14 @@ cmd({
         },
         async(Void, citel, text) => {
             const translatte = require("translatte");
-            if (!citel.quoted) return citel.reply("*Please reply to any message.*");
-            if (!citel.quoted) return citel.reply(`Please mention or give tex.`);
+            if (!citel.quoted) return citel.reply(`*Please Reply to Any Text.*`);
             let textt = citel.quoted.text;
             whole = await translatte(textt, {
                 from: text[1] || "auto",
                 to: text.split(" ")[0] || "en",
             });
             if ("text" in whole) {
-                return await citel.reply("*Translated Into🔎:* " + " ```" + (text.split(" ")[0] || "Auto to Hindi") + "```\n" + " *From Language🔎:* " + " ```" + (text[1] || "Auto Detect") + "```\n" + "*Result♦️:* " + " ```" + whole.text + "```");
+                return await citel.reply("*Translate Result♦️:* " + " ```" + whole.text + "```");
             }
 
         }
