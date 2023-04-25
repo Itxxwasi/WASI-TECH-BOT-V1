@@ -10,7 +10,7 @@
  **/
 
 const moment = require('moment-timezone')
-const {fetchJson,cmd, tlang, prefix } = require('../lib')
+const {fetchJson,cmd, tlang, prefix, Config } = require('../lib')
 let gis = require("g-i-s");
 const axios = require('axios')
 const fetch = require('node-fetch')
@@ -66,7 +66,7 @@ cmd({
             filename: __filename,
         },
         async(Void, citel, text) => {
-            if (!text) return citel.reply("Give me location.Baka!!");
+            if (!text) return citel.reply(`Give me location.Baka!!`);
             let wdata = await axios.get(
                 `https://api.openweathermap.org/data/2.5/weather?q=${text}&units=metric&appid=060a6bcfa19809c2cd4d97a212b19273&language=en`
             );
@@ -139,7 +139,7 @@ cmd({
             filename: __filename,
         },
         async(Void, citel, text) => {
-            if (!text) return citel.reply(`*Example : ${prefix}google Who is Suhail Tech.*`);
+            if (!text) return citel.reply(`*Example : .google Who is Suhail Tech.*`);
             let google = require('google-it');
             google({ 'query': text }).then(res => {
                 let text = `Google Search From : ${text}\n\n`
@@ -163,7 +163,7 @@ cmd({
             filename: __filename,
         },
         async(Void, citel, text) => {
-            if (!text) return citel.reply(`Provide me a query!\n*e.x : .image luffy*`)
+            if (!text) return citel.reply(`Provide me a query!\n*Ex : .image luffy*`)
  
             let name1 = text.split("|")[0] || `Luffy`
             let name2 = text.split("|")[1] || `10`
