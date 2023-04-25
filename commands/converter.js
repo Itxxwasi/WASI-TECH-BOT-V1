@@ -26,7 +26,7 @@ cmd({
             const getRandom = (ext) => {
                 return `${Math.floor(Math.random() * 10000)}${ext}`
             }
-            if (!citel.quoted) return citel.reply('_Need Media._')
+            if (!citel.quoted) return citel.reply(`_Need Media._`)
             let mime = citel.quoted.mtype
             let media = await Void.downloadAndSaveMediaMessage(citel.quoted);
             let name = await getRandom('.png')
