@@ -39,7 +39,7 @@ cmd({
         async(Void, citel, text) => {
             if (!text && !citel.quoted)
             { 
-              citel.reply('*Please give me Sentence to change into audio.*\n ex: _.tts Hi,I am Secktor. A Bot Created By *Suhail Tech Info* ._');
+              citel.reply(`*Please give me Sentence to change into audio.*\n ex: _.tts Hi,I am Secktor. A Bot Created By *Suhail Tech Info* ._`);
              return;
             }
             if (!text) 
@@ -82,7 +82,7 @@ cmd({
                 listSerch.push({
                     title: i.title,
                     rowId: `${prefix}ytmp4 ${i.url}`,
-                    description: `Secktor / ${i.timestamp}`
+                    description: `*Suhail-MD* / ${i.timestamp}`
                 })
             }
             const sections = [
@@ -122,7 +122,7 @@ async(Void, citel, text) => {
         };
         
         if (text.length == 0 && !citel.quoted) {
-            citel.reply(`❌ URL is empty! \nSend ${prefix}play url or ${prefix}play back in black `);
+            citel.reply(`❌Give me a Query! \n  Type ${prefix}play url or ${prefix}play back in black `);
             return;
         }
         try {
