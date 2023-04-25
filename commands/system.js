@@ -21,7 +21,7 @@ cmd({
         },
         async(Void, citel, text,{ isCreator }) => {
             if (!isCreator) return citel.reply(tlang().owner)
-            if (!text) return citel.reply("🔍 Please provide me a valid gist url.")
+            if (!text) return citel.reply(`🔍 Please provide me a valid gist url.`)
             await addnote(text)
             return citel.reply(`New note ${text} added in mongodb.`)
 
@@ -79,7 +79,7 @@ cmd({
             desc: "Unbans banned user (from using bot)."
         },
         async(Void, citel, text,{ isCreator }) => {
-            if (!isCreator) return citel.reply("This command is onlt for my Owner")
+            if (!isCreator) return citel.reply(`This command is only for my Owner`)
             try {
                 let users = citel.mentionedJid ? citel.mentionedJid[0] : citel.msg.contextInfo.participant || false;
                 if (!users) return citel.reply("Please mention any user.❌")
