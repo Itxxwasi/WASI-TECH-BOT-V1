@@ -10,7 +10,7 @@
  **/
 
 const axios = require('axios')
-const { sck1, tiny, fancytext, listall,cmd } = require('../lib/')
+const { sck1, tiny, fancytext, listall,cmd , Config} = require('../lib/')
 const fs = require('fs-extra');
 const { exec } = require('child_process')
 
@@ -106,7 +106,7 @@ cmd({
                 let text = tiny(
                     "Fancy text generator\n\n*_______________________________*\n*Example: .fancy 32 Suhail Md*\n*_______________________________*\n\n"
                 );
-                listall("Suhail MD").forEach((txt, num) => {
+                listall("Suhail").forEach((txt, num) => {
                     text += `${(num += 1)} ${txt}\n`;
                 });
                 return await citel.reply(text);
