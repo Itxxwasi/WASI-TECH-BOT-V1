@@ -222,6 +222,7 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "retrive",
+	    alias: ["vv"],
             desc: "Copies and Forwords viewonce message.",
             category: "group",
             filename: __filename,
@@ -367,28 +368,13 @@ cmd({
 *📥 Total Messages* ${ttms}
 *Powered by ${tlang().title}*
 `;
-            const buttonsd = [{
-                    buttonId: `${prefix}rank`,
-                    buttonText: {
-                        displayText: "Rank",
-                    },
-                    type: 1,
-                },
-                {
-                    buttonId: `${prefix}help`,
-                    buttonText: {
-                        displayText: " Help",
-                    },
-                    type: 1,
-                },
-            ];
+            
             let buttonMessage = {
                 image: {
                     url: pfp,
                 },
                 caption: profile,
                 footer: tlang().footer,
-                buttons: buttonsd,
                 headerType: 4,
             };
             Void.sendMessage(citel.chat, buttonMessage, {
@@ -702,7 +688,8 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "hidetag",
+            pattern: "tag",
+	    alias:["hidetag"],
             alias: ["htag"],
             desc: "Tags everyperson of group without mentioning their numbers",
             category: "group",
