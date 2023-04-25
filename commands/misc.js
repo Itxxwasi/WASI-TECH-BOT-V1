@@ -9,7 +9,7 @@
  * @version 0.0.6
  **/
 
- const { tlang, getAdmin, prefix, Config, sck, fetchJson, runtime,cmd } = require('../lib')
+ const { tlang, getAdmin, prefix, Config, sck,sck1, fetchJson, runtime,cmd } = require('../lib')
  let { dBinary, eBinary } = require("../lib/binary");
 const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter");
  const fs = require('fs')
@@ -37,7 +37,7 @@ async(Void, citel, text,{ isCreator }) => {
  //---------------------------------------------------------------------------
 cmd({
     pattern: "goodbye",
-    alias: ["setGoodbye","setbye"],
+    alias: ["setgoodbye","setbye"],
     desc: "sets goodbye message in specific group.",
     category: "misc",
 },
@@ -212,23 +212,12 @@ async(Void, citel, text,{ isCreator }) => {
              const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
              if (!isAdmins) return citel.reply(tlang().admin)
              if (!isBotAdmins) return citel.reply(tlang().botadmin)
-             let buttons = [{
-                     buttonId: `${prefix}act nsfw`,
-                     buttonText: {
-                         displayText: "Turn On",
-                     },
-                     type: 1,
-                 },
-                 {
-                     buttonId: `${prefix}deact nsfw`,
-                     buttonText: {
-                         displayText: "Turn Off",
-                     },
-                     type: 1,
-                 },
-             ];
-             await Void.sendButtonText(citel.chat, buttons, `Activate nsfw:18+ commands`, Void.user.name, citel);
-         }
+            
+  
+  
+             if (checkgroup.nsfw == "true") return citel.reply(`*NSFW* is enabled in this Chat \n For deActive 18+ Commands *type ${prefix}deact nsfw*`);
+             else return citel.reply(`*NSFW* is Disabled in this Chat \n For Active 18+ Commands *type ${prefix}act nsfw*`);
+ }
      )
      //---------------------------------------------------------------------------
  cmd({
