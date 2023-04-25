@@ -110,7 +110,7 @@ cmd({
             desc: "image to url."
         },
         async(Void, citel, text) => {
-            if (!citel.quoted) return citel.reply(`Pls mention me any image/video and *type ${prefix}url to upload my ${tlang().greet}*`);
+            if (!citel.quoted){citel.reply(`Pls mention me any image/video and *type ${prefix}url to upload my ${tlang().greet}*`);return;}
             let mime = citel.quoted.mtype
             let media = await Void.downloadAndSaveMediaMessage(citel.quoted);
             if (/image/.test(mime)) {
