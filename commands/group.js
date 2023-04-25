@@ -39,7 +39,7 @@ cmd({
             alias: ["s"],
             desc: "Makes sticker of replied image/video.",
             category: "group",
-            use: '<reply to any image/video.>',
+            use: '<reply to any image/video.>'
         },
         async(Void, citel, text) => {
             if (!citel.quoted) return citel.reply(`*Mention any Image or video Sir.*`);
@@ -106,7 +106,7 @@ cmd({
             use: '<quote|reply|number>',
         },
         async(Void, citel, text,{ isCreator }) => {
-             if (!citel.isGroup) return citel.reply('This Command is only for group.')
+             if (!citel.isGroup) return citel.reply(`This Command is only for group.`)
             const groupAdmins = await getAdmin(Void, citel)
             const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
             if (!isAdmins) return citel.reply('This command is only for Admin.')
@@ -124,7 +124,7 @@ cmd({
         },
         async(Void, citel, text,{ isCreator }) => {
 
-            if (!citel.quoted) return citel.reply("Please reply to user");
+            if (!citel.quoted) return citel.reply(`Please reply to user`);
             if (!isCreator) citel.reply(tlang().owner);
             let users = citel.mentionedJid[0] ? citel.mentionedJid[0] : citel.quoted ? citel.quoted.sender : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
             await Void.updateBlockStatus(users, "unblock")
@@ -194,9 +194,7 @@ cmd({
             use: '<text>',
         },
         async(Void, citel, text) => {
-            if (!text) return reply(`Example : ${
-        prefix + command
-      } hello dev please add a downloader feature`);
+            if (!text) return reply(`Example : ${prefix}request hello dev please add a downloader feature`);
             textt = `*| REQUEST |*`;
             teks1 = `\n\n*User* : @${
     citel.sender.split("@")[0]
@@ -229,7 +227,7 @@ cmd({
             use: '<reply to a viewonce message.>',
         },
         async(Void, citel, text) => {
-            if (!citel.quoted) return reply("Please reply to any message Image or Video!");
+            if (!citel.quoted) return reply(`Please reply to any message Image or Video!`);
             let mime = citel.quoted.mtype
             if (/viewOnce/.test(mime)) {
                 const mtype = Object.keys(quoted.message)[0];
@@ -674,9 +672,9 @@ cmd({
             if (!citel.isGroup) citel.reply(tlang().group);
             if (!isAdmins) citel.reply(tlang().admin);
             if (!isBotAdmins) citel.reply(tlang().botadmin);
-            if (!citel.quoted) return citel.reply(`Send/Reply Image With Caption ${command}`);
-            if (!/image/.test(mime)) return citel.reply(`Send/Reply Image With Caption ${command}`);
-            if (/webp/.test(mime)) return citel.reply(`Send/Reply Image With Caption ${command}`);
+            if (!citel.quoted) return citel.reply(`Send/Reply Image With Caption ${cmd}`);
+            if (!/image/.test(mime)) return citel.reply(`Send/Reply Image With Caption ${cmd}`);
+            if (/webp/.test(mime)) return citel.reply(`Send/Reply Image With Caption ${cmd}`);
             let media = await Void.downloadAndSaveMediaMessage(citel.quoted);
             await Void.updateProfilePicture(citel.chat, {
                     url: media,
@@ -697,6 +695,7 @@ cmd({
             use: '<text>',
         },
         async(Void, citel, text) => {
+	    if(!text){text = citel.quoted.text;}
             if (!citel.isGroup) return citel.reply(tlang().group);
             const groupMetadata = citel.isGroup ? await Void.groupMetadata(citel.chat).catch((e) => {}) : "";
             const participants = citel.isGroup ? await groupMetadata.participants : "";
@@ -865,10 +864,10 @@ cmd({
             fromMe: true,
             category: "owner",
             filename: __filename,
-            use: '<quote/reply user.>',
+            use: '<quote/reply user.>'
         },
         async(Void, citel, text) => {
-            if (!citel.quoted) return citel.reply("Please reply to user");
+            if (!citel.quoted) return citel.reply(`Please reply to user`);
             if (!isCreator) citel.reply(tlang().owner);
             let users = citel.mentionedJid[0] ? citel.mentionedJid[0] : citel.quoted ? citel.quoted.sender : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
             await Void.updateBlockStatus(users, "block")
