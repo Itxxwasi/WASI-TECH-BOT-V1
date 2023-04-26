@@ -102,7 +102,7 @@ cmd({
     },
     async(Void, citel) => {
         let { data } = await axios.get('https://api.github.com/repos/SuhailTechInfo/Secktor-bot')
-        let cap = `Hey ${citel.pushName}\n
+        let cap = `
 *⭐ Total Stars:* ${data.stargazers_count} stars
 *🍽️ Forks:* ${data.forks_count} forks
 *🍁 Repo:* _https://github.com/SuhailTechInfo/Secktor-bot_
@@ -134,17 +134,17 @@ cmd({
         let cap = `
 ╔══════════════════════════╗
    ☞𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐓𝐎 𝐒𝐔𝐇𝐀𝐈𝐋 𝐓𝐄C𝐇 𝐈𝐍F𝐎☜
-╚══════════════════════════╝\n\n
+╚══════════════════════════╝\n
 *⭐ Youtube Content :* How To Create Whatsapp Bot
 *🍽️ Total Subscriber:* 2.45k Subscribers
-*🍁 Channel Link:* _https://youtube.com/c/SuhailTechInfo?sub_confirmation=1_\n\n 
+*🍁 Channel Link:* _https://youtube.com/c/SuhailTechInfo?sub_confirmation=1_\n
 ╭━━━━━━━━━━━━━━━━━━━━╮
 ┇  ╔═╦╗╔╦╗╔═╦═╦╦╦╦╗╔═╗
 ┇  ║╚╣║║║╚╣╚╣╔╣╔╣║╚╣═╣
 ┇  ╠╗║╚╝║║╠╗║╚╣║║║║║═╣
 ┇  ╚═╩══╩═╩═╩═╩╝╚╩═╩═╝
 ╰━━━━━━━━━━━━━━━━━━━━╯
-\n\n*Visit More About Wa-Bot:-*
+\n*Visit More About Wa-Bot:-*
  _www.github.com/SuhailTechInfo_ \n*𝐏𝐋𝐄𝐀𝐒𝐄 𝐒𝐔𝐏𝐏𝐎𝐑𝐓 𝐌𝐘 𝐘𝐎𝐔𝐓𝐔𝐁𝐄 𝐂𝐇𝐀𝐍𝐍𝐄𝐋*`
         let buttonMessaged = 
             {
