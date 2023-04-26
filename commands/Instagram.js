@@ -1,6 +1,7 @@
 const { Insta,cmd } = require('../lib')
 cmd({
         pattern: "insta",
+        alias  : ['ig'],
         desc: "download instagram post.",
         category: "downloader",
         filename: __filename
