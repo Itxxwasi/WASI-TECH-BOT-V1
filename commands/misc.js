@@ -254,6 +254,8 @@ async(Void, citel, text,{ isCreator }) => {
      //---------------------------------------------------------------------------
  cmd({
              pattern: "mp4fromurl",
+  
+             alias:['mp4down'],
              desc: "download mp4 from url.",
              category: "misc",
              use: '<url>',
@@ -496,6 +498,7 @@ let buttons = [{
              filename: __filename,
          },
          async(Void, citel, text) => {
+             let checkgroup = await sck.findOne({ id: citel.chat })
              if (!citel.isGroup) return citel.reply(tlang().group);
              const groupAdmins = await getAdmin(Void, citel)
              const botNumber = await Void.decodeJid(Void.user.id)
@@ -503,22 +506,12 @@ let buttons = [{
              const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
              if (!isAdmins) return citel.reply(tlang().admin)
              if (!isBotAdmins) return citel.reply(tlang().botadmin)
-             let buttons = [{
-                     buttonId: `${prefix}act antilink`,
-                     buttonText: {
-                         displayText: "Turn On",
-                     },
-                     type: 1,
-                 },
-                 {
-                     buttonId: `${prefix}deact antilink`,
-                     buttonText: {
-                         displayText: "Turn Off",
-                     },
-                     type: 1,
-                 },
-             ];
-             await Void.sendButtonText(citel.chat, buttons, `Activate antilink:Deletes Link + kick`, Void.user.name, citel);
+  
+              
+             if (checkgroup.antilink == "true") return citel.reply(`Antilink:Deletes Link + kick\n\n*Antilink* is enabled in this Chat \n For Disable Antilink Msg *type ${prefix}deact antilink*`);
+             else return citel.reply(`Antilink:Deletes Link + kick\n\n*Antilink* is Disabled in this Chat \n For Enable Antilink Msg *type ${prefix}act antilink*`);
+
+             await Void.sendButtonText(citel.chat, `Activate antilink:Deletes Link + kick`, Void.user.name, citel);
          }
      )
      //---------------------------------------------------------------------------
