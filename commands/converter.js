@@ -31,11 +31,9 @@ cmd({
             let media = await Void.downloadAndSaveMediaMessage(citel.quoted);
             let name = await getRandom('.png')
             exec(`ffmpeg -i ${media} ${name}`, (err) => {
-                let buffer = fs.readFileSync(ran)
+                let buffer = fs.readFileSync(trueFileName)
                 Void.sendMessage(citel.chat, { image: buffer }, { quoted: citel })
             })
-            fs.unlinkSync(media)
-            fs.unlinkSync(name)
         }
     )
     //---------------------------------------------------------------------------
