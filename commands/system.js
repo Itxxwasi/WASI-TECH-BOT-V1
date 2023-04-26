@@ -10,6 +10,7 @@
  **/
 
 const { addnote,cmd, sck1, delnote, allnotes, delallnote, tlang, botpic, runtime, prefix, Config  } = require('../lib')
+const {TelegraPh} =require('./scraper')
 const util = require('util');
     //---------------------------------------------------------------------------
 //                  ADD NOTE  COMMANDS
