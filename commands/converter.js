@@ -138,19 +138,20 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
         pattern: "toaudio",
+        alias:['mp3','tomp3'],
         desc: "changes type to audio.",
         category: "converter",
-        use: '<reply to any audio>',
+        use: '<reply to any Video>',
         filename: __filename
     },
-    async(Void, citel, text) => {
-        if (!citel.quoted) return citel.reply(`_Need Media._`)
+   async(Void, citel, text) => {
+        if (!citel.quoted) return citel.reply(`_Reply to Any Video_`);
         let mime = citel.quoted.mtype
         let media = await Void.downloadAndSaveMediaMessage(citel.quoted);
-        const { toAudio } = require('../lib')
-        let audio = await toAudio(media, 'mp4')
-        Void.sendMessage(citel.chat, { audio: audio, mimetype: 'audio/mpeg' }, { quoted: citel })
-        await fs.unlinkSync(media)
-        await fs.unlinkSync(audio)
+         const { toAudio } = require('../lib');
+         citel.reply(`_Please Wait_`);
+         let buffer = fs.readFileSync(trueFileName);
+        let audio = await toAudio(buffer);
+        Void.sendMessage(citel.chat, { audio: audio, mimetype: 'audio/mpeg' }, { quoted: citel });
     }
 )
