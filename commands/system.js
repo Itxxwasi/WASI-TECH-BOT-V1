@@ -128,7 +128,7 @@ cmd({
                 return citel.reply(util.format(anu));
             }
   return citel.reply (util.format(anu));
-            await fs.unlinkSync(trueFileName);
+
 
         }
     )
