@@ -113,7 +113,7 @@ cmd({
             desc: "image to url."
         },
         async(Void, citel, text) => {
-            if (!citel.quoted){citel.reply(`Pls mention me any image*`);return;}
+            if (!citel.quoted){citel.reply(`Pls mention me any image`);return;}
             let mime = citel.quoted.mtype
             let media = await Void.downloadAndSaveMediaMessage(citel.quoted);
             const fs = require('fs-extra');
