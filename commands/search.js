@@ -149,7 +149,8 @@ cmd({
                     msg+= `➣ Description : ${g.snippet}\n`;
                     msg+= `➣ Link : ${g.link}\n\n────────────────────────\n\n`;
                 }
-                citel.reply(msg);
+             
+                return citel.reply(msg);
             })
         }
     )
