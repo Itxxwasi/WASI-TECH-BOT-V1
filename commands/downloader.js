@@ -202,7 +202,7 @@ cmd({
             use: '<text|image name>',
         },
         async(Void, citel, text) => {
-            if (!text) return reply("What picture are you looking for?") && Void.sendMessage(citel.chat, {
+            if (!text) return citel.reply(`What picture are you looking for?`) && Void.sendMessage(citel.chat, {
                 react: {
                     text: '❌',
                     key: citel.key
@@ -211,20 +211,10 @@ cmd({
             try {
                 anu = await pinterest(text)
                 result = anu[Math.floor(Math.random() * anu.length)]
-                let buttons = [{
-                        buttonId: `${prefix}pint ${text}`,
-                        buttonText: {
-                            displayText: 'Next Image'
-                        },
-                        type: 1
-                    }
-
-                ]
                 let buttonMessage = {
                     image: { url: result },
                     caption: ` `,
                     footer: tlang().footer,
-                    buttons: buttons,
                     headerType: 4,
                     contextInfo: {
                         externalAdReply: {
@@ -247,25 +237,36 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "mediafire",
-            desc: "Downloads zip from Mediafire.",
+            alias :['mf','mfire'],
+            desc: "Downloads media from Mediafire.",
             category: "downloader",
             filename: __filename,
             use: '<url of mediafire>',
         },
         async(Void, citel, text) => {
             if (!text) return citel.reply(`Give link ${tlang().greet}`);
-            if (!isUrl(text.split(" ")[0]) && !text.split(" ")[0].includes("mediafire.com")) return citel.reply(`The link you provided is invalid`);
-            const baby1 = await mediafire(text);
-            if (baby1[0].size.split("MB")[0] >= 999) return citel.reply("*File Over Limit* " + util.format(baby1));
-            const result4 = `*Mᴇᴅɪᴀғɪʀᴇ Dᴏᴡɴʟᴏᴀᴅᴇʀ*
+            
+            if (!text.split(" ")[0].includes("mediafire.com")) return citel.reply(`The link you provided is invalid`);
+            let isUrl=text.split(" ")[0];
+            const baby1 = await mediafire(isUrl);
+            if (baby1[0].size.split("MB")[0] >= 999) return citel.reply(`*File Over Limit* ` + util.format(baby1));
+            let result4 = ` *Mᴇᴅɪᴀғɪʀᴇ Dᴏᴡɴʟᴏᴀᴅᴇʀ*
 *Nᴀᴍᴇ* : ${baby1[0].nama}
-*Sɪᴢᴇ* : ${baby1[0].size}
+*Sɪᴢᴇ* :${baby1[0].size}
 *Mɪᴍᴇ* : ${baby1[0].mime}
-*Lɪɴᴋ* : ${baby1[0].link}`;
-            citel.reply(`${result4}`);
-           
- return Void.sendMessage(citel.chat, { document: { url: baby1[0].link, }, fileName: baby1[0].nama, mimetype: baby1[0].mime, }, { quoted: citel, })
-                .catch((err) => citel.reply("could not found anything"));
+*Lɪɴᴋ* : ${isUrl}`;
+            //citel.reply(`${result4}`);
+            
+            let buttonMessaged = {
+                    document: { url: baby1[0].link, },
+                    caption: result4,
+                    fileName: baby1[0].nama,
+                    mimetype: baby1[0].mime,
+                    
+                }; 
+                
+ return await Void.sendMessage(citel.chat, buttonMessaged)
+                .catch((err) => citel.reply(`could not found anything`));
 
         }
     )
@@ -291,7 +292,7 @@ cmd({
                 listSerch.push({
                     title: i.title,
                     rowId: `${prefix}ytmp3 ${i.url}`,
-                    description: `Secktor / ${i.timestamp}`
+                    description: `*Suhail-MD* / ${i.timestamp}`
                 })
             }
             const sections = [
