@@ -133,24 +133,24 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "google",
+            alias :['search','gsearch'],
             category: "search",
             desc: "Sends info of given query from Google Search.",
             use: '<text>',
             filename: __filename,
         },
         async(Void, citel, text) => {
-            if (!text) return citel.reply(`*Example : .google Who is Suhail Tech.*`);
+            if (!text) return citel.reply(`give me a query\n*Example : .google Who is Suhail Tech.*`);
             let google = require('google-it');
-            google({ 'query': text }).then(res => {
-                let text = `Google Search From : ${text}\n\n`
+            google({ 'query': text}).then(res => {
+                let msg= `Google Search From : ${text} \n\n`;
                 for (let g of res) {
-                    text += `➣ *Title* : ${g.title}\n`
-                    text += `➣ *Description* : ${g.snippet}\n`
-                    text += `➣ *Link* : ${g.link}\n\n────────────────────────\n\n`
+                    msg+= `➣ Title : ${g.title}\n`;
+                    msg+= `➣ Description : ${g.snippet}\n`;
+                    msg+= `➣ Link : ${g.link}\n\n────────────────────────\n\n`;
                 }
-                citel.reply(text)
+                citel.reply(msg);
             })
-
         }
     )
     //---------------------------------------------------------------------------
