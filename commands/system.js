@@ -12,6 +12,7 @@
 const { addnote,cmd, sck1, delnote, allnotes, delallnote, tlang, botpic, runtime, prefix, Config  } = require('../lib')
 const {TelegraPh} = require('../lib/scraper')
 const util = require('util');
+const fs = require('fs-extra');
     //---------------------------------------------------------------------------
 //                  ADD NOTE  COMMANDS
 //---------------------------------------------------------------------------
@@ -115,16 +116,20 @@ cmd({
             if (!citel.quoted){citel.reply(`Pls mention me any image*`);return;}
             let mime = citel.quoted.mtype
             let media = await Void.downloadAndSaveMediaMessage(citel.quoted);
+            const fs = require('fs-extra');
             if (/image/.test(mime)) {
                 let anu = await TelegraPh(media);
                 return citel.reply(util.format(anu));
             } else if (!/image/.test(mime)) {
-                let anu = await TelegraPh(media);
-                await fs.unlinkSync(media);
+                
+             let buffer = fs.readFileSync(trueFileName)
+                let anu = await TelegraPh(buffer);
+                //await fs.unlinkSync(trueFileName));
                 return citel.reply(util.format(anu));
             }
   return citel.reply (util.format(anu));
-            await fs.unlinkSync(media);
+            await fs.unlinkSync(trueFileName);
+
         }
     )
     //---------------------------------------------------------------------------
