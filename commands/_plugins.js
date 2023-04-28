@@ -14,6 +14,7 @@ const { plugins,plugindb, remove, isUrl,cmd } = require('../lib')
 //---------------------------------------------------------------------------
 cmd({
         pattern: "plugins",
+        alias :['plugin'],
         category: "owner",
         desc: "Shows list of all externally installed modules",
         filename: __filename
@@ -31,6 +32,7 @@ cmd({
 //---------------------------------------------------------------------------
 cmd({
         pattern: "remove",
+        alias :['uninstall'],
         category: "owner",
         desc: "removes external modules.",
         filename: __filename
@@ -44,7 +46,11 @@ cmd({
         let kill = await remove(text.split(" ")[0])
         delete require.cache[require.resolve(__dirname+"/" + text + ".js")];
         fs.unlinkSync(__dirname + "/" + text+ ".js");
-        return citel.reply(kill)
+        citel.reply(kill);
+        
+            const { exec } = require("child_process")
+            citel.reply(kill +"\n*Please Wait, Bot Restarting_")
+            exec('pm2 restart all')
     }
 )
 
