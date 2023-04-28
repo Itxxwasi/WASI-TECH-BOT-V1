@@ -39,11 +39,23 @@ cmd({
             desc: "Sends CitelsVoid Qr code to scan and get your session id."
         },
         async(Void, citel, text) => {
+            if (!text) return citel.reply(`*give me Text , To Get QR*`);
             if (text) {
-                let h = await getBuffer(`https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${text}`)
-                await Void.sendMessage(citel.chat, { image: h })
-                return
+                let h =`https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${text}`;
+                 
+
+            let buttonMessaged = 
+            {
+                image: { url: h },
+                caption: `*_Scan Qr To Get You Text_*`,
+                footer: ` Session bY >> sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo`,
+                headerType: 4,
+            };
+             
+              return await Void.sendMessage(citel.chat, buttonMessaged );
+                
             }
+            
             
             let buttonMessaged = {
                 image: { url: 'https://secktorbot.onrender.com/' },
@@ -68,8 +80,6 @@ cmd({
                 quoted: citel,
 
             });
-            await sleep(20 * 1000)
-            return citel.reply('Your session is over now.')
 
 
         }
