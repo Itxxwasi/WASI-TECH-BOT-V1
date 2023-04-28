@@ -108,47 +108,48 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "url",
+            alias : ['createurl'],
             category: "misc",
             filename: __filename,
             desc: "image to url."
         },
         async(Void, citel, text) => {
-            if (!citel.quoted){citel.reply(`Pls mention me any image`);return;}
+            if (!citel.quoted){citel.reply(`Pls mention me any image/video and *type ${prefix}url to upload my ${tlang().greet}*`);return;}
             let mime = citel.quoted.mtype
             let media = await Void.downloadAndSaveMediaMessage(citel.quoted);
-            const fs = require('fs-extra');
-            if (/image/.test(mime)) {
+
                 let anu = await TelegraPh(media);
-                return citel.reply(util.format(anu));
-            } else if (!/image/.test(mime)) {
-                
-             let buffer = fs.readFileSync(trueFileName)
-                let anu = await TelegraPh(buffer);
-                //await fs.unlinkSync(trueFileName));
-                return citel.reply(util.format(anu));
-            }
-  return citel.reply (util.format(anu));
-
-
+                citel.reply(util.format(anu));
+                return await fs.unlinkSync(media);
         }
     )
     //---------------------------------------------------------------------------
 cmd({
             pattern: "trt",
+            alias :['translate'],
             category: "misc",
             filename: __filename,
             desc: "Translate\'s given text in desird language."
         },
         async(Void, citel, text) => {
             const translatte = require("translatte");
-            if (!citel.quoted) return citel.reply(`*Please Reply to Any Text.*`);
-            let textt = citel.quoted.text;
+            let lang = text.split(" ")[0];
+            let tex = text.split(",")[1];
+            let textt ;
+            if (!citel.quoted)
+            {           
+                        lang = text.split(",")[0];
+                        textt = tex;
+            }
+            else { textt = citel.quoted.text; }
+            if (!textt) return await citel.reply(`*Please Reply to Any Text with _${prefix}trt en*\n *OR* \n *give me text like _${prefix}trt ur , Who are you_*`);
+            
             whole = await translatte(textt, {
-                from: text[1] || "auto",
-                to: text.split(" ")[0] || "en",
+                from:"auto",
+                to: lang || "en",
             });
             if ("text" in whole) {
-                return await citel.reply("*Translate Result♦️:* " + " ```" + whole.text + "```");
+                return await citel.reply(whole.text);
             }
 
         }
