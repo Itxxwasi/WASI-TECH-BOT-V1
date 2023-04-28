@@ -7,8 +7,9 @@ const fetch = require('node-fetch');
 
 
 cmd({
-        pattern: "getallvar",
-        desc: "To restart bot",
+        pattern: "allvar",
+        alias:['getallvar','allvars'],
+        desc: "To get All  Heroku Vars",
         category: "tools",
         filename: __filename
     },
@@ -37,21 +38,20 @@ fetch(`https://api.heroku.com/apps/${appName}/config-vars`, { headers })
   })
   
   
-  .catch(error => console.error('Error retrieving app variables:', error));
-  return citel.reply('Error retrieving app variables:\n');
+.catch(error => citel.reply('Error retrieving app variable:'+ error));
   
 });
 //----------------------------------------------------------------------------------
 cmd({
         pattern: "setvar",
-        desc: "To restart bot",
+        desc: "To Set Heroku Vars",
         category: "tools",
         filename: __filename
     },
     
 async(Void, citel , text) => {
 
-if (!text) return citel.reply (`give me Variable Name\n*Example : ${prefix}setvar AUTO_READ_STATUS:true *`);
+if (!text) return citel.reply (`give me Variable Name\n*Example : ${prefix}setvar AUTO_READ_STATUS:true*`);
 
 const headers = 
         {
@@ -73,8 +73,41 @@ fetch(`https://api.heroku.com/apps/${appName}/config-vars`,
   .then(data => 
           {
                 console.log(data);
-                return citel.reply(`Variable *${varName}* has been updated.`);
+                return citel.reply(`Variable *${varName}* has been updated.\n*${varName} :* `);
            })
   
-  .catch(error => console.error('Error updating app variable:', error));
+.catch(error => citel.reply('Error Updating app variable:'+ error));
   });
+//-----------------------------------------------------------------------------------
+
+cmd({
+        pattern: "getvar",
+        desc: "To Get A Heroku Var",
+        category: "tools",
+        filename: __filename
+    },
+    
+async(Void, citel , text) => {
+        
+  if (!text) return citel.reply (`give me Variable Name\nExample : ${prefix}getvar AUTO_READ_STATUS`);
+
+const headers = {
+  'Accept': 'application/vnd.heroku+json; version=3',
+  'Authorization': `Bearer ${authToken}`
+};
+const varName = text
+
+
+fetch(`https://api.heroku.com/apps/${appName}/config-vars`, { headers })
+  .then(response => response.json())
+  .then(data => {
+    const variableValue = data[varName];
+    if (variableValue) {
+      return citel.reply(`*${varName} :* ${variableValue}`);
+    } else {
+      return citel.reply(`*${varName}* does not exist in *${appName}* app.`);
+    }
+  })
+  .catch(error => citel.reply('Error retrieving app variable:'+ error));
+  
+});
