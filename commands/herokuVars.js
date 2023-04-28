@@ -62,6 +62,8 @@ const headers =
 
 const varName = text.split(":")[0];
 const newVarValue = text.split(":")[1]; 
+        if (!newVarValue) return citel.reply (`Please give me Value After ':' \n*Example : ${prefix}setvar AUTO_READ_STATUS:true*`);
+        
 
 fetch(`https://api.heroku.com/apps/${appName}/config-vars`,
         {
