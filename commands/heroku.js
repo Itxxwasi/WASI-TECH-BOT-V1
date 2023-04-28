@@ -1,10 +1,7 @@
 
-const os = require('os')
 const fs = require("fs")
 const Config = require('../config')
 let { fancytext, tlang, tiny, runtime, formatp, botpic, prefix, sck1,cmd } = require("../lib");
-const long = String.fromCharCode(8206)
-const Secktor = require('../lib/commands')
 const axios = require('axios');
 
 const appName = Config.HEROKU_APP_NAME;
