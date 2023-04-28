@@ -8,7 +8,12 @@
  * @description : Secktor,A Multi-functional whatsapp bot.
  * @version 0.0.6
  **/
-const axios = require('axios');
+
+
+
+
+
+/**const axios = require('axios');
 const { tlang,cmd } = require('../lib')
 const { redeploy , getvar , delvar , getallvar , change_env , get_deployments} = require('../lib/koyeb')
 
@@ -30,7 +35,7 @@ cmd(
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 cmd(
   {
-    pattern: "getvar",
+    pattern: "koyebgetvar",
     desc: "get desired var from koyeb.",
     filename: __filename,
     category: "misc",
@@ -57,7 +62,7 @@ cmd(
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 cmd(
   {
-    pattern: "setvar",
+    pattern: "koyebsetvar",
     desc: "set var in koyeb.",
     filename: __filename,
     category: "misc",
@@ -74,7 +79,7 @@ cmd(
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 cmd(
   {
-    pattern: "delvar",
+    pattern: "koyebdelvar",
     desc: "delete var from koyeb.",
     filename: __filename,
     category: "misc",
@@ -87,3 +92,4 @@ cmd(
        let data = await delvar(text)
        return citel.reply(data)
   })
+**/
