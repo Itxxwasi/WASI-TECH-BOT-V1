@@ -17,12 +17,13 @@ pastebin = new PastebinAPI("EMWTMkQAVfJa9kM-MRUrxd5Oku1U7pgL");
 cmd({
         pattern: "pastebin",
         desc: "To check ping",
-        category: "general",
+        category: "converter",
         filename: __filename,
     },
-    async(Void, citel) => {
-        if(!citel.quoted) return citel.reply('Please quote any text to get link.')
-        let data = await pastebin.createPaste(citel.quoted.text, "Suhail Tech Info-Pastebin")
-        citel.reply('_Here is your link._\n'+data)
+    async(Void, citel,text) => {
+ if (!text) { text=citel.quoted.text;}
+        if(!text) return citel.reply('Please reply to any text to get link.');
+        let data = await pastebin.createPaste(text, "Suhail Tech Info");
+        return citel.reply('_Here is your link._\n'+data+'\n*Click to Get Your Text*');
     }
 );
