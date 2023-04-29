@@ -51,6 +51,7 @@
                    "heroku-client": "^3.1.0",
                    "tt_downloader": "^latest",
                    "tiktok-video-downloader":"^1.0.4",
+                   "fb-downloader-scrapper":"1.0.3",
                        "request": "^2.88.2",
                        "simple-git": "^3.15.1",
                        "@shineiichijo/marika": "^2.0.3",           
