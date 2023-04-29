@@ -18,7 +18,7 @@ const { exec } = require('child_process')
 cmd({
             pattern: "photo",
             desc: "Makes photo of replied sticker.",
-            category: "sticker",
+            category: "converter",
             use: '<reply to any gif>',
             filename: __filename
         },
