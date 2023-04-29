@@ -95,21 +95,22 @@ fbInfoVideo.getInfo(text)
 let vurl=info.video.url_video;
 // citel.reply('name:-------'+info.video.title);
 
-    let data  ="Video Name     : "+  info.video.title;
+      let data  ="*Video Name     :* "+  info.video.title;
 data +="\n*Video Views    :* "+  info.video.view;
 data +="\n*Video Comments :* "+  info.video.comment;
-	data +="\n*Video Likes    :*+info.video.reaction.like ";
-	data +="\n*Video Link     :* "+  vurl;
-//citel.reply("    *FACEBOOK DOWNLOADER*  \n"+data)
+	data +="\n*Video Likes    :* "+info.video.reaction.Like ;
+	//data +="\n*Video Link     :* "+  vurl;
+//citel.reply("    FACEBOOK DOWNLOADER  \n"+data)
 console.log(info);
                         let buttonMessage = {
                         video: {url:vurl},
                         mimetype: 'video/mp4',
                         fileName: info.video.title+`.mp4`,
-                        caption :"    *FACEBOOK DOWNLOADER 2*  \n"+data
+                        caption :"     *FACEBOOK DOWNLOADER 2*  \n"+data
                         
                     }
                  Void.sendMessage(citel.chat, buttonMessage, { quoted: citel });
+
 
 
 })
