@@ -38,7 +38,7 @@ cmd({
             pattern: "sticker",
             alias: ["s"],
             desc: "Makes sticker of replied image/video.",
-            category: "group",
+            category: "sticker",
             use: '<reply to any image/video.>'
         },
         async(Void, citel, text) => {
