@@ -12,6 +12,7 @@
 const { dare, truth, random_question } = require('../lib/truth-dare.js')
 const axios = require('axios')
 const { cmd } = require('../lib')
+const fetch = require('node-fetch');
     //---------------------------------------------------------------------------
 cmd({
             pattern: "question",
@@ -45,7 +46,41 @@ cmd({
             return await citel.reply(`${dare()}`);
         }
     )
-    //---------------------------------------------------------------------------
+//--------------------------------------------------------------------------------
+cmd({
+            pattern: "joke",
+            desc: "Sends Joke in chat.",
+            category: "fun",
+            filename: __filename,
+        },
+        async(Void, citel, text) => { 
+ 
+         fetch('https://v2.jokeapi.dev/joke/Any?type=single')
+         .then(response => response.json())
+         .then(data => {
+         citel.reply( '*joke :* '+data.joke); // prints a random joke to the console
+  })
+  .catch(error => {
+     return citel.reply ('Error fetching joke:' + error);
+  });
+        }
+    )
+
+//---------------------------------------------------------------------------
+cmd({
+            pattern: "joke2",
+            desc: "Sends Joke in chat.",
+            category: "fun",
+            filename: __filename,
+        },
+        async(Void, citel, text) => { 
+
+const response =await  fetch('https://official-joke-api.appspot.com/random_joke');
+  const joke= await response.json();
+citel.reply( `Joke: ${joke.setup}\nPunchline :  ${joke.punchline} `);
+
+})
+//---------------------------------------------------------------------------
 cmd({
         pattern: "fact",
         desc: "Sends fact in chat.",
