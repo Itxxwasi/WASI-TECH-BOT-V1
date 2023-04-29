@@ -18,7 +18,7 @@ const { exec } = require('child_process')
 cmd({
             pattern: "photo",
             desc: "Makes photo of replied sticker.",
-            category: "converter",
+            category: "sticker",
             use: '<reply to any gif>',
             filename: __filename
         },
@@ -41,7 +41,7 @@ cmd({
             pattern: "quotely",
             desc: "Makes Sticker of quoted text.",
             alias: ["q"],
-            category: "converter",
+            category: "sticker",
             use: '<reply to any message.>',
             filename: __filename
         },
@@ -104,7 +104,7 @@ cmd({
                 let text = tiny(
                     "Fancy text generator\n\n*_______________________________*\n*Example: .fancy 32 Suhail Md*\n*_______________________________*\n\n"
                 );
-                listall("Suhail").forEach((txt, num) => {
+                listall("Secktor").forEach((txt, num) => {
                     text += `${(num += 1)} ${txt}\n`;
                 });
                 return await citel.reply(text);
