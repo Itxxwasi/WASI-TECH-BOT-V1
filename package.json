@@ -49,6 +49,7 @@
                        "path": "^0.12.7",
                    "got": "11.8.3",
                    "heroku-client": "^3.1.0",
+                   "tt_downloader": "^latest"
                        "request": "^2.88.2",
                        "simple-git": "^3.15.1",
                        "@shineiichijo/marika": "^2.0.3",           
