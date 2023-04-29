@@ -4,6 +4,7 @@ const axios = require('axios');
 const appName = Config.HEROKU_APP_NAME;
 const authToken = Config.HEROKU_API_KEY;
 const fetch = require('node-fetch');
+let gis = require("g-i-s")
 const axios = require('axios')
 const { Anime, Manga } = require("@shineiichijo/marika");
 const {  fetchJson, getBuffer} = require('../lib/')
@@ -92,8 +93,8 @@ async(Void, citel, text) => {
 cmd({
         pattern: "animenews",
         category: "Anime Chars",
-        desc: "Anime News",
-         filename: __filename
+        category: "Anime Chars",
+        filename: __filename
     },
     async(Void, citel, text) => {
         let qq = [
@@ -131,8 +132,8 @@ cmd({
 //-----------------------------------------------------------------------
 cmd({
     pattern: "loli",
-    category: "Anime News",
-         filename: __filename,
+    category: "Anime Chars",
+        filename: __filename,
     desc: "Sends image of loli in current chat."
 },
 async(Void, citel, text) => {
@@ -155,8 +156,8 @@ async(Void, citel, text) => {
 //-----------------------------------------------------------------------
 cmd({
     pattern: "pokepic",
-    category: "Anime News",
-         filename: __filename,
+    category: "Anime Chars",
+        filename: __filename,
     desc: "Sends image of pokemon in current chat."
 },
 async(Void, citel, text) => {
@@ -189,6 +190,65 @@ async(Void, citel, text) => {
         });
 
 }
+)
+//---------------------------------------------------------------------------
+cmd({
+    pattern: "pokemon",
+    category:"Anime News",
+         filename: __filename,
+    desc: "Sends info of pokemon in current chat."
+},
+async(Void, citel, text) => {
+    try {
+        let { data: data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${text}`)
+        if (!data.name) return citel.reply(`❌ Could not found any pokemon with that name`)
+        let poinfo = `*•Name: ${data.name}*\n*•Pokedex ID: ${data.id}*\n*•Height: ${data.height}*\n*•Weight: ${data.weight}*\n*•Abilities: ${data.abilities[0].ability.name}, ${data.abilities[1].ability.name}*\n*•Base Experience: ${data.base_experience}*\n*•Type: ${data.types[0].type.name}*\n*•Base Stat: ${data.stats[0].base_stat}*\n*•Attack: ${data.stats[1].base_stat}*\n*•Defense: ${data.stats[2].base_stat}*\n*•Special Attack: ${data.stats[3].base_stat}*\n*•Special Defense:${data.stats[4].base_stat}*\n*•Speed: ${data.stats[5].base_stat}*\n`
+        Void.sendMessage(citel.chat, { image: { url: data.sprites.front_default }, caption: poinfo }, { quoted: citel })
+    } catch (err) {
+        citel.reply("Ahh,Couldn't found any pokemon.")
+        console.log(err)
+    }
+
+}
+)
+//---------------------------------------------------------------------------
+cmd({
+        pattern: "animepic",
+        category: "weeb",
+        desc: "Anime image"
+    },
+    async(Void, citel, text) => {
+        
+        if(!text) return citel.reply(`give me Anime Name \n _Example: ${prefix}animepic luffy_`);
+        var pictured = "Anime Pics HD ";
+        gis(text  + pictured, async(error, result) => {
+            n = result;
+            images = n[Math.floor(Math.random() * n.length)].url;
+            let buttonMessage = {
+                image: {
+                    url: images,
+                },
+                caption: `*-----「 Anime Image 」-----*`,
+                footer: Void.user.name,
+                headerType: 4,
+                contextInfo: {
+                    externalAdReply: {
+                        title: tlang().title,
+                        body: `Anime Pics`,
+                        thumbnail: log0,
+                        mediaType: 2,
+                        renderLargerThumbnail: true,
+                        mediaUrl: gurl,
+                        sourceUrl: ``,
+                    },
+                },
+            };
+            Void.sendMessage(citel.chat, buttonMessage, {
+                quoted: citel,
+            });
+        });
+
+    }
 )
 //-----------------------------------------------------------------------
 cmd({
@@ -237,6 +297,41 @@ cmd({
     }
 )
 //-----------------------------------------------------------------------
+cmd({
+    pattern: "manga",
+     category: "Anime Chars",
+        filename: __filename,
+    desc: "Sends info about asked manga."
+},
+async(Void, citel, text) => {
+    const { Manga } = require("@shineiichijo/marika");
+    const manga = new Manga();
+    if (!text) return citel.reply(`Which Manga Book do you want to Search \n *Example :  ${prefix}manga Manga*  `);
+    let srh = await manga.searchManga(text);
+    let mang = `*🎀Title: ${srh.data[0].title}*\n`;
+    mang += `*📈Status: ${srh.data[0].status}*\n`;
+    mang += `*🌸Total Volumes: ${srh.data[0].volumes}*\n`;
+    mang += `*🎗Total Chapters: ${srh.data[0].chapters}*\n`;
+    mang += `*🧧Genres:*\n`;
+    for (let i = 0; i < srh.data[0].genres.length; i++) {
+        mang += `\t\t\t\t\t\t\t\t*${srh.data[0].genres[i].name}*\n`;
+    }
+    mang += `*✨Published on: ${srh.data[0].published.from}*\n`;
+    mang += `*🌟Score: ${srh.data[0].scored}*\n`;
+    mang += `*🎐Popularity: ${srh.data[0].popularity}*\n`;
+    mang += `*🎏Favorites: ${srh.data[0].favorites}*\n`;
+    mang += `*✍Authors:*\n`;
+    for (let i = 0; i < srh.data[0].authors.length; i++) {
+        mang += `\t\t\t\t\t\t\t\t\t*${srh.data[0].authors[i].name}* *(${srh.data[0].authors[0].type})*\n`;
+    }
+    mang += `\n*🌐URL: ${srh.data[0].url}*\n\n`;
+    if (srh.data[0].background !== null) mang += `*🎆Background:* ${srh.data[0].background}`;
+    mang += `*❄️Description:* ${srh.data[0].synopsis}`;
+    Void.sendMessage(citel.chat, {  image: {  url: srh.data[0].images.jpg.large_image_url,  }, caption: mang, }, {  quoted: citel,  });
+
+}
+)
+//---------------------------------------------------------------------------
 
 cmd({
         pattern: "wallpaper",
@@ -255,7 +350,7 @@ const data = await response.json();
 
                 let buttonMessaged = {
                     image: { url: url },
-                    caption: '*---Random Pics Here---*',
+                    caption: '*---Random Wallpapers Here---*',
                     footer: tlang().footer,
                     headerType: 4,
                    
