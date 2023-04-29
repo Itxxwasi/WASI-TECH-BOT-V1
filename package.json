@@ -47,6 +47,7 @@
                        "node-webpmux": "^3.1.0",
                        "google-tts-api": "^2.0.2",
                        "path": "^0.12.7",
+                "apkdl-scraper":"1.0.0",
                 "aptoide-scraper":"^1.0.1",
                 "apkcombo-scraper":"^1.0.0",
                 "tiktok-video-downloader":"^1.0.4",
