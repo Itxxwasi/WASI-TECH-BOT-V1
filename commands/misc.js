@@ -20,6 +20,7 @@ const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter")
     alias:["setwelcome"],
     desc: "sets welcome message in specific group.",
     category: "misc",
+ filename: __filename
 },
 async(Void, citel, text,{ isCreator }) => {
     if (!isCreator) return citel.reply(tlang().owner)
@@ -40,6 +41,7 @@ cmd({
     alias: ["setgoodbye","setbye"],
     desc: "sets goodbye message in specific group.",
     category: "misc",
+ filename: __filename
 },
 async(Void, citel, text,{ isCreator }) => {
     if (!isCreator) return citel.reply(tlang().owner)
@@ -58,7 +60,7 @@ async(Void, citel, text,{ isCreator }) => {
              pattern: "attp",
              desc: "Makes glowing sticker of text.",
              category: "sticker",
-             filename: __filename,
+             filename: __filename
          },
          async(Void, citel, text) => {
              Void.sendMessage(citel.chat, {
@@ -76,7 +78,7 @@ async(Void, citel, text,{ isCreator }) => {
              pattern: "exec",
              desc: "Evaluates quoted code with given language.",
              category: "misc",
-             filename: __filename,
+             filename: __filename
          },
          async(Void, citel, text) => {
              try {
@@ -105,7 +107,7 @@ async(Void, citel, text,{ isCreator }) => {
              pattern: "readmore",
              desc: "Adds *readmore* in given text.",
              category: "misc",
-             filename: __filename,
+             filename: __filename
          },
          async(Void, citel, text) => {
              await citel.reply(text.replace(/\+/g, (String.fromCharCode(8206)).repeat(4001)))
@@ -118,7 +120,7 @@ async(Void, citel, text,{ isCreator }) => {
              alias:["take"],
              desc: "Makes sticker of replied image/video.",
              category: "sticker",
-             filename: __filename,
+             filename: __filename
          },
          async(Void, citel, text) => {
              if (!citel.quoted) return citel.reply(`*Mention any Image or video Sir.*`);
@@ -154,7 +156,7 @@ async(Void, citel, text,{ isCreator }) => {
              alias: ["runtime"],
              desc: "Tells runtime/uptime of bot.",
              category: "misc",
-             filename: __filename,
+             filename: __filename
          },
          async(Void, citel, text) => {
              const upt = runtime(process.uptime())
@@ -166,7 +168,7 @@ async(Void, citel, text,{ isCreator }) => {
              pattern: "wa",
              desc: "Makes wa me of quoted or mentioned user.",
              category: "misc",
-             filename: __filename,
+             filename: __filename
          },
          async(Void, citel, text) => {
              let users = citel.mentionedJid ? citel.mentionedJid[0].split('@')[0] : citel.quoted ? citel.quoted.sender.split('@')[0] : text.replace('@')[0]
@@ -179,7 +181,7 @@ async(Void, citel, text,{ isCreator }) => {
              pattern: "pick",
              desc: "Pics random user from Group",
              category: "misc",
-             filename: __filename,
+             filename: __filename
          },
          async(Void, citel, match) => {
              if (!match) return citel.reply("*Which type of User you want?*");
@@ -202,7 +204,7 @@ async(Void, citel, text,{ isCreator }) => {
              pattern: "nsfw",
              desc: "activates and deactivates nsfw.\nuse buttons to toggle.",
              category: "misc",
-             filename: __filename,
+             filename: __filename
          },
          async(Void, citel, text) => {
              let checkgroup = await sck.findOne({ id: citel.chat })
@@ -226,7 +228,7 @@ async(Void, citel, text,{ isCreator }) => {
              desc: "download mp4 from url.",
              category: "search",
              use: '<package name>',
-             filename: __filename,
+             filename: __filename
          },
          async(Void, citel, text) => {
              if (!text) return citel.reply('Please give me package name.📦')
@@ -242,7 +244,7 @@ async(Void, citel, text,{ isCreator }) => {
              desc: "Flips given text.",
              category: "misc",
              use: '<query>',
-             filename: __filename,
+             filename: __filename
          },
          async(Void, citel, text) => {
              if (!text) return citel.reply(`Example : ${prefix}fliptext Back in black`)
@@ -259,7 +261,7 @@ async(Void, citel, text,{ isCreator }) => {
              desc: "download mp4 from url.",
              category: "misc",
              use: '<url>',
-             filename: __filename,
+             filename: __filename
          },
          async(Void, citel, text) => {
              if (!text) return citel.reply(`Where's the link ?`);
@@ -289,7 +291,7 @@ async(Void, citel, text,{ isCreator }) => {
              pattern: "events",
              desc: "activates and deactivates events.\nuse buttons to toggle.",
              category: "misc",
-             filename: __filename,
+             filename: __filename
          },
          async(Void, citel, text) => {
              let checkgroup = await sck.findOne({ id: citel.chat })
@@ -312,7 +314,7 @@ async(Void, citel, text,{ isCreator }) => {
              desc: "Mixes two emojies.",
              category: "misc",
              use: '<query>',
-             filename: __filename,
+             filename: __filename
          },
          async(Void, citel, text,{ isCreator }) => {
              if (!text) return citel.reply(`Example : ${prefix}emix 😅,🤔`);
@@ -398,7 +400,7 @@ async(Void, citel, text,{ isCreator }) => {
              desc: "encode binary",
              category: "misc",
              use: '<query>',
-             filename: __filename,
+             filename: __filename
          },
          async(Void, citel, text,{ isCreator }) => {
              try {
@@ -418,7 +420,7 @@ async(Void, citel, text,{ isCreator }) => {
              desc: "decode binary",
              category: "misc",
              use: '<query>',
-             filename: __filename,
+             filename: __filename
          },
          async(Void, citel, text,{ isCreator }) => {
              try {
@@ -434,7 +436,7 @@ cmd({
   pattern: "bot",
   desc: "activates and deactivates bot.\nuse buttons to toggle.",
   category: "misc",
-  filename: __filename,
+  filename: __filename
 },
 async(Void, citel, text,{isCreator}) => {
   if (!citel.isGroup) return citel.reply(tlang().group);
@@ -495,7 +497,7 @@ let buttons = [{
              pattern: "antilink",
              desc: "activates and deactivates antilink.\nuse buttons to toggle.",
              category: "group",
-             filename: __filename,
+             filename: __filename
          },
          async(Void, citel, text) => {
              let checkgroup = await sck.findOne({ id: citel.chat })
