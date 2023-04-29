@@ -33,7 +33,7 @@ cmd({
 //-----------------------------------------------------------------------
 
 cmd({
-        pattern: "random",
+        pattern: "wallpaper",
         desc: "To get Random Pics",
         category: "Anime Chars",
         filename: __filename
