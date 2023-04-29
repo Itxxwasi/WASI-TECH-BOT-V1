@@ -51,14 +51,12 @@ cmd({
 let res = await fbdl1(text)
 //citel.reply("url :" +res.meta.title+"\n Duration "+ res.meta.duration);
 // console.log(res)
-
-  .then(res =>{
 let vurl=res.url[0].url;
 
     let data  ="*Video Name       :* "+ res.meta.title ;
 	data +="\n*Video Duration : *" + res.meta.duration ;
 	data +="\n*Video Link     :* "+  vurl;
-//citel.reply("    *FACEBOOK DOWNLOADER*  \n"+data)
+
                         let buttonMessage = {
                         video: {url:vurl},
                         mimetype: 'video/mp4',
@@ -69,16 +67,46 @@ let vurl=res.url[0].url;
                  Void.sendMessage(citel.chat, buttonMessage, { quoted: citel });
 
 
-})
-  .catch(err => {citel.reply("Error To Find Your Video\n *Please Check Your Video Url*");
-			console.error(err);})
 }
 )
+//---------------------------------------------------------------------------
+cmd({
+            pattern: "tiktok",
+		alias :  ['tkt'],
+            desc: "Downloads fb videos  .",
+            category: "downloader",
+            filename: __filename,
+            use: '<add fb url.>',
+        },
 
+        async(Void, citel, text) => {
+          if(!text) return citel.reply(`*_Please Give me tiktok Video Url_*`);
+	let txt = text.split(" ")[0];
+           
+            if (!txt.includes("tiktok.com")) {
+                citel.reply(`*_Give me Valid Tiktok Video Url!_*`);
+                return;
+const {  anydl1 } = require('vihangayt-any-dl') 
+let res = await anydl1(txt)
+//console.log(res)
 
+let vurl=res.url[0].url;
 
+    let data  ="*Video Name       :* "+ res.meta.title ;
+	data +="\n*Video Duration :* " + res.meta.duration ;
+	//data +="\n*Video Link     :* "+  vurl;
 
+                        let buttonMessage = {
+                        video: {url:vurl},
+                        mimetype: 'video/mp4',
+                        fileName: res.meta.title+`.mp4`,
+                        caption : "    *TIKTOK DOWNLOADER*  \n"+data
+                        
+                    }
+                 Void.sendMessage(citel.chat, buttonMessage, { quoted: citel });
 
+}
+    )
 //---------------------------------------------------------------------------
 cmd({
             pattern: "fb2",
@@ -96,12 +124,12 @@ let vurl=info.video.url_video;
 // citel.reply('name:-------'+info.video.title);
 
       let data  ="*Video Name     :* "+  info.video.title;
-data +="\n*Video Views    :* "+  info.video.view;
-data +="\n*Video Comments :* "+  info.video.comment;
-	data +="\n*Video Likes    :* "+info.video.reaction.Like ;
+	data +="\n*Video Views    :* "+  info.video.view;
+	data +="\n*Video Comments :* "+  info.video.comment;
+	//data +="\n*Video Likes    :* "+info.video.reaction.Like ;
 	//data +="\n*Video Link     :* "+  vurl;
 //citel.reply("    FACEBOOK DOWNLOADER  \n"+data)
-console.log(info);
+//console.log(info);
                         let buttonMessage = {
                         video: {url:vurl},
                         mimetype: 'video/mp4',
@@ -141,11 +169,11 @@ console.log(data);
          inf +="\n*App id        :* " +data.package;
          inf +="\n*App id        :* " +data.lastup;
          inf +="\n*App Size     :* " +data.size;
-         inf +="\n*App Link     :* " +data.dllink;
+        // inf +="\n*App Link     :* " +data.dllink;
          
                         let buttonMessage = {
                         document: {url : data.dllink},
-                        mimetype: '.apk',
+                        mimetype: 'apk',
                         fileName: data.name+`.apk`,
                         caption : inf
                         
