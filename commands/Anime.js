@@ -339,8 +339,6 @@ cmd({
 async(Void, citel, text) => {
     const client = new Anime();
     if (!text) return citel.reply(`Which Anime do you want to search?\n _Please give me a name._`);
-    
-    const client = new Anime();
     let anime = await client.searchAnime(text);
     let result = anime.data[0];
     //console.log(result);
