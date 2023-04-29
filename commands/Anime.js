@@ -1,8 +1,6 @@
 const Config = require('../config')
 let { fancytext, tlang, tiny, runtime, formatp, botpic, prefix, sck1,cmd } = require("../lib");
 const axios = require('axios');
-const appName = Config.HEROKU_APP_NAME;
-const authToken = Config.HEROKU_API_KEY;
 const fetch = require('node-fetch');
 let gis = require("g-i-s")
 const { Anime, Manga } = require("@shineiichijo/marika");
