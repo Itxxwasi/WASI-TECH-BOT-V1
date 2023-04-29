@@ -130,6 +130,30 @@ cmd({
 )
 //-----------------------------------------------------------------------
 cmd({
+    pattern: "loli",
+    category: "Anime News",
+         filename: __filename,
+    desc: "Sends image of loli in current chat."
+},
+async(Void, citel, text) => {
+    waifud = await axios.get("https://waifu.pics/api/sfw/shinobu");
+    var wbutss = [{
+        buttonId: `${prefix}loli`,
+        buttonText: {
+            displayText: `Next Loli✨`,
+        },
+        type: 1,
+    }, ];
+    let buttonsMessage = {
+        image: { url: waifud.data.url }
+    };
+    await Void.sendMessage(citel.chat, buttonsMessage, {
+        quoted: citel,
+    })
+}
+)
+//-----------------------------------------------------------------------
+cmd({
         pattern: "animewall",
         category: "Anime Chars",
         desc: "Anime Wallpaper Random",
