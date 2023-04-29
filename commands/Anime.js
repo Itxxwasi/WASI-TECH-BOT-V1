@@ -138,7 +138,7 @@ async(Void, citel, text) => {
 //-----------------------------------------------------------------------
 cmd({
     pattern: "pokepic",
-    category: "Anime Pics",,
+    category: "Anime Pics",
         filename: __filename,
     desc: "Sends image of pokemon in current chat."
 },
