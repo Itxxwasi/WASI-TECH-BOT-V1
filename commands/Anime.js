@@ -31,3 +31,31 @@ cmd({
     )
 
 //-----------------------------------------------------------------------
+
+cmd({
+        pattern: "random",
+        desc: "To get Random Pics",
+        category: "Anime Chars",
+        filename: __filename
+    },
+
+    async(Void, citel, text) => {
+
+
+const response = await fetch('https://api.unsplash.com/photos/random?client_id=72utkjatCBC-PDcx7-Kcvgod7-QOFAm2fXwEeW8b8cc');
+const data = await response.json();
+  const url =data.urls.regular
+  //citel.reply ('url here :'+url);
+
+                let buttonMessaged = {
+                    image: { url: url },
+                    caption: '*---Random Pics Here---*',
+                    footer: tlang().footer,
+                    headerType: 4,
+                   
+                };
+                return await Void.sendMessage(citel.chat, buttonMessaged);
+
+
+}
+   )
