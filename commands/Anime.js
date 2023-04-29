@@ -306,7 +306,7 @@ cmd({
 async(Void, citel, text) => {
     const { Manga } = require("@shineiichijo/marika");
     const manga = new Manga();
-    if (!text) return citel.reply(`Which Manga Book do you want to Search \n *Example :  ${prefix}manga Manga*  `);
+    if (!text) return citel.reply(`Which Manga do you want to Search? \n _Please give me a name._`);
     let srh = await manga.searchManga(text);
     let mang = `*🎀Title: ${srh.data[0].title}*\n`;
     mang += `*📈Status: ${srh.data[0].status}*\n`;
@@ -331,6 +331,56 @@ async(Void, citel, text) => {
 
 }
 )
+//----------------------------------------------------------------------------
+cmd({
+    pattern: "anime",
+    category: "weeb",
+    desc: "Searches Info about Anime and Provides result."
+},
+async(Void, citel, text) => {
+    const client = new Anime();
+    if (!text) return citel.reply(`Which Anime do you want to search?\n _Please give me a name._`);
+    
+    const client = new Anime();
+    let anime = await client.searchAnime(text);
+    let result = anime.data[0];
+    //console.log(result);
+    let details = `🎀Title: ${result.title}\n`;
+    details += `🎋Format: ${result.type}\n`;
+    details += `*📈Status: ${result.status
+    .toUpperCase()
+    .replace(/\_/g, " ")}*\n`;
+    details += `🍥Total episodes: ${result.episodes}\n`;
+    details += `🎈Duration: ${result.duration}\n`;
+    details += `🧧Genres:\n`;
+    for (let i = 0; i < result.genres.length; i++) {
+        details += `\t\t\t\t\t\t\t\t*${result.genres[i].name}*\n`;
+    }
+    details += `✨Based on: ${result.source.toUpperCase()}\n`;
+    details += `📍Studio:\n`;
+    for (let i = 0; i < result.studios.length; i++) {
+        details += `\t\t\t\t\t\t\t\t*${result.studios[i].name}*\n`;
+    }
+    details += `🎴Producers:\n`;
+    for (let i = 0; i < result.producers.length; i++) {
+        details += `\t\t\t\t\t\t\t\t\t\t*${result.producers[i].name}*\n`;
+    }
+    details += `💫Premiered on: ${result.aired.from}\n`;
+    details += `🎗Ended on: ${result.aired.to}\n`;
+    details += `🎐Popularity: ${result.popularity}\n`;
+    details += `🎏Favorites: ${result.favorites}\n`;
+    details += `🎇Rating: ${result.rating}\n`;
+    details += `🏅Rank: ${result.rank}\n\n`;
+    if (result.trailer.url !== null)
+        details += `♦Trailer: ${result.trailer.url}\n\n`;
+    details += `🌐URL: ${result.url}\n\n`;
+    if (result.background !== null)
+        details += `🎆Background: ${result.background}*\n\n`;
+    details += `❄Description: ${result.synopsis}`;
+
+ Void.sendMessage( citel.chat, { image: {  url: result.images.jpg.large_image_url, }, caption: details, }, { quoted: citel,});
+}
+   )
 //---------------------------------------------------------------------------
 
 cmd({
