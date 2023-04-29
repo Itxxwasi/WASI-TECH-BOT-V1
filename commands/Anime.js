@@ -5,7 +5,6 @@ const appName = Config.HEROKU_APP_NAME;
 const authToken = Config.HEROKU_API_KEY;
 const fetch = require('node-fetch');
 let gis = require("g-i-s")
-const axios = require('axios')
 const { Anime, Manga } = require("@shineiichijo/marika");
 const {  fetchJson, getBuffer} = require('../lib/')
 
