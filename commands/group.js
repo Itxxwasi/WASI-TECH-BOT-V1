@@ -19,6 +19,7 @@ cmd({
             pattern: "join",
             desc: "joins group by link",
             category: "owner",
+	 filename: __filename,
             use: '<group link.>',
         },
         async(Void, citel, text,{ isCreator }) => {
@@ -39,6 +40,7 @@ cmd({
             alias: ["s"],
             desc: "Makes sticker of replied image/video.",
             category: "sticker",
+filename: __filename,
             use: '<reply to any image/video.>'
         },
         async(Void, citel, text) => {
