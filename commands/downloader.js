@@ -44,14 +44,14 @@ cmd({
 fbInfoVideo.getInfo(text)
   .then(info =>{
 let vurl=info.video.url_video;
- citel.reply('name:-------'+info.video.title);
+// citel.reply('name:-------'+info.video.title);
 
     let data  ="Video Name     : "+  info.video.title;
 data +="\n*Video Views    :* "+  info.video.view;
 data +="\n*Video Comments :* "+  info.video.comment;
 	data +="\n*Video Likes    :*+info.video.reaction.like ";
 	data +="\n*Video Link     :* "+  vurl;
-citel.reply(" *FACEBOOK DOWNLOADER*  \n"+data)
+citel.reply("    *FACEBOOK DOWNLOADER*  \n"+data)
 console.log(info);
                         let buttonMessage = {
                         video: {url:vurl},
