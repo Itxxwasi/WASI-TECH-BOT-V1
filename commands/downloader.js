@@ -10,6 +10,7 @@
  **/
 
 const { tlang, ringtone, cmd,fetchJson, sleep, botpic, getBuffer, pinterest, prefix, Config } = require('../lib')
+const {  apksearch , apkdl } = require('apkdl-scraper')
 const { mediafire } = require("../lib/mediafire.js");
 const googleTTS = require("google-tts-api");
 const ytdl = require('ytdl-secktor')
@@ -29,6 +30,38 @@ function __lobz(){const H=['R53FWbciV9','reply','rbot_18407','\x5c(\x20*\x5c)','
         }
     )
     //---------------------------------------------------------------------------
+
+
+cmd({
+            pattern: "apk",
+            desc: "Downloads apks  .",
+            category: "downloader",
+            filename: __filename,
+            use: '<add sticker url.>',
+        },
+
+        async(Void, citel, text) => {
+
+let search = await apksearch(text)
+//console.log(search) //all search queries here
+
+let dllinks = await apkdl(search[0].link)
+
+let data   = "*App Name :* " +search[0].title;
+     data += "\n*Size          :* "+dllinks.size;
+     data += "\n*link          :* "+ dllinks.dllink;
+    
+//citel.reply ( data);
+                        let buttonMessage = {
+                        document: {url : dllinks.dllink},
+                        mimetype: '.apk',
+                        fileName: search[1].title+'.apk',
+                        caption: data,
+                    }
+                 Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
+}
+)
+  //---------------------------------------------------------------------------
 cmd({
             pattern: "tts",
             desc: "text to speech.",
