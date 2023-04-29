@@ -89,7 +89,7 @@ async(Void, citel, text) => {
 //-----------------------------------------------------------------------
 cmd({
         pattern: "animenews",
-       category: "Anime Pics",
+       category: "Anime Pics" ,
         desc: "Sends Anime News in chat",
         filename: __filename
     },
