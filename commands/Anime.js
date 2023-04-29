@@ -12,7 +12,7 @@ const {  fetchJson, getBuffer} = require('../lib/')
 cmd({
         pattern: "waifu",
         desc: "To get Waifu Random Pics",
-        category: "Anime Chars",
+        category: "Anime Pics",
         filename: __filename
     },
 
@@ -35,7 +35,7 @@ cmd({
 //-----------------------------------------------------------------------
 cmd({
     pattern: "neko",
-    category: "Anime Chars",
+    category: "Anime Pics",
     desc: "Sends a Neko Image in chat",
     filename: __filename
 },
@@ -72,7 +72,7 @@ async(Void, citel, text) => {
 //-----------------------------------------------------------------------
 cmd({
     pattern: "foxgirl",
-    category: "Anime Chars",
+    category: "Anime Pics",
     desc: "Sends image of Fox Girl in current chat.",
     filename: __filename
 },
@@ -91,8 +91,8 @@ async(Void, citel, text) => {
 //-----------------------------------------------------------------------
 cmd({
         pattern: "animenews",
-        category: "Anime Chars",
-        category: "Anime Chars",
+       category: "Anime Pics",
+        desc: "Sends Anime News in chat",
         filename: __filename
     },
     async(Void, citel, text) => {
@@ -131,7 +131,7 @@ cmd({
 //-----------------------------------------------------------------------
 cmd({
     pattern: "loli",
-    category: "Anime Chars",
+    category: "Anime Pics",
         filename: __filename,
     desc: "Sends image of loli in current chat."
 },
@@ -155,7 +155,7 @@ async(Void, citel, text) => {
 //-----------------------------------------------------------------------
 cmd({
     pattern: "pokepic",
-    category: "Anime Chars",
+    category: "Anime Pics",,
         filename: __filename,
     desc: "Sends image of pokemon in current chat."
 },
@@ -193,7 +193,7 @@ async(Void, citel, text) => {
 //---------------------------------------------------------------------------
 cmd({
     pattern: "pokemon",
-    category:"Anime News",
+    category: "Anime Pics",
          filename: __filename,
     desc: "Sends info of pokemon in current chat."
 },
@@ -213,7 +213,7 @@ async(Void, citel, text) => {
 //---------------------------------------------------------------------------
 cmd({
         pattern: "animepic",
-        category: "weeb",
+        category: "Anime Pics",
         desc: "Anime image"
     },
     async(Void, citel, text) => {
@@ -252,7 +252,7 @@ cmd({
 //-----------------------------------------------------------------------
 cmd({
         pattern: "animewall",
-        category: "Anime Chars",
+        category: "Anime Pics",
         desc: "Anime Wallpaper Random",
          filename: __filename
     },
@@ -298,7 +298,7 @@ cmd({
 //-----------------------------------------------------------------------
 cmd({
     pattern: "manga",
-     category: "Anime Chars",
+     category: "Anime Pics",
         filename: __filename,
     desc: "Sends info about asked manga."
 },
@@ -333,7 +333,7 @@ async(Void, citel, text) => {
 //----------------------------------------------------------------------------
 cmd({
     pattern: "anime",
-    category: "weeb",
+    category: "Anime Pics",
     desc: "Searches Info about Anime and Provides result."
 },
 async(Void, citel, text) => {
@@ -383,7 +383,7 @@ async(Void, citel, text) => {
 cmd({
         pattern: "wallpaper",
         desc: "To get Random Pics",
-        category: "Anime Chars",
+       category: "Anime Pics",
         filename: __filename
     },
 
