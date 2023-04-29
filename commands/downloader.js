@@ -61,7 +61,7 @@ let vurl=res.url[0].url;
 //citel.reply("    *FACEBOOK DOWNLOADER*  \n"+data)
                         let buttonMessage = {
                         video: {url:vurl},
-                        mimetype: '.mp4',
+                        mimetype: 'video/mp4',
                         fileName: res.meta.title+`.mp4`,
                         caption : "    *FACEBOOK DOWNLOADER*  \n"+data
                         
@@ -100,13 +100,13 @@ data +="\n*Video Views    :* "+  info.video.view;
 data +="\n*Video Comments :* "+  info.video.comment;
 	data +="\n*Video Likes    :*+info.video.reaction.like ";
 	data +="\n*Video Link     :* "+  vurl;
-citel.reply("    *FACEBOOK DOWNLOADER*  \n"+data)
+//citel.reply("    *FACEBOOK DOWNLOADER*  \n"+data)
 console.log(info);
                         let buttonMessage = {
                         video: {url:vurl},
-                        mimetype: '.mp4',
+                        mimetype: 'video/mp4',
                         fileName: info.video.title+`.mp4`,
-                        caption : data
+                        caption :"    *FACEBOOK DOWNLOADER 2*  \n"+data
                         
                     }
                  Void.sendMessage(citel.chat, buttonMessage, { quoted: citel });
