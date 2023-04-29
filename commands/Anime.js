@@ -154,6 +154,44 @@ async(Void, citel, text) => {
 )
 //-----------------------------------------------------------------------
 cmd({
+    pattern: "pokepic",
+    category: "Anime News",
+         filename: __filename,
+    desc: "Sends image of pokemon in current chat."
+},
+async(Void, citel, text) => {
+    const gis = require('g-i-s')
+        var pictured = "Pokemon Pics only HD ";
+        gis(text + pictured, async(error, result) => {
+            n = result;
+            images = n[Math.floor(Math.random() * n.length)].url;
+            let buttonMessage = {
+                image: {
+                    url: images,
+                },
+                caption: `*---「 Poke Pic 」---*`,
+                footer: Void.user.name,
+                headerType: 4,
+                contextInfo: {
+                    externalAdReply: {
+                        title: tlang().title,
+                        body: text,
+                        thumbnail: log0,
+                        mediaType: 2,
+                        mediaUrl: ``,
+                        sourceUrl: ``,
+                    },
+                },
+            };
+            Void.sendMessage(citel.chat, buttonMessage, {
+                quoted: citel,
+            });
+        });
+
+}
+)
+//-----------------------------------------------------------------------
+cmd({
         pattern: "animewall",
         category: "Anime Chars",
         desc: "Anime Wallpaper Random",
