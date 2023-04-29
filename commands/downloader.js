@@ -10,7 +10,7 @@
  **/
 
 const { tlang, ringtone, cmd,fetchJson, sleep, botpic, getBuffer, pinterest, prefix, Config } = require('../lib')
-const {  apksearch , apkdl } = require('apkdl-scraper')
+const {  search , download } = require('aptoide-scraper')
 const { mediafire } = require("../lib/mediafire.js");
 const googleTTS = require("google-tts-api");
 const ytdl = require('ytdl-secktor')
@@ -41,22 +41,24 @@ cmd({
         },
 
         async(Void, citel, text) => {
+          if(!text) return citel.reply(`*_Please Give Me App Name_*`);
+let searc = await search(text);
+console.log(searc);
+let data = await download(searc[0].id);
+console.log(data);
 
-let search = await apksearch(text)
-//console.log(search) //all search queries here
-
-let dllinks = await apkdl(search[0].link)
-
-let data   = "*App Name :* " +search[0].title;
-     data += "\n*Size          :* "+dllinks.size;
-     data += "\n*link          :* "+ dllinks.dllink;
-    
-//citel.reply ( data);
+     let  inf  ="App Name : " +data.name;
+         inf +="\n*App id        :* " +data.package;
+         inf +="\n*App id        :* " +data.lastup;
+         inf +="\n*App Size     :* " +data.size;
+         inf +="\n*App Link     :* " +data.dllink;
+         
                         let buttonMessage = {
-                        document: {url : dllinks.dllink},
+                        document: {url : data.dllink},
                         mimetype: '.apk',
-                        fileName: search[1].title+'.apk',
-                        caption: data,
+                        fileName: data.name+`.apk`,
+                        caption : inf
+                        
                     }
                  Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
 }
