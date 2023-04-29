@@ -255,16 +255,16 @@ async(Void, citel, text,{ isCreator }) => {
      )
      //---------------------------------------------------------------------------
  cmd({
-             pattern: "mp4fromurl",
+             pattern: "downmp4",
   
-             alias:['mp4down'],
+             alias:['mp4down','mp4fromurl'],
              desc: "download mp4 from url.",
-             category: "misc",
+             category: "downloader",
              use: '<url>',
              filename: __filename
          },
          async(Void, citel, text) => {
-             if (!text) return citel.reply(`Where's the link ?`);
+             if (!text) return citel.reply(`_give me Video Link ?_`);
              Void.sendMessage(citel.chat, {
                  video: {
                      url: text.split(" ")[0],
@@ -312,7 +312,7 @@ async(Void, citel, text,{ isCreator }) => {
  cmd({
              pattern: "emix",
              desc: "Mixes two emojies.",
-             category: "misc",
+             category: "sticker",
              use: '<query>',
              filename: __filename
          },
