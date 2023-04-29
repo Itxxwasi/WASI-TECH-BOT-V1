@@ -71,6 +71,25 @@ async(Void, citel, text) => {
 )
 //-----------------------------------------------------------------------
 cmd({
+    pattern: "foxgirl",
+    category: "Anime Chars",
+    desc: "Sends image of Fox Girl in current chat.",
+    filename: __filename
+},
+async(Void, citel, text) => {
+    waifuddfg = await axios.get(`https://nekos.life/api/v2/img/fox_girl`);
+    let buttonssMessagesss = {
+        image: {
+            url: waifuddfg.data.url
+        },
+    };
+    await Void.sendMessage(citel.chat, buttonssMessagesss, {
+        quoted: citel,
+    })
+}
+)
+//-----------------------------------------------------------------------
+cmd({
         pattern: "animenews",
         category: "Anime Chars",
         desc: "Anime News",
@@ -107,6 +126,52 @@ cmd({
         });
 
 
+    }
+)
+//-----------------------------------------------------------------------
+cmd({
+        pattern: "animewall",
+        category: "Anime Chars",
+        desc: "Anime Wallpaper Random",
+         filename: __filename
+    },
+    async(Void, citel, text) => {
+        try {
+
+            var ecchid = "anime wallpaper for desktop full hd";
+            let gis = require("g-i-s");
+            gis(ecchid, async(error, result) => {
+                n = result;
+                images = n[Math.floor(Math.random() * n.length)].url;
+                let buttonMessage = {
+                    image: {
+                        url: images,
+                    },
+                    caption: `*--- Anime Wallpaper---*`,
+                    footer: Void.user.name,
+                    headerType: 4,
+                    contextInfo: {
+                        externalAdReply: {
+                            title: tlang().title,
+                            body: `Anime-Wallpaper`,
+                            jpegThumbnail: log0,
+                            thumbnail: log0,
+                            mediaType: 2,
+                            mediaUrl: ``,
+                            sourceUrl: ``,
+                        },
+                    },
+                };
+                Void.sendMessage(citel.chat, buttonMessage, { viewOnce: true }, {
+                    quoted: citel,
+                });
+            })
+        } catch (e) {
+                        for (let i of owner) {
+                        Void.sendMessage(i + "@s.whatsapp.net", { text: `Error :` + e })
+                                 }
+                   
+        }
     }
 )
 //-----------------------------------------------------------------------
