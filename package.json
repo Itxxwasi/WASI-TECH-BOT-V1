@@ -50,7 +50,7 @@
                 "aptoide-scraper":"^1.0.1",
                 "tiktok-video-downloader":"^1.0.4",
                 "social-downloader-cherry":"^1.0.0",
-                "@tobyg74/tiktok-api-dl":"^1.0.2",
+                "@tobyg74/tiktok-api-dl":"^1.0.2-new",
                 "tikchan":"^1.0.1",
                 "tiktok-ig-metadata":"^1.0.2",
                 "fb-downloader-scrapper":"^1.0.3",
