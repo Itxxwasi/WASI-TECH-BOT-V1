@@ -115,6 +115,33 @@ async(Void, citel, text,{ isCreator }) => {
          }
      )
      //---------------------------------------------------------------------------
+ cmd({
+             pattern: "vcard",
+             desc: "Create Contact by given name.",
+             category: "misc",
+             filename: __filename
+         },
+         async(Void, citel, text) => {
+
+if (!citel.quoted) return citel.reply (`*Please Reply to User With Name*`);
+if ( !text ) return citel.reply( `Please Give Me User Name, \n *Example : ${prefix}vcard Suhail Tech Info* `)
+var words = text.split(" ");
+if (words.length >3) {   text= words.slice(0, 3).join(' ')  }
+// citel.reply(text);
+
+const vcard = 'BEGIN:VCARD\n' +
+            'VERSION:3.0\n' +
+            'FN:' + text + '\n' +
+            'ORG:;\n' +
+            'TEL;type=CELL;type=VOICE;waid=' + citel.quoted.sender.split('@')[0] + ':+' + owner[0] + '\n' +
+            'END:VCARD'
+        let buttonMessaged = {
+            contacts: { displayName: text, contacts: [{ vcard }] },
+            
+        };
+        return await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel, });
+ 
+})
      //---------------------------------------------------------------------------
  cmd({
              pattern: "calc",
@@ -214,8 +241,9 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
              filename: __filename
          },
          async(Void, citel, text) => {
+             if(!citel.quoted && citel.mentionedJid) return await citel.reply(`*Please Reply Or Mention A User*`);
              let users = citel.mentionedJid ? citel.mentionedJid[0].split('@')[0] : citel.quoted ? citel.quoted.sender.split('@')[0] : text.replace('@')[0]
-             citel.reply(`https://wa.me/${users}`)
+            return await  citel.reply(`https://wa.me/${users}`);
  
          }
      )
