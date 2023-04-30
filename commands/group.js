@@ -630,12 +630,12 @@ cmd({
 	let Group = await sck.findOne({ id: citel.chat });
             if (text.split(" ")[0] == "close" || text.split(" ")[0] == "mute" ) {
                 await Void.groupSettingUpdate(citel.chat, "announcement")
-                    .then((res) => return citel.reply (`Group Chat Muted :)`))
-                    .catch((err) => console.log(err));
+                    .then((res) => citel.reply(`Group Chat Muted`))
+                    .catch((err) => citel.reply("Error :" +err));
             } else if (text.split(" ")[0] === "open"||text.split(" ")[0] === "unmute") {
                 await Void.groupSettingUpdate(citel.chat, "not_announcement")
-                    .then((res) => return citel.reply(`Group Chat Unmuted :)`))
-                    .catch((err) => console.log(err));
+                    .then((res) => citel.reply(`Group Chat Unmuted`))
+                    .catch((err) => citel.reply("Error : " +err));
             } 
 else if(text=="Detail" || text=="Details" || text=="detail" || text=="details" ) 
 {
