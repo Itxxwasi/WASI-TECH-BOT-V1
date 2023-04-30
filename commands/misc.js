@@ -221,6 +221,14 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
      )
      //---------------------------------------------------------------------------
  cmd({
+             pattern: "mee",
+             desc: "Makes wa me for user.",
+             category: "misc",
+             filename: __filename
+         },
+         async(Void, citel, text) => {  let user = citel.sender.split('@')[0]  ; return await citel.reply( `https://wa.me/${user}` ); })
+     //---------------------------------------------------------------------------
+ cmd({
              pattern: "pick",
              desc: "Pics random user from Group",
              category: "misc",
