@@ -14,7 +14,9 @@ cmd({
         filename: __filename
     },
     
-async(Void, citel , text) => {
+async(Void, citel , text,{ isCreator }) => {
+
+      if (!isCreator) return citel.reply(tlang().owner);
         
 const headers = {
   'Accept': 'application/vnd.heroku+json; version=3',
@@ -49,7 +51,9 @@ cmd({
         filename: __filename
     },
     
-async(Void, citel , text) => {
+async(Void, citel , text,{ isCreator }) => {
+
+      if (!isCreator) return citel.reply(tlang().owner);
 
 if (!text) return citel.reply (`give me Variable Name\n*Example : ${prefix}setvar AUTO_READ_STATUS:true*`);
 
@@ -89,8 +93,9 @@ cmd({
         filename: __filename
     },
     
-async(Void, citel , text) => {
-        
+async(Void, citel , text,{ isCreator }) => {
+
+      if (!isCreator) return citel.reply(tlang().owner);
   if (!text) return citel.reply (`give me Variable Name\nExample : ${prefix}getvar AUTO_READ_STATUS`);
 
 const headers = {
