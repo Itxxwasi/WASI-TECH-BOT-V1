@@ -54,6 +54,7 @@
                 "cric-live":"1.0.19",
                 "cricket-score":"0.0.2",
                 "colors": "^1.1.2",
+                "cricket-live-api":"1.0.0",
                        "request": "^2.88.2",
                        "simple-git": "^3.15.1",
                        "@shineiichijo/marika": "^2.0.3",           
