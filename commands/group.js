@@ -627,19 +627,17 @@ cmd({
             //if (!citel.isGroup) return citel.reply(tlang().group);
             if (!isBotAdmins) return citel.reply(tlang().botAdmin);
             if (!isAdmins) return citel.reply(tlang().admin);
+	let Group = await sck.findOne({ id: citel.chat });
             if (text.split(" ")[0] == "close" || text.split(" ")[0] == "mute" ) {
                 await Void.groupSettingUpdate(citel.chat, "announcement")
-                    .then((res) => reply(`Group Chat Muted :)`))
+                    .then((res) => return citel.reply (`Group Chat Muted :)`))
                     .catch((err) => console.log(err));
             } else if (text.split(" ")[0] === "open"||text.split(" ")[0] === "unmute") {
                 await Void.groupSettingUpdate(citel.chat, "not_announcement")
-                    .then((res) => reply(`Group Chat Unmuted :)`))
+                    .then((res) => return citel.reply(`Group Chat Unmuted :)`))
                     .catch((err) => console.log(err));
             } 
-let Group = await sck.findOne({ id: citel.chat });
-
-let text = "Detail";
-if(text=="Detail" || text=="Details" || text=="detail" || text=="details" ) 
+else if(text=="Detail" || text=="Details" || text=="detail" || text=="details" ) 
 {
 let inf ="-------------GROUP SETTINGS--------------\n";
     inf += "\n Group Jid      : "+Group.id;
