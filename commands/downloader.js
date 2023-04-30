@@ -72,7 +72,7 @@ let vurl=res.url[0].url;
 //---------------------------------------------------------------------------
 cmd({
             pattern: "tiktok",
-		alias :  ['tkt'],
+		alias :  ['tt'],
             desc: "Downloads fb videos  .",
             category: "downloader",
             filename: __filename,
@@ -172,7 +172,7 @@ console.log(data);
          
                         let buttonMessage = {
                         document: {url : data.dllink},
-                        mimetype: 'apk',
+                        mimetype: 'application/vnd.android.package-archive',
                         fileName: data.name+`.apk`,
                         caption : inf
                         
