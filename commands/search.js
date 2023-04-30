@@ -131,6 +131,39 @@ cmd({
         }
     )
     //---------------------------------------------------------------------------
+
+cmd({
+            pattern: "cric",
+            alias :['search','gsearch'],
+            category: "search",
+            desc: "Sends info of given query from Google Search.",
+            use: '<text>',
+            filename: __filename,
+        },
+        async(Void, citel, text) => {
+
+          citel.reply (`*_Please Wait, Getting Cricket Info_*`);
+const response = await fetch('https://api.cricapi.com/v1/currentMatches?apikey=f68d1cb5-a9c9-47c5-8fcd-fbfe52bace78');
+  const dat = await response.json();
+console.log(dat);
+//citel.reply("Data Here"+dat.data[0].id);
+let text = "";
+for (let i=0 ; i <  dat.data.length; i++) {
+let j = i+1;
+text +=`\n*--------------------- MATCH ${i}-------------------*`;
+text +="\n*Match Name  :* "+ dat.data[i].name;
+text +="\n*Match Status  :* "+ dat.data[i].status;
+text +="\n*Match  Date   :* " + dat.data[i].dateTimeGMT ;
+text +="\n*Match Started :* " + dat.data[i].matchStarted;
+text +="\n*Match Ended:* " + dat.data[i].matchEnded;
+
+}
+ return await citel.reply( text);
+
+
+})
+
+//---------------------------------------------------------------------------
 cmd({
             pattern: "google",
             alias :['search','gsearch'],
