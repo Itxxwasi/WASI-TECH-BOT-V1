@@ -115,6 +115,49 @@ async(Void, citel, text,{ isCreator }) => {
          }
      )
      //---------------------------------------------------------------------------
+     //---------------------------------------------------------------------------
+ cmd({
+             pattern: "calc",
+             desc: "Adds *readmore* in given text.",
+             category: "misc",
+             filename: __filename
+         },
+         async(Void, citel, text) => {
+let func  =  text.split(";")[0];
+let num1  =  +text.split(";")[1];
+let num2  =  +text.split(";")[2];
+
+if (!text)
+{
+let txt="*--------------- CALCULATOR ----------------*\n";
+ txt +=" \nChoose An Operator From List  ";
+ txt +="\nFor Addittion    :  add ";
+ txt +="\nFor Subtraction :  sub";
+ txt +="\nFor  Multiply     :  mul";
+ txt +="\nFor division       :  div";
+ txt += `\n\n  Likewise :  ${prefix}calc add;10;50`;   
+  return citel.reply(txt)
+}
+else if (func == "add" )  {  let result = num1+num2;
+return citel.reply (`${num1} + ${ num2}  = ${result}` );
+}
+else if (func == "sub" ) { let result = num1-num2;
+return citel.reply (`${num1} - ${ num2}  = ${result}` );
+}
+else if (func == "mul" ) { let result = num1*num2;
+return citel.reply (`${num1} * ${ num2}  = ${result}` );
+}
+else if (func == "div" ) { let result = num1/num2;
+return citel.reply (`${num1} / ${ num2}  = ${result}` );
+}
+else
+ {
+return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
+}
+ 
+         }
+     )
+     //---------------------------------------------------------------------------
  cmd({
              pattern: "steal",
              alias:["take"],
