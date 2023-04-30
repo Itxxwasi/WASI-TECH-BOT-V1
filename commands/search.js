@@ -146,8 +146,7 @@ cmd({
 const response = await fetch('https://api.cricapi.com/v1/currentMatches?apikey=f68d1cb5-a9c9-47c5-8fcd-fbfe52bace78');
   const dat = await response.json();
 console.log(dat);
-//citel.reply("Data Here"+dat.data[0].id);
-let text = "";
+
 for (let i=0 ; i <  dat.data.length; i++) {
 let j = i+1;
 text +=`\n*--------------------- MATCH ${i}-------------------*`;
