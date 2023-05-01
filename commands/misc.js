@@ -90,7 +90,9 @@ async(Void, citel, text,{ isCreator }) => {
           if (!text) return citel.reply(`Give Coordinates To Send Location\n *Example:* ${prefix}location 24.121231,55.1121221`);
          let cord1 = parseFloat(text.split(',')[0])
          let cord2 = parseFloat(text.split(',')[1])
-if (cord1=="NaN" || cord2 ==  "NaN") return citel.reply("*Cordinates Not In Formate, Try Again*") 
+var c1 = cord1.toString();
+var c2 = cord2.toString();
+if(c1=="NaN" || c2 ==  "NaN") return citel.reply("*Cordinates Not In Formate, Try Again*") 
 
 
 let txt  = "----------LOCATION------------"
@@ -213,6 +215,9 @@ let func  =  text.split(";")[0];
 let num1  =  +text.split(";")[1];
 let num2  =  +text.split(";")[2];
 
+var c1 = num1.toString();
+var c2 = num2.toString();
+if(c1=="NaN" || c2 ==  "NaN") return citel.reply("*Numbers Are Not In Formate, Try Again*") 
 if (!text)
 {
 let txt="*--------------- CALCULATOR ----------------*\n";
