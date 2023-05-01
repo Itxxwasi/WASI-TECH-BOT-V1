@@ -136,6 +136,22 @@ cmd({
     )
     //---------------------------------------------------------------------------
     cmd({
+        pattern: "invite",
+        desc: "get group link.",
+        category: "group",
+        filename: __filename,
+    },
+	 async(Void, citel, text,{ isCreator }) => {
+	    var str1 = await Void.groupInviteCode(citel.chat)
+var str2 ="https://chat.whatsapp.com/"
+var mergedString = `${str2}${str1}`;
+citel.reply("*Group Invite Link Is Here* \n*"+mergedString+"*");
+	
+    }
+	)
+	
+    //---------------------------------------------------------------------------
+    cmd({
         pattern: "ujid",
         desc: "get jid of all user in a group.",
         category: "owner",
