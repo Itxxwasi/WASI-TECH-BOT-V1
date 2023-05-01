@@ -78,6 +78,32 @@ async(Void, citel, text,{ isCreator }) => {
  
          }
      )
+
+     //---------------------------------------------------------------------------
+ cmd({
+             pattern: "location",
+             desc: "Adds *readmore* in given text.",
+             category: "misc",
+             filename: __filename
+         },
+         async(Void, citel, text) => {
+          if (!text) return citel.reply(`Give Coordinates To Send Location\n *Example:* ${prefix}location 24.121231,55.1121221`);
+         let cord1 = parseFloat(text.split(',')[0])
+         let cord2 = parseFloat(text.split(',')[1])
+if (cord1=="NaN" || cord2 ==  "NaN") return citel.reply("*Cordinates Not In Formate, Try Again*") 
+
+
+let txt  = "----------LOCATION------------"
+   txt +=" \n Sending Location to Given Data: ";
+   txt +="\n Latitude     :  "+cord1;
+   txt +="\n Longitude  :  "+cord2;
+
+citel.reply (txt);
+
+
+              Void.sendMessage(citel.chat, { location: { degreesLatitude: cord1, degreesLongitude:cord2 } })
+ }
+     )
      //---------------------------------------------------------------------------
  cmd({
              pattern: "exec",
