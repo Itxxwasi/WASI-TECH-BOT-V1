@@ -108,6 +108,34 @@ async(Void, citel, text,{ isCreator }) => {
          }
      )
      //---------------------------------------------------------------------------
+
+ cmd({
+             pattern: "getpp",
+             desc: "Get Profile Pic For Given User",
+             category: "misc",
+             filename: __filename
+         },
+         async(Void, citel, text) => {
+
+if (!citel.quoted) return citel.reply (`*Please Reply To A User*`)
+const ppUrl = await Void.profilePictureUrl(citel.quoted.sender, 'image')
+  
+                let buttonMessaged = {
+
+                            //quoted: "923184474176@s.whatsapp.net", 
+                            //contextInfo: { forwardingScore: 1999999, isForwarded: false },
+                            image: { url: ppUrl },
+                            caption: '*---Profile Pic Is Here---*',
+                            footer: tlang().footer,
+                            headerType: 4,
+                   
+                };
+                return await Void.sendMessage(citel.chat, buttonMessaged);
+
+
+         }
+     )
+     //---------------------------------------------------------------------------
  cmd({
              pattern: "readmore",
              desc: "Adds *readmore* in given text.",
