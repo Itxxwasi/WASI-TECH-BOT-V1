@@ -9,7 +9,7 @@
  * @version 0.0.6
  **/
 
- const { tlang, getAdmin, prefix, Config, sck,sck1, fetchJson, runtime,cmd } = require('../lib')
+ const {tlang, getAdmin, prefix, Config, sck,sck1, fetchJson, runtime,cmd } = require('../lib')
  let { dBinary, eBinary } = require("../lib/binary");
 const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter");
  const fs = require('fs')
@@ -95,7 +95,7 @@ var c2 = cord2.toString();
 if(c1=="NaN" || c2 ==  "NaN") return citel.reply("*Cordinates Not In Formate, Try Again*") 
 
 
-let txt  = "----------LOCATION------------"
+let txt  = "*----------LOCATION------------*"
    txt +=" \n Sending Location to Given Data: ";
    txt +="\n Latitude     :  "+cord1;
    txt +="\n Longitude  :  "+cord2;
@@ -140,7 +140,7 @@ citel.reply (txt);
  cmd({
              pattern: "getpp",
              desc: "Get Profile Pic For Given User",
-             category: "misc",
+             category: "user",
              filename: __filename
          },
          async(Void, citel, text) => {
@@ -175,6 +175,56 @@ const ppUrl = await Void.profilePictureUrl(citel.quoted.sender, 'image')
  
          }
      )
+  //---------------------------------------------------------------------------
+cmd({
+            pattern: "whois",
+            desc: "Makes photo of replied sticker.",
+            category: "user",
+            use: '<reply to any gif>',
+            filename: __filename
+        },
+async(Void, citel, text) => {
+            if (!citel.quoted) return citel.reply(`Please Reply To A Person`);
+            var bio = await Void.fetchStatus(citel.quoted.sender);
+            var bioo = bio.status;
+            var setAt = bio.setAt.toString();
+            
+            var words = setAt.split(" ");
+            if(words.length > 3){ setAt= words.slice(0, 5).join(' ') ; }
+             
+            var num = citel.quoted.sender.split('@')[0];
+            let pfp;
+            try  {  pfp = await Void.profilePictureUrl(citel.quoted.sender, "image"); } 
+            catch (e) { pfp = 'https://telegra.ph/file/29a8c892a1d18fdb26028.jpg' ;  }
+            
+            let username = await sck1.findOne({ id: citel.quoted.sender })
+            var tname;
+            if (username.name && username.name !== undefined) 
+            {
+                tname = username.name
+            }
+            else 
+            {
+                tname = Void.getName(citel.quoted.sender)
+            }
+            
+           await Void.sendMessage(citel.chat, {
+                image: {   url: pfp  },
+                caption: `
+╔════◇
+║ *『Person's  Information』*
+║ 
+║ *🍫Name :* ${tname}
+║ *👤Num :* ${num}
+║ *🎐Bio    :*  ${bioo}
+║ *🌟SetAt :* ${setAt}
+║    *Keep Calm Dude🥳*    ◇
+╚════════════════╝
+`,
+            });
+
+        }
+    )
      //---------------------------------------------------------------------------
  cmd({
              pattern: "vcard",
