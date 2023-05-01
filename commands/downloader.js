@@ -160,9 +160,9 @@ cmd({
         async(Void, citel, text) => {
           if(!text) return citel.reply(`*_Please Give Me App Name_*`);
 let searc = await search(text);
-console.log(searc);
+//console.log(searc);
 let data = await download(searc[0].id);
-console.log(data);
+//console.log(data);
 
      let  inf  ="App Name : " +data.name;
          inf +="\n*App id        :* " +data.package;
