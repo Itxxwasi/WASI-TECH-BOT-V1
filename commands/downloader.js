@@ -10,7 +10,7 @@
  **/
 
 const { tlang, ringtone, cmd,fetchJson, sleep, botpic, getBuffer, pinterest, prefix, Config } = require('../lib')
-const {  search , download } = require('aptoide-scraper')
+
 const { mediafire } = require("../lib/mediafire.js");
 const fbInfoVideo = require('fb-info-video'); 
 const googleTTS = require("google-tts-api");
@@ -125,7 +125,7 @@ let vurl=info.video.url_video;
       let data  ="*Video Name     :* "+  info.video.title;
 	data +="\n*Video Views    :* "+  info.video.view;
 	data +="\n*Video Comments :* "+  info.video.comment;
-	//data +="\n*Video Likes    :* "+info.video.reaction.Like ;
+	data +="\n*Video Likes    :* "+info.video.reaction.Like ;
 	//data +="\n*Video Link     :* "+  vurl;
 //citel.reply("    FACEBOOK DOWNLOADER  \n"+data)
 //console.log(info);
@@ -159,7 +159,57 @@ cmd({
 
         async(Void, citel, text) => {
         return citel.reply("_This CMD is Under Maintenence, You Can Use it Later_");
-/*
+
+	const getRandom = (ext) => { return `${Math.floor(Math.random() * 10000)}${ext}`; };
+	let randomName = getRandom(".apk");
+	const filePath = `./${randomName}`;     // fs.createWriteStream(`./${randomName}`)
+        const {  search , download } = require('aptoide-scraper')
+	let searc = await search(text);          //console.log(searc);
+       let data = await download(searc[0].id);
+       const url = data.dllink;
+	 let  inf  ="*App Name :* " +data.name;
+         inf +="\n*App id        :* " +data.package;
+         inf +="\n*Last Up       :* " +data.lastup;
+         inf +="\n*App Size     :* " +data.size;
+        // inf +="\n*App Link     :* " +data.dllink;
+         
+
+axios.get(url, { responseType: 'stream' })
+  .then(response => {
+    const writer = fs.createWriteStream(filePath);
+    response.data.pipe(writer);
+
+    return new Promise((resolve, reject) => {
+      writer.on('finish', resolve);
+      writer.on('error', reject);
+    });
+  }).then(() => {
+	
+	let buttonMessage = {
+                        document: fs.readFileSync(filePath),
+                        mimetype: 'application/vnd.android.package-archive',
+                        fileName: data.name+`.apk`,
+                        caption : inf
+                        
+                    }
+                 Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
+
+    console.log('File downloaded successfully');
+
+  
+    fs.unlink(filePath, (err) => {
+      if (err) { console.error('Error deleting file:', err); } else { console.log('File deleted successfully'); } });
+  }) .catch(error => {
+    citel.reply('*_Apk not Found, Sorry_*')//:', error.message);
+  });
+	
+	
+	
+	
+	
+	
+	
+	/*
   if(!text) return citel.reply(`*_Please Give Me App Name_*`);
 let searc = await search(text);
 //console.log(searc);
