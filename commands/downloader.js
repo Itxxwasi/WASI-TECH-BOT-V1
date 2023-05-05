@@ -32,7 +32,7 @@ function __lobz(){const H=['R53FWbciV9','reply','rbot_18407','\x5c(\x20*\x5c)','
     )
   */
 //---------------------------------------------------------------------------
-cmd({
+/*cmd({
             pattern: "fb",
             desc: "Downloads fb videos  .",
             category: "downloader",
@@ -146,7 +146,7 @@ let vurl=info.video.url_video;
 }
 )
 
-
+*/
 //---------------------------------------------------------------------------
 
 cmd({
