@@ -54,6 +54,16 @@
      "required" :false,
      "value": "true"
     },
+"GROUP_MSGS_IN_LOGS": {
+    "description": "Fill the value true if you want to see Group Messages in Console.",
+     "required" :false,
+     "value": "false"
+    },
+"PM_MSGS_IN_LOGS": {
+    "description": "Fill the value true if you want to see Personal Messages in Console.",
+     "required" :false,
+     "value": "true"
+    },
       "READ_MESSAGE": {
     "description": "Fill the value true if you want bot to read all messages.",
      "required" :false,
