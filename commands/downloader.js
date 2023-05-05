@@ -193,7 +193,7 @@ axios.get(url, { responseType: 'stream' })
                         caption : inf
                         
                     }
-                 await Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
+                  Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
 
     console.log('File downloaded successfully');
 
