@@ -450,10 +450,9 @@ cmd({
         async(Void, citel, text) => {
             if (!text) return citel.reply(`Give link ${tlang().greet}`);
             
-            if (!text.split(" ")[0].includes("mediafire.com")) return citel.reply(`The link you provided is invalid`);
-            let isUrl=text.split(" ")[0];
+            if (!text.includes("mediafire.com")) return citel.reply(`The link you provided is invalid`);
+            let isUrl=text;
             const baby1 = await mediafire(isUrl);
-            if (baby1[0].size.split("MB")[0] >= 999) return citel.reply(`*File Over Limit* ` + util.format(baby1));
             let result4 = ` *Mᴇᴅɪᴀғɪʀᴇ Dᴏᴡɴʟᴏᴀᴅᴇʀ*
 *Nᴀᴍᴇ* : ${baby1[0].nama}
 *Sɪᴢᴇ* :${baby1[0].size}
