@@ -106,9 +106,11 @@ let vurl=res.url[0].url;
 
 }
     )
+    
+    */
 //---------------------------------------------------------------------------
 cmd({
-            pattern: "fb2",
+            pattern: "fb",
             desc: "Downloads fb videos  .",
             category: "downloader",
             filename: __filename,
@@ -133,7 +135,7 @@ let vurl=info.video.url_video;
                         video: {url:vurl},
                         mimetype: 'video/mp4',
                         fileName: info.video.title+`.mp4`,
-                        caption :"     *FACEBOOK DOWNLOADER 2*  \n"+data
+                        caption :"     *FACEBOOK DOWNLOADER*  \n"+data
                         
                     }
                  Void.sendMessage(citel.chat, buttonMessage, { quoted: citel });
@@ -141,12 +143,11 @@ let vurl=info.video.url_video;
 
 
 })
-  .catch(err => {citel.reply("Error To Find Your Video\n *Please Check Your Video Url*");
+  .catch(err => {citel.reply("Error, Video Not Found\n *Please Give Me A Valid Url*");
 			console.error(err);})
 }
 )
 
-*/
 //---------------------------------------------------------------------------
 
 cmd({
