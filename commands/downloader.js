@@ -158,7 +158,7 @@ cmd({
         },
 
         async(Void, citel, text) => {
-        return citel.reply("_This CMD is Under Maintenence, You Can Use it Later_");
+        if(!text )return citel.reply("*_Give me App Name_*");
 
 	const getRandom = (ext) => { return `${Math.floor(Math.random() * 10000)}${ext}`; };
 	let randomName = getRandom(".apk");
