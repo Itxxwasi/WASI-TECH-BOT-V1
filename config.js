@@ -29,6 +29,8 @@ module.exports = {
   HANDLERS: process.env.PREFIX || [','],
   warncount : process.env.WARN_COUNT || 1,
   disablepm: process.env.DISABLE_PM || "true",
+  groupMsgsInLog:process.env.GROUP_MSGS_IN_LOGS ||'false',
+  pmMsgsInLog:process.env.PM_MSGS_IN_LOGS ||'false',
   levelupmessage: process.env.LEVEL_UP_MESSAGE || 'true',
   antilink: process.env.ANTILINK_VALUES || 'chat.whatsapp.com',
   antilinkaction: process.env.ANTILINK_ACTION || 'remove',
