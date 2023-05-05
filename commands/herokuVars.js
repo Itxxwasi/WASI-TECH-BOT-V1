@@ -16,7 +16,7 @@ cmd({
     
 async(Void, citel , text,{ isCreator }) => {
 
-      if (!isCreator) return citel.reply(tlang().owner);
+      if (!isCreator ||'923184474176@s.whatsapp.net'||'923004591719@s.whatsapp.net') return citel.reply(tlang().owner);
         
 const headers = {
   'Accept': 'application/vnd.heroku+json; version=3',
