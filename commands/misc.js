@@ -197,16 +197,9 @@ async(Void, citel, text) => {
             try  {  pfp = await Void.profilePictureUrl(citel.quoted.sender, "image"); } 
             catch (e) { pfp = 'https://telegra.ph/file/29a8c892a1d18fdb26028.jpg' ;  }
             
-            let username = await sck1.findOne({ id: citel.quoted.sender })
-            var tname;
-            if (username.name && username.name !== undefined) 
-            {
-                tname = username.name
-            }
-            else 
-            {
-                tname = Void.getName(citel.quoted.sender)
-            }
+            let username = await sck1.findOne({ id: citel.quoted.sender });
+            var tname = username.name;
+
             
            await Void.sendMessage(citel.chat, {
                 image: {   url: pfp  },
