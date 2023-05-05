@@ -79,7 +79,7 @@ fetch(`https://api.heroku.com/apps/${appName}/config-vars`,
   .then(data => 
           {
                 console.log(data);
-                return citel.reply(`Variable *${varName}* has been updated.\n*${varName} :* `);
+                return citel.reply(`*${varName} updated Succesfully.*\n${varName}  :  ${newVarValue}`);
            })
   
 .catch(error => citel.reply('Error Updating app variable:'+ error));
