@@ -128,7 +128,7 @@ const imageSize = '256x256'
   //console.log(data)
 	let buttonMessage = {
 		image:{url:data.data[0].url},
-		caption : '*---Your DALL-E Responce---*'
+		caption : '*---Your DALL-E Result---*'
 	
 	}
 	
