@@ -22,14 +22,14 @@ const API_KEY = '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'
 cmd({
         pattern: "chat",
         desc: "chat with an AI",
-        category: "general",
+        category: "AI",
         use: '<Hii, Suhail Tech Info>',
         filename: __filename,
     },
     async(Void, citel,text) => 
     {
         let zx = text.length;
-        if (zx < 100) {
+        if (zx < 300) {
             let {data} = await axios.get(`http://api.brainshop.ai/get?bid=167991&key=aozpOoNOy3dfLgmB&uid=[${citel.sender.split("@")[0]}]&msg=[${text}]`);
             return citel.reply(data.cnt);  
     }
@@ -57,15 +57,19 @@ cmd({
     }
 )
 
+
+//---------------------------------------------------------------------------
 cmd({
         pattern: "gpt",
         desc: "chat with an AI",
-        category: "general",
+        category: "AI",
         use: '<Hii, Suhail Tech Info>',
         filename: __filename,
     },
     async(Void, citel,text) => 
     {
+	
+	if (Config.OPENAI_API_KEY=='') return citel.reply('You Dont Have OPENAI API KEY \nPlease Create OPEN API KEY from Given Link \nhttps://platform.openai.com/account/api-keys')
 	if (!text) return citel.reply(`Hey there! ${citel.pushName}. How are you doing these days?`); 
         const { Configuration, OpenAIApi } = require("openai");
         const configuration = new Configuration
@@ -88,6 +92,48 @@ cmd({
     }
 )
 
+
+//---------------------------------------------------------------------------
+cmd({
+        pattern: "dall",
+	alias : ['dalle','dall-e'],
+        desc: "chat with an AI",
+        category: "AI",
+        use: '<Hii, Suhail Tech Info>',
+        filename: __filename,
+    },
+    async(Void, citel,text) => 
+    {
+	if (Config.OPENAI_API_KEY=='') return citel.reply('You Dont Have OPENAI_API_KEY \nPlease Create OPEN API KEY from Given Link \nhttps://platform.openai.com/account/api-keys');
+	if (!text) return citel.reply(`*Give Me A Query To Get Dall-E Reponce ?*`); 
+const OPENAI_API_KEY = Config.OPENAI_API_KEY;
+const imageSize = '256x256'
+  const apiUrl = 'https://api.openai.com/v1/images/generations';
+  const response = await fetch(apiUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${OPENAI_API_KEY}`
+    },
+    body: JSON.stringify({
+      model: 'image-alpha-001',
+      prompt: text,
+      size: imageSize ,
+      response_format: 'url'
+    })
+  });
+
+  const data = await response.json();
+  //console.log(data)
+	let buttonMessage = {
+		image:{url:data.data[0].url},
+		caption : '*---Your DALL-E Responce---*'
+	
+	}
+	
+Void.sendMessage(citel.chat,{image:{url:data.data[0].url}})
+    }
+)
 
 
 //---------------------------------------------------------------------------
