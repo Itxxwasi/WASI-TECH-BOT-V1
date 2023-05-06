@@ -149,7 +149,7 @@ cmd({
         let mime = citel.quoted.mtype
         let media = await Void.downloadAndSaveMediaMessage(citel.quoted);
          const { toAudio } = require('../lib');
-         citel.reply(`_Please Wait_`);
+        // citel.reply(`_Please Wait_`);
          let buffer = fs.readFileSync(trueFileName);
         let audio = await toAudio(buffer);
         Void.sendMessage(citel.chat, { audio: audio, mimetype: 'audio/mpeg' }, { quoted: citel });
