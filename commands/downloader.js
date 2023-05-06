@@ -535,9 +535,9 @@ cmd({
             let no = 1;
             for (let i of search.all) 
 	    {
-                //textt += '*─── No : ${no++} ───*\n' 
-		textt += '*Title : ${i.title}*' //\n ♫Type : ${i.type}  \n🙈Views : ${i.views} \n⌛Duration : ${ i.timestamp }\n🌟Upload At : ${i.ago}\n👑Author : ${i.author.name}
-		textt += '\n*Url : ${i.url}* \n     *──────────────────*   \n';
+                //textt += `*─── No : ${no++} ───*\n`
+		textt += `*Title : ${i.title}*`    //\n ♫Type : ${i.type}  \n🙈Views : ${i.views} \n⌛Duration : ${ i.timestamp }\n🌟Upload At : ${i.ago}\n👑Author : ${i.author.name}
+		textt += `\n*Url : ${i.url}* \n     *──────────────────*   \n`;
             }
             return Void.sendMessage(citel.chat, {
                 image: {
