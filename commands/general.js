@@ -11,6 +11,7 @@
 
 const { tlang, botpic,cmd, prefix, runtime,Config } = require('../lib')
 const axios = require('axios')
+const fetch = require('node-fetch');
 const speed = require('performance-now')
 const API_KEY = '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'
 
