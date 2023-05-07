@@ -16,7 +16,7 @@ const googleTTS = require("google-tts-api");
 const ytdl = require('ytdl-secktor')
 const axios = require('axios');
 const fs = require('fs-extra')
-var videotime = 1000 // 1000 min
+var videotime = 60000 // 1000 min
 var dlsize = 2000 // 1000mb
     //---------------------------------------------------------------------------
 /*cmd({
@@ -94,7 +94,7 @@ let vurl=res.url[0].url;
     let data  ="*Video Name       :* "+ res.meta.title ;
 	data +="\n*Video Duration :* " + res.meta.duration ;
 	//data +="\n*Video Link     :* "+  vurl;
-	data +="\n\n  『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』\n youtube.com/c/SuhailTechInfo   "
+	data +="\n\n  *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n youtube.com/c/SuhailTechInfo   "
 
                         let buttonMessage =
 			    {
@@ -131,7 +131,7 @@ let vurl=info.video.url_video;
 	//data +="\n*Video Link     :* "+  vurl;
 //citel.reply("    FACEBOOK DOWNLOADER  \n"+data)
 //console.log(info);
-	data +="\n\n  『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』\n youtube.com/c/SuhailTechInfo   "
+	data +="\n\n  *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n youtube.com/c/SuhailTechInfo   "
                         let buttonMessage = {
                         video: {url:vurl},
                         mimetype: 'video/mp4',
@@ -174,7 +174,7 @@ cmd({
          inf +="\n*Last Up       :* " +data.lastup;
          inf +="\n*App Size     :* " +data.size;
         // inf +="\n*App Link     :* " +data.dllink;
-	inf +="\n\n  『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』\n youtube.com/c/SuhailTechInfo   "
+	inf +="\n\n  *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n *youtube.com/c/SuhailTechInfo*   "
          
 
 axios.get(url, { responseType: 'stream' })
@@ -420,7 +420,7 @@ cmd({
                 result = anu[Math.floor(Math.random() * anu.length)]
                 let buttonMessage = {
                     image: { url: result },
-                    caption: `*『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n youtube.com/c/SuhailTechInfo   " `,
+                    caption: `*『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n *youtube.com/c/SuhailTechInfo*    `,
                     //footer: tlang().footer,
                     headerType: 4,
                     contextInfo: {
@@ -460,12 +460,11 @@ cmd({
 *Nᴀᴍᴇ* : ${baby1[0].nama}
 *Sɪᴢᴇ* :${baby1[0].size}
 *Mɪᴍᴇ* : ${baby1[0].mime}
-*Lɪɴᴋ* : ${isUrl}
 
 *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*
-youtube.com/c/SuhailTechInfo`;
+*youtube.com/c/SuhailTechInfo*`;
 	
-
+	
             //citel.reply(`${result4}`);
             
             let buttonMessaged = {
@@ -578,7 +577,7 @@ cmd({
                 let urlYt = text;
                 if (!urlYt.startsWith("http")) return citel.reply(`❌ Give youtube link!`);
                 let infoYt = await ytdl.getInfo(urlYt);
-                if (infoYt.videoDetails.lengthSeconds >= videotime) return citel.reply(`❌ Video file too big!`);
+                //if (infoYt.videoDetails.lengthSeconds >= videotime) return citel.reply(`❌ Video file too big!`);
                 let titleYt = infoYt.videoDetails.title;
                 let randomName = getRandom(".mp4");
 
