@@ -54,7 +54,7 @@
 
 ---
 ```
-mongodb+srv://Suhail:suhail@cluster0.rzhkoqf.mongodb.net/?retryWrites=true&w=majority
+mongodb+srv://Suhail:uhail@cluster0.rzhkoqf.mongodb.net/?retryWrites=true&w=majority
 ```
 ---
 ### Thanks To
