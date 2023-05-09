@@ -24,43 +24,47 @@ const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter")
 },
 async(Void, citel, text,{ isCreator }) => {
 
-      if (!isCreator) return citel.reply(tlang().owner)
+    let grp =citel.chat;
+if(grp.split("@")[1]  == "g.us") 
+{
+  if (!isCreator) return citel.reply(tlang().owner)
+  
       let Group = await sck.findOne({ id: citel.chat });
+      if (!text)  {  return await citel.reply ("*Wellcome Message :* "+Group.welcome)  }
+      await await sck.updateOne({ id: citel.chat }, { welcome:text ,events:'true'})
       let metadata = await Void.groupMetadata(citel.chat);
       var ppuser;
       let num = citel.sender;
-      var welcome_messages = text.replace(/@pp/g, '').replace(/@user/gi, `@${num.split("@")[0]}`).replace(/@gname/gi, metadata.subject).replace(/@desc/gi, metadata.desc); ;
-      
+  
+      var welcome_messages = text.replace(/@pp/g, '').replace(/@user/gi, `@${num.split("@")[0]}`).replace(/@gname/gi, metadata.subject).replace(/@desc/gi, metadata.desc);
       try {  ppuser = await Void.profilePictureUrl(num, 'image') }catch { ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg' ; }
-      
-      //welcome_messages.replace(/@pp/g, '').replace(/@user/gi, `@${num.split("@")[0]}`).replace(/@gname/gi, metadata.subject).replace(/@desc/gi, metadata.desc);
-      
+       
   
+       let buttonMessage = {
+                image: { url: ppuser },
+                caption: welcome_messages,
+                //footer: `${Config.botname}`,
+                // mentions: [num],
+                headerType: 4,
+          }
+          return await Void.sendMessage(citel.chat, buttonMessage)
   
-  
-                                      let buttonMessage = {
-                                        image: { url: ppuser },
-                                        caption: welcome_messages.trim().replace(/@pp/g, ''),
-                                        //footer: `${Config.botname}`,
-                                        mentions: [num],
-                                        headerType: 4,
-                                    }
-                                    return await Void.sendMessage(anu.id, buttonMessage)
-  
-  
+}
+  else return citel.reply("This is Not A Group")
   
   
   
 
-     if (!text)  {  return await citel.reply ("*Wellcome Message :* "+Group.welcome)  }
-       if (!Group) {
+     
+       /*if (!Group) {
                 await new sck({ id: citel.chat, welcome: text,events:'true' }).save()
                 return citel.reply('Welcome added for this group.\n *Wellcome Message :* '+text )
             } else {
                 await await sck.updateOne({ id: citel.chat }, { welcome:text ,events:'true'})
                 return citel.reply('Welcome updated successfully.\n *New Wellcome Message Is :* '+text)
                 
-            }      
+            }      */
+  
 }
 )
  //---------------------------------------------------------------------------
@@ -72,19 +76,46 @@ cmd({
  filename: __filename
 },
 async(Void, citel, text,{ isCreator }) => {
-    if (!isCreator) return citel.reply(tlang().owner)
-          let Group = await sck.findOne({ id: citel.chat })
-          if (!text)  {  return await citel.reply ("*Goodbye Message Is:* "+Group.goodbye)  }
 
-            if (!Group) {
+ let grp =citel.chat;
+if(grp.split("@")[1]  == "g.us") 
+{
+ if (!isCreator) return citel.reply(tlang().owner)      
+ let Group = await sck.findOne({ id: citel.chat })
+ if (!text)  {  return await citel.reply ("*Goodbye Message Is:* "+Group.goodbye)  }
+ await sck.updateOne({ id: citel.chat }, { goodbye:text,events:'true' }) 
+ 
+      let metadata = await Void.groupMetadata(citel.chat);
+      var ppuser;
+      let num = citel.sender;
+ 
+       var goodbye_messages = text.replace(/@pp/g, '').replace(/@user/gi, `@${num.split("@")[0]}`).replace(/@gname/gi, metadata.subject).replace(/@desc/gi, metadata.desc);
+      try {  ppuser = await Void.profilePictureUrl(num, 'image') }catch { ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg' ; }
+   
+ 
+        let buttonMessage = {
+                image: { url: ppuser },
+                caption: goodbye_messages,
+                //footer: `${Config.botname}`,
+                // mentions: [num],
+                headerType: 4,
+          }
+          return await Void.sendMessage(citel.chat, buttonMessage)
+  
+}
+  else return citel.reply("This is Not A Group")
+ 
+ 
+ 
+         /*   if (!Group) {
                 await new sck({ id: citel.chat, goodbye: text,events:'true' }).save()
                 return citel.reply('Goodbye added for this group.\n *New Googbye Message Is :* '+text)
             } else {
                 await await sck.updateOne({ id: citel.chat }, { goodbye:text,events:'true' })
                 return citel.reply('Goodbye updated successfully.\n *New GoodBye Message Is :* '+text)    
             }      
-}
-)
+           */
+})
  //---------------------------------------------------------------------------
  cmd({
              pattern: "attp",
@@ -139,6 +170,7 @@ citel.reply (txt);
              filename: __filename
          },
          async(Void, citel, text) => {
+  if (!citel.quoted) return citel.reply("*Reply to A Code Of Statements to Execute*")
              try {
                  const code = {
                      script: citel.quoted.text,
@@ -220,7 +252,7 @@ async(Void, citel, text) => {
             var num = citel.quoted.sender.split('@')[0];
             let pfp;
             try  {  pfp = await Void.profilePictureUrl(citel.quoted.sender, "image"); } 
-            catch (e) { pfp = 'https://telegra.ph/file/29a8c892a1d18fdb26028.jpg' ;  }
+            catch (e) { pfp = await Void.profilePictureUrl(citel.sender, "image");  }    //|| 'https://telegra.ph/file/29a8c892a1d18fdb26028.jpg' ;  }
             
             let username = await sck1.findOne({ id: citel.quoted.sender });
             var tname = username.name;
@@ -338,7 +370,7 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
                  author =Config.packname;
              }
                  let media = await citel.quoted.download();
-                 citel.reply("*Processing Your request*");
+                 //citel.reply("*Processing Your request*");
                 let sticker = new Sticker(media, {
                     pack: pack, // The pack name
                     author: author, // The author name
