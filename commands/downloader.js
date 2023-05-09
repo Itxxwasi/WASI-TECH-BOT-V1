@@ -17,7 +17,7 @@ const ytdl = require('ytdl-secktor')
 const axios = require('axios');
 const fs = require('fs-extra')
 var videotime = 60000 // 1000 min
-var dlsize = 200 // 1000mb
+var dlsize = 150 // 1000mb
     //---------------------------------------------------------------------------
 /*cmd({
             pattern: "tgs",
@@ -168,13 +168,15 @@ cmd({
         const {  search , download } = require('aptoide-scraper')
 	let searc = await search(text);          //console.log(searc);
        let data = await download(searc[0].id);
+	const apkSize = parseInt(data.size);
+	if(apkSize > dlsize) return citel.reply(`❌ File size bigger than 150mb.`);
        const url = data.dllink;
 	 let  inf  ="*App Name :* " +data.name;
          inf +="\n*App id        :* " +data.package;
          inf +="\n*Last Up       :* " +data.lastup;
          inf +="\n*App Size     :* " +data.size;
         // inf +="\n*App Link     :* " +data.dllink;
-	inf +="\n\n  *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n *youtube.com/c/SuhailTechInfo*   "
+	inf +="\n\n   *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n *youtube.com/c/SuhailTechInfo*   "
          
 
 axios.get(url, { responseType: 'stream' })
@@ -203,7 +205,8 @@ axios.get(url, { responseType: 'stream' })
     fs.unlink(filePath, (err) => {
       if (err) { console.error('Error deleting file:', err); } else { console.log('File deleted successfully'); } });
   }) .catch(error => {
-    citel.reply('*_Apk not Found, Sorry_*')//:', error.message);
+	fs.unlink(filePath)
+    return citel.reply('*_Apk not Found, Sorry_*')//:', error.message);
   });
 	
 	
