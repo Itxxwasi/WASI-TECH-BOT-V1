@@ -26,6 +26,31 @@ async(Void, citel, text,{ isCreator }) => {
 
       if (!isCreator) return citel.reply(tlang().owner)
       let Group = await sck.findOne({ id: citel.chat });
+      let metadata = await Void.groupMetadata(citel.chat);
+      var ppuser;
+      let num = citel.sender;
+      var welcome_messages = text.replace(/@pp/g, '').replace(/@user/gi, `@${num.split("@")[0]}`).replace(/@gname/gi, metadata.subject).replace(/@desc/gi, metadata.desc); ;
+      
+      try {  ppuser = await Void.profilePictureUrl(num, 'image') }catch { ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg' ; }
+      
+      //welcome_messages.replace(/@pp/g, '').replace(/@user/gi, `@${num.split("@")[0]}`).replace(/@gname/gi, metadata.subject).replace(/@desc/gi, metadata.desc);
+      
+  
+  
+  
+                                      let buttonMessage = {
+                                        image: { url: ppuser },
+                                        caption: welcome_messages.trim().replace(/@pp/g, ''),
+                                        //footer: `${Config.botname}`,
+                                        mentions: [num],
+                                        headerType: 4,
+                                    }
+                                    return await Void.sendMessage(anu.id, buttonMessage)
+  
+  
+  
+  
+  
 
      if (!text)  {  return await citel.reply ("*Wellcome Message :* "+Group.welcome)  }
        if (!Group) {
