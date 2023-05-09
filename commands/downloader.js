@@ -17,7 +17,7 @@ const ytdl = require('ytdl-secktor')
 const axios = require('axios');
 const fs = require('fs-extra')
 var videotime = 60000 // 1000 min
-var dlsize = 2000 // 1000mb
+var dlsize = 200 // 1000mb
     //---------------------------------------------------------------------------
 /*cmd({
             pattern: "tgs",
@@ -610,7 +610,7 @@ cmd({
                  Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
                  return fs.unlinkSync(`./${randomName}`);
                 } else {
-                    citel.reply(`❌ File size bigger than 1GB.`);
+                    citel.reply(`❌ File size bigger than 200mb.`);
                 }
                 return fs.unlinkSync(`./${randomName}`);      
             } catch (e) {
@@ -677,7 +677,7 @@ cmd({
                 await Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
                 return fs.unlinkSync(`./${randomName}`);
             } else {
-                citel.reply(`❌ File size bigger than 100mb.`);
+                citel.reply(`❌ File size bigger than 200mb.`);
             }
             fs.unlinkSync(`./${randomName}`);
         } catch (e) {
@@ -753,7 +753,7 @@ cmd({
                 await Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
                 return fs.unlinkSync(`./${randomName}`);
             } else {
-                citel.reply(`❌ File size bigger than 100mb.`);
+                citel.reply(`❌ File size bigger than 200mb.`);
             }
             fs.unlinkSync(`./${randomName}`);
         } catch (e) {
