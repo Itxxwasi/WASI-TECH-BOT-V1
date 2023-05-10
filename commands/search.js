@@ -197,30 +197,29 @@ cmd({
         },
         async(Void, citel, text) => {
             if (!text) return citel.reply(`Provide me a query!\n*Ex : .image luffy*`)
- 
+            let buttonMessage = {}
             let name1 = text.split("|")[0] || `Luffy`
             let name2 = text.split("|")[1] || `10`
+
+            let num = text.split("|")[1];
             citel.reply(`Sending images of ${name1} in chat`)
             let nn = name2
             for (let i = 0; i < nn; i++) {
-
-                gis(name1, async(error, result) => {
-                    n = result;
-                    images = n[Math.floor(Math.random() * n.length)].url;
-                    let buttonMessage = {
-                        image: {
-                            url: images,
-                        },
-                        caption: ` sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo `,
-                        headerType: 4,
-                    };
-                    Void.sendMessage(citel.chat, buttonMessage, {
-                        quoted: citel,
-                    });
+            gis(name1, async(error, result) => { 
+            n = result;
+            images = n[Math.floor(Math.random() * n.length)].url;
+            
+             
+             if(!num){ buttonMessage = {   image: { url: images },
+                                caption: ` sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo `,
+                                }
+             }else {  buttonMessage = {   image: { url: images },}   }
+                    
+             
+             Void.sendMessage(citel.chat, buttonMessage, { quoted: citel });
                 })
             }
-        }
-    )
+ })
     //---------------------------------------------------------------------------
 cmd({
             pattern: "couplepp",
