@@ -561,16 +561,25 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
          },
          async(Void, citel, text,{ isCreator }) => {
              if (!text) return citel.reply(`Example : ${prefix}emix 😅,🤔`);
-             let [emoji1, emoji2] = text.split `,`;
-             let anu = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1 )}_${encodeURIComponent(emoji2)}`);
+             let emoji1 = text.split(",")[0] ;
+             let emoji2 = text.split(",")[1];
+            /* //let [emoji1, emoji2] = text.split `,`;
+             let anu = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${emoji1}_${emoji2}`);
              for (let res of anu.results) {
-                 let encmedia = await Void.sendImageAsSticker(citel.chat, res.url, citel, {
-                     packname: global.packname,
-                     author: global.author,
-                     categories: res.tags,
-                 });
+                 let encmedia = await Void.sendImageAsSticker(citel.chat, res.url, citel, { packname: global.packname, author: global.author });
+                    // categories: res.tags,
+                 
                  await fs.unlinkSync(encmedia);
-             }
+             }*/
+  
+  const response = await fetch(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${emoji1}_${emoji2}`);
+  const data = await response.json();
+//console.log("Url Here  : " ,data.results[0].url)
+let res = data.locale;;
+  if(res=="") return citel.reply(`*Can't Create Mixture, Please Try Other Emojies*`)
+  else return Void.sendMessage(citel.chat,{image:{url:data.results[0].url}})
+   
+  
          }
      )
      //---------------------------------------------------------------------------
