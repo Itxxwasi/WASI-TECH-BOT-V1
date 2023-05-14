@@ -31,7 +31,7 @@ cmd({
 }
     )
 //-----------------------------------------------------------------------
-cmd({
+/*cmd({
     pattern: "neko",
     category: "Anime Pics",
     desc: "Sends a Neko Image in chat",
@@ -51,7 +51,7 @@ async(Void, citel, text) => {
         quoted: citel,
     })
 }
-)
+)*/
 //-----------------------------------------------------------------------
 cmd({
     pattern: "foxgirl",
