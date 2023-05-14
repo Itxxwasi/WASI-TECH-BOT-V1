@@ -745,6 +745,7 @@ cmd({
             use: '<text>',
         },
         async(Void, citel, text) => {
+	if(!text && !citel.quoted) return citel.reply(`*Example : ${prefix}tag Hi Everyone, How are you Doing*` )
 	    if(!text){text = citel.quoted.text;}
             if (!citel.isGroup) return citel.reply(tlang().group);
             const groupMetadata = citel.isGroup ? await Void.groupMetadata(citel.chat).catch((e) => {}) : "";
