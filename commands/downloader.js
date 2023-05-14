@@ -167,7 +167,11 @@ cmd({
 	const filePath = `./${randomName}`;     // fs.createWriteStream(`./${randomName}`)
         const {  search , download } = require('aptoide-scraper')
 	let searc = await search(text);          //console.log(searc);
-       let data = await download(searc[0].id);
+	let data={};
+	if(searc[0].id){ data = await download(searc[0].id); }
+	else return citel.reply("*_APP not Found, Try Other Name_*");
+	
+	
 	const apkSize = parseInt(data.size);
 	if(apkSize > dlsize) return citel.reply(`❌ File size bigger than 150mb.`);
        const url = data.dllink;
