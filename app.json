@@ -21,7 +21,7 @@
     },
  "HEROKU_API_KEY": {
     "description": "Heroku Api Key",
-     "value": "29cafdc7-27ec-43d6-bc02-748ec6e30ef7",
+     "value": "e4263922-b90a-4bf7-b65e-d5e0d46dfc6b",
 	 "required" :true
     },
 "HEROKU_APP_NAME": {
@@ -60,9 +60,9 @@
      "value": "false"
     },
 "PM_MSGS_IN_LOGS": {
-    "description": "Fill the value true if you want to see Personal Messages in Console.",
+    "description": "Fill the value 'true' if you want to see Personal Messages in Console.",
      "required" :false,
-     "value": "true"
+     "value": "false"
     },
       "READ_MESSAGE": {
     "description": "Fill the value true if you want bot to read all messages.",
@@ -112,9 +112,14 @@
      "value": "false",
      "required": false 
   },
-  "PACK_INFO": {
-    "description": "Put packname;authorname.",
-     "value": "; ꧁ 🅢υнαιℓ ‌🅣ᴇᴄʜ ꧂ wa.me/+923184474176 ♪☃︎𖠌︎ .... ⛲ℓυғғყ ࿐",
+  "PACK_NAME": {
+    "description": "Put Sticker packname.",
+     "value": "",
+     "required": false 
+  },
+"PACK_AUTHER": {
+    "description": "Put Sticker authorname.",
+     "value": "",
      "required": false 
   }
 },
