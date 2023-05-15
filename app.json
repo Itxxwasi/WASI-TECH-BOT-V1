@@ -29,11 +29,6 @@
      "value": "",
 	"required" :false
     },
-    "ANTI_BAD_WORD": {
-    "description": "Put words here. If you want it enabled in your bot otherwise leave it blank",
-       "value": "",
-     "required" :false
-    },
    "ANTILINK_VALUES": {
     "description": "Put words for antilink",
      "value": "chat.whatsapp.com,fb.com,instagram.com",
@@ -113,12 +108,12 @@
      "required": false 
   },
   "PACK_NAME": {
-    "description": "Put Sticker packname.",
+    "description": "Put Sticker Pack_Name.",
      "value": "",
      "required": false 
   },
 "PACK_AUTHER": {
-    "description": "Put Sticker authorname.",
+    "description": "Put Sticker Author_Name.",
      "value": "",
      "required": false 
   }
