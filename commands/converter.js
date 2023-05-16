@@ -13,6 +13,7 @@ const axios = require('axios')
 const { sck1, tiny, fancytext, listall,cmd , Config} = require('../lib/')
 const fs = require('fs-extra');
 const { exec } = require('child_process')
+const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter");
 
     //---------------------------------------------------------------------------
 cmd({
@@ -33,10 +34,159 @@ cmd({
             exec(`ffmpeg -i ${media} ${name}`, (err) => {
                 let buffer = fs.readFileSync(trueFileName)
                 Void.sendMessage(citel.chat, { image: buffer }, { quoted: citel })
+             
             })
         }
     )
+
+ //---------------------------------------------------------------------------
+cmd({
+            pattern: "sticker",
+            alias: ["s"],
+            desc: "Makes sticker of replied image/video.",
+            category: "sticker",
+filename: __filename,
+            use: '<reply to any image/video.>'
+        },
+        async(Void, citel, text) => {
+            if (!citel.quoted) return citel.reply(`*Mention any Image or video Sir.*`);
+          //console.log("Quoted Data here : ",citel.quoted);
+            let mime = citel.quoted.mtype
+            pack = Config.packname
+            author = Config.author
+            if (mime =="imageMessage" || mime =="videoMessage" || mime =="stickerMessage") {
+                let media = await citel.quoted.download();
+                //citel.reply("*Processing Your request*");
+                let sticker = new Sticker(media, {
+                    pack: pack, // The pack name
+                    author: author, // The author name
+                    type: StickerTypes.FULL,
+                    categories: ["🤩", "🎉"], // The sticker category
+                    id: "12345", // The sticker id
+                    quality: 75, // The quality of the output file
+                    background: "transparent", // The sticker background color (only for full stickers)
+                });
+                const buffer = await sticker.toBuffer();
+                return Void.sendMessage(citel.chat, {sticker: buffer}, {quoted: citel });
+            }else return citel.reply("*Uhh,Please reply to any image or video*");
+          /* else if (/video/.test(mime)) {
+                if ((quoted.msg || citel.quoted)
+                    .seconds > 20) return citel.reply("Cannot fetch videos longer than *20 Seconds*");
+                let media = await quoted.download();
+                let sticker = new Sticker(media, {
+                    pack: pack, // The pack name
+                    author: author, // The author name
+                    type: StickerTypes.FULL, // The sticker type
+                    categories: ["🤩", "🎉"], // The sticker category
+                    id: "12345", // The sticker id
+                    quality: 70, // The quality of the output file
+                    background: "transparent", // The sticker background color (only for full stickers)
+                });
+                const stikk = await sticker.toBuffer();
+                return Void.sendMessage(citel.chat, {  sticker: stikk   }, {    quoted: citel });
+            } */
+
+            
+        }
+    )
+ //---------------------------------------------------------------------------
+cmd({
+            pattern: "circle",
+            alias: ["circlestic","circlesticker","cs"],
+            desc: "Makes sticker of replied image/video.",
+            category: "sticker",
+filename: __filename,
+            use: '<reply to any image/video.>'
+        },
+        async(Void, citel, text) => {
+            if (!citel.quoted) return citel.reply(`*Reply To any Image or video Sir.*`);
+          //console.log("Quoted Data here : ",citel.quoted);
+            let mime = citel.quoted.mtype
+            pack = Config.packname
+            author = Config.author
+           if (mime =="imageMessage" || mime =="stickerMessage") {
+                let media = await citel.quoted.download();
+                //citel.reply("*Processing Your request*");
+                let sticker = new Sticker(media, {
+                    pack: pack, // The pack name
+                    author: author, // The author name
+                    type: StickerTypes.CIRCLE ,
+                    categories: ["🤩", "🎉"], // The sticker category
+                    id: "12345", // The sticker id
+                    quality: 75, // The quality of the output file
+                });
+                const buffer = await sticker.toBuffer();
+                return Void.sendMessage(citel.chat, {sticker: buffer}, {quoted: citel });
+            }else return citel.reply("*Uhh,Please reply to any image or video*");
+
+        }
+    )
     //---------------------------------------------------------------------------
+cmd({
+            pattern: "crop",
+            alias: ["cropstic","csticker","cropsticker"],
+            desc: "Makes sticker of replied image/video.",
+            category: "sticker",
+filename: __filename,
+            use: '<reply to any image/video.>'
+        },
+        async(Void, citel, text) => {
+            if (!citel.quoted) return citel.reply(`*Reply To any Image or video Sir.*`);
+          //console.log("Quoted Data here : ",citel.quoted);
+            let mime = citel.quoted.mtype
+            pack = Config.packname
+            author = Config.author
+            if (mime =="imageMessage"  || mime =="stickerMessage") {
+                let media = await citel.quoted.download();
+                //citel.reply("*Processing Your request*");
+                let sticker = new Sticker(media, {
+                    pack: pack, // The pack name
+                    author: author, // The author name
+                    type: StickerTypes.CROPPED,
+                    categories: ["🤩", "🎉"], // The sticker category
+                    id: "12345", // The sticker id
+                    quality: 75, // The quality of the output file
+                });
+                const buffer = await sticker.toBuffer();
+                return Void.sendMessage(citel.chat, {sticker: buffer}, {quoted: citel });
+            }else return citel.reply("*Uhh,Please reply to any image or video*");
+
+        }
+    )
+   //---------------------------------------------------------------------------
+cmd({
+            pattern: "round",
+            alias: ["roundstic","roundsticker"],
+            desc: "Makes sticker of replied image/video.",
+            category: "sticker",
+filename: __filename,
+            use: '<reply to any image/video.>'
+        },
+        async(Void, citel, text) => {
+            if (!citel.quoted) return citel.reply(`*Reply To any Image or video Sir.*`);
+          //console.log("Quoted Data here : ",citel.quoted);
+            let mime = citel.quoted.mtype
+            pack = Config.packname
+            author = Config.author
+           if (mime =="imageMessage" || mime =="stickerMessage") {
+                let media = await citel.quoted.download();
+                //citel.reply("*Processing Your request*");
+                let sticker = new Sticker(media, {
+                    pack: pack, // The pack name
+                    author: author, // The author name
+                    type: StickerTypes.ROUNDED ,
+                    categories: ["🤩", "🎉"], // The sticker category
+                    id: "12345", // The sticker id
+                    quality: 75, // The quality of the output file
+                });
+                const buffer = await sticker.toBuffer();
+                return Void.sendMessage(citel.chat, {sticker: buffer}, {quoted: citel });
+            }else return citel.reply("*Uhh,Please reply to any image or video*");
+
+        }
+    )
+    //---------------------------------------------------------------------------
+ //---------------------------------------------------------------------------
 cmd({
             pattern: "quotely",
             desc: "Makes Sticker of quoted text.",
