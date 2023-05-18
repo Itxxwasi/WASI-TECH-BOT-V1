@@ -89,7 +89,7 @@ cmd({
     },
     async(Void, citel, text) => {
         const { data } = await axios.get(`https://nekos.life/api/v2/fact`)
-        return citel.reply(`*Fact:* ${data.fact}\n\n*Powered by Secktor*`)   
+        return citel.reply(`*Fact:* ${data.fact}\n\n*Powered by Suhail Tech*`)   
     }
 
 )
