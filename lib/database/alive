@@ -1,0 +1,13 @@
+const mongoose = require('mongoose');
+const Alive = new mongoose.Schema({
+  text: { type: String, default:"Im Online , How can i help you" },
+  url: { type: String, default:""},
+  image: { type: Boolean, default: false },
+  video: { type: Boolean, default: false }
+});
+
+const sck =mongoose.model("alive", Alive)
+module.exports = { alive }
+
+
+
