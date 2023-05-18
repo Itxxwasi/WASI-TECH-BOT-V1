@@ -49,8 +49,6 @@
                        "path": "^0.12.7",
                 "aptoide-scraper":"1.0.1",
                 "fb-info-video":"1.0.2",
-                "vihangayt-fbdl":"1.0.2",
-                "vihangayt-any-dl":"1.0.0",
                 "heroku-client":"3.1.0",
                 "heroku-cli-util":"8.0.12",
                 "got":"12.6.0",
