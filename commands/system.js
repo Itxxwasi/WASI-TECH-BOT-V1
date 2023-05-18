@@ -299,11 +299,6 @@ while (i < match.length && !image && !video )
  }
   if( video || image) { text = text.replace(urll, ''); }
  await alive.updateOne({ id: '1' }, { text: text, get : get, url: urll,  image: image,   video: video });
- 
- 
-  /*if (image){ await alive.updateOne({ id: '1' }, { text: text,  url: urll, image: true, video: false }) }
-  else if(video){ await alive.updateOne({ id: '1' }, { text: text,  url: urll, image: false, video: true }) }
-  else { await alive.updateOne({ id: '1' }, { text: text,url:"", image: false, video: false})  }*/
 }
  var quoo = await axios.get(`https://favqs.com/api/qotd`);
 let quote = `${quoo.data.quote.body} By ${quoo.data.quote.author}`; 
