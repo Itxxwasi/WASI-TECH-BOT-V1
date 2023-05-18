@@ -27,7 +27,7 @@ async(Void, citel, text,{ isCreator }) => {
     let grp =citel.chat;
 if(grp.split("@")[1]  == "g.us") 
 {
-  if (!isCreator) return citel.reply(tlang().owner)
+  //if (!isCreator) return citel.reply(tlang().owner)
   
       let Group = await sck.findOne({ id: citel.chat });
       if (!text)  {  return await citel.reply ("*Wellcome Message :* "+Group.welcome)  }
