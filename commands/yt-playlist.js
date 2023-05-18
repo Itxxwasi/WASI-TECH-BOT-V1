@@ -6,7 +6,7 @@ var videotime = 60000 // 1000 min
 var dlsize = 250 // 250mb
 
 
-cmd({
+/*cmd({
             pattern: "playlist",
             desc: "Downloads video from playlist.",
             category: "downloader",
@@ -83,3 +83,4 @@ yts( opts, async function ( err, playlist ) {
             }})
         }
     )
+*/
