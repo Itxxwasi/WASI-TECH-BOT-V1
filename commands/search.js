@@ -202,7 +202,11 @@ cmd({
             let name2 = text.split("|")[1] || `10`
 
             let num = text.split("|")[1];
-            citel.reply(`Sending images of ${name1} in chat`)
+ gis(name1, async(error, result) => { 
+if(result.length) { citel.reply(`Sending images of ${name1} in chat`) }
+else return citel.reply("*Google Images Not Working, Try it Later*");
+})
+            
             let nn = name2
             for (let i = 0; i < nn; i++) {
             gis(name1, async(error, result) => { 
