@@ -54,6 +54,20 @@ cmd({
             filename: __filename,
         },
         async(Void, citel, text) => { 
+
+const response =await  fetch('https://official-joke-api.appspot.com/random_joke');
+  const joke= await response.json();
+citel.reply( `Joke: ${joke.setup}\nPunchline :  ${joke.punchline} `);
+
+})
+//---------------------------------------------------------------------------
+cmd({
+            pattern: "joke2",
+            desc: "Sends Joke in chat.",
+            category: "fun",
+            filename: __filename,
+        },
+        async(Void, citel, text) => { 
  
          fetch('https://v2.jokeapi.dev/joke/Any?type=single')
          .then(response => response.json())
@@ -66,20 +80,6 @@ cmd({
         }
     )
 
-//---------------------------------------------------------------------------
-cmd({
-            pattern: "joke2",
-            desc: "Sends Joke in chat.",
-            category: "fun",
-            filename: __filename,
-        },
-        async(Void, citel, text) => { 
-
-const response =await  fetch('https://official-joke-api.appspot.com/random_joke');
-  const joke= await response.json();
-citel.reply( `Joke: ${joke.setup}\nPunchline :  ${joke.punchline} `);
-
-})
 //---------------------------------------------------------------------------
 cmd({
         pattern: "fact",
