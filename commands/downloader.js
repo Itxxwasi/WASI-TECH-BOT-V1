@@ -594,7 +594,7 @@ cmd({
                 let urlYt = text;
                 if (!urlYt.startsWith("http")) return citel.reply(`❌ Give youtube link!`);
                 let infoYt = await ytdl.getInfo(urlYt);
-                 (infoYt.videoDetails.lengthSeconds >= videotime) return citel.reply(`❌ Video file too big!`);
+                 if(infoYt.videoDetails.lengthSeconds >= videotime) return citel.reply(`❌ Video file too big!`);
                 let titleYt = infoYt.videoDetails.title;
                 let randomName = getRandom(".mp4");
 
