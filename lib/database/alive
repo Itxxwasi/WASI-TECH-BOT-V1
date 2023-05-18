@@ -6,7 +6,7 @@ const Alive = new mongoose.Schema({
   video: { type: Boolean, default: false }
 });
 
-const sck =mongoose.model("alive", Alive)
+const alive =mongoose.model("alive", Alive)
 module.exports = { alive }
 
 
