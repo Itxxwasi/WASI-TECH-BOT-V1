@@ -5,7 +5,7 @@ const appName = Config.HEROKU_APP_NAME;
 const authToken = Config.HEROKU_API_KEY;
 const fetch = require('node-fetch');
 
-
+if(Config.HEROKU_APP_NAME && Config.HEROKU_API_KEY ){
 cmd({
         pattern: "allvar",
         alias:['getallvar','allvars'],
@@ -130,3 +130,4 @@ fetch(`https://api.heroku.com/apps/${appName}/config-vars`, { headers })
   .catch(error => citel.reply('Error retrieving app variable:'+ error));
   
 });
+}
