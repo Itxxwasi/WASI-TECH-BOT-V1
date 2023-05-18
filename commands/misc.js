@@ -117,7 +117,7 @@ if(grp.split("@")[1]  == "g.us")
            */
 })
  //---------------------------------------------------------------------------
- cmd({
+/* cmd({
              pattern: "attp",
              desc: "Makes glowing sticker of text.",
              category: "sticker",
@@ -134,12 +134,12 @@ if(grp.split("@")[1]  == "g.us")
  
          }
      )
-
+*/
      //---------------------------------------------------------------------------
  cmd({
              pattern: "location",
              desc: "Adds *readmore* in given text.",
-             category: "misc",
+             category: "user",
              filename: __filename
          },
          async(Void, citel, text) => {
@@ -237,7 +237,7 @@ cmd({
             pattern: "whois",
             desc: "Makes photo of replied sticker.",
             category: "user",
-            use: '<reply to any gif>',
+            use: '<reply to any person>',
             filename: __filename
         },
 async(Void, citel, text) => {
@@ -279,7 +279,7 @@ async(Void, citel, text) => {
  cmd({
              pattern: "vcard",
              desc: "Create Contact by given name.",
-             category: "misc",
+             category: "user",
              filename: __filename
          },
          async(Void, citel, text) => {
@@ -401,7 +401,7 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
  cmd({
              pattern: "wa",
              desc: "Makes wa me of quoted or mentioned user.",
-             category: "misc",
+             category: "user",
              filename: __filename
          },
          async(Void, citel, text) => {
@@ -415,7 +415,7 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
  cmd({
              pattern: "mee",
              desc: "Makes wa me for user.",
-             category: "misc",
+             category: "user",
              filename: __filename
          },
          async(Void, citel, text) => {  let user = citel.sender.split('@')[0]  ; return await citel.reply( `https://wa.me/${user}` ); })
@@ -423,7 +423,7 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
  cmd({
              pattern: "pick",
              desc: "Pics random user from Group",
-             category: "misc",
+             category: "group",
              filename: __filename
          },
          async(Void, citel, match) => {
@@ -561,23 +561,27 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
          },
          async(Void, citel, text,{ isCreator }) => {
              if (!text) return citel.reply(`Example : ${prefix}emix 😅,🤔`);
+const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter");
              let emoji1 = text.split(",")[0] ;
              let emoji2 = text.split(",")[1];
-            /* //let [emoji1, emoji2] = text.split `,`;
-             let anu = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${emoji1}_${emoji2}`);
-             for (let res of anu.results) {
-                 let encmedia = await Void.sendImageAsSticker(citel.chat, res.url, citel, { packname: global.packname, author: global.author });
-                    // categories: res.tags,
-                 
-                 await fs.unlinkSync(encmedia);
-             }*/
-  
+
   const response = await fetch(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${emoji1}_${emoji2}`);
   const data = await response.json();
-//console.log("Url Here  : " ,data.results[0].url)
-let res = data.locale;;
-  if(res=="") return citel.reply(`*Can't Create Mixture, Please Try Other Emojies*`)
-  else return Void.sendMessage(citel.chat,{image:{url:data.results[0].url}})
+  if(data.locale=="") return citel.reply(`Can't Create Mixture, Please Try Other Emojies`)
+  else {
+let media =await getBuffer(data.results[0].url)
+
+let sticker = new Sticker(media, {
+                    pack: Config.packname, 
+                    author: Config.author, 
+                    type: StickerTypes.FULL ,
+                    categories: ["🤩", "🎉"], 
+                    id: "12345", 
+                    quality: 100,
+                });
+const buffer = await sticker.toBuffer();
+ return Void.sendMessage(citel.chat, {sticker: buffer}, {quoted: citel });
+}
    
   
          }
