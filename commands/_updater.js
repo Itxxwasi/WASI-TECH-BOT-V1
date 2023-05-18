@@ -10,7 +10,6 @@
  **/
 
 const DB = require('../lib/scraper')
-const { execSync } = require('child_process')
 const { tlang, Config, prefix,cmd } = require('../lib')
 const simpleGit = require('simple-git');
 const git = simpleGit();
@@ -18,7 +17,6 @@ const {MessageType} = require('@adiwajshing/baileys');
 const exec = require('child_process').exec;
 const Heroku = require('heroku-client');
 const { PassThrough } = require('stream');
-const Config = require('../config')
 const heroku = new Heroku({ token: Config.HEROKU_API_KEY })
 let isHeroku = Config.HEROKU_API_KEY && Config.HEROKU_APP_NAME
 //---------------------------------------------------------------------------
