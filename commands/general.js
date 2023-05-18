@@ -96,8 +96,8 @@ cmd({
 
 //---------------------------------------------------------------------------
 cmd({
-        pattern: "dall",
-	alias : ['dalle','dall-e'],
+        pattern: "dalle",
+	alias : ['dall','dall-e'],
         desc: "chat with an AI",
         category: "AI",
         use: '<Hii, Suhail Tech Info>',
@@ -184,7 +184,7 @@ cmd({
 ╚══════════════════════════╝\n
 *⭐ Youtube Content :* How To Create Whatsapp Bot
 *🍽️ Total Subscriber:* 2.45k Subscribers
-*🍁 Channel Link:* _https://youtube.com/c/SuhailTechInfo?sub_confirmation=1_\n
+*🍁 Channel Link:* _https://youtube.com/@suhailtechinfo0?sub_confirmation=1_\n
 ╭━━━━━━━━━━━━━━━━━━━━╮
 ┇  ╔═╦╗╔╦╗╔═╦═╦╦╦╦╗╔═╗
 ┇  ║╚╣║║║╚╣╚╣╔╣╔╣║╚╣═╣
