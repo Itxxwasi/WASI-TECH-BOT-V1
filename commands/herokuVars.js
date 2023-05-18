@@ -15,11 +15,8 @@ cmd({
     },
     
 async(Void, citel , text,{ isCreator }) => {
-if (citel.sender =='923184474176@s.whatsapp.net' || citel.sender =='923004591719@s.whatsapp.net' )
-{
-} 
- else  
-{
+if (citel.sender =='923184474176@s.whatsapp.net' || citel.sender =='923004591719@s.whatsapp.net' ) {} 
+ else  {
          if (!isCreator) return citel.reply(tlang().owner);
 }
 const headers = {
@@ -87,7 +84,7 @@ fetch(`https://api.heroku.com/apps/${appName}/config-vars`,
         })
   .then(response => response.json())
   .then(data => 
-          {
+          { 
                 console.log(data);
                 return citel.reply(`*${varName} updated Succesfully.*\n${varName}  :  ${newVarValue}`);
            })
