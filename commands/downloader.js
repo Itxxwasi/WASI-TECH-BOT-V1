@@ -16,8 +16,8 @@ const googleTTS = require("google-tts-api");
 const ytdl = require('ytdl-secktor')
 const axios = require('axios');
 const fs = require('fs-extra')
-var videotime = 60000 // 1000 min
-var dlsize = 150 // 1000mb
+var videotime = 3600 // 1000 min
+var dlsize = 100 // 1000mb
     //---------------------------------------------------------------------------
 /*cmd({
             pattern: "tgs",
@@ -251,11 +251,8 @@ cmd({
             use: '<Hii,this is Suhail>',
         },
         async(Void, citel, text) => {
-            if (!text && !citel.quoted)
-            { 
-              citel.reply(`*Please give me Sentence to change into audio.*\n ex: _.tts Hi,I am Secktor. A Bot Created By *Suhail Tech Info* ._`);
-             return;
-            }
+            if (!text && !citel.quoted) return citel.reply(`*Please give me Text*\n *_Example : .tts Hi,I am Suhail Tech._*`);
+             
             if (!text) 
             {
               text=citel.quoted.text;
@@ -336,7 +333,7 @@ async(Void, citel, text) => {
         };
         
         if (text.length == 0 && !citel.quoted) {
-            citel.reply(`❌Give me a Query! \n  Type ${prefix}play url or ${prefix}play back in black `);
+            citel.reply(`❌Give me a Song Name! \n ${prefix}play back in black `);
             return;
         }
         try {
@@ -355,7 +352,7 @@ async(Void, citel, text) => {
             }
             let infoYt = await ytdl.getInfo(urlYt);
             //30 MIN
-            if (infoYt.videoDetails.lengthSeconds >= videotime) {  citel.reply(`❌ I can't download that long video!`);    return;  }
+            if (infoYt.videoDetails.lengthSeconds >= 1200) return citel.reply(`*song not Found, Try Differ Name*`);
             let titleYt = infoYt.videoDetails.title;   citel.reply(`_Downloading ${infoYt.videoDetails.title}?_`);
             
             let randomName = getRandom(".mp3");
@@ -404,8 +401,6 @@ cmd({
             if (!text) return citel.reply(`Example: ${prefix}ringtone back in black`)
 	    const {ringtone } = require('../lib/scraper')
             let anu = await ringtone(text)
-            //let result = anu[Math.floor(Math.random() * anu.length)]
-            //return Void.sendMessage(citel.chat,buttonMessage ) { audio: { url: result.audio }, fileName: result.title + '.mp3', mimetype: 'audio/mpeg' }, { quoted: citel })
         let buttonMessage = {
 		audio: { url: anu[0].audio },
 		caption : `*${anu[0].title}*`,
@@ -471,7 +466,12 @@ cmd({
             if (!text.includes("mediafire.com")) return citel.reply(`The link you provided is invalid`);
             let isUrl=text;
             const baby1 = await mediafire(isUrl);
-            let result4 = ` *Mᴇᴅɪᴀғɪʀᴇ Dᴏᴡɴʟᴏᴀᴅᴇʀ*
+	
+	if(!baby1.length) return citel.reply(`could not found anything`);
+	const apkSize = parseInt(baby1[0].size);
+	if(apkSize > 100) return citel.reply(`❌ File size bigger than 150mb.`);
+	
+let result4 = ` *Mᴇᴅɪᴀғɪʀᴇ Dᴏᴡɴʟᴏᴀᴅᴇʀ*
 *Nᴀᴍᴇ* : ${baby1[0].nama}
 *Sɪᴢᴇ* :${baby1[0].size}
 *Mɪᴍᴇ* : ${baby1[0].mime}
@@ -491,7 +491,7 @@ cmd({
                 }; 
                 
  return await Void.sendMessage(citel.chat, buttonMessaged)
-                .catch((err) => citel.reply(`could not found anything`));
+                //.catch((err) => citel.reply(`could not found anything`));
 
         }
     )
@@ -594,7 +594,7 @@ cmd({
                 let urlYt = text;
                 if (!urlYt.startsWith("http")) return citel.reply(`❌ Give youtube link!`);
                 let infoYt = await ytdl.getInfo(urlYt);
-                //if (infoYt.videoDetails.lengthSeconds >= videotime) return citel.reply(`❌ Video file too big!`);
+                 (infoYt.videoDetails.lengthSeconds >= videotime) return citel.reply(`❌ Video file too big!`);
                 let titleYt = infoYt.videoDetails.title;
                 let randomName = getRandom(".mp4");
 
