@@ -9,7 +9,7 @@
  * @version 0.0.6
  **/
 
-const { addnote,cmd, sck1, delnote, allnotes, delallnote, tlang, botpic, runtime, prefix, Config  } = require('../lib')
+const { addnote,cmd, sck1, delnote, allnotes, delallnote, tlang, botpic, runtime, prefix, Config ,alive  } = require('../lib')
 const {TelegraPh} = require('../lib/scraper')
 const util = require('util');
 const fs = require('fs-extra');
@@ -270,22 +270,54 @@ cmd({
             desc: "is bot alive??"
         },
         async(Void, citel, text, isAdmins) => {
-            let alivemessage = Config.ALIVE_MESSAGE || `*A bot developed by SuhailTechInfo.*`
-            const alivtxt = `
-${alivemessage}
+          let get = text;
+          let alivemessage = '';
+          let urll = '';     
+          let image = false;
+          let video = false;
+          
+if(text != ""){
+  console.log("Alive Function Called");
+ let aliv = await alive.findOne({ id:"1" }) || await new alive({ id:"1"}).save();
+const linkPattern = /(https?:\/\/\S+)/gi;
+const imageExtensions = ['.jpg', '.jpeg', '.png'];
+const videoExtensions = ['.mp4', '.avi', '.mov', '.mkv', '.gif'];
+let match = text.match(linkPattern);
+let i = 0;
+while (i < match.length && !image && !video ) 
+{
+  urll = match[i];
+  const extension = urll.substring(urll.lastIndexOf('.')).toLowerCase();
+  if (imageExtensions.includes(extension)) { image = true;  video = false; } 
+  else if (videoExtensions.includes(extension)) { video = true; image = false; }
+  else { console.log(`Unknown link: ${urll}`)  }
+  i++;
+ }
+  if( video || image) { text = text.replace(urll, ''); }
+  await alive.updateOne({ id: '1' }, { text: text, get : get, url: urll,  image: image,   video: video });
+ 
+ 
+  /*if (image){ await alive.updateOne({ id: '1' }, { text: text,  url: urll, image: true, video: false }) }
+  else if(video){ await alive.updateOne({ id: '1' }, { text: text,  url: urll, image: false, video: true }) }
+  else { await alive.updateOne({ id: '1' }, { text: text,url:"", image: false, video: false})  }*/
+}
 
-*Type ${prefix}menu for my command list.*
-`;
-            let aliveMessage = {
-                image: { url: await botpic(), },
-                caption: alivtxt,
-                footer: tlang().footer,
-                headerType: 4
-            };
-             return Void.sendMessage(citel.chat, aliveMessage, {
-                quoted: citel,
-            });
+     let aliv = await alive.findOne({ id:"1" }) ;
+          alivemessage = aliv.text || "alive msg here";
+          image = aliv.image || false;
+          video=aliv.video || false ;
+          urll = aliv.url || await botpic() ;
 
+          
+const alivtxt = `${alivemessage}\n\n*Type ${prefix}menu for my command list.*`;
+          
+ const messageOptions = image
+    ? { image: { url: urll }, caption: alivtxt }
+    : video
+      ? { video: { url: urll }, caption: alivtxt }
+      : { image: { url: await botpic() }, caption: alivtxt };
+
+  return Void.sendMessage(citel.chat, messageOptions);
         }
     )
     //---------------------------------------------------------------------------
