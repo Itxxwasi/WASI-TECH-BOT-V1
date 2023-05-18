@@ -279,6 +279,8 @@ cmd({
 if(text != ""){
   console.log("Alive Function Called");
  let aliv = await alive.findOne({ id:"1" }) || await new alive({ id:"1"}).save();
+ if (text.startsWith("get")) return citel.reply(aliv.get);
+   
 const linkPattern = /(https?:\/\/\S+)/gi;
 const imageExtensions = ['.jpg', '.jpeg', '.png'];
 const videoExtensions = ['.mp4', '.avi', '.mov', '.mkv', '.gif'];
