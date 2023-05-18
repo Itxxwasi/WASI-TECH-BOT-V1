@@ -131,7 +131,7 @@ let vurl=info.video.url_video;
 	//data +="\n*Video Link     :* "+  vurl;
 //citel.reply("    FACEBOOK DOWNLOADER  \n"+data)
 //console.log(info);
-	data +="\n\n  *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n youtube.com/c/SuhailTechInfo   "
+	data +="\n\n  *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n youtube.com/@suhailtechinfo0   "
                         let buttonMessage = {
                         video: {url:vurl},
                         mimetype: 'video/mp4',
@@ -180,7 +180,7 @@ cmd({
          inf +="\n*Last Up       :* " +data.lastup;
          inf +="\n*App Size     :* " +data.size;
         // inf +="\n*App Link     :* " +data.dllink;
-	inf +="\n\n   *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n *youtube.com/c/SuhailTechInfo*   "
+	inf +="\n\n    *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n *youtube.com/@suhailtechinfo0*   "
          
 
 axios.get(url, { responseType: 'stream' })
@@ -435,7 +435,7 @@ cmd({
                 result = anu[Math.floor(Math.random() * anu.length)]
                 let buttonMessage = {
                     image: { url: result },
-                    caption: `*『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n *youtube.com/c/SuhailTechInfo*    `,
+                    caption: `*『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n *youtube.com/@suhailtechinfo0*    `,
                     //footer: tlang().footer,
                     headerType: 4,
                     contextInfo: {
@@ -476,8 +476,8 @@ cmd({
 *Sɪᴢᴇ* :${baby1[0].size}
 *Mɪᴍᴇ* : ${baby1[0].mime}
 
-*『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*
-*youtube.com/c/SuhailTechInfo*`;
+ *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*
+ *youtube.com/@suhailtechinfo0*`;
 	
 	
             //citel.reply(`${result4}`);
@@ -617,10 +617,13 @@ cmd({
                  
                  let buttonMessage = {
                         video: fs.readFileSync(`./${randomName}`),
-                        jpegThumbnail: log0,
                         mimetype: 'video/mp4',
                         fileName: `${titleYt}.mp4`,
-                        caption: "*Here's Your Video*\n 『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』\n youtube.com/c/SuhailTechInfo",
+                        caption: "  *Here's Your Video*\n  *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n *youtube.com/@suhailtechinfo0*",
+			 gifPlayback: false,
+                   height: 496,
+                   width: 640,
+                   headerType: 4,
                         headerType: 4,
                         
                     }
