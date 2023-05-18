@@ -158,7 +158,7 @@ cmd({
         let textt = `
 ══✪〘   *Tag All*   〙✪══
 
-➲ *Message :* ${text ? text : "blank"}\n\n
+➲ *Message :* ${text ? text : "blank Message\n *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n  *youtube.com/@suhailtechinfo0* "}\n\n
 ➲ *Author:* ${citel.pushName} 🔖
 `
         for (let mem of participants) {
@@ -573,7 +573,7 @@ cmd({
             if (!isAdmins) return citel.reply(tlang().admin);
             if (!isBotAdmins) return citel.reply(tlang().botAdmin);
             try {
-                let users = citel.mentionedJid[0] ? citel.mentionedJid[0] : citel.quoted ? citel.quoted.sender : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
+                let users = citel.quoted ? citel.quoted.sender : citel.mentionedJid[0] ? citel.mentionedJid[0] : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
                 if (!users) return;
                 await Void.groupParticipantsUpdate(citel.chat, [users], "remove");
             } catch {
@@ -593,10 +593,10 @@ cmd({
         async(Void, citel, text) => {
             let mime = citel.quoted.mtype
             if (!/image/.test(mime)) return citel.reply(`Reply to Photo With Caption *text*`)
-            mee = await Void.downloadAndSaveMediaMessage(citel.quoted)
-            mem = await TelegraPh(mee)
-            meme = `https://api.memegen.link/images/custom/-/${text}.png?background=${mem}`
-            memek = await Void.sendImageAsSticker(citel.chat, meme, citel, { packname: citel.pushName, author: 'Secktor' })
+            let mee = await Void.downloadAndSaveMediaMessage(citel.quoted)
+            let mem = await TelegraPh(mee)
+            let meme = `https://api.memegen.link/images/custom/-/${text}.png?background=${mem}`
+            let memek = await Void.sendImageAsSticker(citel.chat, meme, citel, { packname: citel.pushName, author: 'Secktor' })
             await fs.unlinkSync(memek)
 
         }
@@ -627,7 +627,7 @@ cmd({
                     .then((res) => citel.reply(`Group Chat Unmuted`))
                     .catch((err) => citel.reply("Error : " +err));
             } 
-else if(text=="Detail" || text=="Details" || text=="detail" || text=="details" ) 
+else if(text=="Detail" || text=="Info" || text=="info" || text=="details" ) 
 {
 let inf ="-------------GROUP SETTINGS--------------\n";
     inf += "\n Group Jid      : "+Group.id;
@@ -740,7 +740,7 @@ cmd({
             if (!text) return citel.reply("Please provide me number.");
             if (!isCreator) return citel.reply(tlang().owner)
             if (!isBotAdmins) return citel.reply(tlang().botAdmin);
-            let users = citel.mentionedJid[0] ? citel.mentionedJid[0] : citel.quoted ? citel.quoted.sender : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
+            let users = citel.quoted ? citel.quoted.sender : citel.mentionedJid[0] ? citel.mentionedJid[0] : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
             await Void.groupParticipantsUpdate(citel.chat, [users], "add");
 
         }
@@ -875,10 +875,10 @@ cmd({
             filename: __filename,
             use: '<quote/reply user.>'
         },
-        async(Void, citel, text) => {
+        async(Void, citel, text,{isCreator}) => {
             if (!citel.quoted) return citel.reply(`Please reply to user`);
             if (!isCreator) citel.reply(tlang().owner);
-            let users = citel.mentionedJid[0] ? citel.mentionedJid[0] : citel.quoted ? citel.quoted.sender : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
+            let users = citel.quoted ? citel.quoted.sender : citel.mentionedJid[0] ? citel.mentionedJid[0] :  text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
             await Void.updateBlockStatus(users, "block")
                 .then((res) => console.log(jsonformat(res)))
                 .catch((err) => console.log(jsonformat(err)));
@@ -895,7 +895,7 @@ cmd({
         filename: __filename,
         use: '<text for broadcast.>',
     },
-    async(Void, citel, text) => {
+    async(Void, citel, text,{isCreator}) => {
         if (!isCreator) return citel.reply(tlang().owner)
         let getGroups = await Void.groupFetchAllParticipating();
         let groups = Object.entries(getGroups)
