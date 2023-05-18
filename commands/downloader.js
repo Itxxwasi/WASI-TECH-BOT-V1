@@ -173,7 +173,7 @@ cmd({
 	
 	
 	const apkSize = parseInt(data.size);
-	if(apkSize > dlsize) return citel.reply(`❌ File size bigger than 150mb.`);
+	if(apkSize > 100) return citel.reply(`❌ File size bigger than 150mb.`);
        const url = data.dllink;
 	 let  inf  ="*App Name :* " +data.name;
          inf +="\n*App id        :* " +data.package;
@@ -544,6 +544,7 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
             pattern: "yts",
+            alias: ["ytsearch","getyt"],
             desc: "Gives descriptive info of query from youtube..",
             category: "downloader",
             filename: __filename,
@@ -575,6 +576,7 @@ cmd({
 
 cmd({
             pattern: "ytmp4",
+            alias: ["ytv","ytvid"],
             desc: "Downloads video from youtube.",
             category: "downloader",
             filename: __filename,
@@ -636,7 +638,8 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
         pattern: "ytmp3",
-        desc: "Downloads audio by yt link.",
+	alias : ["yta"],
+	desc: "Downloads audio by yt link.",
         category: "downloader",
         use: '<yt video url>',
     },
@@ -705,6 +708,7 @@ cmd({
   //---------------------------------------------------------------------------
 cmd({
         pattern: "ytdoc",
+            alias: ["ytd"],
         desc: "Downloads audio by yt link as document.",
         category: "downloader",
         use: '<ytdoc video url>',
