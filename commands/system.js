@@ -13,6 +13,8 @@ const { addnote,cmd, sck1, delnote, allnotes, delallnote, tlang, botpic, runtime
 const {TelegraPh} = require('../lib/scraper')
 const util = require('util');
 const fs = require('fs-extra');
+const axios = require('axios')
+const fetch = require('node-fetch');
     //---------------------------------------------------------------------------
 //                  ADD NOTE  COMMANDS
 //---------------------------------------------------------------------------
@@ -296,16 +298,18 @@ while (i < match.length && !image && !video )
   i++;
  }
   if( video || image) { text = text.replace(urll, ''); }
-  await alive.updateOne({ id: '1' }, { text: text, get : get, url: urll,  image: image,   video: video });
+ await alive.updateOne({ id: '1' }, { text: text, get : get, url: urll,  image: image,   video: video });
  
  
   /*if (image){ await alive.updateOne({ id: '1' }, { text: text,  url: urll, image: true, video: false }) }
   else if(video){ await alive.updateOne({ id: '1' }, { text: text,  url: urll, image: false, video: true }) }
   else { await alive.updateOne({ id: '1' }, { text: text,url:"", image: false, video: false})  }*/
 }
-
+ var quoo = await axios.get(`https://favqs.com/api/qotd`);
+let quote = `${quoo.data.quote.body} By ${quoo.data.quote.author}`; 
+          
      let aliv = await alive.findOne({ id:"1" }) ;
-          alivemessage = aliv.text || "alive msg here";
+         alivemessage = aliv?.text.replace('&quote', quote);
           image = aliv.image || false;
           video=aliv.video || false ;
           urll = aliv.url || await botpic() ;
