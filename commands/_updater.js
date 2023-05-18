@@ -82,16 +82,16 @@ async(Void, citel, text,{ isCreator }) => {
         await git.push('heroku', 'main');
        await citel.reply("_Successfully updated_")
        await citel.reply("_Restarting_")
-        /*} else {
+        } else {
             await update("UPDATER",'default')
             await citel.reply("_Update started!_")
-    }*/
+    }
  
 }
 )
 
 //______________________________________________________________\\
-/*async function fixHerokuAppName(message){
+async function fixHerokuAppName(message){
     if (!HEROKU_API_KEY) return await message.sendReply(`_You have not provided HEROKU_API_KEY\n\nPlease fill this var, get api key from heroku account settings_`)
     let apps = await heroku.get('/apps')
     let app_names = apps.map(e=>e.name)
