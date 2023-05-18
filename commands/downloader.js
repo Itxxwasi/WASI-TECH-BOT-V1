@@ -71,7 +71,7 @@ let vurl=res.url[0].url;
 )*/
 
 //---------------------------------------------------------------------------
-cmd({
+/*cmd({
             pattern: "tiktok",
 		alias :  ['tt'],
             desc: "Downloads fb videos  .",
@@ -107,7 +107,7 @@ let vurl=res.url[0].url;
                  	Void.sendMessage(citel.chat, buttonMessage, { quoted: citel });
 
 }
-    )
+    )*/
 //---------------------------------------------------------------------------
 cmd({
             pattern: "fb",
