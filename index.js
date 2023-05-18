@@ -1,8 +1,12 @@
-
+const fetch = require('node-fetch');
+const Config = require('../config')
+let { fancytext, tlang, tiny, runtime, formatp, botpic, prefix, sck1,cmd } = require("../lib");
 
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+const appName = Config.HEROKU_APP_NAME;
+const authToken = Config.HEROKU_API_KEY;
 //const port = 3000;
 
 
@@ -54,6 +58,7 @@ const html = `
     <section>
       Hello from "Suhail Tech Info"!
     </section>
+    <a href=`https://${Config.HEROKU_APP_NAME}.herokuapp.com`>Open App</a>
   </body>
 </html>
 `
