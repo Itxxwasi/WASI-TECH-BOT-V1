@@ -139,7 +139,7 @@ Secktor.cmd({
             'VERSION:3.0\n' +
             'FN:' + Config.ownername + '\n' +
             'ORG:;\n' +
-            'TEL;type=CELL;type=VOICE;waid=' + owner[0] + ':+' + owner[0] + '\n' +
+            'TEL;type=CELL;type=VOICE;waid=' + owner + ':+' + owner + '\n' +
             'END:VCARD'
         let buttonMessaged = {
             contacts: { displayName: Config.ownername, contacts: [{ vcard }] },
@@ -152,7 +152,7 @@ Secktor.cmd({
                     thumbnail: log0,
                     mediaType: 2,
                     mediaUrl: '',
-                    sourceUrl: `https://wa.me/+` + owner[0] + '?text=Hii bro,I am ' + citel.pushName,
+                    sourceUrl: `https://wa.me/+` + owner + '?text=Hii bro,I am ' + citel.pushName,
                 },
             },
         };
