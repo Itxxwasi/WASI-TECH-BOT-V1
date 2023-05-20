@@ -200,13 +200,17 @@ cmd({
             let buttonMessage = {}
             let name1 = text.split("|")[0] || `Luffy`
             let name2 = text.split("|")[1] || `10`
-
+let isImages = false;
             let num = text.split("|")[1];
  gis(name1, async(error, result) => { 
-if(result.length) { citel.reply(`Sending images of ${name1} in chat`) }
+if(result.length) 
+{
+ isImages = true;
+ citel.reply(`Sending images of ${name1} in chat`) 
+}
 else return citel.reply("*Google Images Not Working, Try it Later*");
 })
-            
+     if(!isImages) return       
             let nn = name2
             for (let i = 0; i < nn; i++) {
             gis(name1, async(error, result) => { 
