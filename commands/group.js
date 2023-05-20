@@ -754,7 +754,27 @@ cmd({
         },
         async(Void, citel, text,{ isCreator }) => {
             if (!isCreator) return citel.reply(tlang().owner)
-            let getGroups = await Void.groupFetchAllParticipating();
+
+let getGroups = await Void.groupFetchAllParticipating();
+let anu = Object.values(getGroups).map(v => v.id);
+let res = `All groups jid\n\n`;
+citel.reply(`Fetching jid from ${anu.length} Groups`);
+
+await Promise.all(anu.map(async i => {
+  let metadata = await Void.groupMetadata(i);
+  await sleep(200);
+  res += `*Name :* ${metadata.subject}\n`;
+  res += ` ${i}\n\n`;
+}));
+//citel.reply(res);
+	return await Void.sendMessage(citel.chat,{text:res},{quoted:citel})
+	
+	
+	
+	
+	/*
+	
+	let getGroups = await Void.groupFetchAllParticipating();
             let groups = Object.entries(getGroups)
                 .slice(0)
                 .map((entry) => entry[1]);
@@ -765,11 +785,12 @@ cmd({
                 let metadata = await Void.groupMetadata(i);
                 await sleep(500)
                 jackhuh += `*Subject:-* ${metadata.subject}\n`
-                jackhuh += `*Member :* ${metadata.participants.length}\n`
+               // jackhuh += `*Member :* ${metadata.participants.length}\n`
                 jackhuh += `*Jid:-* ${i}\n\n`
 
             }
             citel.reply(jackhuh)
+	    */
 
         }
     )
