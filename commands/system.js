@@ -271,15 +271,14 @@ cmd({
             filename: __filename,
             desc: "is bot alive??"
         },
-        async(Void, citel, text, isAdmins) => {
+        async(Void, citel, text, {isCreator}) => {
           let get = text;
-          let alivemessage = '';
+          let alivemessage = '```Im Alive now, how i Assist You```';
           let urll = '';     
           let image = false;
           let video = false;
           
-if(text != ""){
-  console.log("Alive Function Called");
+if(isCreator && text != ""){
  let aliv = await alive.findOne({ id:"1" }) || await new alive({ id:"1"}).save();
  if (text.startsWith("get")) return citel.reply(aliv.get);
    
@@ -303,7 +302,7 @@ while (i < match.length && !image && !video )
  var quoo = await axios.get(`https://favqs.com/api/qotd`);
 let quote = `${quoo.data.quote.body} By ${quoo.data.quote.author}`; 
           
-     let aliv = await alive.findOne({ id:"1" }) ;
+     let aliv = await alive.findOne({ id:"1" }) || await new alive({ id:"1"}).save() ;
          alivemessage = aliv?.text.replace('&quote', quote);
           image = aliv.image || false;
           video=aliv.video || false ;
