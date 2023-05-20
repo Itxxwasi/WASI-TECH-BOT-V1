@@ -50,42 +50,30 @@ filename: __filename,
         },
         async(Void, citel, text) => {
             if (!citel.quoted) return citel.reply(`*Mention any Image or video Sir.*`);
-          //console.log("Quoted Data here : ",citel.quoted);
-            let mime = citel.quoted.mtype
-            pack = Config.packname
-            author = Config.author
-            if (mime =="imageMessage" || mime =="videoMessage" || mime =="stickerMessage") {
-                let media = await citel.quoted.download();
-                //citel.reply("*Processing Your request*");
+ let mime = citel.mtype;
+let media ;
+let pack = Config.packname
+let author = Config.author 
+ 
+if (mime =="imageMessage" || mime =="videoMessage") {  media = await citel.download(); }
+else if (citel.quoted){ 
+ mime = citel.quoted.mtype; 
+ if (mime =="imageMessage" || mime =="videoMessage" || mime =="stickerMessage") {  media = await citel.quoted.download(); }
+ else return citel.reply("```Uhh,Please reply to any image or video```")
+}
+else return citel.reply("```Uhh,Please reply to any image or video```");
+          
                 let sticker = new Sticker(media, {
                     pack: pack, // The pack name
                     author: author, // The author name
-                    type: StickerTypes.FULL,
+                    type: StickerTypes.FULL ,
                     categories: ["🤩", "🎉"], // The sticker category
                     id: "12345", // The sticker id
-                    quality: 75, // The quality of the output file
-                    background: "transparent", // The sticker background color (only for full stickers)
+                    quality: 100, // The quality of the output file
+                    background: "transparent",
                 });
                 const buffer = await sticker.toBuffer();
                 return Void.sendMessage(citel.chat, {sticker: buffer}, {quoted: citel });
-            }else return citel.reply("*Uhh,Please reply to any image or video*");
-          /* else if (/video/.test(mime)) {
-                if ((quoted.msg || citel.quoted)
-                    .seconds > 20) return citel.reply("Cannot fetch videos longer than *20 Seconds*");
-                let media = await quoted.download();
-                let sticker = new Sticker(media, {
-                    pack: pack, // The pack name
-                    author: author, // The author name
-                    type: StickerTypes.FULL, // The sticker type
-                    categories: ["🤩", "🎉"], // The sticker category
-                    id: "12345", // The sticker id
-                    quality: 70, // The quality of the output file
-                    background: "transparent", // The sticker background color (only for full stickers)
-                });
-                const stikk = await sticker.toBuffer();
-                return Void.sendMessage(citel.chat, {  sticker: stikk   }, {    quoted: citel });
-            } */
-
             
         }
     )
@@ -117,7 +105,7 @@ filename: __filename,
                 });
                 const buffer = await sticker.toBuffer();
                 return Void.sendMessage(citel.chat, {sticker: buffer}, {quoted: citel });
-            }else return citel.reply("*Uhh,Please reply to any image or video*");
+            }else return citel.reply("*Uhh,Please reply to any image*");
 
         }
     )
@@ -149,7 +137,7 @@ filename: __filename,
                 });
                 const buffer = await sticker.toBuffer();
                 return Void.sendMessage(citel.chat, {sticker: buffer}, {quoted: citel });
-            }else return citel.reply("*Uhh,Please reply to any image or video*");
+            }else return citel.reply("*Uhh,Please reply to any image*");
 
         }
     )
@@ -181,7 +169,7 @@ filename: __filename,
                 });
                 const buffer = await sticker.toBuffer();
                 return Void.sendMessage(citel.chat, {sticker: buffer}, {quoted: citel });
-            }else return citel.reply("*Uhh,Please reply to any image or video*");
+            }else return citel.reply("*Uhh,Please reply to any image*");
 
         }
     )
