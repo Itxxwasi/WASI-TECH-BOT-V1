@@ -49,12 +49,10 @@ filename: __filename,
             use: '<reply to any image/video.>'
         },
         async(Void, citel, text) => {
-            if (!citel.quoted) return citel.reply(`*Mention any Image or video Sir.*`);
  let mime = citel.mtype;
 let media ;
 let pack = Config.packname
 let author = Config.author 
- 
 if (mime =="imageMessage" || mime =="videoMessage") {  media = await citel.download(); }
 else if (citel.quoted){ 
  mime = citel.quoted.mtype; 
