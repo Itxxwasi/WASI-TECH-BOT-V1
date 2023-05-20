@@ -14,7 +14,7 @@ const Config = require('../config')
     //---------------------------------------------------------------------------
 cmd({
         pattern: "act",
-        alias:['activate'],
+        alias:['activate','active'],
         desc: "Switches for varios works.",
         category: "group",
         filename: __filename,
