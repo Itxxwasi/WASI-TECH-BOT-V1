@@ -14,6 +14,7 @@
 const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter");
  const fs = require('fs')
  const axios = require('axios')
+ const fetch = require("node-fetch");
   //---------------------------------------------------------------------------
  cmd({
     pattern: "welcome",
@@ -203,19 +204,22 @@ citel.reply (txt);
          async(Void, citel, text) => {
 
 if (!citel.quoted) return citel.reply (`*Please Reply To A User*`)
-const ppUrl = await Void.profilePictureUrl(citel.quoted.sender, 'image')
+    let pfp;
+     try  {  pfp = await Void.profilePictureUrl(citel.quoted.sender, "image"); } 
+     catch (e) {  return citel.reply("*Profile Pic Not Fetched*") } 
+//const ppUrl = await Void.profilePictureUrl(citel.quoted.sender, 'image')
   
                 let buttonMessaged = {
 
                             //quoted: "923184474176@s.whatsapp.net", 
                             //contextInfo: { forwardingScore: 1999999, isForwarded: false },
-                            image: { url: ppUrl },
+                            image: { url: pfp },
                             caption: '*---Profile Pic Is Here---*',
                             footer: tlang().footer,
                             headerType: 4,
                    
                 };
-                return await Void.sendMessage(citel.chat, buttonMessaged);
+                return await Void.sendMessage(citel.chat, buttonMessaged,{quoted:citel});
 
 
          }
@@ -271,7 +275,7 @@ async(Void, citel, text) => {
 ║    *Keep Calm Dude🥳*    ◇
 ╚════════════════╝
 `,
-            });
+            },{quoted:citel});
 
         }
     )
@@ -300,7 +304,7 @@ const vcard = 'BEGIN:VCARD\n' +
             contacts: { displayName: text, contacts: [{ vcard }] },
             
         };
-        return await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel, });
+        return await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel });
  
 })
      //---------------------------------------------------------------------------
@@ -449,15 +453,16 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
              category: "misc",
              filename: __filename
          },
-         async(Void, citel, text) => {
+         async(Void, citel, text,{isCreator}) => {
              let checkgroup = await sck.findOne({ id: citel.chat })
              if (!citel.isGroup) return citel.reply(tlang().group);
              const groupAdmins = await getAdmin(Void, citel)
-             const botNumber = await Void.decodeJid(Void.user.id)
-             const isBotAdmins = citel.isGroup ? groupAdmins.includes(botNumber) : false;
+             //const botNumber = await Void.decodeJid(Void.user.id)
+            // const isBotAdmins = citel.isGroup ? groupAdmins.includes(botNumber) : false;
              const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
-             if (!isAdmins) return citel.reply(tlang().admin)
-             if (!isBotAdmins) return citel.reply(tlang().botadmin)
+             if(isCreator){}
+  else if (!isAdmins) return citel.reply(tlang().admin)
+             //if (!isBotAdmins) return citel.reply(tlang().botadmin)
             
   
   
@@ -536,15 +541,17 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
              category: "misc",
              filename: __filename
          },
-         async(Void, citel, text) => {
+         async(Void, citel, text,{isCreator}) => {
              let checkgroup = await sck.findOne({ id: citel.chat })
              if (!citel.isGroup) return citel.reply(tlang().group);
              const groupAdmins = await getAdmin(Void, citel)
-             const botNumber = await Void.decodeJid(Void.user.id)
-             const isBotAdmins = citel.isGroup ? groupAdmins.includes(botNumber) : false;
+             //const botNumber = await Void.decodeJid(Void.user.id)
+             //const isBotAdmins = citel.isGroup ? groupAdmins.includes(botNumber) : false;
              const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
-             if (!isAdmins) return citel.reply(tlang().admin)
-             if (!isBotAdmins) return citel.reply(tlang().botadmin)
+             
+  if(isCreator){}
+  else if (!isAdmins) return citel.reply(tlang().admin)
+             //if (!isBotAdmins) return citel.reply(tlang().botadmin)
   
              if (checkgroup.events == "true") return citel.reply(`*Events* is enabled in this Chat \n For deActive Welcome Msg *type ${prefix}deact events*`);
              else return citel.reply(`*Events* is Disabled in this Chat \n For Active Welcome Msg *type ${prefix}act events*`);
@@ -755,21 +762,24 @@ let buttons = [{
              category: "group",
              filename: __filename
          },
-         async(Void, citel, text) => {
+         async(Void, citel, text , {isCreator}) => {
              let checkgroup = await sck.findOne({ id: citel.chat })
              if (!citel.isGroup) return citel.reply(tlang().group);
              const groupAdmins = await getAdmin(Void, citel)
-             const botNumber = await Void.decodeJid(Void.user.id)
-             const isBotAdmins = citel.isGroup ? groupAdmins.includes(botNumber) : false;
+    //         const botNumber = await Void.decodeJid(Void.user.id)
+  //           const isBotAdmins = citel.isGroup ? groupAdmins.includes(botNumber) : false;
              const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
-             if (!isAdmins) return citel.reply(tlang().admin)
-             if (!isBotAdmins) return citel.reply(tlang().botadmin)
+            if(isCreator){}
+            else if (!isAdmins) return citel.reply(tlang().admin)
+            
+  
+  // if (!isBotAdmins) return citel.reply(tlang().botadmin)
   
               
              if (checkgroup.antilink == "true") return citel.reply(`Antilink:Deletes Link + kick\n\n*Antilink* is enabled in this Chat \n For Disable Antilink Msg *type ${prefix}deact antilink*`);
              else return citel.reply(`Antilink:Deletes Link + kick\n\n*Antilink* is Disabled in this Chat \n For Enable Antilink Msg *type ${prefix}act antilink*`);
 
-             await Void.sendButtonText(citel.chat, `Activate antilink:Deletes Link + kick`, Void.user.name, citel);
+             //await Void.sendButtonText(citel.chat, `Activate antilink:Deletes Link + kick`, Void.user.name, citel);
          }
      )
      //---------------------------------------------------------------------------
