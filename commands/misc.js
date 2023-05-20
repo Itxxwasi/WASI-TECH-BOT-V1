@@ -361,8 +361,12 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
              filename: __filename
          },
          async(Void, citel, text) => {
-             if (!citel.quoted) return citel.reply(`*Mention any Image or video Sir.*`);
+             if (!citel.quoted) return citel.reply(`*Reply to a Sticker Sir.*`);
+
+  
+  
              let mime = citel.quoted.mtype
+             if ( mime !="stickerMessage") return await citel.reply("```Uhh Please, Reply To A Sticker```") 
              var pack;
              var author;
              if (text) {
@@ -378,7 +382,7 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
                 let sticker = new Sticker(media, {
                     pack: pack, // The pack name
                     author: author, // The author name
-                    type: text.includes("--crop" || '-c') ? StickerTypes.CROPPED : StickerTypes.FULL,
+                    type:  StickerTypes.FULL,
                     categories: ["🤩", "🎉"], // The sticker category
                     id: "12345", // The sticker id
                     quality: 75, // The quality of the output file
