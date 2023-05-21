@@ -118,6 +118,37 @@ if(grp.split("@")[1]  == "g.us")
            */
 })
  //---------------------------------------------------------------------------
+    
+ cmd({
+             pattern: "vv",
+             alias : ['viewonce','retrive'],
+             desc: "Flips given text.",
+             category: "misc",
+             use: '<query>',
+             filename: __filename
+         },
+         async(Void, citel, text) => {
+if(!citel.quoted) return citel.reply("```Uh Please Reply A ViewOnce Message```")
+  
+if(citel.quoted.mtype === "viewOnceMessage")
+{
+ if(citel.quoted.message.imageMessage )
+{ let cap =citel.quoted.message.imageMessage.caption;
+ let anu = await Void.downloadAndSaveMediaMessage(citel.quoted.message.imageMessage)
+ Void.sendMessage(citel.chat,{image:{url : anu},caption : cap })
+}
+else if(citel.quoted.message.videoMessage )
+{
+  let cap =citel.quoted.message.videoMessage.caption;
+  let anu = await Void.downloadAndSaveMediaMessage(citel.quoted.message.videoMessage)
+  Void.sendMessage(citel.chat,{video:{url : anu},caption : cap })
+}
+}
+else return citel.reply("```This is Not A ViewOnce Message```")
+ 
+         }
+     )
+ //---------------------------------------------------------------------------
 /* cmd({
              pattern: "attp",
              desc: "Makes glowing sticker of text.",
@@ -137,6 +168,7 @@ if(grp.split("@")[1]  == "g.us")
      )
 */
      //---------------------------------------------------------------------------
+
  cmd({
              pattern: "location",
              desc: "Adds *readmore* in given text.",
