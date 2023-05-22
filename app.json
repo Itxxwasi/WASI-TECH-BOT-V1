@@ -69,9 +69,14 @@
       "value": "false",
      "required" :false
     },
+"ALWAYS_ONLINE": {
+    "description": "Take it 'true' if you wanna show Always Onlline",
+      "value": "false",
+     "required" :false
+    },
       "PREFIX": {
   "description": "Enter your desired prefix for bot.",
-      "value": ".,!"
+      "value": "."
   },
   "OWNER_NUMBER": {
     "description": "The phone numbers of the users who you want to be admin for the bot (should be in international format without + and multiple numbers must be separated by a comma \",\")",
