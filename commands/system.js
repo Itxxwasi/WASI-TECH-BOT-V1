@@ -50,7 +50,7 @@ cmd({
             {
                 image: { url: h },
                 caption: `*_Scan Qr To Get You Text_*`,
-                footer: ` Session bY >> sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo`,
+                footer: ` Session bY >> ${Config.caption}`,
                 headerType: 4,
             };
              
