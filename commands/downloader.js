@@ -131,7 +131,7 @@ let vurl=info.video.url_video;
 	//data +="\n*Video Link     :* "+  vurl;
 //citel.reply("    FACEBOOK DOWNLOADER  \n"+data)
 //console.log(info);
-	data +="\n\n  *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n youtube.com/@suhailtechinfo0   "
+	data +=Config.caption ;
                         let buttonMessage = {
                         video: {url:vurl},
                         mimetype: 'video/mp4',
@@ -180,7 +180,7 @@ cmd({
          inf +="\n*Last Up       :* " +data.lastup;
          inf +="\n*App Size     :* " +data.size;
         // inf +="\n*App Link     :* " +data.dllink;
-	inf +="\n\n    *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n *youtube.com/@suhailtechinfo0*   "
+	inf +=Config.caption
          
 
 axios.get(url, { responseType: 'stream' })
@@ -454,7 +454,7 @@ cmd({
                 result = anu[Math.floor(Math.random() * anu.length)]
                 let buttonMessage = {
                     image: { url: result },
-                    caption: `*『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n *youtube.com/@suhailtechinfo0*    `,
+                    caption: Config.caption ,
                     //footer: tlang().footer,
                     headerType: 4,
                     contextInfo: {
@@ -500,9 +500,8 @@ let result4 = ` *Mᴇᴅɪᴀғɪʀᴇ Dᴏᴡɴʟᴏᴀᴅᴇʀ*
 *Sɪᴢᴇ* :${baby1[0].size}
 *Mɪᴍᴇ* : ${baby1[0].mime}
 
- *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*
- *youtube.com/@suhailtechinfo0*`;
-	
+`;
+	result4 +=Config.caption ; 
 	
             //citel.reply(`${result4}`);
             
@@ -643,7 +642,7 @@ cmd({
                         video: fs.readFileSync(`./${randomName}`),
                         mimetype: 'video/mp4',
                         fileName: `${titleYt}.mp4`,
-                        caption: "  *Here's Your Video*\n  *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n *youtube.com/@suhailtechinfo0*",
+                        caption: "  *Here's Your Video*" + Config.caption ,
 			 gifPlayback: false,
                    height: 496,
                    width: 640,
@@ -782,6 +781,7 @@ cmd({
                     document: fs.readFileSync(`./${randomName}`),
                     mimetype: 'audio/mpeg',
                     fileName: titleYt + ".mp3",
+		    caption: "  *Here's Your File*" + Config.caption ,
                     headerType: 4,
                     contextInfo: {
                         externalAdReply: {
