@@ -925,7 +925,7 @@ cmd({
             let users = citel.quoted ? citel.quoted.sender : citel.mentionedJid[0] ? citel.mentionedJid[0] :  text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
             await Void.updateBlockStatus(users, "block")
                 .then((res) => {
-		    return await citel.reply ("```Person Blocked in Whatsapp chat```");
+		    return citel.reply ("```Person Blocked in Whatsapp chat```");
 		    console.log(jsonformat(res))
 	    })
                 .catch((err) => console.log(jsonformat(err)));
