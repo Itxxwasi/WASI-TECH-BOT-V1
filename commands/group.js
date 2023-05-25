@@ -96,7 +96,14 @@ cmd({
         filename: __filename,
     },
 	 async(Void, citel, text,{ isCreator }) => {
-	    var str1 = await Void.groupInviteCode(citel.chat)
+	    if (!citel.isGroup) return citel.reply(tlang().group);
+	    
+        const groupAdmins = await getAdmin(Void, citel)	
+	const botNumber = await Void.decodeJid(Void.user.id)
+        const isBotAdmins =groupAdmins.includes(botNumber)
+	
+if (!isBotAdmins) return citel.reply("```I'm Not Admin, So I can't Send Invite Link```");
+var str1 = await Void.groupInviteCode(citel.chat)
 var str2 ="https://chat.whatsapp.com/"
 var mergedString = `${str2}${str1}`;
 return citel.reply("*Group Invite Link Is Here* \n*"+mergedString+"*");
@@ -112,6 +119,13 @@ return citel.reply("*Group Invite Link Is Here* \n*"+mergedString+"*");
         filename: __filename,
     },
 	 async(Void, citel, text,{ isCreator }) => {
+	    if (!citel.isGroup) return citel.reply(tlang().group);
+	    
+        const groupAdmins = await getAdmin(Void, citel)	
+	const botNumber = await Void.decodeJid(Void.user.id)
+        const isBotAdmins =groupAdmins.includes(botNumber)
+	if (!isBotAdmins) return citel.reply("```I'm Not Admin, So I Can't ReSet Group Invite Link```");
+	    
 var code = await Void.groupRevokeInvite(citel.chat)
 return citel.reply("*_Group Link Revoked SuccesFully_*");
 	
@@ -158,7 +172,7 @@ cmd({
         let textt = `
 ══✪〘   *Tag All*   〙✪══
 
-➲ *Message :* ${text ? text : "blank Message\n *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n  *youtube.com/@suhailtechinfo0* "}\n\n
+➲ *Message :* ${text ? text : "blank Message"} \n ${Config.caption} \n\n
 ➲ *Author:* ${citel.pushName} 🔖
 `
         for (let mem of participants) {
@@ -536,15 +550,18 @@ cmd({
             filename: __filename,
             use: '<quote|reply|number>',
         },
-        async(Void, citel, text) => {
+        async(Void, citel, text ,{ isCreator }) => {
+	if (!isCreator) return citel.reply("```Only My Owner Can Use This Command```")
+	
             if (!citel.isGroup) return citel.reply(tlang().group);
             const groupAdmins = await getAdmin(Void, citel)
             const botNumber = await Void.decodeJid(Void.user.id)
             const isBotAdmins = citel.isGroup ? groupAdmins.includes(botNumber) : false;
             const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
 
+	    if (!isBotAdmins) return citel.reply("```I'm Not Admin Here, So I Can't Promote Someone```");
             if (!isAdmins) return citel.reply(tlang().admin);
-            if (!isBotAdmins) return citel.reply(tlang().botAdmin);
+            
             try {
                 let users = citel.mentionedJid[0] ? citel.mentionedJid[0] : citel.quoted ? citel.quoted.sender : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
                 if (!users) return;
@@ -563,15 +580,16 @@ cmd({
             filename: __filename,
             use: '<quote|reply|number>',
         },
-        async(Void, citel, text) => {
+        async(Void, citel, text ,{ isCreator }) => {
+	if (!isCreator) return citel.reply("```Only My Owner Can Use This Command```")
             if (!citel.isGroup) return citel.reply(tlang().group);
             const groupAdmins = await getAdmin(Void, citel)
             const botNumber = await Void.decodeJid(Void.user.id)
             const isBotAdmins = citel.isGroup ? groupAdmins.includes(botNumber) : false;
             const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
-
+	if (!isBotAdmins) return citel.reply(tlang().botAdmin);
             if (!isAdmins) return citel.reply(tlang().admin);
-            if (!isBotAdmins) return citel.reply(tlang().botAdmin);
+            
             try {
                 let users = citel.quoted ? citel.quoted.sender : citel.mentionedJid[0] ? citel.mentionedJid[0] : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
                 if (!users) return;
@@ -731,15 +749,18 @@ cmd({
             use: '<number>',
         },
         async(Void, citel, text,{isCreator}) => {
+	if (!isCreator) return citel.reply("```Only My Owner Can Use This Command```")
+	
             if (!citel.isGroup) return citel.reply(tlang().group);
             const groupAdmins = await getAdmin(Void, citel)
             const botNumber = await Void.decodeJid(Void.user.id)
             const isBotAdmins = citel.isGroup ? groupAdmins.includes(botNumber) : false;
             const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
 
-            if (!text) return citel.reply("Please provide me number.");
+            if (!text) return citel.reply("```Please provide me number.```");
+	    if (!isBotAdmins) return citel.reply(tlang().botAdmin);
             if (!isCreator) return citel.reply(tlang().owner)
-            if (!isBotAdmins) return citel.reply(tlang().botAdmin);
+            
             let users = citel.quoted ? citel.quoted.sender : citel.mentionedJid[0] ? citel.mentionedJid[0] : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
             await Void.groupParticipantsUpdate(citel.chat, [users], "add");
 
@@ -802,15 +823,16 @@ cmd({
         filename: __filename,
         use: '<quote|reply|number>',
     },
-    async(Void, citel, text) => {
+    async(Void, citel, text,{ isCreator }) => {
+	if (!isCreator) return citel.reply("```Only My Owner Can Use This Command```")
         if (!citel.isGroup) return citel.reply(tlang().group);
         const groupAdmins = await getAdmin(Void, citel)
         const botNumber = await Void.decodeJid(Void.user.id)
         const isBotAdmins = citel.isGroup ? groupAdmins.includes(botNumber) : false;
         const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
-
+if (!isBotAdmins) return citel.reply(tlang().botAdmin);
         if (!isAdmins) return citel.reply(tlang().admin);
-        if (!isBotAdmins) return citel.reply(tlang().botAdmin);
+        
         try {
             let users = citel.mentionedJid[0] ? citel.mentionedJid[0] : citel.quoted ? citel.quoted.sender : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
             if (!users) return;
@@ -825,13 +847,13 @@ cmd({
 //---------------------------------------------------------------------------
 cmd({
             pattern: "del",
-            alias: ["delete"],
+            alias: ["delete" , "dlt"],
             desc: "Deletes message of any user",
             category: "group",
             filename: __filename,
             use: '<quote/reply message.>',
         },
-        async(Void, citel, text) => {
+        async(Void, citel, text,{ isCreator }) => {
             if (citel.quoted.Bot) {
                 const key = {
                     remoteJid: citel.chat,
@@ -842,7 +864,7 @@ cmd({
                 await Void.sendMessage(citel.chat, { delete: key })
 
             }
-            if (!citel.quoted.isBot) {
+            if (!citel.quoted.isBot ) {
                 if (!citel.isGroup) return citel.reply(tlang().group)
                 const groupAdmins = await getAdmin(Void, citel)
                 const botNumber = await Void.decodeJid(Void.user.id)
@@ -852,7 +874,8 @@ cmd({
                 if (!isBotAdmins) return citel.reply('I can\'t delete anyones message without getting Admin Role.')
                 if (!citel.quoted) return citel.reply(`Please reply to any message. ${tlang().greet}`);
                 let { chat, fromMe, id } = citel.quoted;
-                const key = {
+                
+		    const key = {
                     remoteJid: citel.chat,
                     fromMe: false,
                     id: citel.quoted.id,
@@ -901,7 +924,10 @@ cmd({
             if (!isCreator) citel.reply(tlang().owner);
             let users = citel.quoted ? citel.quoted.sender : citel.mentionedJid[0] ? citel.mentionedJid[0] :  text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
             await Void.updateBlockStatus(users, "block")
-                .then((res) => console.log(jsonformat(res)))
+                .then((res) => {
+		    return await citel.reply ("```Person Blocked in Whatsapp chat```");
+		    console.log(jsonformat(res))
+	    })
                 .catch((err) => console.log(jsonformat(err)));
 
         }
