@@ -27,7 +27,7 @@ cmd({
                     headerType: 4,
                    
                 };
-                return await Void.sendMessage(citel.chat, buttonMessaged);
+                return await Void.sendMessage(citel.chat, buttonMessaged , {quoted : citel });
 }
     )
 //-----------------------------------------------------------------------
@@ -188,7 +188,7 @@ async(Void, citel, text) => {
         Void.sendMessage(citel.chat, { image: { url: data.sprites.front_default }, caption: poinfo }, { quoted: citel })
     } catch (err) {
         citel.reply("Ahh,Couldn't found any pokemon.")
-        console.log(err)
+        //console.log(err)
     }
 
 }
@@ -266,14 +266,14 @@ cmd({
                         },
                     },
                 };
-                Void.sendMessage(citel.chat, buttonMessage, { viewOnce: true }, {
+                Void.sendMessage(citel.chat, buttonMessage, {
                     quoted: citel,
                 });
             })
         } catch (e) {
-                        for (let i of owner) {
-                        Void.sendMessage(i + "@s.whatsapp.net", { text: `Error :` + e })
-                                 }
+                       citel.reply("```Error While Downloading Animy Wallpaper```") ;
+                       
+                      
                    
         }
     }
@@ -385,7 +385,7 @@ const data = await response.json();
                     headerType: 4,
                    
                 };
-                return await Void.sendMessage(citel.chat, buttonMessaged);
+                return await Void.sendMessage(citel.chat, buttonMessaged , {quoted : citel});
 
 
 }
