@@ -13,10 +13,12 @@ const os = require('os')
 const moment = require("moment-timezone")
 const fs = require("fs")
 const Config = require('../config')
-let { fancytext, tlang, tiny, runtime, formatp, botpic, prefix, sck1 } = require("../lib");
+let { fancytext, tlang, tiny, runtime, formatp, botpic, getBuffer ,prefix, sck1 } = require("../lib");
 const long = String.fromCharCode(8206)
 const readmore = long.repeat(4001)
 const Secktor = require('../lib/commands')
+
+
     //---------------------------------------------------------------------------
 Secktor.cmd({
             pattern: "help",
@@ -48,13 +50,12 @@ Secktor.cmd({
                 })
                 const time = moment(moment())
                     .format('HH:mm:ss')
-                moment.tz.setDefault('Asia/KOLKATA')
+                moment.tz.setDefault('Asia/karachi')
                     .locale('id')
                 const date = moment.tz('asia/karachi').format('DD/MM/YYYY')
                 let total = await sck1.countDocuments()
-                let str = `╭────《 ₊₉₂⃗⃗₃₁᩺₈ͦ₄ͪ₄ᷧ₇ͥ₄ᷞ₇₆ 》─────⊷\n`
-                str +=
-                    '' + `│ ╭───────✧❁✧───────«
+                let str = `╭────《 Config.botname 》─────⊷\n
+│ ╭───────✧❁✧───────«
 │ │ Theme:- ${tlang().title}
 │ │ Owner:- ${Config.ownername}
 │ │ Plugins:- ${commands.length}
@@ -79,7 +80,7 @@ Secktor.cmd({
                     str += `┃  ╰─────────────◆`
                 }
 
-                str += `\n╰━━━━━━━━━━━──⊷\nsᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo`
+                str += `\n╰━━━━━━━━━━━──⊷\n${Config.caption}`
 
                 let buttonMessaged = {
                     image: { url: await botpic() },
@@ -88,7 +89,7 @@ Secktor.cmd({
                     headerType: 4,
                    
                 };
-                return await Void.sendMessage(citel.chat, buttonMessaged);
+                return await Void.sendMessage(citel.chat, buttonMessaged ,{quoted : citel});
             }
         }
     )
@@ -135,6 +136,7 @@ Secktor.cmd({
     },
     async(Void, citel) => {
         const Config = require('../config')
+        const thmb = await getBuffer(THUMB_IMAGE)
         const vcard = 'BEGIN:VCARD\n' +
             'VERSION:3.0\n' +
             'FN:' + Config.ownername + '\n' +
@@ -149,10 +151,10 @@ Secktor.cmd({
                     body: 'Touch here.',
                     renderLargerThumbnail: true,
                     thumbnailUrl: ``,
-                    thumbnail: log0,
-                    mediaType: 2,
+                    thumbnail: thmb,
+                    mediaType: 1,
                     mediaUrl: '',
-                    sourceUrl: `https://wa.me/+` + owner + '?text=Hii bro,I am ' + citel.pushName,
+                    sourceUrl: `https://wa.me/+` + owner + '?text=Hii+bro,I+am+' + citel.pushName,
                 },
             },
         };
