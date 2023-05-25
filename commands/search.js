@@ -45,7 +45,8 @@ cmd({
             imdbt += "📦BoxOffice  : " + fids.data.BoxOffice + "\n";
             imdbt += "🏙️Production : " + fids.data.Production + "\n";
             imdbt += "🌟imdbRating : " + fids.data.imdbRating + "\n";
-            imdbt += "❎imdbVotes  : " + fids.data.imdbVotes + "";
+            imdbt += "❎imdbVotes  : " + fids.data.imdbVotes + "\n";
+            imdbt += Config.caption ;
             Void.sendMessage(citel.chat, {
                 image: {
                     url: fids.data.Poster,
@@ -82,6 +83,7 @@ cmd({
             textw += `*Latitude:-* ${wdata.data.coord.lat}\n`;
             textw += `*Longitude:-* ${wdata.data.coord.lon}\n`;
             textw += `*Country:-* ${wdata.data.sys.country}\n`;
+ textw +=Config.caption ;
 
             Void.sendMessage(
                 citel.chat, {
@@ -122,6 +124,7 @@ cmd({
                         textw += `*Lucky Color:* ${json.color}.\n`;
                         textw += `*Today Mood:* ${json.mood}.\n`;
                         textw += `*Overall:* ${json.description}.\n`;
+                        textw +=Config.caption ;
                         citel.reply(textw)
                     });
 
@@ -219,7 +222,7 @@ else return citel.reply("*Google Images Not Working, Try it Later*");
             
              
              if(!num){ buttonMessage = {   image: { url: images },
-                                caption: ` sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo `,
+                                caption: Config.caption,
                                 }
              }else {  buttonMessage = {   image: { url: images },}   }
                     
@@ -253,8 +256,8 @@ cmd({
     },
     async(Void, citel, text) => {
         var inputnumber = text.split(" ")[0]
-        if (!inputnumber.includes('x')) return citel.reply(`*You did not add x*\nExample: iswa 923184474176xx \n\nSupprt : sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo`)
-        citel.reply(`*Searching for WhatsApp account in given range...* \n *Support PLease :*  \n www.youtube.com/c/SuhailTechInfo`)
+        if (!inputnumber.includes('x')) return citel.reply(`*You did not add x*\nExample: iswa 9231844741xx  \n ${Config.caption}`)
+        citel.reply(`*Searching for WhatsApp account in given range...* \n ${Config.caption}`)
 
         function countInstances(string, word) {
             return string.split(word).length - 1;
