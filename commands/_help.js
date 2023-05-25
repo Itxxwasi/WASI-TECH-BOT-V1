@@ -89,7 +89,7 @@ Secktor.cmd({
                     headerType: 4,
                    
                 };
-                return await Void.sendMessage(citel.chat, buttonMessaged ,{quoted : citel});
+                return await Void.sendMessage(citel.chat, buttonMessaged ,{ quoted : citel});
             }
         }
     )
