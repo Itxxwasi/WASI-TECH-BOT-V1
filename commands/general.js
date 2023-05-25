@@ -29,13 +29,14 @@ cmd({
     },
     async(Void, citel,text) => 
     {
-        let zx = text.length;
-        if (zx < 300) {
+      //  let zx = text.length;
+        //if (zx < 300) {
             let {data} = await axios.get(`http://api.brainshop.ai/get?bid=167991&key=aozpOoNOy3dfLgmB&uid=[${citel.sender.split("@")[0]}]&msg=[${text}]`);
             return citel.reply(data.cnt);  
-    }
+   // }
 	
-        if (!text) return citel.reply(`Hey there! ${citel.pushName}. How are you doing these days?`); // for null text 
+        /*
+	if (!text) return citel.reply(`Hey there! ${citel.pushName}. How are you doing these days?`); // for null text 
 	
         const { Configuration, OpenAIApi } = require("openai");
         const configuration = new Configuration
@@ -55,6 +56,8 @@ cmd({
             stop: ['"""'],
         });
         citel.reply(completion.data.choices[0].text);
+	
+	*/
     }
 )
 
@@ -143,7 +146,7 @@ Void.sendMessage(citel.chat,{image:{url:data.data[0].url}})
 cmd({
         pattern: "repo",
         alias: ["git", "sc", "script"],
-        desc: "Sends info about repo.\n _CheckOut :_ www.Youtube.com/c/SuhailTechInfo",
+        desc: "Sends info about repo",
         category: "general",
         filename: __filename,
     },
@@ -153,10 +156,10 @@ cmd({
 *⭐ Total Stars:* ${data.stargazers_count} stars
 *🍽️ Forks:* ${data.forks_count} forks
 *🍁 Repo:* _https://github.com/SuhailTechInfo/Secktor-bot_
-\n\n*Visit More About Wa-Bot:-*
- _Www.Youtube.com/c/SuhailTechInfo_ \n*Please Support Ytube Channel*`
-        let buttonMessaged = 
-            {
+\n\n*Visit For Tutorial :-*
+ _https://www.Youtube.com/c/SuhailTechInfo_ `
+	
+        let buttonMessaged = {
             image: { url: await botpic() },
             caption: cap,
             footer: tlang().footer,
@@ -177,13 +180,13 @@ cmd({
         filename: __filename,
     },
     async(Void, citel) => {
-        let { data } = await axios.get('https://api.github.com/repos/SuhailTechInfo/Secktor-bot')
-        let cap = `
+       
+	let cap = `
 ╔══════════════════════════╗
-   ☞𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐓𝐎 𝐒𝐔𝐇𝐀𝐈𝐋 𝐓𝐄C𝐇 𝐈𝐍F𝐎☜
+  ☞𝐒𝐔𝐏𝐏𝐎𝐑𝐓 𝐘𝐎𝐔𝐓𝐔𝐁𝐄 𝐂𝐇𝐀𝐍𝐍𝐄𝐋☜
 ╚══════════════════════════╝\n
 *⭐ Youtube Content :* How To Create Whatsapp Bot
-*🍽️ Total Subscriber:* 2.45k Subscribers
+*🍽️ Total Subscriber:* 36 Subscribers
 *🍁 Channel Link:* _https://youtube.com/@suhailtechinfo0?sub_confirmation=1_\n
 ╭━━━━━━━━━━━━━━━━━━━━╮
 ┇  ╔═╦╗╔╦╗╔═╦═╦╦╦╦╗╔═╗
@@ -191,8 +194,9 @@ cmd({
 ┇  ╠╗║╚╝║║╠╗║╚╣║║║║║═╣
 ┇  ╚═╩══╩═╩═╩═╩╝╚╩═╩═╝
 ╰━━━━━━━━━━━━━━━━━━━━╯
-\n*Visit More About Wa-Bot:-*
- _www.github.com/SuhailTechInfo_ \n*𝐏𝐋𝐄𝐀𝐒𝐄 𝐒𝐔𝐏𝐏𝐎𝐑𝐓 𝐌𝐘 𝐘𝐎𝐔𝐓𝐔𝐁𝐄 𝐂𝐇𝐀𝐍𝐍𝐄𝐋*`
+𝐏𝐋𝐄𝐀𝐒𝐄 𝐒𝐔𝐏𝐏𝐎𝐑𝐓 𝐌𝐘 𝐘𝐎𝐔𝐓𝐔𝐁𝐄 𝐂𝐇𝐀𝐍𝐍𝐄𝐋*`
+	
+	
         let buttonMessaged = 
             {
             image: { url: await botpic() },
@@ -205,6 +209,7 @@ cmd({
 
     }
 )
+
 //---------------------------------------------------------------------------
 //                  BOT STATUS COMMAND
 //---------------------------------------------------------------------------
