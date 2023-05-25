@@ -9,7 +9,7 @@
  * @version 0.0.6
  **/
 
-const { dare, truth, random_question } = require('../lib/truth-dare.js')
+const { dare, truth, random_question ,Config } = require('../lib/truth-dare.js')
 const axios = require('axios')
 const { cmd } = require('../lib')
 const fetch = require('node-fetch');
@@ -57,7 +57,7 @@ cmd({
 
 const response =await  fetch('https://official-joke-api.appspot.com/random_joke');
   const joke= await response.json();
-citel.reply( `Joke: ${joke.setup}\nPunchline :  ${joke.punchline} `);
+citel.reply( `Joke: ${joke.setup}\nPunchline :  ${joke.punchline}`);
 
 })
 //---------------------------------------------------------------------------
@@ -72,7 +72,7 @@ cmd({
          fetch('https://v2.jokeapi.dev/joke/Any?type=single')
          .then(response => response.json())
          .then(data => {
-         citel.reply( '*joke :* '+data.joke); // prints a random joke to the console
+         citel.reply(`*joke :* ${data.joke}`); 
   })
   .catch(error => {
      return citel.reply ('Error fetching joke:' + error);
@@ -89,7 +89,7 @@ cmd({
     },
     async(Void, citel, text) => {
         const { data } = await axios.get(`https://nekos.life/api/v2/fact`)
-        return citel.reply(`*Fact:* ${data.fact}\n\n*Powered by Suhail Tech*`)   
+        return citel.reply(`*Fact:* ${data.fact}\n\n*Powered by + ${Config.ownername}*`)   
     }
 
 )
@@ -106,7 +106,7 @@ cmd({
 ╔════◇
 ║ *🎗️Content:* ${quoo.data.quote.body}
 ║ *👤Author:* ${quoo.data.quote.author}
-║    
+║  *Powered by + ${Config.ownername}*
 ╚════════════╝ `
 return citel.reply(replyf)
     }
