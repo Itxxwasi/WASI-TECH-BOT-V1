@@ -10,7 +10,7 @@
  **/
 
 const axios = require('axios')
-const { sck1, tiny, fancytext, listall,cmd , Config} = require('../lib/')
+const { sck1, tiny, fancytext,getBuffer, listall,cmd , Config} = require('../lib/')
 const fs = require('fs-extra');
 const { exec } = require('child_process')
 const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter");
