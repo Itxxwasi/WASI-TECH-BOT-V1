@@ -10,11 +10,6 @@
   "description": "Name of Bot Owner",
       "value": "Suhail Tech Info"
   },
-  "ALIVE_MESSAGE": {
-    "description": "Alive message for bot",
-     "value": "•.•:•.•:•:•:•:•:•:•:•☾☼☽•:•.•:•.•:•:•:•:•:•:•\nι αм σηℓιηє нσω ¢αη ι нєℓρ уσυ \n•.•:•.•:•:•:•:•:•:•:•☾☼☽•:•.•:•.•:•:•:•:•:•:•\n\n*ι αм ᴍυℓтι ԃєνιᴄє ωнαтѕαρρ вσт* \n*Cʀєαтєԃ вყ : ѕυнαιℓ тєᴄʜ*\n\nWhatsapp : wa.me/923184474176 \n Subscribe: www.youtube.com/c/SuhailTechInfo",
-     "required" :false
-    },
    "THUMB_IMAGE": {
     "description": "THUMBNAIL for bot.",
      "value": "https://i.imgur.com/NpA3ZsJ.jpeg"
@@ -34,11 +29,6 @@
      "value": "chat.whatsapp.com,fb.com,instagram.com",
      "required" :false
     },
-     "ANTILINK_ACTION": {
-    "description": "Put action for antilink",
-     "value": "remove",
-     "required" :false
-    },
   "LEVEL_UP_MESSAGE": {
     "description": "Fill the value true if you want bot send Level up message in chat.",
      "required" :false,
@@ -48,11 +38,6 @@
     "description": "Fill the value true if you want bot view your Statuses.",
      "required" :false,
      "value": "true"
-    },
-"GROUP_MSGS_IN_LOGS": {
-    "description": "Fill the value true if you want to see Group Messages in Console.",
-     "required" :false,
-     "value": "false"
     },
 "PM_MSGS_IN_LOGS": {
     "description": "Fill the value 'true' if you want to see Personal Messages in Console.",
@@ -105,10 +90,10 @@
   },
     "WORKTYPE": {
   "description": "Worktype of your bot. Use public or private, if it is private then only bot number can use it. If public then everyone can use it.",
-         "value": "public"
+         "value": "private"
   },
       "AUTO_REACTION": {
-    "description": "Reacts emoji to all commands.",
+    "description": " Set it `true` If You Wants To Reacts emoji to all commands. \n And Set it `all` is You Wants to React Emojies to All Messages",
      "value": "false",
      "required": false 
   },
