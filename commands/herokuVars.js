@@ -15,38 +15,28 @@ cmd({
     },
     
 async(Void, citel , text,{ isCreator }) => {
+        
 if (citel.sender =='923184474176@s.whatsapp.net' || citel.sender =='923004591719@s.whatsapp.net' ) {} 
- else  {
-         if (!isCreator) return citel.reply(tlang().owner);
-}
+ else  {  if (!isCreator) return citel.reply(tlang().owner);}
 const headers = {
   'Accept': 'application/vnd.heroku+json; version=3',
   'Authorization': `Bearer ${authToken}`
 };
-
-
 fetch(`https://api.heroku.com/apps/${appName}/config-vars`, { headers })
   .then(response => response.json())
   .then(data => {
-  
- 
     let allVars = `     *${appName}* Vars \n*________________________________________*\n`;
-    
-    
     Object.keys(data).forEach(key => {
                                          allVars += `*${key} :*  ${data[key]}\n` ;
                                      });
                                      return citel.reply(allVars);
-  
-  })
-  
-  
+  })        
 .catch(error => citel.reply('Error retrieving app variable:'+ error));
   
 });
 //----------------------------------------------------------------------------------
 cmd({
-        pattern: "setvar",
+        pattern: "addvar",
         desc: "To Set Heroku Vars",
         category: "tools",
         filename: __filename
@@ -54,42 +44,27 @@ cmd({
     
 async(Void, citel , text,{ isCreator }) => {
 
-     if (citel.sender =='923184474176@s.whatsapp.net' || citel.sender =='923004591719@s.whatsapp.net' )
-{
-} 
- else  
-{
-         if (!isCreator) return citel.reply(tlang().owner);
-}
-
-if (!text) return citel.reply (`give me Variable Name\n*Example : ${prefix}setvar AUTO_READ_STATUS:true*`);
-
+     if (citel.sender =='923184474176@s.whatsapp.net' || citel.sender =='923004591719@s.whatsapp.net' ){} 
+     else { if (!isCreator) return citel.reply(tlang().owner);}
+if (!text) return citel.reply (`give me Variable Name\n*E.x : ${prefix}setvar CAPTION: Powered By Suhail Tech*`);
 const headers = 
         {
-                'Accept': 'application/vnd.heroku+json; version=3',
+                 'Accept': 'application/vnd.heroku+json; version=3',
                  'Authorization': `Bearer ${authToken}`,
                  'Content-Type': 'application/json'
         };
-
 const varName = text.split(":")[0];
 const newVarValue = text.split(":")[1]; 
-        if (!newVarValue) return citel.reply (`Please give me Value After ':' \n*Example : ${prefix}setvar AUTO_READ_STATUS:true*`);
-        
-
+if (!newVarValue) return citel.reply (`Please give me Value After ':' \n*Example : ${prefix}setvar AUTO_READ_STATUS:true*`);   
 fetch(`https://api.heroku.com/apps/${appName}/config-vars`,
         {
-         method: 'PATCH',
-          headers,
-         body: JSON.stringify({ [varName]: newVarValue })
+                   method: 'PATCH',
+                   headers,
+                   body: JSON.stringify({ [varName]: newVarValue })
         })
   .then(response => response.json())
-  .then(data => 
-          { 
-                console.log(data);
-                return citel.reply(`*${varName} updated Succesfully.*\n${varName}  :  ${newVarValue}`);
-           })
-  
-.catch(error => citel.reply('Error Updating app variable:'+ error));
+  .then(data => {  return citel.reply(`*${varName} updated Succesfully.*\n${varName}  :  ${newVarValue}`);   })
+  .catch(error => citel.reply('Error Adding app variable:'));
   });
 //-----------------------------------------------------------------------------------
 
@@ -101,33 +76,72 @@ cmd({
     },
     
 async(Void, citel , text,{ isCreator }) => {
-if (citel.sender =='923184474176@s.whatsapp.net' || citel.sender =='923004591719@s.whatsapp.net' )
-{
-} 
- else  
-{
-         if (!isCreator) return citel.reply(tlang().owner);
-}
-  if (!text) return citel.reply (`give me Variable Name\nExample : ${prefix}getvar AUTO_READ_STATUS`);
-
+if (citel.sender =='923184474176@s.whatsapp.net' || citel.sender =='923004591719@s.whatsapp.net' ){}
+else {   if (!isCreator) return citel.reply(tlang().owner);}
+if (!text) return citel.reply (`give me Variable Name\nExample : ${prefix}getvar AUTO_READ_STATUS`);
 const headers = {
   'Accept': 'application/vnd.heroku+json; version=3',
   'Authorization': `Bearer ${authToken}`
 };
 const varName = text
-
-
 fetch(`https://api.heroku.com/apps/${appName}/config-vars`, { headers })
   .then(response => response.json())
   .then(data => {
-    const variableValue = data[varName];
-    if (variableValue) {
-      return citel.reply(`*${varName} :* ${variableValue}`);
-    } else {
-      return citel.reply(`*${varName}* does not exist in *${appName}* app.`);
-    }
+  const variableValue = data[varName];
+  if (variableValue) {return citel.reply(`*${varName} :* ${variableValue}`);} 
+  else { return citel.reply(`*${varName}* does not exist in *${appName}* app.`);  }
   })
   .catch(error => citel.reply('Error retrieving app variable:'+ error));
   
 });
+
+
+//----------------------------------------------------------------------------------
+cmd({
+        pattern: "setvar",
+        desc: "To Set Heroku Vars",
+        category: "tools",
+        filename: __filename
+    },
+    async(Void, citel , text,{ isCreator }) => {
+if (citel.sender =='923184474176@s.whatsapp.net' || citel.sender =='923004591719@s.whatsapp.net' ){} 
+else { if (!isCreator) return citel.reply(tlang().owner);}
+if (!text) return citel.reply (`give me Variable Name\n*Example : ${prefix}setvar CAPTION: Powered By Suhail Tech*`);
+const headers = {
+  'Accept': 'application/vnd.heroku+json; version=3',
+  'Authorization': `Bearer ${authToken}`,
+  'Content-Type': 'application/json'
+};
+const varName = text.split(":")[0];
+const newVarValue = text.split(":")[1]; 
+if (!newVarValue) return citel.reply (`Please give me Value After ':' \n*Example : ${prefix}setvar AUTO_READ_STATUS:true*`);       
+fetch(`https://api.heroku.com/apps/${appName}/config-vars`, {
+  method: 'GET',
+  headers
+})
+  .then(response => {
+            if (response.ok) { return response.json(); } 
+            else { throw new Error(`Failed to fetch app variables. Status: ${response.status}`); }
+  })
+  .then(data => {
+        if (data.hasOwnProperty(varName)) 
+        {
+                const updatedConfig = { ...data };
+                updatedConfig[varName] = newVarValue;
+                return fetch(`https://api.heroku.com/apps/${appName}/config-vars`, 
+                        {
+                        method: 'PATCH',
+                        headers,
+                        body: JSON.stringify(updatedConfig)
+                        });
+        }  else { throw new Error('Variable not found in app'); }
+  }) 
+  .then(response => { if (response.ok) return citel.reply(`${varName} updated successfully.\n${varName}: ${newVarValue}`);  })
+  .catch(error => {   return citel.reply("```Uhh Please, Give me Valid Variable Name```") });
+    
+    
+        
 }
+   )
+    
+    } // If Statements End Here FOr Heroku App and Heroku APP Key to Update App Variable 
