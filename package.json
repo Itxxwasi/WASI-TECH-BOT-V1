@@ -55,6 +55,7 @@
                 "got":"12.6.0",
                 "acrcloud": "^1.4.0",
                 "jimp": "^0.16.1",
+                "qrcode-reader": "^1.0.4",
                        "request": "^2.88.2",
                        "simple-git": "^3.15.1",
                        "@shineiichijo/marika": "^2.0.3",           
