@@ -10,10 +10,35 @@
  **/
 
 const moment = require('moment-timezone')
-const {fetchJson,cmd, tlang, prefix, Config } = require('../lib')
+const {fetchJson,cmd, tlang, getBuffer, prefix, Config } = require('../lib')
 let gis = require("g-i-s");
 const axios = require('axios')
 const fetch = require('node-fetch')
+
+   //---------------------------------------------------------------------------
+
+cmd({
+            pattern: 'ss',
+            alias :['webss' , 'fullss'],
+            category: "search",
+            desc: "Searches Image on Google",
+            use: '<text>',
+            filename: __filename,
+        },
+        async(Void, citel, text) => {
+let limit = 5;
+ try {
+    if (!text) return citel.reply("```Uhh Please, Give me Url!```");
+    var url = text;
+    let urll = `https://s.vercel.app/api?url=${url.match(/\bhttps?:\/\/\S+/gi)[0]}&width=1280&height=720`
+    let media  = await getBuffer(urll)
+    return await Void.sendMessage(citel.chat ,{image : media } , {quoted:citel} )
+ }
+catch (err) { return citel.reply("```Error While Fetching Snapshot```")}
+        }
+    )
+
+
 
     //---------------------------------------------------------------------------
 cmd({
