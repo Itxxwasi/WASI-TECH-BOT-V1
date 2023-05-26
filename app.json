@@ -77,15 +77,7 @@
   },
   "WELCOME_MESSAGE": {
     "description": "Enter the message here which you want to see in Welcome when a new user joins a Group.",
-       "value": ` @user @pp Welcome Bruhhh In @gname.....!!!!!😊👇🏻♥️
-
-_GROUP DESCRIPTION_
-@desc
-
-
-__________
- Support us by Subscribing 
-Youtube.com/@suhailtechinfo0`,
+       "value": '@user @pp Welcome Bruhhh In @gname.....!!!!!😊👇🏻♥️\n\n_GROUP DESCRIPTION_\n@desc\n\n\n__________\n Support us by Subscribing \n Youtube.com/@suhailtechinfo0',
        "required" :false
   },
   "MONGODB_URI": {
