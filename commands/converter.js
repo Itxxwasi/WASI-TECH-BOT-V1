@@ -29,13 +29,22 @@ cmd({
             }
             if (!citel.quoted) return citel.reply(`_Reply to Any Sticker._`)
             let mime = citel.quoted.mtype
+  if (mime =="imageMessage" || mime =="stickerMessage")
+  {
             let media = await Void.downloadAndSaveMediaMessage(citel.quoted);
             let name = await getRandom('.png')
             exec(`ffmpeg -i ${media} ${name}`, (err) => {
-                let buffer = fs.readFileSync(trueFileName)
+                let buffer = fs.readFileSync(media)
                 Void.sendMessage(citel.chat, { image: buffer }, { quoted: citel })
+              
+             fs.unlink(media, (err) => {
+             if (err) { return console.error('File Not Deleted from From TOPHOTO AT : ' , media,'\n while Error : ' , err);  }
+             else return console.log('File deleted successfully in TOPHOTO  at : ' , media);
+             });
              
             })
+            
+  } else return citel.reply ("```Uhh Please, Reply To A Non Animated Sticker```")
         }
     )
 //---------------------------------------------------------------------------
@@ -319,8 +328,8 @@ cmd({
         async(Void, citel, text) => {
             if (!text) return citel.reply(`Provide me a link`)
             try {
-                link = text.split(" ")[0];
-                anu = await axios.get(`https://tinyurl.com/api-create.php?url=${link}`);
+                let link = text.split(" ")[0];
+                let anu = await axios.get(`https://tinyurl.com/api-create.php?url=${link}`);
                 citel.reply(`*🛡️Your Shortened URL*\n\n${anu.data}`);
             } catch (e) {
                 console.log(e);
@@ -339,11 +348,21 @@ cmd({
    async(Void, citel, text) => {
         if (!citel.quoted) return citel.reply(`_Reply to Any Video_`);
         let mime = citel.quoted.mtype
+if (mime =="audioMessage" || mime =="videoMessage")
+{
         let media = await Void.downloadAndSaveMediaMessage(citel.quoted);
          const { toAudio } = require('../lib');
-        // citel.reply(`_Please Wait_`);
-         let buffer = fs.readFileSync(trueFileName);
+         let buffer = fs.readFileSync(media);
         let audio = await toAudio(buffer);
         Void.sendMessage(citel.chat, { audio: audio, mimetype: 'audio/mpeg' }, { quoted: citel });
+     
+ 
+ fs.unlink(media, (err) => {
+  if (err) { return console.error('File Not Deleted from From TOAUDIO AT : ' , media,'\n while Error : ' , err);  }
+  else return console.log('File deleted successfully in TOAUDIO MP3 at : ' , media);
+});
+
+}
+ else return citel.reply ("```Uhh Please, Reply To A video Message```")
     }
 )
