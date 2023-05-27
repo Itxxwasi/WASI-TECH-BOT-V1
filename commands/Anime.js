@@ -136,6 +136,7 @@ async(Void, citel, text) => {
 }
 )
 //-----------------------------------------------------------------------
+/*
 cmd({
     pattern: "pokepic",
     category: "Anime Pics",
@@ -173,6 +174,7 @@ async(Void, citel, text) => {
 
 }
 )
+*/
 //---------------------------------------------------------------------------
 cmd({
     pattern: "pokemon",
@@ -181,6 +183,7 @@ cmd({
     desc: "Sends info of pokemon in current chat."
 },
 async(Void, citel, text) => {
+        if(!text) return citel.reply("```Uhh Please Give Me Poki Name```")
     try {
         let { data: data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${text}`)
         if (!data.name) return citel.reply(`❌ Could not found any pokemon with that name`)
@@ -194,6 +197,9 @@ async(Void, citel, text) => {
 }
 )
 //---------------------------------------------------------------------------
+/*
+
+
 cmd({
         pattern: "animepic",
         category: "Anime Pics",
@@ -232,7 +238,10 @@ cmd({
 
     }
 )
+*/
 //-----------------------------------------------------------------------
+
+/*
 cmd({
         pattern: "animewall",
         category: "Anime Pics",
@@ -278,6 +287,7 @@ cmd({
         }
     }
 )
+*/
 //-----------------------------------------------------------------------
 cmd({
     pattern: "manga",
