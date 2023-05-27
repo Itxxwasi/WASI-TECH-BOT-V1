@@ -16,8 +16,11 @@ cmd({
 
     async(Void, citel, text) => {
 
-
-  const response = await fetch('https://api.waifu.pics/sfw/neko');
+    let response;
+        if(text == 'nsfw'){ response = await axios.get("https://waifu.pics/api/nsfw/waifu");    }
+        else  { response =  await fetch('https://api.waifu.pics/sfw/waifu');  }
+        
+        
   const data = await response.json();
   
                 let buttonMessaged = {
@@ -31,27 +34,28 @@ cmd({
 }
     )
 //-----------------------------------------------------------------------
-/*cmd({
+cmd({
     pattern: "neko",
     category: "Anime Pics",
     desc: "Sends a Neko Image in chat",
     filename: __filename
 },
 async(Void, citel, text) => {
-    nekodds = await axios.get("https://waifu.pics/api/sfw/neko");
-   
-    let button4Messagesp = {
-        image: {
-            url: nekodds.url,
-        },
+        
+        
+        let response;
+        if(text == 'nsfw'){ response = await axios.get("https://waifu.pics/api/nsfw/neko");    }
+        else  { response = await axios.get("https://waifu.pics/api/sfw/neko");  }
+    
+    const nekodds = await response.json();
+    let buttonMessages = {
+        image: { url: nekodds.url, },
         caption: "*Here we go😊!!!!*",
         headerType: 1,
     };
-    await Void.sendMessage(citel.chat, button4Messagesp, {
-        quoted: citel,
-    })
+    return await Void.sendMessage(citel.chat, buttonMessages, { quoted: citel })
 }
-)*/
+)
 //-----------------------------------------------------------------------
 cmd({
     pattern: "foxgirl",
