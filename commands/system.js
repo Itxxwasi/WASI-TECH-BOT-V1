@@ -26,7 +26,7 @@ cmd({
         },
         async(Void, citel, text,{ isCreator }) => {
             if (!isCreator) return citel.reply(tlang().owner)
-            if (!text) return citel.reply(`🔍 Please provide me a valid gist url.`)
+            if (!text) return citel.reply(`🔍 *Please Provide Text To Save In Notes*`)
             await addnote(text)
             return citel.reply(`New note ${text} added in mongodb.`)
 
@@ -175,6 +175,7 @@ cmd({
         },
         async(Void, citel, text,{ isCreator }) => {
             if (!isCreator) return citel.reply(tlang().owner)
+ if(!text) return citel.reply("*Uhh PLease, Provide A Command to Run Heroku*")
             const { exec } = require("child_process")
             exec(text, (err, stdout) => {
                 if (err) return citel.reply(`----${tlang().title}----\n\n` + err)
@@ -192,7 +193,8 @@ cmd({
             desc: "Runs js code on node server."
         },
         async(Void, citel, text,{ isCreator }) => {
-            if (!isCreator) return
+            if (!isCreator)  return citel.reply(tlang().owner)
+           if(!text) return citel.reply("*Uhh PLease, Provide A Query To Run Master*")
             try {
                 let resultTest = eval('const a = async()=>{\n' + text + '\n}\na()');
                 if (typeof resultTest === "object")
@@ -213,6 +215,7 @@ cmd({
         async(Void, citel, text,{ isCreator }) => {
             const { tlang } = require('../lib/scraper')
             if (!isCreator) return citel.reply(tlang().owner)
+            if(!text) return citel.reply("*Uhh PLease, Provide A Note Id. Ex .delnote 1*")
             await delnote(text.split(" ")[0])
              return citel.reply(`Id: ${text.split(" ")[0]}\'s note has been deleted from mongodb.`)
 
