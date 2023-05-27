@@ -9,8 +9,9 @@
  * @version 0.0.6
  **/
 
-const { tlang, ringtone, cmd,fetchJson, sleep, botpic, getBuffer, GDriveDl, pinterest, prefix, Config } = require('../lib')
+const { tlang, ringtone, cmd,fetchJson, sleep, botpic, getBuffer, pinterest, prefix, Config } = require('../lib')
 const { mediafire } = require("../lib/mediafire.js");
+const {GDriveDl} = require('../lib/scraper.js')
 const fbInfoVideo = require('fb-info-video'); 
 const googleTTS = require("google-tts-api");
 const ytdl = require('ytdl-secktor')
