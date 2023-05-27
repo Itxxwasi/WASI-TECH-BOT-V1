@@ -173,6 +173,20 @@ Secktor.cmd({
     filename: __filename
 },
 async(Void, citel, text) => {
+    if(text.startsWith("."))
+    {
+         let res="       *FILE MANAGER* \n"
+         const directoryPath = text ;
+         fs.readdir(directoryPath, (err, files) => 
+         {
+                   if (err) return citel.reply('Error reading directory') 
+                   files.forEach(file => {  res += file+ '\n'; });
+                   citel.reply(res.toString())
+         }); 
+     return ;
+    }
+ 
+
  const { commands } = require('../lib');
  let arr = [];
         const cmd = commands.find((cmd) => cmd.pattern === (text.split(" ")[0].toLowerCase()))
