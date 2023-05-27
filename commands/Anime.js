@@ -16,25 +16,28 @@ cmd({
         filename: __filename
     },
 
-    async(Void, citel, text) => {
-
-
+  async(Void, citel, text) => {
+        
+         let name1 = text.split("|")[0] || ''
+        let name2 = text.split("|")[1] || `1`
+        let cap = text.split("|")[1] ? '': '---Waifu Pics Here---'
+         
+for (let i = 0; i < name2; i++)
+{
         let response;
-  
-        if (text === "nsfw"){ response = await fetch('https://api.waifu.pics/nsfw/waifu'); }
-        else { response = await fetch('https://api.waifu.pics/sfw/waifu');   }
-  const data = await response.json();
-  
-                let buttonMessaged = {
-                    image: { url: data.url },
-                    caption: '*---Waifu Pics Here---*',
-                    footer: tlang().footer,
-                    headerType: 4,
-                   
-                };
-                return await Void.sendMessage(citel.chat, buttonMessaged);
+        if(name1 == 'nsfw'){ response = await fetch("https://api.waifu.pics/nsfw/waifu");    }
+        else  { response = await fetch("https://api.waifu.pics/sfw/waifu");  }
+    
+    const nekodds = await response.json();
+    let buttonMessages = {
+        image: { url: nekodds.url, },
+        caption: cap,
+        headerType: 1,
+    };
+     await Void.sendMessage(citel.chat, buttonMessages, { quoted: citel })
 }
-    )
+
+})
 //-----------------------------------------------------------------------
 cmd({
     pattern: "neko",
@@ -43,21 +46,26 @@ cmd({
     filename: __filename
 },
 async(Void, citel, text) => {
-        
-        
+        let name1 = text.split("|")[0] || ''
+        let name2 = text.split("|")[1] || `1`
+        let cap = text.split("|")[1] ? '': "Here we go😊!!!!"
+         
+for (let i = 0; i < name2; i++)
+{
         let response;
-        if(text == 'nsfw'){ response = await axios.get("https://waifu.pics/api/nsfw/neko");    }
-        else  { response = await axios.get("https://waifu.pics/api/sfw/neko");  }
+        if(name1 == 'nsfw'){ response = await fetch("https://waifu.pics/api/nsfw/neko");    }
+        else  { response = await fetch("https://waifu.pics/api/sfw/neko");  }
     
     const nekodds = await response.json();
     let buttonMessages = {
         image: { url: nekodds.url, },
-        caption: "*Here we go😊!!!!*",
+        caption: cap,
         headerType: 1,
     };
-    return await Void.sendMessage(citel.chat, buttonMessages, { quoted: citel })
+     await Void.sendMessage(citel.chat, buttonMessages, { quoted: citel })
 }
-)
+        
+})
 //-----------------------------------------------------------------------
 cmd({
     pattern: "foxgirl",
