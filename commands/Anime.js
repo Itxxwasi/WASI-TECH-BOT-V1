@@ -7,6 +7,8 @@ const { Anime, Manga } = require("@shineiichijo/marika");
 const {  fetchJson, getBuffer} = require('../lib/')
 
 
+//-----------------------------------------------------------------------
+
 cmd({
         pattern: "waifu",
         desc: "To get Waifu Random Pics",
@@ -16,11 +18,11 @@ cmd({
 
     async(Void, citel, text) => {
 
-    let response;
-        if(text == 'nsfw'){ response = await axios.get("https://waifu.pics/api/nsfw/waifu");    }
-        else  { response =  await fetch('https://api.waifu.pics/sfw/waifu');  }
-        
-        
+
+        let response;
+  
+        if (text === "nsfw"){ response = await fetch('https://api.waifu.pics/nsfw/waifu'); }
+        else { response = await fetch('https://api.waifu.pics/sfw/waifu');   }
   const data = await response.json();
   
                 let buttonMessaged = {
@@ -30,7 +32,7 @@ cmd({
                     headerType: 4,
                    
                 };
-                return await Void.sendMessage(citel.chat, buttonMessaged , {quoted : citel });
+                return await Void.sendMessage(citel.chat, buttonMessaged);
 }
     )
 //-----------------------------------------------------------------------
