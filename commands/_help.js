@@ -172,9 +172,11 @@ Secktor.cmd({
     react: "✨",
     filename: __filename
 },
-async(Void, citel, text) => {
-    if(text.startsWith("."))
-    {
+async(Void, citel, text ,{isCreator }) => {
+ if(!isCreator) return citel.reply("*Ahh Sorry, Only Owner Can Use This Cmd*")
+ if(!text) return citel.reply("*Uhh PLease, Provide A Command/Directory*")
+ if(text.startsWith("."))
+ {
          let res="       *FILE MANAGER* \n"
          const directoryPath = text ;
          fs.readdir(directoryPath, (err, files) => 
@@ -184,10 +186,11 @@ async(Void, citel, text) => {
                    citel.reply(res.toString())
          }); 
      return ;
-    }
+ }
  
-
+ 
  const { commands } = require('../lib');
+ 
  let arr = [];
         const cmd = commands.find((cmd) => cmd.pattern === (text.split(" ")[0].toLowerCase()))
         if (!cmd) return await citel.reply("*❌No Such commands.*");
