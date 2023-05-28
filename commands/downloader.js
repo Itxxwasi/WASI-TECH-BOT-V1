@@ -11,7 +11,6 @@
 
 const { tlang, ringtone, cmd,fetchJson, sleep, botpic, getBuffer, pinterest, prefix, Config } = require('../lib')
 const { mediafire } = require("../lib/mediafire.js");
-const ttdl =  require("tiktok-video-downloader");
 const {GDriveDl} = require('../lib/scraper.js')
 const fbInfoVideo = require('fb-info-video'); 
 const googleTTS = require("google-tts-api");
@@ -87,6 +86,7 @@ cmd({
         async(Void, citel, text) => {
 if(!text) return await citel.reply(`*Uhh Please, Provide me tiktok Video Url*\n*_Ex .tiktok https://www.tiktok.com/@dakwahmuezza/video/7150544062221749531_*`);
 let txt = text ? text.split(" ")[0]:'';
+const ttdl =  require("tiktok-video-downloader");
 if (!txt.includes("tiktok.com")) return  citel.reply(`*Uhh Please, Give me Valid Tiktok Video Url!*`);
 try {
   let res = await ttdl.getInfo(txt)
