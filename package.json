@@ -1,13 +1,13 @@
 {
-               "name": "Secktor-Md",
-               "version": "0.0.6",
+               "name": "Suhail-MD",
+               "version": "1.0.0",
                "description": "Multi device whatsapp bot by SuhailTechInfo.",
                "main": "lib/client.js",
                "type": "commonjs",
                "license": "GPL-3.0",
    "scripts": {
                 "start": "pm2 start lib/client.js --deep-monitoring --attach --name Suhail_BOt",
-                "stop": "pm2 stop Suhail_BOt"
+                "stop": "pm2 stop Suhail_Md"
                 },
                "author": "SuhailTechInfo",
               "dependencies": {
@@ -75,10 +75,10 @@
                     },
                  "repository": {
                  "type": "git",
-                 "url": "git+https://github.com/SuhailTechInfo/Secktor-Md.git"
+                 "url": "git+https://github.com/SuhailTechInfo/Secktor-bot.git"
                   },
                  "bugs": {
-                 "url": "https://github.com/SamPandey001/Secktor-Md/issues"
+                 "url": "https://github.com/SuhailTechInfo/Secktor-bot/issues"
                   },
-                 "homepage": "https://github.com/SuhailTechInfo/Secktor-Md#readme"
+                 "homepage": "https://github.com/SuhailTechInfo/Secktor-bot#readme"
                   }
