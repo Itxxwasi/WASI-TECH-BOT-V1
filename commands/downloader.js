@@ -73,6 +73,7 @@ let vurl=res.url[0].url;
 )*/
 
 //---------------------------------------------------------------------------
+/*
 cmd({
             pattern: "tiktok",
 	          alias :  ['tt','ttdl'],
@@ -106,7 +107,7 @@ let buttonMessage =
 } catch (error) {return citel.reply("Error While Downloading Your Video") }
 
 })
-
+*/
 //---------------------------------------------------------------------------
 cmd({
             pattern: "facebook",
