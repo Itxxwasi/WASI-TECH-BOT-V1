@@ -11,14 +11,15 @@
 
 const { tlang, ringtone, cmd,fetchJson, sleep, botpic, getBuffer, pinterest, prefix, Config } = require('../lib')
 const { mediafire } = require("../lib/mediafire.js");
+const ttdl =  require("tiktok-video-downloader");
 const {GDriveDl} = require('../lib/scraper.js')
 const fbInfoVideo = require('fb-info-video'); 
 const googleTTS = require("google-tts-api");
 const ytdl = require('ytdl-secktor')
 const axios = require('axios');
 const fs = require('fs-extra')
-var videotime = 3600 // 1000 min
-var dlsize = 100 // 1000mb
+var videotime = 3600 // 30 min
+var dlsize = 100 // 100mb
     //---------------------------------------------------------------------------
 /*cmd({
             pattern: "tgs",
@@ -74,9 +75,10 @@ let vurl=res.url[0].url;
 //---------------------------------------------------------------------------
 cmd({
             pattern: "tiktok",
-	    alias :  ['tt','ttdl'],
+	          alias :  ['tt','ttdl'],
             desc: "Downloads Tiktok Videos Via Url.",
             category: "downloader",
+            react :'🥳',
             filename: __filename,
             use: '<add tiktok url.>'
         },
@@ -84,12 +86,10 @@ cmd({
         async(Void, citel, text) => {
 if(!text) return citel.reply(`*Uhh Please, Provide me tiktok Video Url*\n*_Ex .tiktok https://www.tiktok.com/@dakwahmuezza/video/7150544062221749531_*`);
 let txt = text? text.split(" ")[0]:'';
-const ttdl =  require("tiktok-video-downloader");
 if (!txt.includes("tiktok.com")) return  citel.reply(`*Uhh Please, Give me Valid Tiktok Video Url!*`);
-
-let res = await ttdl.getInfo(txt)
- if(res.success){
-    //console.log(res);
+try {
+  let res = await ttdl.getInfo(txt)
+    console.log(res);
 let data  =" *User Name :* "+ res.author.username;
     data +="\n *Video Views :* " + res.video.views;
     data +="\n *Video Comments :* " + res.video.comments;
@@ -101,9 +101,9 @@ let buttonMessage =
               video: {url:res.video.url.no_wm},
               mimetype: 'video/mp4',
               caption : "\t    *TIKTOK DOWNLOADER*  \n"+data
-     }
-return await Void.sendMessage(citel.chat, buttonMessage , {quoted : citel });
-}else return citel.reply("Error While Downloading Your Video")
+     } ; return await Void.sendMessage(citel.chat, buttonMessage , {quoted : citel });
+
+} catch (error) {return citel.reply("Error While Downloading Your Video") }
 
 })
 
