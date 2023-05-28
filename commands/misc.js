@@ -341,6 +341,8 @@ const vcard = 'BEGIN:VCARD\n' +
  
 })
      //---------------------------------------------------------------------------
+/*
+
  cmd({
              pattern: "calc",
              desc: "Adds *readmore* in given text.",
@@ -385,6 +387,8 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
  
          }
      )
+*/
+
      //---------------------------------------------------------------------------
  cmd({
              pattern: "steal",
