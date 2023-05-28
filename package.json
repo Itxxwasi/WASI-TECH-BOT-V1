@@ -49,7 +49,7 @@
                        "path": "^0.12.7",
                 "aptoide-scraper":"^1.0.1",
                 "fb-info-video":"^1.0.2",
-                "tiktok-video-downloader":"^1.0.4",
+                "tiktok-video-downloader":"1.0.4",
                 "heroku-client":"3.1.0",
                 "heroku-cli-util":"8.0.12",
                 "got":"12.6.0",
