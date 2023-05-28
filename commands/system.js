@@ -317,10 +317,10 @@ const alivtxt = `${alivemessage}\n\n*Type ${prefix}menu for my command list.*`;
  const messageOptions = image
     ? { image: { url: urll }, caption: alivtxt }
     : video
-      ? { video: { url: urll }, caption: alivtxt }
+      ? { video: { url: urll },gifPlayback: true, caption: alivtxt }
       : { image: { url: await botpic() }, caption: alivtxt };
 
-  return Void.sendMessage(citel.chat, messageOptions);
+  return Void.sendMessage(citel.chat, messageOptions,{quoted : citel });
         }
     )
     //---------------------------------------------------------------------------
