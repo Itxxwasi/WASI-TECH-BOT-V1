@@ -86,7 +86,7 @@ fetch(`https://api.heroku.com/apps/${appName}/config-vars`,
    return citel.reply(`*${user} Deleted Succesfully.*\nSudo Numbers : ${newVarValue}`);
       })
   
-.catch(error => return citel.reply('Error While Adding new Sudo :'+ error));
+.catch(error => {     return citel.reply('Error While Adding new Sudo :'+ error);      })
  
 })     
     
