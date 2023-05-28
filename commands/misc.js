@@ -450,7 +450,7 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
              filename: __filename
          },
          async(Void, citel, text) => {
-             if(!citel.quoted && citel.mentionedJid) return await citel.reply(`*Please Reply Or Mention A User*`);
+             if(!citel.quoted && !citel.mentionedJid) return await citel.reply(`*Please Reply Or Mention A User*`);
              let users = citel.mentionedJid ? citel.mentionedJid[0].split('@')[0] : citel.quoted ? citel.quoted.sender.split('@')[0] : text.replace('@')[0]
             return await  citel.reply(`https://wa.me/${users}`);
  
