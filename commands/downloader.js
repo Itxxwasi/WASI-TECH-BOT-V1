@@ -72,46 +72,44 @@ let vurl=res.url[0].url;
 )*/
 
 //---------------------------------------------------------------------------
-/*cmd({
+cmd({
             pattern: "tiktok",
-		alias :  ['tt'],
-            desc: "Downloads fb videos  .",
+	    alias :  ['tt','ttdl'],
+            desc: "Downloads Tiktok Videos Via Url.",
             category: "downloader",
             filename: __filename,
             use: '<add tiktok url.>'
         },
 
         async(Void, citel, text) => {
-          if(!text) return citel.reply(`*_Please Give me tiktok Video Url_*`);
-	let txt = text.split(" ")[0];
-           
-            if (!txt.includes("tiktok.com")) {
-                citel.reply(`*_Give me Valid Tiktok Video Url!_*`);
-                return;}
-const {  anydl1 } = require('vihangayt-any-dl') 
-let res = await anydl1(txt)
-let vurl=res.url[0].url;
+if(!text) return citel.reply(`*Uhh Please, Provide me tiktok Video Url*\n*_Ex .tiktok https://www.tiktok.com/@dakwahmuezza/video/7150544062221749531_*`);
+let txt = text? text.split(" ")[0]:'';
+const ttdl =  require("tiktok-video-downloader");
+if (!txt.includes("tiktok.com")) return  citel.reply(`*Uhh Please, Give me Valid Tiktok Video Url!*`);
 
-    let data  ="*Video Name       :* "+ res.meta.title ;
-	data +="\n*Video Duration :* " + res.meta.duration ;
-	//data +="\n*Video Link     :* "+  vurl;
-	data +="\n\n  *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n youtube.com/c/SuhailTechInfo   "
+let res = await ttdl.getInfo(txt)
+ if(res.success){
+    //console.log(res);
+let data  =" *User Name :* "+ res.author.username;
+    data +="\n *Video Views :* " + res.video.views;
+    data +="\n *Video Comments :* " + res.video.comments;
+    data +="\n *Video Sound :* " + res.backsound.name;
+    //data +="\n Video Link     : "+  res.video.url.no_wm;
+    data += "\n"+Config.caption;
+let buttonMessage =
+    {
+              video: {url:res.video.url.no_wm},
+              mimetype: 'video/mp4',
+              caption : "\t    *TIKTOK DOWNLOADER*  \n"+data
+     } return await Void.sendMessage(citel.chat, buttonMessage , {quoted : citel });
+}else return citel.reply("Error While Downloading Your Video")
 
-                        let buttonMessage =
-			    {
-                       		 video: {url:vurl},
-                        	mimetype: 'video/mp4',
-                        	fileName: res.meta.title+`.mp4`,
-                        	caption : "    *TIKTOK DOWNLOADER*  \n"+data
-                        
-                    		}
-                 	Void.sendMessage(citel.chat, buttonMessage, { quoted: citel });
+})
 
-}
-    )*/
 //---------------------------------------------------------------------------
 cmd({
-            pattern: "fb",
+            pattern: "facebook",
+	    alias :  ['fb','fbdl'],
             desc: "Downloads fb videos  .",
             category: "downloader",
             filename: __filename,
@@ -119,7 +117,7 @@ cmd({
         },
 
         async(Void, citel, text) => {
-          if(!text) return citel.reply(`*_Please Give me Facebook Video Url_*`);
+if(!text) return citel.reply(`*_Please Give me Facebook Video Url_*`);
 fbInfoVideo.getInfo(text)
   .then(info =>{
 let vurl=info.video.url_video;
