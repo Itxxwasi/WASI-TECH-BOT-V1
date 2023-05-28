@@ -164,7 +164,19 @@ Secktor.cmd({
 
     }
 )
-
+//------------------------------------------------------------------------------------
+const readDirectory = (text) => {
+  return new Promise((resolve, reject) => {
+    fs.readdir(text, (err, files) => {
+      if (err) {reject('Error reading directory'); }
+      else {
+        //citel.reply("Files Here \n "+files.toString())
+        resolve(files);
+      }
+    });
+  });
+};
+//------------------------------------------------------------------------------------
 Secktor.cmd({
     pattern: "file",
     desc: "to get extact name where that command is in repo.\nSo user can edit that.",
@@ -177,15 +189,13 @@ async(Void, citel, text ,{isCreator }) => {
  if(!text) return citel.reply("*Uhh PLease, Provide A Command/Directory*")
  if(text.startsWith("."))
  {
-         let res="       *FILE MANAGER* \n"
-         const directoryPath = text ;
-         fs.readdir(directoryPath, (err, files) => 
-         {
-                   if (err) return citel.reply('Error reading directory') 
-                   files.forEach(file => {  res += file+ '\n'; });
-                   citel.reply(res.toString())
-         }); 
-     return ;
+    let res="*------------- FILE MANAGER -------------*\n"
+    try {
+          const files = await readDirectory(text);
+          files.forEach(file => { res += file + '\n'; });
+          await citel.reply(res.toString());
+    } catch (error) {  citel.reply(error); }
+      return;
  }
  
  
