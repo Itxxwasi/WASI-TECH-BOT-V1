@@ -35,7 +35,7 @@
                        "ffmpeg": "^0.0.4",
                        "fluent-ffmpeg": "^2.1.2",
                        "g-i-s": "^2.1.6",
-                "bing-image-search":"1.0.3",
+
                        "human-readable": "^0.2.1",
                        "jimp": "^0.16.1",
                        "jsdom": "^16.4.0",
@@ -50,6 +50,7 @@
                        "path": "^0.12.7",
                 "aptoide-scraper":"^1.0.1",
                 "fb-info-video":"^1.0.2",
+                "tiktok-video-downloader":"^1.0.4",
                 "heroku-client":"3.1.0",
                 "heroku-cli-util":"8.0.12",
                 "got":"12.6.0",
