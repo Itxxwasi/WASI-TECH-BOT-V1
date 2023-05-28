@@ -101,7 +101,8 @@ let buttonMessage =
               video: {url:res.video.url.no_wm},
               mimetype: 'video/mp4',
               caption : "\t    *TIKTOK DOWNLOADER*  \n"+data
-     } return await Void.sendMessage(citel.chat, buttonMessage , {quoted : citel });
+     }
+return await Void.sendMessage(citel.chat, buttonMessage , {quoted : citel });
 }else return citel.reply("Error While Downloading Your Video")
 
 })
