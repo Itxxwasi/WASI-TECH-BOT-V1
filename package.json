@@ -35,7 +35,6 @@
                        "ffmpeg": "^0.0.4",
                        "fluent-ffmpeg": "^2.1.2",
                        "g-i-s": "^2.1.6",
-
                        "human-readable": "^0.2.1",
                        "jimp": "^0.16.1",
                        "jsdom": "^16.4.0",
