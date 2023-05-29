@@ -16,24 +16,7 @@ const fs = require('fs-extra');
 const axios = require('axios')
 const fetch = require('node-fetch');
     //---------------------------------------------------------------------------
-//                  ADD NOTE  COMMANDS
-//---------------------------------------------------------------------------
-cmd({
-            pattern: "addnote",
-            category: "owner",
-            desc: "Adds a note on db.",
-            filename: __filename
-        },
-        async(Void, citel, text,{ isCreator }) => {
-            if (!isCreator) return citel.reply(tlang().owner)
-            if (!text) return citel.reply(`🔍 *Please Provide Text To Save In Notes*`)
-            await addnote(text)
-            return citel.reply(`New note ${text} added in mongodb.`)
 
-        }
-    )
- 
-    //---------------------------------------------------------------------------
 cmd({
             pattern: "qr",
             category: "owner",
@@ -222,7 +205,8 @@ cmd({
         }
     )
     //---------------------------------------------------------------------------
-cmd({
+
+/*cmd({
             pattern: "delallnotes",
             category: "owner",
             filename: __filename,
@@ -231,12 +215,13 @@ cmd({
         async(Void, citel, text, isCreator) => {
             const { tlang } = require('../lib/scraper')
             if (!isCreator) return citel.reply(tlang().owner)
-            await delallnote()
-             return citel.reply(`All notes deleted from mongodb.`)
+
 
         }
     )
-    //---------------------------------------------------------------------------
+  
+  */
+  //---------------------------------------------------------------------------
 cmd({
             pattern: "ban",
             category: "owner",
@@ -267,6 +252,96 @@ cmd({
 
         }
     )
+    //---------------------------------------------------------------------------
+//                  ADD NOTE  COMMANDS
+//---------------------------------------------------------------------------
+/*
+cmd({
+            pattern: "addnote",
+            category: "owner",
+            desc: "Adds a note on db.",
+            filename: __filename
+        },
+        async(Void, citel, text,{ isCreator }) => {
+            if (!isCreator) return citel.reply(tlang().owner)
+            if (!text) return citel.reply(`🔍 *Please Provide Text To Save In Notes*`)
+ 
+ 
+
+
+        }
+    )
+ */
+    //---------------------------------------------------------------------------
+cmd({
+        pattern: "notes",
+        alias : ['note'],
+        category: "owner",
+        filename: __filename,
+        desc: "Shows list of all notes."
+    },
+    async(Void, citel, text,{ isCreator }) => {
+  const { tlang } = require('../lib')
+if (!isCreator) return citel.reply(tlang().owner)
+let txt = `╭───── *『 MONGODB NOTES 』* ───◆
+┃ Here You Can Store Notes For Later Use
+┃ *------------------------------------------*
+┃  ┌┤  *✯---- ADD NEW NOTE ----⦿*
+┃  │✭ *Cmd :* ${prefix}notes add 'Your Text'
+┃  │✭ *Usage :* Save Text in MongoDb Server
+┃  ╰───────────────────◆
+┃
+┃  ┌┤  *✯---- GET ALL NOTES ----⦿*
+┃  │✭ *Cmd :* ${prefix}notes all
+┃  │✭ *Usage :* Read/Get All Saved Notes 
+┃  ╰───────────────────◆
+┃
+┃  ┌┤  *✯---- DELETE A NOTE ----⦿*
+┃  │✭ *Cmd :* ${prefix}notes del 'note id'
+┃  │✭ *Usage :* Delete A Single Note By ID Number 
+┃  ╰───────────────────◆
+┃
+┃  ┌┤  *✯---- DELETE ALL NOTES ----⦿*
+┃  │✭ *Cmd :* ${prefix}notes delall
+┃  │✭ *Usage :* Delete All Saved Notes 
+┃  ╰───────────────────◆
+╰━━━━━━━━━━━━━━━━━━━━━━──⊷` ; 
+ 
+ if (!text) return await citel.reply(txt);
+ if(text.startsWith("add") || text.startsWith("new"))
+ {
+             await addnote(text)
+            return await citel.reply(`New note ${text} added in mongodb.`)
+ }
+ else if(text.startsWith("all"))
+ {
+        const note_store = new Array()
+        if(note_store)
+        {
+          let leadtext = `*All Available Notes are:-*\n\n`
+          leadtext += await allnotes()
+          return await citel.reply(leadtext)
+        } else return await citel.reply("You Didn't Saved Any note Yet")
+ }
+  else if(text.startsWith("delall"))
+  {
+             await delallnote()
+             return await citel.reply(`All notes deleted from mongodb.`)
+  }
+ else if(text.startsWith("del"))
+ {
+  
+            if(!text) return citel.reply("*Uhh PLease, Provide A Note Id. Ex .delnote 1*")
+            await delnote(text.split(" ")[0])
+            return citel.reply(`Id: ${text.split(" ")[0]}\'s note has been deleted from mongodb.`)
+ }
+ else { return await citel.reply(txt) ; }
+ 
+
+
+    }
+)
+
     //---------------------------------------------------------------------------
 cmd({
             pattern: "alive",
@@ -323,20 +398,3 @@ const alivtxt = `${alivemessage}\n\n*Type ${prefix}menu for my command list.*`;
   return Void.sendMessage(citel.chat, messageOptions,{quoted : citel });
         }
     )
-    //---------------------------------------------------------------------------
-cmd({
-        pattern: "allnotes",
-        category: "owner",
-        filename: __filename,
-        desc: "Shows list of all notes."
-    },
-    async(Void, citel, text,{ isCreator }) => {
-        const { tlang } = require('../lib')
-        if (!isCreator) return citel.reply(tlang().owner)
-        const note_store = new Array()
-        let leadtext = `All Available Notes are:-\n\n`
-        leadtext += await allnotes()
-        return citel.reply(leadtext)
-
-    }
-)
