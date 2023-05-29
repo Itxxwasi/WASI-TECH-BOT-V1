@@ -127,25 +127,14 @@ cmd({
             desc: "Translate\'s given text in desird language."
         },
         async(Void, citel, text) => {
-            const translatte = require("translatte");
-            let lang = text.split(" ")[0];
-            let tex = text.split(",")[1];
-            let textt ;
-            if (!citel.quoted)
-            {           
-                        lang = text.split(",")[0];
-                        textt = tex;
-            }
-            else { textt = citel.quoted.text; }
-            if (!textt) return await citel.reply(`*Please Reply to Any Text with _${prefix}trt en*\n *OR* \n *give me text like _${prefix}trt ur , Who are you_*`);
-            
-            whole = await translatte(textt, {
-                from:"auto",
-                to: lang || "en",
-            });
-            if ("text" in whole) {
-                return await citel.reply(whole.text);
-            }
+ if(!text && !citel.quoted) return await citel.reply(`*Please Give Me Text. Example: _${prefix}trt en Who are you_*`);
+const translatte = require("translatte");
+ 
+            let lang = text ? text.split(" ")[0] : 'en';
+            if (!citel.quoted)  { text = text.replace( lang , "");  }
+            else { text = citel.quoted.text; }
+            var whole = await translatte(text, { from:"auto",  to: lang , });
+            if ("text" in whole) { return await citel.reply(whole.text); }
 
         }
     )
