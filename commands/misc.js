@@ -119,7 +119,8 @@ if (!citel.isGroup) return citel.reply(tlang().group);
            */
 })
  //---------------------------------------------------------------------------
-    
+ //          WORKING VIEWONCE 
+ //---------------------------------------------------------------------------
  cmd({
              pattern: "vv",
              alias : ['viewonce','retrive'],
@@ -177,23 +178,20 @@ else return citel.reply("```This is Not A ViewOnce Message```")
              filename: __filename
          },
          async(Void, citel, text) => {
-          if (!text) return citel.reply(`Give Coordinates To Send Location\n *Example:* ${prefix}location 24.121231,55.1121221`);
-         let cord1 = parseFloat(text.split(',')[0])
-         let cord2 = parseFloat(text.split(',')[1])
-var c1 = cord1.toString();
-var c2 = cord2.toString();
-if(c1=="NaN" || c2 ==  "NaN") return citel.reply("```Cordinates Not In Formate, Try Again```") 
-
+          if (!text) return await citel.reply(`Give Coordinates To Send Location\n *Example:* ${prefix}location 24.121231,55.1121221`);
+         let cord1 = parseFloat(text.split(',')[0]) || ''
+         let cord2 = parseFloat(text.split(',')[1]) || ''
+         if(!cord1 || isNaN(cord1) ||  !cord2 || isNaN(cord2)) return await  citel.reply("```Cordinates Not In Formate, Try Again```") 
 
 let txt  = "*----------LOCATION------------*"
-   txt +=" \n Sending Location to Given Data: ";
+   txt +="``` \n Sending Location Of Given Data: ";
    txt +="\n Latitude     :  "+cord1;
-   txt +="\n Longitude  :  "+cord2;
+   txt +="\n Longitude  :  "+cord2 +"```\n"+Config.caption;
 
-citel.reply (txt);
+await citel.reply (txt);
 
 
-              Void.sendMessage(citel.chat, { location: { degreesLatitude: cord1, degreesLongitude:cord2 } })
+      return await Void.sendMessage(citel.chat, { location: { degreesLatitude : cord1, degreesLongitude : cord2 } } ,{quoted : citel} )
  }
      )
      //---------------------------------------------------------------------------
@@ -218,12 +216,8 @@ citel.reply (txt);
                      url: "https://api.jdoodle.com/v1/execute",
                      method: "POST",
                      json: code
-                 }, function(_error, _response, body) {
-                     citel.reply("> " + text[1] + "\n\n" + "```" + body.output + "```");
-                 });
-             } catch (error) {
-                 console.log(error);
-             }
+                 }, function(_error, _response, body) {  citel.reply("> " + text[1] + "\n\n" + "```" + body.output + "```");  });
+             } catch (error) {return await citel.reply("*Error In Your Code :* "+error);  }
          }
      )
      //---------------------------------------------------------------------------
@@ -247,7 +241,7 @@ if (!citel.quoted) return citel.reply (`*Please Reply To A User*`)
                             //quoted: "923184474176@s.whatsapp.net", 
                             //contextInfo: { forwardingScore: 1999999, isForwarded: false },
                             image: { url: pfp },
-                            caption: '*---Profile Pic Is Here---*',
+                            caption: '  *---Profile Pic Is Here---*\n\t\t'+Config.caption,
                             footer: tlang().footer,
                             headerType: 4,
                    
@@ -289,13 +283,13 @@ async(Void, citel, text) => {
             var num = citel.quoted.sender.split('@')[0];
             let pfp;
             try  {  pfp = await Void.profilePictureUrl(citel.quoted.sender, "image"); } 
-            catch (e) { pfp = await Void.profilePictureUrl(citel.sender, "image");  }    //|| 'https://telegra.ph/file/29a8c892a1d18fdb26028.jpg' ;  }
+            catch (e) { pfp = await Void.profilePictureUrl(citel.sender, "image"); ||  'https://telegra.ph/file/29a8c892a1d18fdb26028.jpg' ; }    //|| 'https://telegra.ph/file/29a8c892a1d18fdb26028.jpg' ;  }
             
             let username = await sck1.findOne({ id: citel.quoted.sender });
             var tname = username.name;
 
             
-           await Void.sendMessage(citel.chat, {
+         return await Void.sendMessage(citel.chat, {
                 image: {   url: pfp  },
                 caption: `
 ╔════◇
@@ -399,15 +393,12 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
          },
          async(Void, citel, text) => {
              if (!citel.quoted) return citel.reply(`*Reply to a Sticker Sir.*`);
-
-  
-  
              let mime = citel.quoted.mtype
              if ( mime !="stickerMessage") return await citel.reply("```Uhh Please, Reply To A Sticker```") 
              var pack;
              var author;
              if (text) {
-                 anu = text.split("|");
+                let anu = text.split("|");
                  pack = anu[0] !== "" ? anu[0] : citel.pushName + '♥️';
                  author = anu[1] !== "" ? anu[1] : Config.packname;
              } else {
@@ -415,15 +406,14 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
                  author =Config.packname;
              }
                  let media = await citel.quoted.download();
-                 //citel.reply("*Processing Your request*");
                 let sticker = new Sticker(media, {
-                    pack: pack, // The pack name
-                    author: author, // The author name
+                    pack: pack,
+                    author: author,
                     type:  StickerTypes.FULL,
-                    categories: ["🤩", "🎉"], // The sticker category
-                    id: "12345", // The sticker id
-                    quality: 75, // The quality of the output file
-                    background: "transparent", // The sticker background color (only for full stickers)
+                    categories: ["🤩", "🎉"], 
+                    id: "12345", 
+                    quality: 100,
+                    background: "transparent", 
                 });
                 const buffer = await sticker.toBuffer();
                 return Void.sendMessage(citel.chat, {sticker: buffer }, {quoted: citel });
