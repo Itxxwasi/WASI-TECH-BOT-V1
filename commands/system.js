@@ -310,27 +310,25 @@ let txt = `╭───── *『 MONGODB NOTES 』* ───◆
  
  
  if (!text) return await citel.reply(txt);
- if(text.startsWith("add") || text.startsWith("new"))
+ if(text.split(' ')[0].toLowerCase() === "add"  || text.split(' ')[0].toLowerCase() === "new" )
  {
-             await addnote(text)
-            return await citel.reply(`New note ${text} added in mongodb.`)
+             let txt = text.replace("add", "").replace("new", "")
+             await addnote(txt)
+            return await citel.reply(`New note "${txt}" added in mongodb.`)
  }
- else if(text.startsWith("all"))
+ else if(text.split(' ')[0].toLowerCase() === "all")
  {
-        const note_store = new Array()
-        if(note_store)
-        {
+            const note_store = new Array()
             let leadtext = `*All Available Notes are:-*\n\n`
             leadtext += await allnotes()
             return await citel.reply(leadtext)
-        } else return await citel.reply("You Didn't Saved Any note Yet")
  }
-  else if(text.startsWith("delall"))
+  else if(text.split(' ')[0].toLowerCase() === "delall")
   {
         await delallnote()
         return await citel.reply(`All notes deleted from mongodb.`)
   }
- else if(text.startsWith("del"))
+ else if(text.split(' ')[0].toLowerCase() === "del")
  {
       try 
       {
