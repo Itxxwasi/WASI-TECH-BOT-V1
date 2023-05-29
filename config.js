@@ -38,7 +38,7 @@ module.exports = {
   BRANCH: process.env.BRANCH || 'main',
   HEROKU_APP_NAME: process.env.HEROKU_APP_NAME,
   HEROKU_API_KEY: process.env.HEROKU_API_KEY,
-  caption :"\n"+ (process.env.CAPTION || "   *『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n youtube.com/@suhailtechinfo0"),
+  caption :"\n"+ (process.env.CAPTION || "    *•ᴘᴏᴡᴇʀᴇᴅ ʙʏ ʟʏғᴇᴇ²²¹-ᴍᴅ•* ")  //*『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n youtube.com/@suhailtechinfo0"),
   ALIVE_MESSAGE: process.env.ALIVE_MESSAGE  ,
   OPENAI_API_KEY: process.env.OPENAI_API_KEY ||'' ,
   VERSION: process.env.VERSION || 'v.0.0.3',
