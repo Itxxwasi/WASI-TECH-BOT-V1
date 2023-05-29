@@ -324,7 +324,7 @@ let txt = `╭───── *『 MONGODB NOTES 』* ───◆
             let id = text.split(' ')[1];
             if (!id || isNaN(id)) { return citel.reply("Uhh Please, Provide a Numeric Note ID. Example: .delnote 1"); }
             await delnote(id)
-            return citel.reply(`Id: ${text.split(" ")[0]}\'s note has been deleted from mongodb.`)
+            //return citel.reply(`Id: ${text.split(" ")[0]}\'s note has been deleted from mongodb.`)
             return await citel.reply(`Note with ID : ${id} has been deleted from MongoDB.`);
       } catch (error) {return citel.reply("Uhh Please, Provide a Note ID. Example: .notes del 1"); }
 
