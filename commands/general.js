@@ -72,10 +72,31 @@ cmd({
     },
     async(Void, citel,text) => 
     {
+  if (!Config.OPENAI_API_KEY || Config.OPENAI_API_KEY=='' ||  !Config.OPENAI_API_KEY.startsWith('sk') ) return citel.reply('You Dont Have OPENAI API KEY \nPlease Create OPEN API KEY from Given Link \nhttps://platform.openai.com/account/api-keys\nAnd Set Key in Heroku OPENAI_API_KEY Var  ')
+  if (!text) return citel.reply(`Hey there! ${citel.pushName}. How are you doing these days?`); 
 	
-	if (Config.OPENAI_API_KEY=='') return citel.reply('You Dont Have OPENAI API KEY \nPlease Create OPEN API KEY from Given Link \nhttps://platform.openai.com/account/api-keys')
-	if (!text) return citel.reply(`Hey there! ${citel.pushName}. How are you doing these days?`); 
-        const { Configuration, OpenAIApi } = require("openai");
+const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${Config.OPENAI_API_KEY}`,
+    },
+    body: JSON.stringify({
+      model: "gpt-3.5-turbo", // Specify the desired model here
+      messages: [{ role: "system", content: "You" }, { role: "user", content: text }],
+    }),
+  });
+
+  const data = await response.json();
+  console.log("GPT REPONCE : ",data); 
+  if (!data.choices || data.choices.length === 0) {citel.reply("*Invalid ChatGPT API Key, Please Put New Key*"); }
+  return await  citel.reply(data.choices[0].message.content)
+	
+	
+
+	
+    /*
+    const { Configuration, OpenAIApi } = require("openai");
         const configuration = new Configuration
 				({
            				apiKey:Config.OPENAI_API_KEY ,
@@ -93,6 +114,7 @@ cmd({
             stop: ['"""'],
         });
         citel.reply(completion.data.choices[0].text);
+*/
     }
 )
 
