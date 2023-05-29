@@ -189,7 +189,7 @@ cmd({
         }
     )
     //---------------------------------------------------------------------------
-cmd({
+/*cmd({
             pattern: "delnote",
             category: "owner",
             filename: __filename,
@@ -204,7 +204,8 @@ cmd({
 
         }
     )
-    //---------------------------------------------------------------------------
+  */
+//---------------------------------------------------------------------------
 
 /*cmd({
             pattern: "delallnotes",
@@ -307,6 +308,7 @@ let txt = `╭───── *『 MONGODB NOTES 』* ───◆
 ┃  ╰───────────────────◆
 ╰━━━━━━━━━━━━━━━━━━━━━━──⊷` ; 
  
+ 
  if (!text) return await citel.reply(txt);
  if(text.startsWith("add") || text.startsWith("new"))
  {
@@ -318,29 +320,31 @@ let txt = `╭───── *『 MONGODB NOTES 』* ───◆
         const note_store = new Array()
         if(note_store)
         {
-          let leadtext = `*All Available Notes are:-*\n\n`
-          leadtext += await allnotes()
-          return await citel.reply(leadtext)
+            let leadtext = `*All Available Notes are:-*\n\n`
+            leadtext += await allnotes()
+            return await citel.reply(leadtext)
         } else return await citel.reply("You Didn't Saved Any note Yet")
  }
   else if(text.startsWith("delall"))
   {
-             await delallnote()
-             return await citel.reply(`All notes deleted from mongodb.`)
+        await delallnote()
+        return await citel.reply(`All notes deleted from mongodb.`)
   }
  else if(text.startsWith("del"))
  {
-  
-            if(!text) return citel.reply("*Uhh PLease, Provide A Note Id. Ex .delnote 1*")
-            await delnote(text.split(" ")[0])
+      try 
+      {
+            let id = text.split(' ')[1];
+            if (!id || isNaN(id)) { return citel.reply("Uhh Please, Provide a Numeric Note ID. Example: .delnote 1"); }
+            await delnote(id)
             return citel.reply(`Id: ${text.split(" ")[0]}\'s note has been deleted from mongodb.`)
+            return await citel.reply(`Note with ID : ${id} has been deleted from MongoDB.`);
+      } catch (error) {return citel.reply("Uhh Please, Provide a Note ID. Example: .notes del 1"); }
+
  }
  else { return await citel.reply(txt) ; }
- 
 
-
-    }
-)
+})
 
     //---------------------------------------------------------------------------
 cmd({
