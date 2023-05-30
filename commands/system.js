@@ -19,16 +19,13 @@ const fetch = require('node-fetch');
 
 cmd({
             pattern: "qr",
-            category: "owner",
+            category: "user",
             filename: __filename,
             desc: "Sends CitelsVoid Qr code to scan and get your session id."
         },
         async(Void, citel, text) => {
-            if (!text) return citel.reply(`*give me Text , To Get QR*`);
-            if (text) {
-                let h =`https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${text}`;
-                 
-
+            if (!text) return citel.reply(`*Provide me Text To Get QR*`);
+            let h =`https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${text}`;
             let buttonMessaged = 
             {
                 image: { url: h },
@@ -36,18 +33,14 @@ cmd({
                 footer: ` Session bY >> ${Config.caption}`,
                 headerType: 4,
             };
-             
-              return await Void.sendMessage(citel.chat, buttonMessaged );
-                
-            }
-            
-            
+            return await Void.sendMessage(citel.chat, buttonMessaged );
+        
+            /*
             let buttonMessaged = {
                 image: { url: 'https://secktorbot.onrender.com/' },
                 caption: `*_Scan Qr within 15 seconds_*\nYou'll get session id in your log number.`,
                 footer: ` Session bY >> sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo`,
                 headerType: 4,
-               
                 contextInfo: {
                     externalAdReply: {
                         title: 'mY bOT Session',
@@ -61,14 +54,10 @@ cmd({
                 },
 
             };
-            await Void.sendMessage(citel.chat, buttonMessaged, {
-                quoted: citel,
+            await Void.sendMessage(citel.chat, buttonMessaged, {  quoted: citel });
 
-            });
-
-
-        }
-    )
+*/
+        })
     //---------------------------------------------------------------------------
 cmd({
             pattern: "unban",
@@ -93,9 +82,7 @@ cmd({
                         return citel.reply(`${usr.name} is free as a bird now`);
                     }
                 })
-            } catch {
-                return citel.reply("Please mention any user.❌");
-            }
+            } catch {  return citel.reply("Please mention any user.❌");  }
 
 
         }
@@ -109,16 +96,16 @@ cmd({
             desc: "image to url."
         },
         async(Void, citel, text) => {
-            if (!citel.quoted){citel.reply(`Pls mention me any image/video and *type ${prefix}url to upload my ${tlang().greet}*`);return;}
+            if (!citel.quoted) return await citel.reply(`*Reply To Any Image/Video To Get Url*`)
             let mime = citel.quoted.mtype
+            if(mime !='videoMessage' && mime !='imageMessage' ) return await citel.reply("Uhh Please, Reply To An Image/Video")
             let media = await Void.downloadAndSaveMediaMessage(citel.quoted);
+            let anu = await TelegraPh(media);
+            await citel.reply(util.format(anu));
+            return await fs.unlinkSync(media);
+        })
 
-                let anu = await TelegraPh(media);
-                citel.reply(util.format(anu));
-                return await fs.unlinkSync(media);
-        }
-    )
-    //---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 cmd({
             pattern: "trt",
             alias :['translate'],
@@ -127,10 +114,9 @@ cmd({
             desc: "Translate\'s given text in desird language."
         },
         async(Void, citel, text) => {
- if(!text && !citel.quoted) return await citel.reply(`*Please Give Me Text. Example: _${prefix}trt en Who are you_*`);
-const translatte = require("translatte");
- 
-            let lang = text ? text.split(" ")[0] : 'en';
+            if(!text && !citel.quoted) return await citel.reply(`*Please Give Me Text. Example: _${prefix}trt en Who are you_*`);
+            const translatte = require("translatte");
+            let lang = text ? text.split(" ")[0].toLowerCase() : 'en';
             if (!citel.quoted)  { text = text.replace( lang , "");  }
             else { text = citel.quoted.text; }
             var whole = await translatte(text, { from:"auto",  to: lang , });
@@ -146,18 +132,17 @@ cmd({
             desc: "Runs command in Heroku(server) shell."
         },
         async(Void, citel, text,{ isCreator }) => {
-            if (!isCreator) return citel.reply(tlang().owner)
- if(!text) return citel.reply("*Uhh PLease, Provide A Command to Run Heroku*")
-            const { exec } = require("child_process")
-            exec(text, (err, stdout) => {
-                if (err) return citel.reply(`----${tlang().title}----\n\n` + err)
-                if (stdout) {
-                    return citel.reply(`----${tlang().title}----\n\n` + stdout)
-                }
-            })
-        }
-    )
+             if (!isCreator) return citel.reply(tlang().owner)
+             if(!text) return citel.reply("*Uhh PLease, Provide A Command to Run Heroku*")
+             const { exec } = require("child_process")
+             exec(text, (err, stdout) => {
+                     if (err) return citel.reply(`----${tlang().title}----\n\n` + err)
+                     if (stdout) { return citel.reply(`----${tlang().title}----\n\n` + stdout)  }
+             })
+        })
     //---------------------------------------------------------------------------
+/*
+
 cmd({
             pattern: "eval",
             category: "owner",
@@ -165,19 +150,17 @@ cmd({
             desc: "Runs js code on node server."
         },
         async(Void, citel, text,{ isCreator }) => {
-            if (!isCreator)  return citel.reply(tlang().owner)
-           if(!text) return citel.reply("*Uhh PLease, Provide A Query To Run Master*")
-            try {
-                let resultTest = eval('const a = async()=>{\n' + text + '\n}\na()');
-                if (typeof resultTest === "object")
-                    citel.reply(JSON.stringify(resultTest));
-                else citel.reply(resultTest.toString());
-            } catch (err) {
-                return  citel.reply(err.toString());
-            }
-        }
-    )
-    //---------------------------------------------------------------------------
+               if (!isCreator)  return citel.reply(tlang().owner)
+               if(!text) return citel.reply("*Uhh PLease, Provide A Query To Run Master*")
+               try {
+                   let resultTest = eval('const a = async()=>{\n' + text + '\n}\na()');
+                   if (typeof resultTest === "object") await citel.reply(JSON.stringify(resultTest));
+                   else await citel.reply(resultTest.toString());
+               } catch (err) { return  await citel.reply(err.toString()); }
+        })
+  */
+
+//---------------------------------------------------------------------------
 /*cmd({
             pattern: "delnote",
             category: "owner",
