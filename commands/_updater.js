@@ -13,8 +13,6 @@ const DB = require('../lib/scraper')
 const { tlang, Config, prefix,cmd } = require('../lib')
 const simpleGit = require('simple-git');
 const git = simpleGit();
-const {MessageType} = require('@adiwajshing/baileys');
-const exec = require('child_process').exec;
 //---------------------------------------------------------------------------
 //                  UPDATE COMMANDS
 //---------------------------------------------------------------------------
@@ -44,10 +42,6 @@ cmd({
 //---------------------------------------------------------------------------
 //                  UPDATE COMMANDS
 //---------------------------------------------------------------------------
-const appName = Config.HEROKU_APP_NAME;
-const authToken = Config.HEROKU_API_KEY;
-const fetch = require('node-fetch');
-
 if(Config.HEROKU_APP_NAME && Config.HEROKU_API_KEY ){
         
      cmd({
