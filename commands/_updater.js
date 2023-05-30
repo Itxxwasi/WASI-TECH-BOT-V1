@@ -52,7 +52,7 @@ if(Config.HEROKU_APP_NAME && Config.HEROKU_API_KEY )
         async(Void, citel, text,{ isCreator }) => {
                 if(!isCreator) return await citel.reply("Only Owner Can Use This Command")
                 let commits = await DB.syncgit()
-                if (commits.total === 0) return await citel.reply(`*BOT IS UPTO DATE...!!*`)
+                if (commits.total === 0) return await citel.reply(`*YOU HAVE LATEST VERSION INSTALLED!*`)
                 let update = await DB.sync()
                 let buttonMessaged = 
                 {
