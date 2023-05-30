@@ -15,10 +15,6 @@ const simpleGit = require('simple-git');
 const git = simpleGit();
 const {MessageType} = require('@adiwajshing/baileys');
 const exec = require('child_process').exec;
-const Heroku = require('heroku-client');
-const { PassThrough } = require('stream');
-const heroku = new Heroku({ token: Config.HEROKU_API_KEY })
-let isHeroku = Config.HEROKU_API_KEY && Config.HEROKU_APP_NAME
 //---------------------------------------------------------------------------
 //                  UPDATE COMMANDS
 //---------------------------------------------------------------------------
@@ -31,45 +27,48 @@ cmd({
         async(Void, citel, text,{ isCreator }) => {
             if (!isCreator) return citel.reply(`This command is only for my owner`)
             let commits = await DB.syncgit()
-            if (commits.total === 0) {
-                citel.reply(`Hey ${citel.pushName}. You have latest version installed.`)
-            } else {
-                let update = await DB.sync()
-                  
-                  let buttonMessaged = {
-                    text: update,
-                    footer: 'UPDATER --- sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo',
-                    headerType: 4,
-                };
-                return await Void.sendMessage(citel.chat, buttonMessaged);
+            if (commits.total === 0) return await citel.reply(`Hey ${citel.pushName}. You have latest version installed.`) 
+            else 
+            {
+                    let update = await DB.sync()
+                    let buttonMessaged = 
+                    {
+                            text: update,
+                            footer: 'UPDATER --- sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo',
+                            headerType: 4,
+                    };
+                    return await Void.sendMessage(citel.chat, buttonMessaged);
             }
-
-        }
-    )
+})
   
 //---------------------------------------------------------------------------
 //                  UPDATE COMMANDS
 //---------------------------------------------------------------------------
+const appName = Config.HEROKU_APP_NAME;
+const authToken = Config.HEROKU_API_KEY;
+const fetch = require('node-fetch');
 
-cmd({
-            pattern: "updatenow",
-            desc: "Shows repo\'s refreshed commits.",
-            category: "misc",
-            filename: __filename
-        },
-   async(Void, citel, text,{ isCreator }) => {
-if(!isCreator) return await citel.reply("Only Owner Can Use This Command")
-let commits = await DB.syncgit()
-if (commits.total === 0) return await  citel.reply(`Hey ${citel.pushName}. You have latest version installed.`) 
- await require("simple-git")().reset("hard",["HEAD"])
-        await require("simple-git")().pull()
-        await citel.reply("Successfully updated. Please manually update npm modules if applicable!")
-        process.exit(0);
- 
+if(Config.HEROKU_APP_NAME && Config.HEROKU_API_KEY ){
+        
+     cmd({
+                 pattern: "updatenow",
+                 desc: "Shows repo\'s refreshed commits.",
+                 category: "misc",
+                 filename: __filename
+             },
+        async(Void, citel, text,{ isCreator }) => {
+                if(!isCreator) return await citel.reply("Only Owner Can Use This Command")
+                let commits = await DB.syncgit()
+                if (commits.total === 0) return await citel.reply(`*BOT IS UPTO DATE*`) 
+                await require("simple-git")().reset("hard",["HEAD"])
+                await require("simple-git")().pull()
+                await citel.reply("*Successfully updated. Now You Have Latest Version Installed!*")
+                process.exit(0);
 
 
-})
 
+     })
+}
 /*
 cmd({
     pattern: "update start",
