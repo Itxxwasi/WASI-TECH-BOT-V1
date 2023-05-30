@@ -10,7 +10,7 @@ const {  fetchJson, getBuffer} = require('../lib/')
 //-----------------------------------------------------------------------
 
 cmd({
-        pattern: "waif",
+        pattern: "waifu",
         desc: "To get Waifu Random Pics",
         category: "Anime Pics",
         filename: __filename
