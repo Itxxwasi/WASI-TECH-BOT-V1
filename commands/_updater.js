@@ -25,7 +25,7 @@ cmd({
         async(Void, citel, text,{ isCreator }) => {
             if (!isCreator) return citel.reply(`This command is only for my owner`)
             let commits = await DB.syncgit()
-            if (commits.total === 0) return await citel.reply(`Hey ${citel.pushName}. You have latest version installed.`) 
+            if (commits.total === 0) return await citel.reply(`*Hey ${citel.pushName}. You have latest version installed.*`) 
             let update = await DB.sync()
             let buttonMessaged = 
             {
