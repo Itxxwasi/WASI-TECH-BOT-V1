@@ -25,7 +25,7 @@ Secktor.cmd({
             alias: ["menu"],
             desc: "Help list",
             category: "general",
-            react: "👀",
+           // react: "👀",
             filename: __filename
         },
         async(Void, citel, text) => {
@@ -54,7 +54,7 @@ Secktor.cmd({
                     .locale('id')
                 const date = moment.tz('asia/karachi').format('DD/MM/YYYY')
                 let total = await sck1.countDocuments()
-                let str = `╭────《 ${fancytext(Config.botname,58)} 》─────⊷\n
+                let str = `╭────《  ${Config.botname}  》─────⊷\n
 │ ╭───────✧❁✧───────«
 │ │ Theme:- ${tlang().title}
 │ │ Owner:- ${Config.ownername}
@@ -63,7 +63,6 @@ Secktor.cmd({
 │ │ Mem:- ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
 │ │ Time:- ${time}
 │ │ Date:- ${date}
-│ │ youtube.com/c/SuhailTechInfo
 │ ╰───────✧❁✧───────»
 ╰───────────────⊷\n
 ` + ''
@@ -136,12 +135,12 @@ Secktor.cmd({
     },
     async(Void, citel) => {
         const Config = require('../config')
-        const thmb = await getBuffer(THUMB_IMAGE)
+        const thmb = await getBuffer(global.THUMB_IMAGE)
         const vcard = 'BEGIN:VCARD\n' +
             'VERSION:3.0\n' +
             'FN:' + Config.ownername + '\n' +
             'ORG:;\n' +
-            'TEL;type=CELL;type=VOICE;waid=' + owner + ':+' + owner + '\n' +
+            'TEL;type=CELL;type=VOICE;waid=' + global.owner + ':+' + global.owner + '\n' +
             'END:VCARD'
         let buttonMessaged = {
             contacts: { displayName: Config.ownername, contacts: [{ vcard }] },
@@ -181,7 +180,7 @@ Secktor.cmd({
     pattern: "file",
     desc: "to get extact name where that command is in repo.\nSo user can edit that.",
     category: "general",
-    react: "✨",
+    //react: "✨",
     filename: __filename
 },
 async(Void, citel, text ,{isCreator }) => {
