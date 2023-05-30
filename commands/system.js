@@ -58,35 +58,7 @@ cmd({
 
 */
         })
-    //---------------------------------------------------------------------------
-cmd({
-            pattern: "unban",
-            category: "misc",
-            filename: __filename,
-            desc: "Unbans banned user (from using bot)."
-        },
-        async(Void, citel, text,{ isCreator }) => {
-            if (!isCreator) return citel.reply(`This command is only for my Owner`)
-            try {
-                let users = citel.mentionedJid ? citel.mentionedJid[0] : citel.msg.contextInfo.participant || false;
-                if (!users) return citel.reply("Please mention any user.❌")
-                let pushnamer = Void.getName(users);
-                sck1.findOne({ id: users }).then(async(usr) => {
-                    if (!usr) {
-                        console.log(usr.ban);
-                        return citel.reply(`${pushnamer} is unbanned.`);
-                    } else {
-                        console.log(usr.ban)
-                        if (usr.ban !== "true") return citel.reply(`${usr.name} is already unbanned.`);
-                        await sck1.updateOne({ id: users }, { ban: "false" })
-                        return citel.reply(`${usr.name} is free as a bird now`);
-                    }
-                })
-            } catch {  return citel.reply("Please mention any user.❌");  }
 
-
-        }
-    )
     //---------------------------------------------------------------------------
 cmd({
             pattern: "url",
@@ -125,6 +97,8 @@ cmd({
         }
     )
     //---------------------------------------------------------------------------
+/*
+
 cmd({
             pattern: "shell",
             category: "owner",
@@ -139,7 +113,9 @@ cmd({
                      if (err) return citel.reply(`----${tlang().title}----\n\n` + err)
                      if (stdout) { return citel.reply(`----${tlang().title}----\n\n` + stdout)  }
              })
-        })
+        }) 
+        */
+
     //---------------------------------------------------------------------------
 /*
 
@@ -195,6 +171,9 @@ cmd({
   
   */
   //---------------------------------------------------------------------------
+
+if(Config.WORKTYPE != 'private')
+{
 cmd({
             pattern: "ban",
             category: "owner",
@@ -203,28 +182,50 @@ cmd({
         },
         async(Void, citel, text,{ isCreator}) => {
             if (!isCreator) return citel.reply(tlang().owner)
-            try {
-                let users = citel.mentionedJid ? citel.mentionedJid[0] : citel.msg.contextInfo.participant || false;
+            try 
+            {
+                let users = citel.quoted ? citel.quoted.sender : citel.mentionedJid ? citel.mentionedJid[0] : citel.msg.contextInfo.participant || false;
                 if (!users) return citel.reply(`❌ Please mention any user ${tlang().greet}.`)
                 let pushnamer = Void.getName(users);
-                sck1.findOne({ id: users }).then(async(usr) => {
-                    if (!usr) {
+                sck1.findOne({ id: users }).then(async(usr) => 
+                {
+                    if (!usr) 
+                    {
                         await new sck1({ id: users, ban: "true" }).save()
                         return citel.reply(`_Banned ${usr.name} from Using Commands._`)
-                    } else {
-                        if (usr.ban == "true") return citel.reply(`${pushnamer} is already Banned from Using Commands`)
-                        await sck1.updateOne({ id: users }, { ban: "true" })
-                        return citel.reply(`_Successfully Banned ${usr.name} from Using Commands._`)
-                    }
+                    } 
+                    if (usr.ban == "true") return citel.reply(`${pushnamer} is already Banned from Using Commands`)
+                    await sck1.updateOne({ id: users }, { ban: "true" })
+                    return citel.reply(`_Successfully Banned ${usr.name} from Using Commands._`)
                 })
-            } catch (e) {
-                console.log(e)
-                return citel.reply("Please mention any user.❌ ")
-            }
+            } catch (e) {  return citel.reply("*Please Reply/Mention Any User.❌*")  }
 
 
-        }
-    )
+       })
+     //---------------------------------------------------------------------------
+cmd({
+            pattern: "unban",
+            category: "misc",
+            filename: __filename,
+            desc: "Unbans banned user (from using bot)."
+        },
+        async(Void, citel, text,{ isCreator }) => {
+            if (!isCreator) return citel.reply(`This command is only for my Owner`)
+            try 
+            {
+                let users = citel.quoted ? citel.quoted.sender : citel.mentionedJid ? citel.mentionedJid[0] : citel.msg.contextInfo.participant || false;
+                if (!users) return citel.reply("Please mention any user.❌")
+                let pushnamer = Void.getName(users);
+                sck1.findOne({ id: users }).then(async(usr) =>
+                { // console.log(usr.ban);
+                    if (!usr) { return citel.reply(`${pushnamer} is unbanned.`);}
+                    if (usr.ban !== "true") return await citel.reply(`${usr.name} is already unbanned.`);
+                    await sck1.updateOne({ id: users }, { ban: "false" })
+                    return await citel.reply(`${usr.name} is free as a bird now`);
+                })
+            } catch {  return citel.reply("Please mention any user.❌");  }
+        })
+}
     //---------------------------------------------------------------------------
 //                  ADD NOTE  COMMANDS
 //---------------------------------------------------------------------------
