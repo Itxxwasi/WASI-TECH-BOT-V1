@@ -195,7 +195,11 @@ await citel.reply (txt);
  }
      )
      //---------------------------------------------------------------------------
- cmd({
+ 
+
+/*
+
+cmd({
              pattern: "exec",
              desc: "Evaluates quoted code with given language.",
              category: "misc",
@@ -220,6 +224,8 @@ await citel.reply (txt);
              } catch (error) {return await citel.reply("*Error In Your Code :* "+error);  }
          }
      )
+     */
+
      //---------------------------------------------------------------------------
 
  cmd({
@@ -624,8 +630,11 @@ const buffer = await sticker.toBuffer();
          }
      )
      //---------------------------------------------------------------------------
+
+
+
  cmd({
-             pattern: "chatbot",
+             pattern: "lydea",
              desc: "activates and deactivates chatbot.\nuse buttons to toggle.",
              category: "misc",
              filename: __filename
@@ -633,60 +642,59 @@ const buffer = await sticker.toBuffer();
          async(Void, citel, text,{ isCreator }) => {
              if (!isCreator) return citel.reply(tlang().owner)
              const { chatbot } = require('../lib/');
-             switch (text.split(" ")[0]) {
+             switch (text.split(" ")[0])
+             {
                  case "on":
                      {
                       let chatbott= await chatbot.findOne({ id: 'chatbot' })
-                     if (!chatbott) {
+                      if (!chatbott) 
+                      {
                          await new chatbot({ id: 'chatbot', worktype: "true" }).save()
-                         return citel.reply('Chatbot activated successfully.')
-                     } else {
-                         if (chatbott.worktype == "true") return citel.reply("Chatbot was already enabled.")
+                         return await citel.reply('*Chatbot activated successfully.*')
+                     } 
+                      else 
+                      {
+                         if (chatbott.worktype == "true") return citel.reply("*Lydea was already enabled.*")
                          await chatbot.updateOne({ id: 'chatbot' }, { worktype: "true" })
-                         citel.reply('Enabled chatbot successfully.')
-                         return
+                         return await citel.reply('*Lydea Enabled successfully.*')
                      }      
                      }
                      break
                  case "off":
                      {
-                      let chatbott= await chatbot.findOne({ id: 'chatbot' })
-                     if (!chatbott) {
-                         await new chatbot({ id: 'chatbot', worktype: "false" }).save()
-                         return citel.reply('Chatbot deactivated successfully.')
-                     } else {
-                         if (chatbott.worktype == "false") return citel.reply("Chatbot was already disabled.")
-                         await chatbot.updateOne({ id: 'chatbot' }, { worktype: "false" })
-                         citel.reply('Disabled chatbot successfully.')
-                         return
-                     }
+                            let chatbott= await chatbot.findOne({ id: 'chatbot' })
+                            if (!chatbott) 
+                            {
+                                await new chatbot({ id: 'chatbot', worktype: "false" }).save()
+                                return citel.reply('*Lydea deactivated successfully.*')
+                            } 
+                            else 
+                            {
+                                if (chatbott.worktype == "false") return citel.reply("*Lydea was already disabled.*")
+                                await chatbot.updateOne({ id: 'chatbot' }, { worktype: "false" })
+                                return await citel.reply('*Lydea Disabled successfully.*')
+                            }
                      }
                      break
                  default:
                      {
-                         let buttons = [{
-                                 buttonId: `${prefix}chatbot on`,
-                                 buttonText: {
-                                     displayText: "Turn On",
-                                 },
-                                 type: 1,
-                             },
-                             {
-                                 buttonId: `${prefix}chatbot off`,
-                                 buttonText: {
-                                     displayText: "Turn Off",
-                                 },
-                                 type: 1,
-                             },
-                         ];
-                         let chatbott= await chatbot.findOne({ id: 'chatbot' })
-                         await Void.sendButtonText(citel.chat, buttons, `Chatbot Status: ${chatbott.worktype} `, 'Secktor-Md', citel);
+                            let buttons = [{
+                                               buttonId: `${prefix}chatbot on`,
+                                               buttonText: {   displayText: "Turn On" },
+                                               type: 1,
+                                          },
+                                          {
+                                               buttonId: `${prefix}chatbot off`,
+                                               buttonText: { displayText: "Turn Off" },
+                                               type: 1,
+                                           }];
+                            let chatbott= await chatbot.findOne({ id: 'chatbot' })
+                            await Void.sendButtonText(citel.chat, buttons, `Lydea Status: ${chatbott.worktype} `, Config.botname, citel);
                      }
              }
  
  
-         }
-     )
+      })
      //---------------------------------------------------------------------------
  cmd({
              pattern: "ebinary",
@@ -727,6 +735,10 @@ const buffer = await sticker.toBuffer();
      )
 
 //-----------------------------------------------------------------------------------
+
+if(Config.WORKTYPE != 'private')
+{
+ 
 cmd({
   pattern: "bot",
   desc: "activates and deactivates bot.\nuse buttons to toggle.",
@@ -735,58 +747,59 @@ cmd({
 },
 async(Void, citel, text,{isCreator}) => {
   if (!citel.isGroup) return citel.reply(tlang().group);
-  if(!isCreator) return //citel.reply(tlang().owner)
-switch (text.split(" ")[0]) {
- case 'on':{
-         let checkgroup = await sck.findOne({ id: citel.chat })
-         if (!checkgroup) {
-             await new sck({ id: citel.chat, botenable: "true" }).save()
-             return citel.reply(`Successfully Enabled *${tlang().title}*`)
-         } else {
-             if (checkgroup.botenable == "true") return citel.reply("*Bot* was already enabled")
-             await sck.updateOne({ id: citel.chat }, { botenable: "true" })
-             return citel.reply(`Successfully Enabled *${tlang().title}*`)
-         }
-     }
-  
- break
-case 'off':{
-            {
-             let checkgroup = await sck.findOne({ id: citel.chat })
-             if (!checkgroup) {
-                 await new sck({ id: citel.chat, botenable: "false" })
-                     .save()
-                 return citel.reply(`Successfully disabled *${tlang().title}*`)
-             } else {
-                 if (checkgroup.botenable == "false") return citel.reply("*Bot* was already disabled")
-                 await sck.updateOne({ id: citel.chat }, { botenable: "false" })
-                 return citel.reply(`Successfully disabled *${tlang().title}*`)
-             }
-         }
-}
-break
-default:{
-let checkgroup = await sck.findOne({ id: citel.chat })
-let buttons = [{
-          buttonId: `${prefix}bot on`,
-          buttonText: {
-              displayText: "Turn On",
-          },
-          type: 1,
-      },
-      {
-          buttonId: `${prefix}bot off`,
-          buttonText: {
-              displayText: "Turn Off",
-          },
-          type: 1,
-      },
-  ];
-  await Void.sendButtonText(citel.chat, buttons, `Bot Status in Group: ${checkgroup.botenable}`, Void.user.name, citel);
-}
-}
+  if(!isCreator) return citel.reply(tlang().owner)
+  switch (text.split(" ")[0]) {
+            case 'on':{
+                    let checkgroup = await sck.findOne({ id: citel.chat })
+                    if (!checkgroup) {
+                        await new sck({ id: citel.chat, botenable: "true" }).save()
+                        return citel.reply(`Successfully Enabled *${tlang().title}*`)
+                    } else {
+                        if (checkgroup.botenable == "true") return citel.reply("*Bot* was already enabled")
+                        await sck.updateOne({ id: citel.chat }, { botenable: "true" })
+                        return citel.reply(`Successfully Enabled *${tlang().title}*`)
+                    }
+                }
+
+            break
+           case 'off':{
+                       {
+                        let checkgroup = await sck.findOne({ id: citel.chat })
+                        if (!checkgroup) {
+                            await new sck({ id: citel.chat, botenable: "false" })
+                                .save()
+                            return citel.reply(`Successfully disabled *${tlang().title}*`)
+                        } else {
+                            if (checkgroup.botenable == "false") return citel.reply("*Bot* was already disabled")
+                            await sck.updateOne({ id: citel.chat }, { botenable: "false" })
+                            return citel.reply(`Successfully disabled *${tlang().title}*`)
+                        }
+                    }
+           }
+           break
+           default:
+           {
+                   let checkgroup = await sck.findOne({ id: citel.chat })
+                   let buttons = [{
+                             buttonId: `${prefix}bot on`,
+                             buttonText: {
+                                 displayText: "Turn On",
+                             },
+                             type: 1,
+                         },
+                         {
+                             buttonId: `${prefix}bot off`,
+                             buttonText: {
+                                 displayText: "Turn Off",
+                             },
+                             type: 1,
+                         },
+                     ];
+                     await Void.sendButtonText(citel.chat, buttons, `Bot Status in Group: ${checkgroup.botenable}`, Void.user.name, citel);
+           }
+       }
 })   
-         
+}
      //---------------------------------------------------------------------------
  cmd({
              pattern: "antilink",
