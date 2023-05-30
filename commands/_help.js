@@ -57,8 +57,8 @@ Secktor.cmd({
                     .locale('id')
                 const date = moment.tz('asia/karachi').format('DD/MM/YYYY')
                 let total = await sck1.countDocuments()
-                let str = `╭────《  *${Config.botname}*  》─────⊷
-│ ╭───────✧❁✧───────«
+                let str = `╭────《  *${Config.botname}*  》────⊷
+│ ╭───────✧❁✧──────◆
 │ │ Theme:- ${tlang().title}
 │ │ Owner:- ${Config.ownername}
 │ │ Plugins:- ${commands.length}
@@ -66,8 +66,8 @@ Secktor.cmd({
 │ │ Mem:- ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
 │ │ Time:- ${time}
 │ │ Date:- ${date}
-│ ╰───────✧❁✧───────»
-╰══════════════════⊷\n
+│ ╰───────✧❁✧──────◆
+╰════════════════════⊷\n
 ` ;//str += `╭───『 ` + fancytext('Commands', 57) + `』──◆`
              
 for (const category in cmds) {
@@ -75,7 +75,7 @@ str += `╭───❏ *${tiny(category)}* ❏\n`
 //┌┤\n`
 for (const plugins of cmds[category]) {
 str += `│ ${fancytext(plugins,1)}\n` ; }
-str += `╰━━━━━━━━━━━━──⊷\n`  ; }
+str += `╰━━━━━━━━━━━━━━━──⊷\n`  ; }
              
 str += Config.caption     // `\n╰━━━━━━━━━━━──⊷`
 
