@@ -56,7 +56,7 @@ if(Config.HEROKU_APP_NAME && Config.HEROKU_API_KEY )
                 let update = await DB.sync()
                 let buttonMessaged = 
                 {
-                     text:" > Please Wait Updater Started...!\n*------------------------------*\n```"+update+"```",
+                     text:" *> Please Wait Updater Started...!*\n  *───────────────────────────*\n"+update +"\n  *───────────────────────────*",
                      footer: 'UPDATER --- sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo',
                      headerType: 4,
                 };
