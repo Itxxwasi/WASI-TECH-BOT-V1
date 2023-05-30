@@ -16,7 +16,7 @@ global.devs = "923184474176"; //Dont change it From here
 global.website = 'https://github.com/SuhailTechInfo/Secktor-Md' //wa.me/+91000000000000
 global.THUMB_IMAGE = process.env.THUMB_IMAGE || 'https://raw.githubusercontent.com/SecktorBot/Brandimages/main/logos/SocialLogo%201.png'
 module.exports = {
-  botname: process.env.BOT_NAME || 'LYFEE0001',
+  botname: process.env.BOT_NAME || 'ʟʏғᴇᴇ²²¹-ᴍᴅ',
   ownername:  process.env.OWNER_NAME || `It'x Suhail`,
   sessionName: process.env.SESSION_ID || 'Put Your Session Id here',
   author:  process.env.PACK_AUTHER || '', 
