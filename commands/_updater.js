@@ -19,49 +19,53 @@ const git = simpleGit();
 cmd({
             pattern: "update",
             desc: "Shows repo\'s refreshed commits.",
-            category: "misc",
+            category: "tools",
             filename: __filename
         },
         async(Void, citel, text,{ isCreator }) => {
             if (!isCreator) return citel.reply(`This command is only for my owner`)
             let commits = await DB.syncgit()
             if (commits.total === 0) return await citel.reply(`Hey ${citel.pushName}. You have latest version installed.`) 
-            else 
+            let update = await DB.sync()
+            let buttonMessaged = 
             {
-                    let update = await DB.sync()
-                    let buttonMessaged = 
-                    {
-                            text: update,
-                            footer: 'UPDATER --- sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo',
-                            headerType: 4,
-                    };
-                    return await Void.sendMessage(citel.chat, buttonMessaged);
-            }
+                  text: update,
+                  footer: 'UPDATER --- sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo',
+                  headerType: 4,
+            };
+            return await Void.sendMessage(citel.chat, buttonMessaged,{ quoted : citel });
+
 })
   
 //---------------------------------------------------------------------------
 //                  UPDATE COMMANDS
 //---------------------------------------------------------------------------
-if(Config.HEROKU_APP_NAME && Config.HEROKU_API_KEY ){
+if(Config.HEROKU_APP_NAME && Config.HEROKU_API_KEY )
+{
         
      cmd({
                  pattern: "updatenow",
                  desc: "Shows repo\'s refreshed commits.",
-                 category: "misc",
+                 category: "tools",
                  filename: __filename
              },
         async(Void, citel, text,{ isCreator }) => {
                 if(!isCreator) return await citel.reply("Only Owner Can Use This Command")
                 let commits = await DB.syncgit()
-                if (commits.total === 0) return await citel.reply(`*BOT IS UPTO DATE*`) 
+                if (commits.total === 0) return await citel.reply(`*BOT IS UPTO DATE...!!*`)
+                let update = await DB.sync()
+                let buttonMessaged = 
+                {
+                     text:" > Please Wait Updater Started...!\n*------------------------------*\n```"+update+"```",
+                     footer: 'UPDATER --- sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo',
+                     headerType: 4,
+                };
+                await Void.sendMessage(citel.chat, buttonMessaged);
                 await require("simple-git")().reset("hard",["HEAD"])
                 await require("simple-git")().pull()
                 await citel.reply("*Successfully updated. Now You Have Latest Version Installed!*")
                 process.exit(0);
-
-
-
-     })
+       })
 }
 /*
 cmd({
