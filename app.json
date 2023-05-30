@@ -39,8 +39,8 @@
      "required" :false,
      "value": "true"
     },
-"PM_MSGS_IN_LOGS": {
-    "description": "Fill the value 'true' if you want to see Personal Messages in Console.",
+"MSGS_IN_LOG": {
+    "description": "Fill the value true if you want to see Messages in Console.",
      "required" :false,
      "value": "false"
     },
