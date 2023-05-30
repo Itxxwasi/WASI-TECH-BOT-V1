@@ -65,21 +65,15 @@ Secktor.cmd({
 │ │ Date:- ${date}
 │ ╰───────✧❁✧───────»
 ╰───────────────⊷\n
-` + ''
-                str += `╭───『 ` + fancytext('Commands', 57) + `』──◆`
-                for (const category in cmds) {
-                    str += `
-┃  ╭───────✧❁✧───────«
-┃  │ ✯---- ${tiny(category)} ----⦿
-┃  ╰┬──────✧❁✧───────»
-┃  ┌┤\n`
-                    for (const plugins of cmds[category]) {
-                        str += `┃  │ ✭ ${plugins}\n`
-                    }
-                    str += `┃  ╰─────────────◆`
-                }
-
-                str += `\n╰━━━━━━━━━━━──⊷\n${Config.caption}`
+` ;//str += `╭───『 ` + fancytext('Commands', 57) + `』──◆`
+             
+for (const category in cmds) {
+str += ` ╭───❏ *${tiny(category)}* ❏
+┌┤\n`
+for (const plugins of cmds[category]) {
+str += `│ ✭ ${plugins}\n` ; }
+str += `╰─────────────◆\n${Config.caption}`  ; }
+//str += `\n╰━━━━━━━━━━━──⊷`
 
                 let buttonMessaged = {
                     image: { url: await botpic() },
