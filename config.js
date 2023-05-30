@@ -30,7 +30,7 @@ module.exports = {
   HANDLERS: process.env.PREFIX || ',',
   warncount : process.env.WARN_COUNT || 3,
   disablepm: process.env.DISABLE_PM || "true",
-  groupMsgsInLog:process.env.GROUP_MSGS_IN_LOGS ||'false',
+  MsgsInLog:process.env.MSGS_IN_LOG ||'false',
   pmMsgsInLog:process.env.PM_MSGS_IN_LOGS ||'false',
   levelupmessage: process.env.LEVEL_UP_MESSAGE || 'true',
   antilink: process.env.ANTILINK_VALUES || 'chat.whatsapp.com',
