@@ -47,6 +47,29 @@ cmd({
         }
     )
   
+//---------------------------------------------------------------------------
+//                  UPDATE COMMANDS
+//---------------------------------------------------------------------------
+
+cmd({
+            pattern: "updatenow",
+            desc: "Shows repo\'s refreshed commits.",
+            category: "misc",
+            filename: __filename
+        },
+   async(Void, citel, text,{ isCreator }) => {
+if(!isCreator) return await citel.reply("Only Owner Can Use This Command")
+let commits = await DB.syncgit()
+if (commits.total === 0) return await  citel.reply(`Hey ${citel.pushName}. You have latest version installed.`) 
+ await require("simple-git")().reset("hard",["HEAD"])
+        await require("simple-git")().pull()
+        await citel.reply("Successfully updated. Please manually update npm modules if applicable!")
+        process.exit(0);
+ 
+
+
+})
+
 /*
 cmd({
     pattern: "update start",
