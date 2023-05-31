@@ -9,8 +9,8 @@ const fetch = require('node-fetch');
 
 //---------------------------------------------------------------------------
 cmd({
-            pattern: "stel",
-            category: "textpro",
+            pattern: "steeel",
+            category: "edit",
             desc: "Some text to image feature with various styles."
         },
         async(Void, citel, text) => {
