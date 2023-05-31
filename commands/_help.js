@@ -46,8 +46,7 @@ Secktor.cmd({
                       if (cmd.use) arr.push(`*〽️Usage:*\n \`\`\`${prefix}${cmd.pattern} ${cmd.use}\`\`\``);
                       return await citel.reply(arr.join('\n'));
                 }
-            } else 
-            {
+            } 
              console.log("Menu Else Category")
                 const cmds = {}
                 commands.map(async(command, index) => 
@@ -73,7 +72,7 @@ Secktor.cmd({
 │ │ Date:- ${date}
 │ ╰───────✧❁✧──────◆
 ╰════════════════════⊷\n
-` ;//str += `╭───『 ` + fancytext('Commands', 57) + `』──◆`
+` ;
              
 for (const category in cmds) 
 {
@@ -85,14 +84,13 @@ for (const category in cmds)
    }
    else
    {
-        str += `╭───❏ *${tiny(category)}* ❏\n` ;       //┌┤\n`
+        str += `╭───❏ *${tiny(category)}* ❏\n` ;
         for (const plugins of cmds[category]) { str += `│ ${fancytext(plugins,1)}\n` ; }
         str += `╰━━━━━━━━━━━━━━━──⊷\n`  ; 
    }
  
 }//For Looop end
-str += Config.caption     // `\n╰━━━━━━━━━━━──⊷`
-
+                str += Config.caption  
                 let buttonMessaged = 
                 {
                     image: { url: await botpic() },
@@ -101,8 +99,6 @@ str += Config.caption     // `\n╰━━━━━━━━━━━──⊷`
                     headerType: 4,
                 };
                 return await Void.sendMessage(citel.chat, buttonMessaged ,{ quoted : citel});
-            }
-
 })
     //---------------------------------------------------------------------------
 Secktor.cmd({
