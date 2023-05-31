@@ -321,13 +321,14 @@ cmd({
     //---------------------------------------------------------------------------
 cmd({
         pattern: "iswa",
-        alias: ["nowa","oldwa","bio","onwa"],
+        alias: ["oldwa","bio","onwa"],
         category: "search",
         desc: "Searches in given rage about given number.",
         use: '9112345678xx',
         filename: __filename,
     },
     async(Void, citel, text) => {
+ if(!text) return await citel.reply('Give Me Number without + sign. Example: .iswa 9231844741xx')
         var inputnumber = text.split(" ")[0]
         if (!inputnumber.includes('x')) return citel.reply(`*You did not add x*\nExample: iswa 9231844741xx  \n ${Config.caption}`)
         citel.reply(`*Searching for WhatsApp account in given range...* \n ${Config.caption}`)
@@ -341,7 +342,7 @@ cmd({
         else if (random_length == 2) { randomxx = 100 } 
         else if (random_length == 3) { randomxx = 1000 }
  
-        var text = `*--『 List of Whatsapp Numbers 』--*\n\n`
+        text = `*--『 List of Whatsapp Numbers 』--*\n\n`
         var nobio = `\n*Bio:* || \nHey there! I am using WhatsApp.\n`
         var nowhatsapp = `\n*Numbers with no WhatsApp account within provided range.*\n`
         for (let i = 0; i < randomxx; i++) {
@@ -366,7 +367,46 @@ cmd({
                   else {  text += `🧐 *Number:* wa.me/${anu[0].jid.split("@")[0]}\n ✨*Bio :* ${anu1.status}\n🍁*Last update :* ${moment(anu1.setAt).tz('Asia/Kolkata').format('HH:mm:ss DD/MM/YYYY')}\n\n` ;   }
             } catch { nowhatsapp += `${number0}${i}${number1}\n`; }
         }
-        citel.reply(`${text}${nobio}${nowhatsapp}`)
+        return await citel.reply(`${text}${nobio}${nowhatsapp}`)
 
     }
 )
+
+
+cmd({
+        pattern: "nowa",
+        category: "search",
+        desc: "Searches in given rage about given number.",
+        use: '9112345678xx',
+        filename: __filename,
+    },
+    async(Void, citel, text) => {
+if(!text) return await citel.reply('Give Me Number without + sign. Example: .nowa 9231844741xx')
+const inputNumber = text.split(" ")[0]
+if (!inputnumber.includes('x')) return citel.reply(`*You did not add x in number.*\nExample: ${prefix}nowa 9231844741xx  \n ${Config.caption}`)
+citel.reply(`Searching for WhatsApp account in the given range...\n${Config.caption}`);
+function countInstances(string, word) { return string.split(word).length - 1; }
+const number0 = inputNumber.split('x')[0];
+const number1 = inputNumber.split('x').slice(-1)[0] || '';
+const randomLength = countInstances(inputNumber, 'x');
+const randomxx = [10, 100, 1000][randomLength - 1] || 0;
+let nobio = `\n WhatsApp account With No Bio \n`;
+let nowhatsapp = `\n Numbers with no WhatsApp account \n`;
+for (let i = 0; i < randomxx; i++) 
+{
+    const nu = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    const status = nu.slice(0, randomLength).map(() => nu[Math.floor(Math.random() * nu.length)]).join('');
+    const random = `${status}${nu[Math.floor(Math.random() * nu.length)]}`.slice(0, randomLength);
+    const anu = await Void.onWhatsApp(`${number0}${i}${number1}`);
+    const anuu = anu.length !== 0 ? anu : false;
+    try 
+    {
+         const anu1 = await Void.fetchStatus(anu[0].jid);
+         if (anu1 === '401' || anu1.status.length === 0) {  nobio += `wa.me/${anu[0].jid.split("@")[0]}\n`; } 
+    } catch { nowhatsapp += `${number0}${i}${number1}\n`;  }
+}
+
+return await citel.reply(`${nobio} \n ${nowhatsapp}`);
+ 
+ 
+})
