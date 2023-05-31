@@ -33,28 +33,32 @@ Secktor.cmd({
         },
         async(Void, citel, text) => {
             const { commands } = require('../lib');
-            if (text.split(" ")[0]) {
+            if (text.split(" ")[0]) 
+            {
                 let arr = [];
                 const cmd = commands.find((cmd) => cmd.pattern === (text.split(" ")[0].toLowerCase()))
-                if (!cmd) return await citel.reply("*❌No Such commands.*");
-                else arr.push(`*🍁Command:* ${cmd.pattern}`);
-                if (cmd.category) arr.push(`*🧩Category:* ${cmd.category}`);
-                if (cmd.alias) arr.push(`*🧩Alias:* ${cmd.alias}`);
-                if (cmd.desc) arr.push(`*🧩Description:* ${cmd.desc}`);
-                if (cmd.use) arr.push(`*〽️Usage:*\n \`\`\`${prefix}${cmd.pattern} ${cmd.use}\`\`\``);
-                return await citel.reply(arr.join('\n'));
-            } else {
+                if (cmd) //if(!cmd) return await citel.reply("*❌No Such commands.*");
+                {
+                      arr.push(`*🍁Command:* ${cmd.pattern}`);
+                      if (cmd.category) arr.push(`*🧩Category:* ${cmd.category}`);
+                      if (cmd.alias) arr.push(`*🧩Alias:* ${cmd.alias}`);
+                      if (cmd.desc) arr.push(`*🧩Description:* ${cmd.desc}`);
+                      if (cmd.use) arr.push(`*〽️Usage:*\n \`\`\`${prefix}${cmd.pattern} ${cmd.use}\`\`\``);
+                      return await citel.reply(arr.join('\n'));
+                }
+            } else 
+            {
                 const cmds = {}
-                commands.map(async(command, index) => {
-                    if (command.dontAddCommandList === false && command.pattern !== undefined) {
-                        if (!cmds[command.category]) cmds[command.category] = []
-                        cmds[command.category].push(command.pattern)
-                    }
+                commands.map(async(command, index) => 
+                {
+                     if (command.dontAddCommandList === false && command.pattern !== undefined)
+                     {
+                          if (!cmds[command.category]) cmds[command.category] = []
+                          cmds[command.category].push(command.pattern)
+                     }
                 })
-                const time = moment(moment())
-                    .format('HH:mm:ss')
-                moment.tz.setDefault('Asia/karachi')
-                    .locale('id')
+                const time = moment(moment()).format('HH:mm:ss')
+                moment.tz.setDefault('Asia/karachi').locale('id')
                 const date = moment.tz('asia/karachi').format('DD/MM/YYYY')
                 let total = await sck1.countDocuments()
                 let str = `╭────《  *${Config.botname}*  》────⊷
@@ -70,26 +74,35 @@ Secktor.cmd({
 ╰════════════════════⊷\n
 ` ;//str += `╭───『 ` + fancytext('Commands', 57) + `』──◆`
              
-for (const category in cmds) {
-str += `╭───❏ *${tiny(category)}* ❏\n`
-//┌┤\n`
-for (const plugins of cmds[category]) {
-str += `│ ${fancytext(plugins,1)}\n` ; }
-str += `╰━━━━━━━━━━━━━━━──⊷\n`  ; }
-             
+for (const category in cmds) 
+{
+   if(text.toLowerCase() ==category.toLowerCase()  )
+   {
+        str =  `╭───❏ *${tiny(category)}* ❏\n` ;       //┌┤\n`
+        for (const plugins of cmds[category]) { str += `│ ${fancytext(plugins,1)}\n` ; }
+        str += `╰━━━━━━━━━━━━━━━──⊷\n`  ; 
+   }
+   else
+   {
+        str += `╭───❏ *${tiny(category)}* ❏\n` ;       //┌┤\n`
+        for (const plugins of cmds[category]) { str += `│ ${fancytext(plugins,1)}\n` ; }
+        str += `╰━━━━━━━━━━━━━━━──⊷\n`  ; 
+   }
+ 
+}//For Looop end
 str += Config.caption     // `\n╰━━━━━━━━━━━──⊷`
 
-                let buttonMessaged = {
+                let buttonMessaged = 
+                {
                     image: { url: await botpic() },
                     caption: str,
                     footer: tlang().footer,
                     headerType: 4,
-                   
                 };
                 return await Void.sendMessage(citel.chat, buttonMessaged ,{ quoted : citel});
             }
-        }
-    )
+
+})
     //---------------------------------------------------------------------------
 Secktor.cmd({
             pattern: "list",
