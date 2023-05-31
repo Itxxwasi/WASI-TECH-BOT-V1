@@ -47,7 +47,6 @@ cmd({
         delete require.cache[require.resolve(__dirname+"/" + text + ".js")];
         fs.unlinkSync(__dirname + "/" + text+ ".js");
         await citel.reply(`${kill} \n*Please Wait _${Config.botname}_ Restarting_")
-        await sleep(2000);
         const { exec } = require("child_process")
         exec('pm2 restart all')
     }
