@@ -1,9 +1,8 @@
-
-const { tlang, cmd, prefix } = require('../lib')
 const Config = require('../config')
 const maker = require('mumaker')
-
-
+let { fancytext, tiny, runtime, formatp, botpic, prefix, sck1, tlang, cmd, fetchJson, getBuffer  } = require("../lib");
+const axios = require('axios');
+const fetch = require('node-fetch');
 
 
 
