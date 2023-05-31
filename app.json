@@ -15,12 +15,12 @@
      "value": "https://i.imgur.com/NpA3ZsJ.jpeg"
     },
  "HEROKU_API_KEY": {
-    "description": "Heroku Api Key",
-     "value": "e4263922-b90a-4bf7-b65e-d5e0d46dfc6b",
+    "description": "Put Your Heroku Api Key Here",
+     "value": "",
 	 "required" :true
     },
 "HEROKU_APP_NAME": {
-    "description": "heroku App Name",
+    "description": "Put Your Heroku App Name Here",
      "value": "",
 	"required" :false
     },
