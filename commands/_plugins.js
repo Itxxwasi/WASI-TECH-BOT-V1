@@ -24,7 +24,7 @@ cmd({
         if (!isCreator) return citel.reply(tlang().owner)
         let allmodtext = `*All Installed Modules are:-*\n\n`
         allmodtext += await plugins()
-        citel.reply(allmodtext)
+        return await citel.reply(allmodtext)
 
     }
 )
@@ -46,11 +46,10 @@ cmd({
         let kill = await remove(text.split(" ")[0])
         delete require.cache[require.resolve(__dirname+"/" + text + ".js")];
         fs.unlinkSync(__dirname + "/" + text+ ".js");
-        citel.reply(kill);
-        
-            const { exec } = require("child_process")
-            citel.reply(kill +"\n*Please Wait, Bot Restarting_")
-            exec('pm2 restart all')
+        await citel.reply(`${kill} \n*Please Wait _${Config.botname}_ Restarting_")
+        await sleep(2000);
+        const { exec } = require("child_process")
+        exec('pm2 restart all')
     }
 )
 
