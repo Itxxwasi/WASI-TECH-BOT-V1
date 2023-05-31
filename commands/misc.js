@@ -391,8 +391,7 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
 
      //---------------------------------------------------------------------------
  cmd({
-             pattern: "steal",
-             alias:["take"],
+             pattern: "take",
              desc: "Makes sticker of replied image/video.",
              category: "sticker",
              filename: __filename
