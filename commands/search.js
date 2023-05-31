@@ -390,9 +390,9 @@ const number0 = inputNumber.split('x')[0];
 const number1 = inputNumber.split('x').slice(-1)[0] || '';
 const randomLength = countInstances(inputNumber, 'x');
 const randomxx = [10, 100, 1000][randomLength - 1] || 0;
-let nobio = `\n *WhatsApp account With No Bio* \n`;
+let nobio = `\n*『 WhatsApp Account With No Bio』* \n`;
  let nobios='';
-let nowhatsapp = ` *--『 Numbers with no WhatsApp account 』--* \n`;
+let nowhatsapp = `*『 Numbers With No WhatsApp Account 』* \n\n`;
 for (let i = 0; i < randomxx; i++) 
 {
     const nu = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
@@ -406,11 +406,7 @@ for (let i = 0; i < randomxx; i++)
          if (anu1 === '401' || anu1.status.length === 0) {  nobios += `wa.me/${anu[0].jid.split("@")[0]}\n`; } 
     } catch { nowhatsapp += `${number0}${i}${number1}\n`;  }
 }
- 
- 
- 
-if(!nobios){ nobio=''; } else {nobio +=nobios+'\n' ;}
- 
- return await citel.reply(`${nobio}  ${nowhatsapp}${Config.caption}`);
+if(!nobios){ nobio = ''; } else {nobio += nobios+'\n' ;}
+return await citel.reply(`${nobio}${nowhatsapp}${Config.caption}`);
  
 })
