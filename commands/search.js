@@ -392,7 +392,7 @@ const randomLength = countInstances(inputNumber, 'x');
 const randomxx = [10, 100, 1000][randomLength - 1] || 0;
 let nobio = `\n *WhatsApp account With No Bio* \n`;
  let nobios='';
-let nowhatsapp = `*Numbers with no WhatsApp account* \n`;
+let nowhatsapp = ` *--『 Numbers with no WhatsApp account 』--* \n`;
 for (let i = 0; i < randomxx; i++) 
 {
     const nu = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
@@ -409,8 +409,8 @@ for (let i = 0; i < randomxx; i++)
  
  
  
-if(!nobios){ nobio=''; } else {nobio +=nobios}
+if(!nobios){ nobio=''; } else {nobio +=nobios+'\n' ;}
  
- return await citel.reply(`${nobio} \n ${nowhatsapp} \n${Config.caption}`);
+ return await citel.reply(`${nobio}  ${nowhatsapp}${Config.caption}`);
  
 })
