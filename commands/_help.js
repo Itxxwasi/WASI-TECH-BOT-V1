@@ -9,7 +9,7 @@
  * @version 0.0.6
  
  ✭  
- 
+  //┌┤\n`
  **/
 
 const os = require('os')
@@ -46,8 +46,7 @@ Secktor.cmd({
                       if (cmd.use) arr.push(`*〽️Usage:*\n \`\`\`${prefix}${cmd.pattern} ${cmd.use}\`\`\``);
                       return await citel.reply(arr.join('\n'));
                 }
-            } 
-             console.log("Menu Else Category")
+            }
                 const cmds = {}
                 commands.map(async(command, index) => 
                 {
@@ -74,23 +73,19 @@ Secktor.cmd({
 ╰════════════════════⊷\n
 ` ;
              
-for (const category in cmds) 
-{
-   if(text.toLowerCase() == category.toLowerCase()  )
-   {
-        str =  `╭───❏ *${tiny(category)}* ❏\n` ;       //┌┤\n`
-        for (const plugins of cmds[category]) { str += `│ ${fancytext(plugins,1)}\n` ; }
-        str += `╰━━━━━━━━━━━━━━━──⊷\n`  ; 
-    break ;
-   }
-   else
-   {
-        str += `╭───❏ *${tiny(category)}* ❏\n` ;
-        for (const plugins of cmds[category]) { str += `│ ${fancytext(plugins,1)}\n` ; }
-        str += `╰━━━━━━━━━━━━━━━──⊷\n`  ; 
-   }
- 
-}//For Looop end
+              for (const category in cmds) 
+              {
+                 str += `╭───❏ *${tiny(category)}* ❏\n` ;
+                 if(text.toLowerCase() == category.toLowerCase()){ str = `╭───❏ *${tiny(category)}* ❏\n` ;      
+                      for (const plugins of cmds[category]) { str += `│ ${fancytext(plugins,1)}\n` ; }
+                      str += `╰━━━━━━━━━━━━━━━──⊷\n`  ;
+                      break ;
+                 }
+                 else { for (const plugins of cmds[category]) { str += `│ ${fancytext(plugins,1)}\n` ; }
+                       str += `╰━━━━━━━━━━━━━━━──⊷\n`  ; 
+                 }
+
+              }//For Looop end
                 str += Config.caption  
                 let buttonMessaged = 
                 {
