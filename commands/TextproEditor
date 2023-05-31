@@ -9,7 +9,7 @@ const fetch = require('node-fetch');
 
 //---------------------------------------------------------------------------
 cmd({
-            pattern: "steel",
+            pattern: "steal",
             category: "textpro",
             desc: "Some text to image feature with various styles."
         },
