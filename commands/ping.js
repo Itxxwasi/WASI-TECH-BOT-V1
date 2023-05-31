@@ -18,8 +18,8 @@ cmd({
             if (!text) return citel.reply('_Example : .steel suhail;tech info_')  
             let text1 = text ? text.split(';')[0] : ''
             let text2 = text ? text.split(';')[1] : ''
-            if(!text2 || text1) return await citel.reply("*Uhh Please Provide text. Example: .steel text1;text2*")
-            let anu = await maker.textpro('https://textpro.me/3d-steel-text-effect-877.html', ["teks", "teks 2"] )
+            if(!text2 || !text1) return await citel.reply("*Uhh Please Provide text. Example: .steel text1;text2*")
+            let anu = await maker.textpro('https://textpro.me/3d-steel-text-effect-877.html', [text1, text2] )
             Void.sendMessage(citel.chat, { image: {url: anu },caption: `Made by ${tlang().title},For my ${tlang().greet}`}, { quoted: citel })
         }
     )
