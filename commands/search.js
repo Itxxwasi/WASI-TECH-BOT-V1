@@ -384,14 +384,15 @@ cmd({
 if(!text) return await citel.reply('Give Me Number without + sign. Example: .nowa 9231844741xx')
 const inputNumber = text.split(" ")[0]
 if (!inputNumber.includes('x')) return citel.reply(`*You did not add x in number.*\nExample: ${prefix}nowa 9231844741xx  \n ${Config.caption}`)
-citel.reply(`Searching for WhatsApp account in the given range...\n${Config.caption}`);
+citel.reply(`*Searching for WhatsApp account in the given range...*\n${Config.caption}`);
 function countInstances(string, word) { return string.split(word).length - 1; }
 const number0 = inputNumber.split('x')[0];
 const number1 = inputNumber.split('x').slice(-1)[0] || '';
 const randomLength = countInstances(inputNumber, 'x');
 const randomxx = [10, 100, 1000][randomLength - 1] || 0;
-let nobio = `\n WhatsApp account With No Bio \n`;
-let nowhatsapp = `\n Numbers with no WhatsApp account \n`;
+let nobio = `\n *WhatsApp account With No Bio* \n`;
+ let nobios='';
+let nowhatsapp = `*Numbers with no WhatsApp account* \n`;
 for (let i = 0; i < randomxx; i++) 
 {
     const nu = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
@@ -402,11 +403,14 @@ for (let i = 0; i < randomxx; i++)
     try 
     {
          const anu1 = await Void.fetchStatus(anu[0].jid);
-         if (anu1 === '401' || anu1.status.length === 0) {  nobio += `wa.me/${anu[0].jid.split("@")[0]}\n`; } 
+         if (anu1 === '401' || anu1.status.length === 0) {  nobios += `wa.me/${anu[0].jid.split("@")[0]}\n`; } 
     } catch { nowhatsapp += `${number0}${i}${number1}\n`;  }
 }
-
-return await citel.reply(`${nobio} \n ${nowhatsapp}`);
  
+ 
+ 
+if(!nobios){ nobio=''; } else {nobio +=nobios}
+ 
+ return await citel.reply(`${nobio} \n ${nowhatsapp} \n${Config.caption}`);
  
 })
