@@ -48,6 +48,7 @@ Secktor.cmd({
                 }
             } else 
             {
+             console.log("Menu Else Category")
                 const cmds = {}
                 commands.map(async(command, index) => 
                 {
