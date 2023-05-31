@@ -16,8 +16,8 @@ cmd({ pattern: "glow", category: "textpro", desc: "Some text to image feature wi
     })
 //---------------------------------------------------------------------------
 cmd({
-            pattern: "steel",
-            category: "edit",
+            pattern: "steal",
+            category: "textpro",
             desc: "Some text to image feature with various styles."
         },
         async(Void, citel, text) => {
