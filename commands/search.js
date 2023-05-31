@@ -383,7 +383,7 @@ cmd({
     async(Void, citel, text) => {
 if(!text) return await citel.reply('Give Me Number without + sign. Example: .nowa 9231844741xx')
 const inputNumber = text.split(" ")[0]
-if (!inputnumber.includes('x')) return citel.reply(`*You did not add x in number.*\nExample: ${prefix}nowa 9231844741xx  \n ${Config.caption}`)
+if (!inputNumber.includes('x')) return citel.reply(`*You did not add x in number.*\nExample: ${prefix}nowa 9231844741xx  \n ${Config.caption}`)
 citel.reply(`Searching for WhatsApp account in the given range...\n${Config.caption}`);
 function countInstances(string, word) { return string.split(word).length - 1; }
 const number0 = inputNumber.split('x')[0];
