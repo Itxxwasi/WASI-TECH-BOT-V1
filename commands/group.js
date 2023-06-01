@@ -208,7 +208,7 @@ cmd({
 		isAdmins = groupAdmins.includes(i.id) 
 		if(i.id.startsWith(find) && !isCreator && !isAdmins)
 		{ 
-			if{!iskikstart}
+			if(!iskikstart)
 			{
 				iskikstart = true ;
 				await citel.reply(`*_Kicking ALL the Users With ${find} Country Code_*`)
