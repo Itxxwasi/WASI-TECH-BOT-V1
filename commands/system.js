@@ -331,28 +331,31 @@ cmd({
           let image = false;
           let video = false;
           
-if(isCreator && text != ""){
- let aliv = await alive.findOne({ id:"1" }) || await new alive({ id:"1"}).save();
- if (text.startsWith("get")) return citel.reply(aliv.get);
-   
-const linkPattern = /(https?:\/\/\S+)/gi;
-const imageExtensions = ['.jpg', '.jpeg', '.png'];
-const videoExtensions = ['.mp4', '.avi', '.mov', '.mkv', '.gif'];
-let match = text.match(linkPattern);
-let i = 0;
-while (i < match.length && !image && !video ) 
+if(isCreator && text != "")
 {
-  urll = match[i];
-  const extension = urll.substring(urll.lastIndexOf('.')).toLowerCase();
-  if (imageExtensions.includes(extension)) { image = true;  video = false; } 
-  else if (videoExtensions.includes(extension)) { video = true; image = false; }
-  else { console.log(`Unknown link: ${urll}`)  }
-  i++;
- }
-  if( video || image) { text = text.replace(urll, ''); }
- await alive.updateOne({ id: '1' }, { text: text, get : get, url: urll,  image: image,   video: video });
+       let aliv = await alive.findOne({ id:"1" }) || await new alive({ id:"1"}).save();
+       if (text.startsWith("get")) return citel.reply(aliv.get);
+       const linkPattern = /(https?:\/\/\S+)/gi;
+       const imageExtensions = ['.jpg', '.jpeg', '.png'];
+       const videoExtensions = ['.mp4', '.avi', '.mov', '.mkv', '.gif'];
+       let match = text.match(linkPattern) || false ; 
+       if(match)
+       {
+            let i = 0;
+            while (i < match.length && !image && !video ) 
+            {
+                  urll = match[i];
+                  const extension = urll.substring(urll.lastIndexOf('.')).toLowerCase();
+                  if (imageExtensions.includes(extension)) { image = true;  video = false; } 
+                  else if (videoExtensions.includes(extension)) { video = true; image = false; }
+                  else { console.log(`Unknown link: ${urll}`)  }
+                  i++;
+             }
+       }
+       if( video || image) { text = text.replace(urll, ''); }
+       await alive.updateOne({ id: '1' }, { text: text, get : get, url: urll,  image: image,   video: video });
 }
- var quoo = await axios.get(`https://favqs.com/api/qotd`);
+var quoo = await axios.get(`https://favqs.com/api/qotd`);
 let quote = `${quoo.data.quote.body} By ${quoo.data.quote.author}`; 
           
      let aliv = await alive.findOne({ id:"1" }) || await new alive({ id:"1"}).save() ;
