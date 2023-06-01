@@ -202,17 +202,23 @@ cmd({
 	let error = '*These Users Not Kicked* \n\t' ;
 	let users = await groupMetadata.participants
 	let hmanykik = 0;
-	citel.reply(`*_Kicking ALL the Users With ${find} Country Code_*`)
+	let iskikstart = false ;
+	
 	for (let i of users) { 
 		isAdmins = groupAdmins.includes(i.id) 
 		if(i.id.startsWith(find) && !isCreator && !isAdmins)
 		{ 
+			if{!iskikstart}
+			{
+				iskikstart = true ;
+				await citel.reply(`*_Kicking ALL the Users With ${find} Country Code_*`)
+			}
 			try { await Void.groupParticipantsUpdate(citel.chat, [i.id], "remove"); hmanykik++ ;  }
 			catch (e) { console.log("Error While Kicking : " , e) } 	
 		}
 	}
 	if(hmanykik < 1) return await citel.reply(`*_Ahh, There Is No User Found With ${find} Country Code_*`)
-await citel.reply(`*_Hurray, ${hmanykik.toString()} Users With ${find} Country Code kicked_*`)
+        else return await citel.reply(`*_Hurray, ${hmanykik.toString()} Users With ${find} Country Code kicked_*`)
 })
 //---------------------------------------------------------------------------
 cmd({
