@@ -40,6 +40,19 @@ for (let i = 0; i < name2; i++)
 })
 //-----------------------------------------------------------------------
 cmd({
+        pattern: "naruto",
+        desc: "To get Naruto Random Videos",
+        category: "Anime Pics",
+        filename: __filename
+    },
+async(Void, citel,text) =>
+{
+        let res=await axios.get("https://raw.githubusercontent.com/mask-sir/api.mask-ser/main/Naruto.json")
+        let url =  res.data.result[Math.floor(Math.random() * res.data.result.length)];
+        return await Void.sendMessage(citel.chat,{video :{url : url } , caption: Config.caption }, { quoted: citel })
+})
+//-----------------------------------------------------------------------
+cmd({
     pattern: "neko",
     category: "Anime Pics",
     desc: "Sends a Neko Image in chat",
@@ -73,18 +86,11 @@ cmd({
     desc: "Sends image of Fox Girl in current chat.",
     filename: __filename
 },
-async(Void, citel, text) => {
-    waifuddfg = await axios.get(`https://nekos.life/api/v2/img/fox_girl`);
-    let buttonssMessagesss = {
-        image: {
-            url: waifuddfg.data.url
-        },
-    };
-    await Void.sendMessage(citel.chat, buttonssMessagesss, {
-        quoted: citel,
-    })
-}
-)
+async(Void, citel, text) => 
+{
+    let  waifuddfg = await axios.get(`https://nekos.life/api/v2/img/fox_girl`);
+    await Void.sendMessage(citel.chat, {image: { url: waifuddfg.data.url } }, { quoted: citel })
+})
 //-----------------------------------------------------------------------
 cmd({
         pattern: "animenews",
@@ -136,17 +142,11 @@ async(Void, citel, text) => {
     waifud = await axios.get("https://waifu.pics/api/sfw/shinobu");
     var wbutss = [{
         buttonId: `${prefix}loli`,
-        buttonText: {
-            displayText: `Next Loli✨`,
-        },
+        buttonText: { displayText: `Next Loli✨` },
         type: 1,
     }, ];
-    let buttonsMessage = {
-        image: { url: waifud.data.url }
-    };
-    await Void.sendMessage(citel.chat, buttonsMessage, {
-        quoted: citel,
-    })
+
+    await Void.sendMessage(citel.chat, {image: { url: waifud.data.url }}, {quoted: citel})
 }
 )
 //-----------------------------------------------------------------------
