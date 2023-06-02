@@ -798,7 +798,43 @@ async(Void, citel, text,{isCreator}) => {
            }
        }
 })   
-}
+} // if Statements
+     //---------------------------------------------------------------------------
+ cmd({
+             pattern: "antispam",
+             desc: "Kick Spamers From Group.\nuse buttons to toggle.",
+             category: "group",
+             filename: __filename
+         },
+         async(Void, citel, text , {isCreator}) => {
+             if (!citel.isGroup) return citel.reply(tlang().group);
+           let check = text ? text : '';
+             let checkgroup = await sck.findOne({ id: citel.chat }) || await new sck({id : citel.chat , antispam : 'true'  }) .save();
+             const groupAdmins = await getAdmin(Void, citel)
+             const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
+             if (!isAdmins && !isCreator) return citel.reply(tlang().admin)     
+             if (check.startsWith("on") || check.startsWith("enable") || check.startsWith("act"))
+             { 
+                 try 
+                 {
+                   checkgroup.antispam = 'true'; 
+                   await checkgroup.save();
+                   return await citel.reply("*_Antispam Enabled Successfuly in Group_*")
+                 } catch (error) {   return await citel.reply("*_There's an Error, Antispam Not Enable in Group_*")    }
+             }
+             else if (check.startsWith("off") || check.startsWith("disable") || check.startsWith("deact") ) 
+             {
+                 try 
+                 {
+                     checkgroup.antispam = 'false'; 
+                     await checkgroup.save();
+                     return await citel.reply("*_Antispam Disabled Successfuly in Group_*")
+                 } catch (error) {   return await citel.reply("*_There's an Error, Antispam Not Disable in Group_*")    }
+             }      
+if (checkgroup.antispam == "true") return citel.reply(`Antispam : kick Users Who Spamming in Group\n\nAntispam is enabled in this Group \n *_For Disabling : ${prefix}antispam off_*`);
+else return citel.reply(`Antispam : kick Users Who Spamming in Groupn\n\nAntispam is Disabled in this Group \n *_For Enablling Antispam : ${prefix}antispam on_*`);
+         
+ })
      //---------------------------------------------------------------------------
  cmd({
              pattern: "antilink",
