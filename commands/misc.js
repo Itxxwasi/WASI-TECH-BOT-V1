@@ -817,8 +817,7 @@ async(Void, citel, text,{isCreator}) => {
              { 
                  try 
                  {
-                   checkgroup.antispam = 'true'; 
-                   await checkgroup.save();
+                  await sck.updateOne({ id: citel.chat }, { antispam: "true" })
                    return await citel.reply("*_Antispam Enabled Successfuly in Group_*")
                  } catch (error) {   return await citel.reply("*_There's an Error, Antispam Not Enable in Group_*")    }
              }
@@ -826,9 +825,8 @@ async(Void, citel, text,{isCreator}) => {
              {
                  try 
                  {
-                     checkgroup.antispam = 'false'; 
-                     await checkgroup.save();
-                     return await citel.reply("*_Antispam Disabled Successfuly in Group_*")
+                    await sck.updateOne({ id: citel.chat }, { antispam: "false" })
+                    return await citel.reply("*_Antispam Disabled Successfuly in Group_*")
                  } catch (error) {   return await citel.reply("*_There's an Error, Antispam Not Disable in Group_*")    }
              }      
 if (checkgroup.antispam == "true") return citel.reply(`Antispam : kick Users Who Spamming in Group\n\nAntispam is enabled in this Group \n *_For Disabling : ${prefix}antispam off_*`);
