@@ -121,7 +121,7 @@ Secktor.cmd({
         async(Void, citel) => {
             const { commands } = require('../lib');
             let str = `
-╭━━〘 ₊₉₂⃗⃗₃₁᩺₈ͦ₄ͪ₄ᷧ₇ͥ₄ᷞ₇₆ 〙━━──⊷`
+╭━━〘 *${Config.botname}* 〙━━──⊷`
             str += '' + `
 ┃ ⛥╭──────────────      
 ┃ ⛥│ Theme: ${tlang().title}
@@ -137,7 +137,7 @@ Secktor.cmd({
 
             for (let i = 0; i < commands.length; i++) {
              if(commands[i].pattern==undefined) continue
-                str += `➛ ${i+1 } ` +commands[i].pattern + '\n'
+                str += `➛ ${i+1 } ` +commands[i].pattern + '\n\t' + commands[i].desc +"\n"
             }
 
             
