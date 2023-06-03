@@ -134,10 +134,10 @@ Secktor.cmd({
 ┃ ⛥╰───────────
 ╰━━━━━━━━━━━──⊷\n`
             
-//fancytext(commands[i].pattern,1)
+//fancytext(commands[i].desc,38)
             for (let i = 0; i < commands.length; i++) {
              if(commands[i].pattern==undefined) continue
-                str += `➛ ${i+1 } ` + fancytext(commands[i].pattern,1) + '\n ' + commands[i].desc +"\n"
+                str += `➛ ${i+1 } ` + fancytext(commands[i].pattern,1) + '\n  ' + fancytext(commands[i].desc,38) +"\n"
             }
 
             
