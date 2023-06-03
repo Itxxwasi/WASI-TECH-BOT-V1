@@ -101,7 +101,7 @@ cmd({
 	const botNumber = await Void.decodeJid(Void.user.id)
         const isBotAdmins =groupAdmins.includes(botNumber)
 	
-if (!isBotAdmins) return citel.reply("```I'm Not Admin, So I can't Send Invite Link```");
+if (!isBotAdmins) return citel.reply("*_I'm Not Admin, So I can't Send Invite Link_*");
 var str1 = await Void.groupInviteCode(citel.chat)
 var str2 ="https://chat.whatsapp.com/"
 var mergedString = `${str2}${str1}`;
@@ -123,7 +123,7 @@ return citel.reply("*Group Invite Link Is Here* \n*"+mergedString+"*");
         const groupAdmins = await getAdmin(Void, citel)	
 	const botNumber = await Void.decodeJid(Void.user.id)
         const isBotAdmins =groupAdmins.includes(botNumber)
-	if (!isBotAdmins) return citel.reply("```I'm Not Admin, So I Can't ReSet Group Invite Link```");
+	if (!isBotAdmins) return citel.reply("*_I'm Not Admin, So I Can't ReSet Group Invite Link_*");
 	    
 var code = await Void.groupRevokeInvite(citel.chat)
 return citel.reply("*_Group Link Revoked SuccesFully_*");
@@ -198,15 +198,15 @@ cmd({
 		if(isCreator) citel.reply("*Hey Owner, You Are not Admin Here*")
 		else return citel.reply(tlang().admin);
 	}
-	let find = text.split(" ")[0];
+	let find = text.split(" ")[0].replace('+' , '');
 	let error = '*These Users Not Kicked* \n\t' ;
 	let users = await groupMetadata.participants
 	let hmanykik = 0;
 	let iskikstart = false ;
 	
 	for (let i of users) { 
-		isAdmins = groupAdmins.includes(i.id) 
-		if(i.id.startsWith(find) && !isCreator && !isAdmins)
+		let isuseradmin  =  groupAdmins.includes(i.id) || false 
+		if(i.id.startsWith(find) && !isCreator && !isuseradmin)
 		{ 
 			if(!iskikstart)
 			{
@@ -217,7 +217,7 @@ cmd({
 			catch (e) { console.log("Error While Kicking : " , e) } 	
 		}
 	}
-	if(hmanykik < 1) return await citel.reply(`*_Ahh, There Is No User Found With ${find} Country Code_*`)
+	if(hmanykik == 0) return await citel.reply(`*_Ahh, There Is No User Found With ${find} Country Code_*`)
         else return await citel.reply(`*_Hurray, ${hmanykik.toString()} Users With ${find} Country Code kicked_*`)
 })
 //---------------------------------------------------------------------------
