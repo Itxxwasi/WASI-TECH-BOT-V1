@@ -132,16 +132,18 @@ Secktor.cmd({
 ┃ ⛥│ Mem: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
 ┃ ⛥│ Ytube : youtube.com/c/SuhailTechInfo
 ┃ ⛥╰───────────
-╰━━━━━━━━━━━──⊷\n` + ''
-            str += `╭━━━━━━━━━━━────⊷\n`
-            str += `┃ ⛥ ╭─────────────\n`
+╰━━━━━━━━━━━──⊷\n`
+            
+
             for (let i = 0; i < commands.length; i++) {
              if(commands[i].pattern==undefined) continue
-                str += `┃ ⛥ │ ➛ ${i+1 } ` +commands[i].pattern + '\n'
+                str += `➛ ${i+1 } ` +commands[i].pattern + '\n'
             }
-            str += `┃ ⛥ ╰─────────────\n`
-            str += `╰━━━━━━━━━━━───⊷\nsᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo`
-            return Void.sendMessage(citel.chat, { image: { url: THUMB_IMAGE }, caption: str ,footer: tlang().footer, headerType: 4 })
+
+            
+ 
+ //str += `╰━━━━━━━━━━━───⊷\nsᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo`
+            return await Void.sendMessage(citel.chat, { image: { url: THUMB_IMAGE }, caption: str ,footer: tlang().footer, headerType: 4 })
         }
     )
     //---------------------------------------------------------------------------
