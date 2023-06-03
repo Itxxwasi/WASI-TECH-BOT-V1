@@ -122,14 +122,14 @@ Secktor.cmd({
         async(Void, citel) => {
             const { commands } = require('../lib');
             let str = `
-╭━━〘 *${Config.botname}* 〙━━──⊷     
+╭━━〘 *${Config.botname}* 〙────⊷     
 ┃ ✭ Theme: ${tlang().title}
 ┃ ✭ Prefix: ${prefix}
 ┃ ✭ Owner: ${Config.ownername}
 ┃ ✭ Commands: ${commands.length}
 ┃ ✭ Uptime: ${runtime(process.uptime())}
 ┃ ✭ Mem: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
-╰━━━━━━━━━━━━━━──⊷\n`
+╰━━━━━━━━━━━━━━⊷\n`
 
             for (let i = 0; i < commands.length; i++) 
             {
