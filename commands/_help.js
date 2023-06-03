@@ -120,30 +120,27 @@ Secktor.cmd({
         },
         async(Void, citel) => {
             const { commands } = require('../lib');
-            let str = `
-╭━━〘 *${Config.botname}* 〙━━──⊷
-┃ ⛥╭──────────────      
-┃ ⛥│ Theme: ${tlang().title}
-┃ ⛥│ Prefix: ${prefix}
-┃ ⛥│ Owner: ${Config.ownername}
-┃ ⛥│ Commands: ${commands.length}
-┃ ⛥│ Uptime: ${runtime(process.uptime())}
-┃ ⛥│ Mem: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
-┃ ⛥│   youtube.com/@suhailtechinfo0
-┃ ⛥╰──────────────
-╰━━━━━━━━━━━──⊷\n`
-            
-//fancytext(commands[i].desc,38)
-            for (let i = 0; i < commands.length; i++) {
-             if(commands[i].pattern==undefined) continue
-                str +=      `╭❏ ${i+1} *` + fancytext(commands[i].pattern,1)  
-                str += "* ❏\n╰─➛"        + fancytext(commands[i].desc,1)    +"\n"
+            let str = '```'
+str+= `╭━━〘 *${Config.botname}* 〙━━──⊷     
+┃  Theme: ${tlang().title}
+┃  Prefix: ${prefix}
+┃  Owner: ${Config.ownername}
+┃  Commands: ${commands.length}
+┃  Uptime: ${runtime(process.uptime())}
+┃  Mem: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
+╰━━━━━━━━━━━──⊷`+"```\n"
+
+            for (let i = 0; i < commands.length; i++) 
+            {
+                 if(commands[i].pattern==undefined) continue
+                 str +=       `╭〘 *${fancytext(commands[i].pattern,1)}`                // ${i+1} 
+                 str += `* 〙\n╰➛ ${fancytext(commands[i].desc,1)}\n`
             }
 
             
  
  //str += `╰━━━━━━━━━━━───⊷\nsᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo`
-            return await Void.sendMessage(citel.chat, { image: { url: THUMB_IMAGE }, caption: str ,footer: tlang().footer, headerType: 4 })
+            return await Void.sendMessage(citel.chat, { image: { url: THUMB_IMAGE }, caption: str + Config.caption ,footer: tlang().footer, headerType: 4 })
         }
     )
     //---------------------------------------------------------------------------
