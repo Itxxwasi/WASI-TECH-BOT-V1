@@ -121,8 +121,7 @@ Secktor.cmd({
         async(Void, citel) => {
             const { commands } = require('../lib');
             let str = `
-╭━━〘 *${Config.botname}* 〙━━──⊷`
-            str += '' + `
+╭━━〘 *${Config.botname}* 〙━━──⊷
 ┃ ⛥╭──────────────      
 ┃ ⛥│ Theme: ${tlang().title}
 ┃ ⛥│ Prefix: ${prefix}
@@ -130,14 +129,15 @@ Secktor.cmd({
 ┃ ⛥│ Commands: ${commands.length}
 ┃ ⛥│ Uptime: ${runtime(process.uptime())}
 ┃ ⛥│ Mem: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
-┃ ⛥│ Ytube : youtube.com/c/SuhailTechInfo
-┃ ⛥╰───────────
+┃ ⛥│   youtube.com/@suhailtechinfo0
+┃ ⛥╰──────────────
 ╰━━━━━━━━━━━──⊷\n`
             
 //fancytext(commands[i].desc,38)
             for (let i = 0; i < commands.length; i++) {
              if(commands[i].pattern==undefined) continue
-                str += `➛ ${i+1 } ` + fancytext(commands[i].pattern,1)  + ( commands[i].desc ?  "\n\t" + fancytext(commands[i].desc,38) : '' ) +"\n"
+                str +=      `╭───❏ ${i+1} ` + fancytext(commands[i].pattern,1)  
+                str += " ❏\n╰━━━━➛"        + fancytext(commands[i].desc,1)    +"\n"
             }
 
             
