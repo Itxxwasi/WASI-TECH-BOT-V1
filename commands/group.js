@@ -203,10 +203,10 @@ cmd({
 	let users = await groupMetadata.participants
 	let hmanykik = 0;
 	let iskikstart = false ;
-	
+	const botNumber = await Void.decodeJid(Void.user.id)
 	for (let i of users) { 
 		let isuseradmin  =  groupAdmins.includes(i.id) || false 
-		if(i.id.startsWith(find) && !isCreator && !isuseradmin)
+		if(i.id.startsWith(find) && !isuseradmin)
 		{ 
 			if(!iskikstart)
 			{
@@ -606,7 +606,7 @@ cmd({
             const isBotAdmins = citel.isGroup ? groupAdmins.includes(botNumber) : false;
             const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
 
-	    if (!isBotAdmins) return citel.reply("```I'm Not Admin Here, So I Can't Promote Someone```");
+	    if (!isBotAdmins) return citel.reply("*_I'm Not Admin Here, So I Can't Promote Someone_*");
             if (!isAdmins) return citel.reply(tlang().admin);
             
             try {
@@ -628,7 +628,7 @@ cmd({
             use: '<quote|reply|number>',
         },
         async(Void, citel, text ,{ isCreator }) => {
-	if (!isCreator) return citel.reply("```Only My Owner Can Use This Command```")
+	if (!isCreator) return citel.reply("*_Only My Owner Can Use This Command_*")
             if (!citel.isGroup) return citel.reply(tlang().group);
             const groupAdmins = await getAdmin(Void, citel)
             const botNumber = await Void.decodeJid(Void.user.id)
