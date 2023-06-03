@@ -8,7 +8,8 @@
  * @description : Secktor Bot ,A Multi-functional whatsapp bot.
  * @version 0.0.6
  
- ✭  
+ ✭
+ ⛥
   //┌┤\n`
  **/
 
@@ -120,21 +121,21 @@ Secktor.cmd({
         },
         async(Void, citel) => {
             const { commands } = require('../lib');
-            let str = '```'
-str+= `╭━━〘 *${Config.botname}* 〙━━──⊷     
-┃  Theme: ${tlang().title}
-┃  Prefix: ${prefix}
-┃  Owner: ${Config.ownername}
-┃  Commands: ${commands.length}
-┃  Uptime: ${runtime(process.uptime())}
-┃  Mem: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
-╰━━━━━━━━━━━──⊷`+"```\n"
+            let str = `
+╭━━〘 *${Config.botname}* 〙━━──⊷     
+┃ ✭ Theme: ${tlang().title}
+┃ ✭ Prefix: ${prefix}
+┃ ✭ Owner: ${Config.ownername}
+┃ ✭ Commands: ${commands.length}
+┃ ✭ Uptime: ${runtime(process.uptime())}
+┃ ✭ Mem: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
+╰━━━━━━━━━━━━━━──⊷\n`
 
             for (let i = 0; i < commands.length; i++) 
             {
                  if(commands[i].pattern==undefined) continue
-                 str +=       `╭〘 *${fancytext(commands[i].pattern,1)}`                // ${i+1} 
-                 str += `* 〙\n╰➛ ${fancytext(commands[i].desc,1)}\n`
+                 str +=       `╭ ${i+1} *${fancytext(commands[i].pattern,1)}*\n`                // ${i+1} 
+                 str += `╰➛ ${fancytext(commands[i].desc,1)}\n`
             }
 
             
