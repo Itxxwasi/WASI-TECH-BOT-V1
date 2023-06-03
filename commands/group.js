@@ -313,7 +313,7 @@ cmd({
            filename: __filename,
             use: '<quote|reply|number>',
         },
-        async(Void, citel, text) => {
+        async(Void, citel, text , {isCreator}) => {
             if (!isCreator) return citel.reply(tlang().owner)
             await warndb.deleteOne({ id: citel.quoted.sender.split('@')[0] + 'warn' });
             citel.reply('User is free as a bird.\nAll previously given warn has been deleted.')
@@ -350,60 +350,37 @@ cmd({
             const userq = await Levels.fetch(citel.sender, "RandomXP");
             const lvpoints = userq.level;
             var role = "GOD✨";
-            if (lvpoints <= 2) {
-                var role = "🏳Citizen";
-            } else if (lvpoints <= 4) {
-                var role = "👼Baby Wizard";
-            } else if (lvpoints <= 6) {
-                var role = "🧙‍♀️Wizard";
-            } else if (lvpoints <= 8) {
-                var role = "🧙‍♂️Wizard Lord";
-            } else if (lvpoints <= 10) {
-                var role = "🧚🏻Baby Mage";
-            } else if (lvpoints <= 12) {
-                var role = "🧜Mage";
-            } else if (lvpoints <= 14) {
-                var role = "🧜‍♂️Master of Mage";
-            } else if (lvpoints <= 16) {
-                var role = "🌬Child of Nobel";
-            } else if (lvpoints <= 18) {
-                var role = "❄Nobel";
-            } else if (lvpoints <= 20) {
-                var role = "⚡Speed of Elite";
-            } else if (lvpoints <= 22) {
-                var role = "🎭Elite";
-            } else if (lvpoints <= 24) {
-                var role = "🥇Ace I";
-            } else if (lvpoints <= 26) {
-                var role = "🥈Ace II";
-            } else if (lvpoints <= 28) {
-                var role = "🥉Ace Master";
-            } else if (lvpoints <= 30) {
-                var role = "🎖Ace Dominator";
-            } else if (lvpoints <= 32) {
-                var role = "🏅Ace Elite";
-            } else if (lvpoints <= 34) {
-                var role = "🏆Ace Supreme";
-            } else if (lvpoints <= 36) {
-                var role = "💍Supreme I";
-            } else if (lvpoints <= 38) {
-                var role = "💎Supreme Ii";
-            } else if (lvpoints <= 40) {
-                var role = "🔮Supreme Master";
-            } else if (lvpoints <= 42) {
-                var role = "🛡Legend III";
-            } else if (lvpoints <= 44) {
-                var role = "🏹Legend II";
-            } else if (lvpoints <= 46) {
-                var role = "⚔Legend";
-            } else if (lvpoints <= 55) {
-                var role = "🐉Immortal";
-            }
+             if (lvpoints <=  2) { var role = "🏳Citizen"; } 
+	else if (lvpoints <=  4) { var role = "👼Baby Wizard"; } 
+	else if (lvpoints <=  6) { var role = "🧙‍♀️Wizard";  } 
+	else if (lvpoints <=  8) { var role = "🧙‍♂️Wizard Lord"; }
+	else if (lvpoints <= 10) { var role = "🧚🏻Baby Mage";  } 
+	else if (lvpoints <= 12) { var role = "🧜Mage"; } 
+	else if (lvpoints <= 14) { var role = "🧜‍♂️Master of Mage";} 
+	else if (lvpoints <= 16) { var role = "🌬Child of Nobel"; } 
+	else if (lvpoints <= 18) { var role = "❄Nobel"; }
+	else if (lvpoints <= 20) { var role = "⚡Speed of Elite"; } 
+	else if (lvpoints <= 22) { var role = "🎭Elite"; } 
+	else if (lvpoints <= 24) { var role = "🥇Ace I"; }
+	else if (lvpoints <= 26) { var role = "🥈Ace II"; } 
+	else if (lvpoints <= 28) { var role = "🥉Ace Master"; }
+	else if (lvpoints <= 30) { var role = "🎖Ace Dominator";} 
+	else if (lvpoints <= 32) { var role = "🏅Ace Elite"; }
+	else if (lvpoints <= 34) { var role = "🏆Ace Supreme";}
+	else if (lvpoints <= 36) { var role = "💍Supreme I";}
+	else if (lvpoints <= 38) { var role = "💎Supreme Ii";} 
+	else if (lvpoints <= 40) { var role = "🔮Supreme Master";} 
+	else if (lvpoints <= 42) { var role = "🛡Legend III";} 
+	else if (lvpoints <= 44) { var role = "🏹Legend II";} 
+	else if (lvpoints <= 46) { var role = "⚔Legend"; } 
+	else if (lvpoints <= 55) { var role = "🐉Immortal"; }
+	
             let ttms = `${userq.xp}` / 8;
             const timenow = moment(moment())
                 .format('HH:mm:ss')
-            moment.tz.setDefault('Asia/Kolakata')
+            moment.tz.setDefault('Asia/Karachi')
                 .locale('id')
+	let pfp;
             try {
                 pfp = await Void.profilePictureUrl(citel.sender, "image");
             } catch (e) {
@@ -416,21 +393,17 @@ cmd({
 *⚡Bio:* ${bioo}
 *🧩Role:* ${role}
 *🍁Level:* ${userq.level}
-*📥 Total Messages* ${ttms}
+*📥Total Messages* ${ttms}
 *Powered by ${tlang().title}*
 `;
             
             let buttonMessage = {
-                image: {
-                    url: pfp,
-                },
+                image: { url: pfp },
                 caption: profile,
                 footer: tlang().footer,
                 headerType: 4,
             };
-            Void.sendMessage(citel.chat, buttonMessage, {
-                quoted: citel,
-            });
+            Void.sendMessage(citel.chat, buttonMessage, { quoted: citel });
 
         }
     )
