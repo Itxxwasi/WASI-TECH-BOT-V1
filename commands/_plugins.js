@@ -41,17 +41,19 @@ cmd({
     async(Void, citel, text,{ isCreator}) => {
         if (!isCreator) return citel.reply(tlang().owner)
         if(!text) return await citel.reply("*_Uhh Please, Provide Me Plugin Name_*")
-        if(text==='all') { await plugindb.collection.drop() ; return citel.reply('Deleted all plugins from Secktor.') ;   }
-  try {
+ 
+        if(text==='all') 
+        { 
+         await plugindb.collection.drop() ; 
+         return citel.reply('Deleted all plugins from Secktor.') ;  
+        }
         let kill = await remove(text.split(" ")[0])
         delete require.cache[require.resolve(__dirname+"/" + text + ".js")];
         fs.unlinkSync(__dirname + "/" + text+ ".js");
         await citel.reply(`${kill} \n*Please Wait _${Config.botname}_ Restarting_`)
         const { exec } = require("child_process")
         exec('pm2 restart all')  
- }
- catch (e) {return await citel.reply("*_Plugin Not Found With This Name_*")}
- 
+
  })
 
 //---------------------------------------------------------------------------
