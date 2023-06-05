@@ -10,7 +10,7 @@
  **/
 const axios = require('axios');
 const fs = require('fs-extra')
-const { plugins,plugindb, remove, isUrl,cmd } = require('../lib')
+const { plugins,plugindb, remove, isUrl,cmd , tlang  } = require('../lib')
 //---------------------------------------------------------------------------
 cmd({
         pattern: "plugins",
