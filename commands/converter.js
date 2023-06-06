@@ -10,7 +10,7 @@
  **/
 
 const axios = require('axios')
-const { sck1, tiny, fancytext,getBuffer, listall,cmd , Config} = require('../lib/')
+const { sck1, tiny, fancytext,getBuffer, listall,cmd , TelegraPh , Config} = require('../lib/')
 const fs = require('fs-extra');
 const { exec } = require('child_process')
 const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter");
@@ -265,7 +265,50 @@ filename: __filename,
 
         }
     )
-    //---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+
+cmd({
+            pattern: "memegen",
+            desc: "Write text on quoted image.",
+            category: "sticker",
+            filename: __filename,
+            use: '<text>',
+        },
+        async(Void, citel, text) => {
+            if(!text && !citel.quoted) return await citel.reply("*Reply to Photo With text To Create Meme.*")
+            if (citel.quoted.mtype != 'imageMessage') return citel.reply(`*Uhh Please, Reply to Photo Only.*`)
+
+          let textt = text.split('|')[0] || '' ;
+          let isCheck = text.split('|')[1] || 'sticker'; 
+          let tex1 =  textt.split(';')[0] || 'Suhail' ;    
+          let tex2 =  textt.split(';')[1] || '_' ;
+
+            let mee = await Void.downloadAndSaveMediaMessage(citel.quoted)
+            let bg = await TelegraPh(mee)
+            let thmb =await getBuffer(`https://api.memegen.link/images/custom/${tex2}/${tex1}.png?background=${bg}`)
+
+          if (isCheck.startsWith('p') || isCheck.startsWith('P')) { await Void.sendMessage(citel.chat , {image : thmb , caption : Config.caption })  }
+          else
+          {
+            let sticker = new Sticker(thmb, {
+                    pack: Config.packname, 
+                    author: Config.author, 
+                    type: StickerTypes.FULL,
+                    categories: ["🤩", "🎉"], 
+                    id: "12345", 
+                    quality: 100,
+                    background: "transparent", 
+                });
+                const buffer = await sticker.toBuffer();
+                return Void.sendMessage(citel.chat, {sticker: buffer}, {quoted: citel }); 
+          }
+          
+            return await fs.unlinkSync(mee)
+
+        }
+    )
+
+ //---------------------------------------------------------------------------
  //---------------------------------------------------------------------------
 cmd({
             pattern: "quotely",
