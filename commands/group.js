@@ -744,7 +744,7 @@ cmd({
             filename: __filename,
             use: '<text>',
         },
-        async(Void, citel, text) => {
+        async(Void, citel, text , {isCreator}) => {
 	if(!text && !citel.quoted) return citel.reply(`*Example : ${prefix}tag Hi Everyone, How are you Doing*` )
 	    if(!text){text = citel.quoted.text;}
             if (!citel.isGroup) return citel.reply(tlang().group);
@@ -752,15 +752,8 @@ cmd({
             const participants = citel.isGroup ? await groupMetadata.participants : "";
             const groupAdmins = await getAdmin(Void, citel)
             const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
-            if (!isAdmins) return citel.reply(tlang().admin);
-
-            if (!isAdmins) citel.reply(tlang().admin);
-            Void.sendMessage(citel.chat, {
-                text: text ? text : "",
-                mentions: participants.map((a) => a.id),
-            }, {
-                quoted: citel,
-            });
+            if (!isAdmins && !isCreator) return citel.reply(tlang().admin);
+            Void.sendMessage(citel.chat, { text: text, mentions: participants.map((a) => a.id)}, { quoted: citel});
         }
     )
     //---------------------------------------------------------------------------
