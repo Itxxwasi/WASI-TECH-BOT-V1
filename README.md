@@ -38,7 +38,6 @@
 </p>
  
  
-- Install [External Plugins](https://github.com/SuhailTechInfo/Secktor-Plugins)
 ## Deployment Methods
 ---
 1. ***Get [`SESSION ID`](https://replit.com/@SuhailTechInfo/Secktor-Md?v=1)  by scanning QR code. `Whatapp>Three dots>Linked Devices`***
