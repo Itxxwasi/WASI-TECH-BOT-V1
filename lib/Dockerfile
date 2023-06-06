@@ -1,6 +1,6 @@
-FROM quay.io/lyfe00011/md:beta
-RUN git clone https://github.com/SuhailTechInfo/Secktor-bot /root/SuhailTech_Bot
-WORKDIR /root/SuhailTech_Bot/
+FROM quay.io/sampandey001/secktor
+RUN git clone https://github.com/SuhailTechInfo/Secktor-Md /root/SuhailTech_BOt
+WORKDIR /root/SuhailTech_BOt/
 RUN npm install npm@latest
 RUN yarn install --network-concurrency 1
 EXPOSE 8000
