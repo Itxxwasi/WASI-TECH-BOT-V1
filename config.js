@@ -6,6 +6,8 @@ if (fs.existsSync('config.env')) require('dotenv').config({ path: __dirname+'/co
 global.owner = process.env.OWNER_NUMBER || '923184474176' ;
 global.mongodb = process.env.MONGODB_URI || "mongodb+srv://Suhail:uhail@cluster0.rzhkoqf.mongodb.net/?retryWrites=true&w=majority" ;
 global.port=5000 ;
+global.audio = '' ; 
+global.video = '' ;
 global.blockJids = process.env.BLOCK_JID ||'120363023983262391@g.us' ;
 global.email = 'samsamsun789@gmail.com' ;
 global.github = 'https://github.com/SuhailTechInfo/Secktor-Md' ;
