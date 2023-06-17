@@ -51,6 +51,7 @@
                 "heroku-client":"3.1.0",
                 "heroku-cli-util":"8.0.12",
                 "got":"12.6.0",
+                "puppeteer":"^20.7.2",
                 "acrcloud": "^1.4.0",
                        "request": "^2.88.2",
                        "simple-git": "^3.15.1",
