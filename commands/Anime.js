@@ -36,7 +36,7 @@ cmd({
             use: '<quote|reply|tag>',
         },
         async(Void, citel) => {
-            var bite = await fetchJson(`https://api.waifu.pics/sfw/poke`);
+            var bite = await fetchJson(`https://api.waifu.pics/sfw/hug`);
             const response = await axios.get(bite.url, {
                 responseType: "arraybuffer",
             });
