@@ -1,12 +1,34 @@
 const Config = require('../config')
-let { fancytext, tlang, tiny, runtime, formatp, botpic, prefix, sck1,cmd } = require("../lib");
+let { fancytext, tlang, tiny, runtime, formatp, botpic, prefix, sck1, fetchJson, cmd, GIFBufferToVideoBuffer } = require("../lib");
 const axios = require('axios');
 const fetch = require('node-fetch');
 // let gis = '' // require("g-i-s")
 const { Anime, Manga } = require("@shineiichijo/marika");
 const {  fetchJson, getBuffer} = require('../lib/')
 
-
+//----------------------------------------------------------------------
+cmd({
+            pattern: "poke",
+            category: "reaction",
+            use: '<quote|reply|tag>',
+        },
+        async(Void, citel) => {
+            var bite = await fetchJson(`https://api.waifu.pics/sfw/poke`);
+            const response = await axios.get(bite.url, {
+                responseType: "arraybuffer",
+            });
+            const buffer = Buffer.from(response.data, "utf-8");
+            let users = citel.mentionedJid ? citel.mentionedJid[0] : citel.msg.contextInfo.participant || false;
+            let gif = await GIFBufferToVideoBuffer(buffer);
+            if (users) {
+                let cap = `@${citel.sender.split("@")[0]} poked to @${users.split("@")[0]} `;
+                Void.sendMessage(citel.chat, { video: gif, gifPlayback: true, mentions: [users, citel.sender], caption: cap }, { quoted: citel });
+            } else {
+                let cap = `@${citel.sender.split("@")[0]} poked to everyone. `;
+                Void.sendMessage(citel.chat, { video: gif, gifPlayback: true, mentions: [citel.sender], caption: cap }, { quoted: citel });
+            }
+        }
+    )
 //-----------------------------------------------------------------------
 
 cmd({
