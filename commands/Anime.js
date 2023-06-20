@@ -1,5 +1,5 @@
 const Config = require('../config')
-let { fancytext, tlang, tiny, runtime, formatp, botpic, prefix, sck1, fetchJson, cmd, GIFBufferToVideoBuffer } = require("../lib");
+let { fancytext, tlang, tiny, runtime, formatp, botpic, prefix, sck1, cmd, GIFBufferToVideoBuffer } = require("../lib");
 const axios = require('axios');
 const fetch = require('node-fetch');
 // let gis = '' // require("g-i-s")
