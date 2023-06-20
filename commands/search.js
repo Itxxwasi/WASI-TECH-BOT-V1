@@ -228,7 +228,7 @@ cmd({
    if (!text) return citel.reply(`Provide me a query!\n*Ex : .image luffy |10*`)
    let buttonMessage = {}
    let name1 = text.split("|")[0] || `Luffy`
-   let name2 = text.split("|")[1] || `10`
+   let name2 = text.split("|")[1] || `5`
  try {
     let urlsArray = [];
     const params = {
@@ -261,11 +261,7 @@ cmd({
         }
     }
 
-for (let url of urlsArray) 
-{
-  Void.sendMessage(citel.chat , {image : {url : url} , caption : Config.caption} , {quoted:citel})
-}
-   return 
+for (let url of urlsArray) { Void.sendMessage(citel.chat , {image : {url : url} } )  }
 } 
  catch (error) {   return citel.reply("*Google Images Not Working, Try it Later*"); }
 
