@@ -77,6 +77,29 @@ cmd({
     )
 //-----------------------------------------------------------------------
 cmd({
+            pattern: "hifi",
+            category: "reaction",
+            use: '<quote|reply|tag>',
+        },
+        async(Void, citel) => {
+            var bite = await fetchJson(`https://api.waifu.pics/sfw/highfive`);
+            const response = await axios.get(bite.url, {
+                responseType: "arraybuffer",
+            });
+            const buffer = Buffer.from(response.data, "utf-8");
+            let users = citel.mentionedJid ? citel.mentionedJid[0] : citel.msg.contextInfo.participant || false;
+            let gif = await GIFBufferToVideoBuffer(buffer);
+            if (users) {
+                let cap = `@${citel.sender.split("@")[0]} highfive with @${users.split("@")[0]} `;
+                Void.sendMessage(citel.chat, { video: gif, gifPlayback: true, mentions: [users, citel.sender], caption: cap }, { quoted: citel });
+            } else {
+                let cap = `@${citel.sender.split("@")[0]} highfived with everyone. `;
+                Void.sendMessage(citel.chat, { video: gif, gifPlayback: true, mentions: [citel.sender], caption: cap }, { quoted: citel });
+            }
+        }
+    )
+//-----------------------------------------------------------------------
+cmd({
         pattern: "waifu",
         desc: "To get Waifu Random Pics",
         category: "Anime Pics",
