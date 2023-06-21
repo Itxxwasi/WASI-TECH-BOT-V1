@@ -1,4 +1,4 @@
-const {TelegraPh , bgm } = require('../lib/')
+const {TelegraPh , bgm  } = require('../lib/')
 
 const ffmpeg = require('fluent-ffmpeg');
 const axios = require('axios')
@@ -73,3 +73,27 @@ await citel.reply("bgmm data  :" + bgmm)
 
 
 })
+
+
+
+cmd({ on: "text" }, async (Void,citel,text)=> {
+  if(Config.disablepm)
+  {
+    
+     let bgmm= await bgm.findOne({ id:"3" }) || await new bgm({ id:"3"}).save();
+    for (const [name, url] of bgmm.bgmArray) 
+    {
+      if (citel.text.toLowerCase().includes(name)) { return await Void.sendMessage(citel.chat,{audio: { url : url },mimetype: 'audio/mpeg'})   }
+    }
+    //await citel.reply("bgm Data  : " + bgmm)
+
+
+
+
+     // let { data } = await axios.get(url)
+     // for (vr in data){
+    // if(citel.text.toLowerCase().includes(vr)) return Void.sendMessage(citel.chat,{audio: { url : data[vr]},mimetype: 'audio/mpeg'},{quoted:citel})   
+    //}
+  }
+})
+
