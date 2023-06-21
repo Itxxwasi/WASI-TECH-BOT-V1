@@ -50,6 +50,24 @@ if (bgmm.bgmArray.has(text)) {
 })
 ///============================================================================
 cmd({
+        pattern: "allbgm",
+        desc: "create paste of text.",
+        category: "general",
+        filename: __filename,
+    },
+async(Void,citel,text)=>{
+ text = ' *BGM SONG INFORMATION*\n'
+const {TelegraPh , bgm } = require('../lib/')
+  let bgmm= await bgm.findOne({ id:"3" }) || await new bgm({ id:"3"}).save();
+    for (const [name, url] of bgmm.bgmArray) 
+    {
+     text+=`*${name} :* _${url}_ \n`
+    }
+return await citel.reply(text);
+  //await citel.reply("bgm Data  : " + bgmm)
+})
+///============================================================================
+cmd({
         pattern: "addbgm",
         desc: "create paste of text.",
         category: "general",
