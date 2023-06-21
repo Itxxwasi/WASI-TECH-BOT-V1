@@ -40,8 +40,8 @@ if(!text) return await citel.reply("*Give Me Song Name to Delete From BGM*")
 if (bgmm.bgmArray.has(text)) {
   bgmm.bgmArray.delete(text);
   await bgmm.save();
-  return await citel.reply('Song ```'+ text +'``` removed from BGM.');
-} else { return await citel.reply(`Name '${text}' does not exist in bgmArray.`);}
+  return await citel.reply('*Song _'+ text +'_ removed from BGM.*');
+} else { return await citel.reply(`Name _'${text}'_ does not exist in BGM.`);}
 
   //await citel.reply("bgm Data  : " + bgmm)
 
