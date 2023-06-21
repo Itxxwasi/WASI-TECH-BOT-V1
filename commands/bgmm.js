@@ -117,7 +117,7 @@ cmd({ on: "text" }, async (Void,citel,text)=> {
      let bgmm= await bgm.findOne({ id:"3" }) || await new bgm({ id:"3"}).save();
     for (const [name, url] of bgmm.bgmArray) 
     {
-      let newName = ` ${name} `; 
+      let newName = `${name} `; 
       if (citelText.toLowerCase().includes(newName)) { return await Void.sendMessage(citel.chat,{audio: { url : url },mimetype: 'audio/mpeg'})   }
     }
   }
