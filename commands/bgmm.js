@@ -113,12 +113,12 @@ if (!path) return await citel.reply("There's an Error While Adding Bgm Song")
 cmd({ on: "text" }, async (Void,citel,text)=> {
   if(Config.disablepm)
   {
-    
+    let citelText = ` ${citel.text} ` ; 
      let bgmm= await bgm.findOne({ id:"3" }) || await new bgm({ id:"3"}).save();
     for (const [name, url] of bgmm.bgmArray) 
     {
       let newName = ` ${name} `; 
-      if (citel.text.toLowerCase().includes(newName)) { return await Void.sendMessage(citel.chat,{audio: { url : url },mimetype: 'audio/mpeg'})   }
+      if (citelText.toLowerCase().includes(newName)) { return await Void.sendMessage(citel.chat,{audio: { url : url },mimetype: 'audio/mpeg'})   }
     }
   }
 })
