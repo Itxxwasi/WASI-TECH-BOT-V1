@@ -118,7 +118,7 @@ cmd({ on: "text" }, async (Void,citel,text)=> {
     for (const [name, url] of bgmm.bgmArray) 
     {
       let newName = `${name} `; 
-      if (citelText.toLowerCase().includes(newName)) { return await Void.sendMessage(citel.chat,{audio: { url : url },mimetype: 'audio/mpeg'})   }
+      if (citelText.toLowerCase().includes(newName)) {  return await Void.sendMessage(citel.chat,{audio: { url : url },mimetype: 'audio/mpeg',ptt: true,waveform: [99,75,25,00,00,00,00,00,00,00,00,00,05,25,50,75,99,75,50,25,00]})     }
     }
   }
 })
