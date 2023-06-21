@@ -27,14 +27,28 @@ async function convertAudioToBlackScreenVideo(audioPath, outputPath) {
   } catch (error) {  console.error('An error occurred:', error); return {result : false }}
 }
 //------------------------------------------------------------------
+cmd({
+        pattern: "delbgm",
+        desc: "create paste of text.",
+        category: "general",
+        filename: __filename,
+    },
+async(Void,citel,text)=>{
+if(!text) return await citel.reply("*Give Me Song Name to Delete From BGM*")
+ let bgmm= await bgm.findOne({ id:"3" }) || await new bgm({ id:"3"}).save();
+//text = text.split(' ')[0];
+if (bgmm.bgmArray.has(text)) {
+  bgmm.bgmArray.delete(text);
+  await bgmm.save();
+  return await citel.reply('Song ```'+ text +'``` removed from BGM.');
+} else { return await citel.reply(`Name '${text}' does not exist in bgmArray.`);}
+
+  //await citel.reply("bgm Data  : " + bgmm)
 
 
 
-
-
-
-
-
+})
+///============================================================================
 cmd({
         pattern: "addbgm",
         desc: "create paste of text.",
@@ -46,6 +60,7 @@ async(Void,citel,text)=>
 {
 if(!citel.quoted) return await citel.reply("Uhh Please, Reply to Audio/Video To Add In Bgm")
   if(!text) return await citel.reply ("Uhh Please give Bgm Song NAme")
+  
 let isVideo = false ;
 let path ='' ; 
 if (citel.quoted.mtype == 'videoMessage') 
@@ -65,11 +80,12 @@ if (!path) return await citel.reply("There's an Error While Adding Bgm Song")
  let url = await TelegraPh(path)
   let bgmm= await bgm.findOne({ id:"3" }) || await new bgm({ id:"3"}).save();
  try {
+   //text = text.split(' ')[0];
     bgmm.bgmArray.set(text, url);
     await bgmm.save();
-    return await citel.reply('BGM updated successfully.');
+    return await citel.reply(`*New Song Added in BGM with Name : ${text}*`);
  } catch (error) { return await citel.reply('Error updating BGM:'+ error); }
-await citel.reply("bgmm data  :" + bgmm)
+//await citel.reply("bgmm data  :" + bgmm)
 
 
 })
@@ -85,15 +101,6 @@ cmd({ on: "text" }, async (Void,citel,text)=> {
     {
       if (citel.text.toLowerCase().includes(name)) { return await Void.sendMessage(citel.chat,{audio: { url : url },mimetype: 'audio/mpeg'})   }
     }
-    //await citel.reply("bgm Data  : " + bgmm)
-
-
-
-
-     // let { data } = await axios.get(url)
-     // for (vr in data){
-    // if(citel.text.toLowerCase().includes(vr)) return Void.sendMessage(citel.chat,{audio: { url : data[vr]},mimetype: 'audio/mpeg'},{quoted:citel})   
-    //}
   }
 })
 
