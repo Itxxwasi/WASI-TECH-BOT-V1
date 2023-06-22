@@ -355,23 +355,31 @@ if(isCreator && text != "")
        if( video || image) { text = text.replace(urll, ''); }
        await alive.updateOne({ id: '1' }, { text: text, get : get, url: urll,  image: image,   video: video });
 }
-var quoo = await axios.get(`https://favqs.com/api/qotd`);
-let quote = `${quoo.data.quote.body} By ${quoo.data.quote.author}`; 
-          
-     let aliv = await alive.findOne({ id:"1" }) || await new alive({ id:"1"}).save() ;
-         alivemessage = aliv?.text.replace('&quote', quote);
+   let aliv = await alive.findOne({ id:"1" }) || await new alive({ id:"1"}).save() ;   
+   alivemessage = aliv.text;
+  if(alivemessage.includes(&quote)){
+     var quoo = await axios.get(`https://favqs.com/api/qotd`);
+     let quote = `${quoo.data.quote.body} By ${quoo.data.quote.author}`; 
+     alivemessage = alivemessage.replace('&quote', quote);
+  }
+   if(alivemessage.includes(&line))
+   {
+       var resultt = await fetchJson(`https://api.popcat.xyz/pickuplines`);
+       var line = resultt.pickupline;
+       alivemessage = alivemessage.replace('&line', line);
+   }
+  
+         
+        
           image = aliv.image || false;
           video=aliv.video || false ;
           urll = aliv.url || await botpic() ;
 
           
 const alivtxt = `${alivemessage}\n\n*Type ${prefix}menu for my command list.*`;
-          
- const messageOptions = image
-    ? { image: { url: urll }, caption: alivtxt }
-    : video
-      ? { video: { url: urll },gifPlayback: true, caption: alivtxt }
-      : { image: { url: await botpic() }, caption: alivtxt };
+ const messageOptions = image ? { image: { url: urll }, caption: alivtxt }
+                        : video? { video: { url: urll },gifPlayback: true, caption: alivtxt }
+                        : { image: { url: await botpic() }, caption: alivtxt };
 
   return Void.sendMessage(citel.chat, messageOptions,{quoted : citel });
         }
