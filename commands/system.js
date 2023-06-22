@@ -357,12 +357,12 @@ if(isCreator && text != "")
 }
    let aliv = await alive.findOne({ id:"1" }) || await new alive({ id:"1"}).save() ;   
    alivemessage = aliv.text;
-  if(alivemessage.includes(&quote)){
+  if(alivemessage.includes('&quote')){
      var quoo = await axios.get(`https://favqs.com/api/qotd`);
      let quote = `${quoo.data.quote.body} By ${quoo.data.quote.author}`; 
      alivemessage = alivemessage.replace('&quote', quote);
   }
-   if(alivemessage.includes(&line))
+   if(alivemessage.includes('&line'))
    {
        var resultt = await fetchJson(`https://api.popcat.xyz/pickuplines`);
        var line = resultt.pickupline;
