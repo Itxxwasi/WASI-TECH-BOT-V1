@@ -796,16 +796,17 @@ cmd({
 let getGroups = await Void.groupFetchAllParticipating();
 let anu = Object.values(getGroups).map(v => v.id);
 let res = `All groups jid\n\n`;
-citel.reply(`Fetching jid from ${anu.length} Groups`);
+await citel.reply(`Fetching jid from ${anu.length} Groups`);
 
 await Promise.all(anu.map(async i => {
   let metadata = await Void.groupMetadata(i);
-  await sleep(200);
-  res += `*Name :* ${metadata.subject}\n`;
-  res += ` ${i}\n\n`;
+  await sleep(2000); 
+ res += ` ------------- ${i} -------------\n`;
+ res += `*Name :* ${metadata.subject}\n`;
+ 
 }));
-//citel.reply(res);
-	return await Void.sendMessage(citel.chat,{text:res},{quoted:citel})
+return await citel.reply(res);
+	//return await Void.sendMessage(citel.chat,{text:res},{quoted:citel})
 	
 	
 	
@@ -1000,9 +1001,6 @@ cmd({
 )
 
 //---------------------------------------------------------------------------
-
-if(Config.WORKTYPE != 'private')
-{
 	cmd({ on: "text" }, async(Void, citel) => {
 	    const randomXp = 8;
 	    let usrname = citel.pushName
@@ -1055,4 +1053,4 @@ if(Config.WORKTYPE != 'private')
 	    }
 	})
 	
-}
+
