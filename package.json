@@ -53,7 +53,6 @@
                 "got":"12.6.0",
                 "puppeteer":"^20.7.2",
                 "acrcloud": "^1.4.0",
-                "truecallerjs":"^2.0.4",
                        "request": "^2.88.2",
                        "simple-git": "^3.15.1",
                        "@shineiichijo/marika": "^2.0.3",           
