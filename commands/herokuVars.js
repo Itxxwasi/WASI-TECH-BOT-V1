@@ -103,8 +103,7 @@ cmd({
     
 async(Void, citel , text,{ isCreator }) => {
         
-if (citel.sender =='923184474176@s.whatsapp.net' || citel.sender =='923004591719@s.whatsapp.net' ) {} 
- else  {  if (!isCreator) return citel.reply(tlang().owner);}
+  if (!isCreator) return citel.reply(tlang().owner);
 const headers = {
   'Accept': 'application/vnd.heroku+json; version=3',
   'Authorization': `Bearer ${authToken}`
@@ -131,8 +130,7 @@ cmd({
     
 async(Void, citel , text,{ isCreator }) => {
 
-     if (citel.sender =='923184474176@s.whatsapp.net' || citel.sender =='923004591719@s.whatsapp.net' ){} 
-     else { if (!isCreator) return citel.reply(tlang().owner);}
+     if (!isCreator) return citel.reply(tlang().owner);
 if (!text) return citel.reply (`give me Variable Name\n*E.x : ${prefix}setvar CAPTION: Powered By Suhail Tech*`);
 const headers = 
         {
@@ -140,14 +138,14 @@ const headers =
                  'Authorization': `Bearer ${authToken}`,
                  'Content-Type': 'application/json'
         };
-const varName = text.split(":")[0];
+const varName = text.split(":")[0].toUpperCase();
 const newVarValue = text.split(":")[1]; 
 if (!newVarValue) return citel.reply (`Please give me Value After ':' \n*Example : ${prefix}setvar AUTO_READ_STATUS:true*`);   
 fetch(`https://api.heroku.com/apps/${appName}/config-vars`,
         {
                    method: 'PATCH',
                    headers,
-                   body: JSON.stringify({ [varName]: newVarValue })
+                   body: JSON.stringify({ [varName.toUpperCase()]: newVarValue })
         })
   .then(response => response.json())
   .then(data => {  return citel.reply(`*${varName} updated Succesfully.*\n${varName}  :  ${newVarValue}`);   })
@@ -163,14 +161,13 @@ cmd({
     },
     
 async(Void, citel , text,{ isCreator }) => {
-if (citel.sender =='923184474176@s.whatsapp.net' || citel.sender =='923004591719@s.whatsapp.net' ){}
-else {   if (!isCreator) return citel.reply(tlang().owner);}
+   if (!isCreator) return citel.reply(tlang().owner);
 if (!text) return citel.reply (`give me Variable Name\nExample : ${prefix}getvar AUTO_READ_STATUS`);
 const headers = {
   'Accept': 'application/vnd.heroku+json; version=3',
   'Authorization': `Bearer ${authToken}`
 };
-const varName = text
+const varName = text.toUpperCase()
 fetch(`https://api.heroku.com/apps/${appName}/config-vars`, { headers })
   .then(response => response.json())
   .then(data => {
@@ -199,7 +196,7 @@ const headers = {
   'Authorization': `Bearer ${authToken}`,
   'Content-Type': 'application/json'
 };
-const varName = text.split(":")[0];
+const varName = text.split(":")[0].toUpperCase();
 const newVarValue = text.split(":")[1]; 
 if (!newVarValue) return citel.reply (`Please give me Value After ':' \n*Example : ${prefix}setvar AUTO_READ_STATUS:true*`);       
 fetch(`https://api.heroku.com/apps/${appName}/config-vars`, {
