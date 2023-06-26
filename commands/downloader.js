@@ -362,7 +362,41 @@ cmd({
             if (!text) return citel.reply(`Example : ${prefix}video Back in black`)
             let yts = require("secktor-pack")
             let search = await yts(text)
-            let listSerch = []
+	    let i = search.all[1] ;
+	    	
+            const getRandom = (ext) => { return `${Math.floor(Math.random() * 10000)}${ext}`;   };
+            try {
+		let urlYt = i.url ; 
+                let infoYt = await ytdl.getInfo(urlYt);
+
+                let VidTime = Math.floor(i.timestamp* 60);
+		if( VidTime  >= videotime) return await citel.reply(`❌ Video file too big!`);
+                let titleYt = infoYt.videoDetails.title;
+                let randomName = getRandom(".mp4");
+                const stream = ytdl(urlYt, {   filter: (info) => info.itag == 22 || info.itag == 18, })
+                    .pipe(fs.createWriteStream(`./${randomName}`));
+                await new Promise((resolve, reject) => {
+                    stream.on("error", reject);
+                    stream.on("finish", resolve);
+                });
+                   
+		let buttonMessage = {
+                        video: fs.readFileSync(`./${randomName}`),
+                        mimetype: 'video/mp4',
+                        caption: "  Here's Your Video" + Config.caption ,
+                    }
+                 Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
+                 return fs.unlinkSync(`./${randomName}`);
+
+                }catch(e){return await citel.reply("Error While Downloading Video : " + e ); }
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    /*  let listSerch = []
             let teskd = `\nResult got from ${text}.\n`
             for (let i of search.all) {
                     listSerch.push({
@@ -385,7 +419,7 @@ cmd({
                 sections
             }
             return Void.sendMessage(citel.chat, listMessage, {quoted: citel })
-
+*/
         }
     )
     //---------------------------------------------------------------------------
