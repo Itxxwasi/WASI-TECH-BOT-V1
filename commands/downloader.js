@@ -436,7 +436,7 @@ async(Void, citel, text) => {
    if (text.length == 0 && !citel.quoted) return citel.reply(`❌Give me a Song Name! \n ${prefix}play back in black `);
    try {
             let urlYt = text;
-            if(citel.quoted){ text=citel.quoted.text; }
+            if(!text){ text=citel.quoted.text; }
 
             if (!urlYt.startsWith("http")) 
             {
