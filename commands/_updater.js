@@ -13,8 +13,27 @@ const DB = require('../lib/scraper')
 const { tlang, Config, prefix,cmd } = require('../lib')
 const simpleGit = require('simple-git');
 const git = simpleGit();
+const Heroku = require('heroku-client');
 //---------------------------------------------------------------------------
-//                  UPDATE COMMANDS
+
+
+
+
+async function updateHerokuApp() {
+    const heroku = new Heroku({ token: process.env.HEROKU_API_KEY });
+    await git.fetch();
+    const commits = await git.log(['main..origin/main']);
+    if (commits.total === 0) { return 'You already have the latest version installed.'; } 
+    else {
+      const app = await heroku.get(`/apps/${process.env.HEROKU_APP_NAME}`);
+      const gitUrl = app.git_url.replace('https://', `https://api:${process.env.HEROKU_API_KEY}@`);
+      try { await git.addRemote('heroku', gitUrl); } catch(e) { console.log('Heroku remote adding error');  }
+      await git.push('heroku', 'main');
+      return 'Bot updated. Restarting.';
+    }
+  }
+
+  
 //---------------------------------------------------------------------------
 cmd({
             pattern: "update",
@@ -27,13 +46,21 @@ cmd({
             let commits = await DB.syncgit()
             if (commits.total === 0) return await citel.reply(`*BOT IS UPTO DATE...!!*`) 
             let update = await DB.sync()
-            let buttonMessaged = 
-            {
-                  text: update,
-                  footer: 'UPDATER --- sᴜʜᴀɪʟ ᴛᴇᴄʜ ɪɴғᴏ \n www.youtube.com/c/SuhailTechInfo',
-                  headerType: 4,
-            };
-            return await Void.sendMessage(citel.chat, buttonMessaged,{ quoted : citel });
+            await Void.sendMessage(citel.chat, { text: update, },{ quoted : citel });
+
+
+if(text == 'start')
+{
+          citel.reply('Build started...');
+          const update = await updateHerokuApp();
+          return await citel.reply(update);
+}
+else return
+
+
+
+
+
 
 })
   
