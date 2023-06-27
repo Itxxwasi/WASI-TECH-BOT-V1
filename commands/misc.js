@@ -119,9 +119,8 @@ if (!citel.isGroup) return citel.reply(tlang().group);
            */
 })
  //---------------------------------------------------------------------------
- //          WORKING VIEWONCE 
  //---------------------------------------------------------------------------
- cmd({
+/* cmd({
              pattern: "vv",
              alias : ['viewonce','retrive'],
              desc: "Flips given text.",
@@ -150,6 +149,10 @@ else return citel.reply("```This is Not A ViewOnce Message```")
  
          }
      )
+
+
+
+     */
  //---------------------------------------------------------------------------
 /* cmd({
              pattern: "attp",

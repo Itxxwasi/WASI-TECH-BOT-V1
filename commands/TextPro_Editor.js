@@ -28,7 +28,7 @@ cmd({ pattern: "gitch1", category: "logo", desc: "Some text to image feature wit
     })
 //---------------------------------------------------------------------------
 cmd({
-            pattern: "steal",
+            pattern: "stel",
             category: "logo",
             desc: "Some text to image feature with various styles."
         },
