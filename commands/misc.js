@@ -637,6 +637,7 @@ const buffer = await sticker.toBuffer();
 
  cmd({
              pattern: "lydea",
+             alias : ["chatbot"],
              desc: "activates and deactivates chatbot.\nuse buttons to toggle.",
              category: "misc",
              filename: __filename
@@ -644,54 +645,33 @@ const buffer = await sticker.toBuffer();
          async(Void, citel, text,{ isCreator }) => {
              if (!isCreator) return citel.reply(tlang().owner)
              const { chatbot } = require('../lib/');
+             let chatbott= await chatbot.findOne({ id: 'chatbot' }) ||  await new chatbot({ id: 'chatbot', worktype: "true" }).save()
              switch (text.split(" ")[0])
              {
                  case "on":
                      {
-                      let chatbott= await chatbot.findOne({ id: 'chatbot' })
-                      if (!chatbott) 
-                      {
-                         await new chatbot({ id: 'chatbot', worktype: "true" }).save()
-                         return await citel.reply('*Chatbot activated successfully.*')
-                     } 
-                      else 
-                      {
                          if (chatbott.worktype == "true") return citel.reply("*Lydea was already enabled.*")
                          await chatbot.updateOne({ id: 'chatbot' }, { worktype: "true" })
-                         return await citel.reply('*Lydea Enabled successfully.*')
-                     }      
+                         return await citel.reply('*Lydea Activated successfully.*')   
                      }
                      break
                  case "off":
                      {
-                            let chatbott= await chatbot.findOne({ id: 'chatbot' })
-                            if (!chatbott) 
-                            {
-                                await new chatbot({ id: 'chatbot', worktype: "false" }).save()
-                                return citel.reply('*Lydea deactivated successfully.*')
-                            } 
-                            else 
-                            {
                                 if (chatbott.worktype == "false") return citel.reply("*Lydea was already disabled.*")
                                 await chatbot.updateOne({ id: 'chatbot' }, { worktype: "false" })
-                                return await citel.reply('*Lydea Disabled successfully.*')
-                            }
+                                return await citel.reply('*Lydea deactivated successfully.*')
                      }
                      break
                  default:
                      {
-                            let buttons = [{
-                                               buttonId: `${prefix}chatbot on`,
-                                               buttonText: {   displayText: "Turn On" },
-                                               type: 1,
-                                          },
-                                          {
-                                               buttonId: `${prefix}chatbot off`,
-                                               buttonText: { displayText: "Turn Off" },
-                                               type: 1,
-                                           }];
-                            let chatbott= await chatbot.findOne({ id: 'chatbot' })
+                        if (chatbott.worktype == "false") return await citel.reply(`*Lydea Chatbot Status : False* \n*Lydea Chatbot Disabled Yet, _To Enable Type : .lydea on_*`)
+                        else return await citel.reply("*Lydea Chatbot Status : True* \n*Lydea Chatbot Enabled Yet, _To Disable Type : .lydea off_*")
+                        /*
+                            let buttons = [{  buttonId: `${prefix}chatbot on`,   buttonText: {   displayText: "Turn On" },  type: 1, },
+                                          {   buttonId: `${prefix}chatbot off`,  buttonText: { displayText: "Turn Off" },   type: 1, }];
+                                           
                             await Void.sendButtonText(citel.chat, buttons, `Lydea Status: ${chatbott.worktype} `, Config.botname, citel);
+                        */
                      }
              }
  
@@ -803,6 +783,7 @@ async(Void, citel, text,{isCreator}) => {
 })   
 } // if Statements
      //---------------------------------------------------------------------------
+ /*
  cmd({
              pattern: "antispam",
              desc: "Kick Spamers From Group.\nuse buttons to toggle.",
@@ -836,6 +817,7 @@ if (checkgroup.antispam == "true") return citel.reply(`Antispam : kick Users Who
 else return citel.reply(`Antispam : kick Users Who Spamming in Groupn\n\nAntispam is Disabled in this Group \n *_For Enablling Antispam : ${prefix}antispam on_*`);
          
  })
+ */
      //---------------------------------------------------------------------------
  cmd({
              pattern: "antilink",

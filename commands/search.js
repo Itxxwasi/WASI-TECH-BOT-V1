@@ -72,14 +72,7 @@ cmd({
             imdbt += "🌟imdbRating : " + fids.data.imdbRating + "\n";
             imdbt += "❎imdbVotes  : " + fids.data.imdbVotes + "\n";
             imdbt += Config.caption ;
-            Void.sendMessage(citel.chat, {
-                image: {
-                    url: fids.data.Poster,
-                },
-                caption: imdbt,
-            }, {
-                quoted: citel,
-            });
+            Void.sendMessage(citel.chat, {  image: { url: fids.data.Poster, }, caption: imdbt,  }, {   quoted: citel,  });
 
         }
     )
@@ -108,15 +101,9 @@ cmd({
             textw += `*Latitude:-* ${wdata.data.coord.lat}\n`;
             textw += `*Longitude:-* ${wdata.data.coord.lon}\n`;
             textw += `*Country:-* ${wdata.data.sys.country}\n`;
- textw +=Config.caption ;
+            textw +=Config.caption ;
 
-            Void.sendMessage(
-                citel.chat, {
-                    text: textw,
-                }, {
-                    quoted: citel,
-                }
-            );
+            Void.sendMessage( citel.chat, {  text: textw }, {  quoted: citel } );
 
         }
     )
@@ -153,9 +140,7 @@ cmd({
                         citel.reply(textw)
                     });
 
-            } catch (e) {
-                console.log(e)
-            }
+            } catch (e) {   console.log(e)  }
         }
     )
     //---------------------------------------------------------------------------
