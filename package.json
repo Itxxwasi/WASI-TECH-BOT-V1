@@ -6,7 +6,7 @@
                "type": "commonjs",
                "license": "GPL-3.0",
    "scripts": {
-                "start": "pm2 start lib/client.js --deep-monitoring --attach --name Suhail_BOt",
+                "start": "pm2 start lib/client.js --deep-monitoring --attach --name Suhail_Md",
                 "stop": "pm2 stop Suhail_Md"
                 },
                "author": "SuhailTechInfo",
