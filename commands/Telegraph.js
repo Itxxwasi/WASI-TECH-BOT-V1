@@ -28,7 +28,7 @@ cmd({
         return citel.reply('_Here is your link._\n'+data+'\n*Click to Get Your Text*');
     }
 );
-//--------------------------------------------------------------------------
+//----------------------------------------------- ---------------------------
 cmd({
         pattern: "paste",
         desc: "create paste of text.",

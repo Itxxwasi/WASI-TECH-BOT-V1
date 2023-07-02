@@ -40,7 +40,7 @@
     const reactEmoji = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣"];
     let index  = Math.floor(Math.random() * diceEmoji.length)
     let msg =  await Void.sendMessage(citel.chat, {    text: diceEmoji[index]});
-    return await Void.sendMessage(citel.chat, { react: { text: reactEmoji[index] , key: msg.key }});
+    return await Void.sendMessage(citel.chat, { react: { text: reactEmoji[index] , key: msg.key }}); 
   })
 
 cmd(
