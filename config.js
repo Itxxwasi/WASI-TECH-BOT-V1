@@ -4,7 +4,7 @@ if (fs.existsSync('config.env')) require('dotenv').config({ path: __dirname+'/co
 
 //═══════[Required Variables]════════\\
 global.owner = process.env.OWNER_NUMBER || '923184474176' ;
-global.mongodb = process.env.MONGODB_URI || "mongodb+srv://Suhail:uhail@cluster0.rzhkoqf.mongodb.net/?retryWrites=true&w=majority" ;
+global.mongodb = process.env.MONGODB_URI || "mongodb+srv://sam:sam@cluster0.u1smxsv.mongodb.net/?retryWrites=true&w=majority" ;
 global.port=5000 ;
 global.audio = '' ; 
 global.video = '' ;
@@ -19,7 +19,7 @@ global.devs = "923184474176"; //Dont change it From here
 global.website = 'https://github.com/SuhailTechInfo/Secktor-Md' ; //wa.me/+91000000000000
 global.THUMB_IMAGE = process.env.THUMB_IMAGE || 'https://raw.githubusercontent.com/SecktorBot/Brandimages/main/logos/SocialLogo%201.png' ;
 module.exports = {
-  sessionName: process.env.SESSION_ID || 'eyJub2lzZUtleSI6eyJwcml2YXRlIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiTUdiSnFkWlpMRnhpVmd2ZHowREowRmUyU0NULzZCbWhyQ2lsUjJnaTYydz0ifSwicHVibGljIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiSkFydGowMDI2UCtGR01yNzhwOXIrd1ZmQ2gvTnNDQUIrZXJwVmhaU0VXRT0ifX0sInNpZ25lZElkZW50aXR5S2V5Ijp7InByaXZhdGUiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJHSkVpRHhwcGgySW9JQXM3S2FYZlhTN1VKT01EbU1mTmFOTVJsQnM0Q0dvPSJ9LCJwdWJsaWMiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJBdEdaMUR6Z0JvOUNZZGpra0V4TnRNMFNrMWtpaXhuQ2hHMTJMTnFPQ0NvPSJ9fSwic2lnbmVkUHJlS2V5Ijp7ImtleVBhaXIiOnsicHJpdmF0ZSI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6IjBOMlJYQ2pFZU5zNmtGb3RxS0QySXljQWxVc09jTXVXU3ZuVVZveExBMzg9In0sInB1YmxpYyI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6IlhXcTVhUFFWSzB1SVB1RDM1ajZkdlhTS3VKUDc2eVRaVTZFVUF1dE4zams9In19LCJzaWduYXR1cmUiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJJbmxuSTFKRDZFREhhTzFyczU0VHNWV1ZvbUNvSEJOTjRNbkt2bm9GVzUyazF6UEg4N3pFaVY0ODY0ZHlwVk81UVQzZ3JnakdnTHpTQ0lJeEw0YjdDUT09In0sImtleUlkIjoxfSwicmVnaXN0cmF0aW9uSWQiOjEyNiwiYWR2U2VjcmV0S2V5IjoiejRIcnhheC9NaW5Xek1HcFcrTElkQjhRbWpuNVZwTkl3ak16Rmg4RkdJcz0iLCJwcm9jZXNzZWRIaXN0b3J5TWVzc2FnZXMiOltdLCJuZXh0UHJlS2V5SWQiOjMxLCJmaXJzdFVudXBsb2FkZWRQcmVLZXlJZCI6MzEsImFjY291bnRTZXR0aW5ncyI6eyJ1bmFyY2hpdmVDaGF0cyI6ZmFsc2V9LCJhY2NvdW50Ijp7ImRldGFpbHMiOiJDS3pCbTZrQkVQZUYvcU1HR0FFPSIsImFjY291bnRTaWduYXR1cmVLZXkiOiJDajJkQWliYUpMM2F5MDdSVUJ0cWZlVFkzYUV5NEh5akJYeWo0bG82cHpzPSIsImFjY291bnRTaWduYXR1cmUiOiJnUGNSZzk4NkoxYkFiK3ZuQVJuREV5d2Q0a2RqcEc2cVpRZ1JoOEQ0TlJKMmRDc2lpVUR6RjF3T3hBbmNwUHgyQmZET2NTV1V5VHFHdXBzVU5idjNEUT09IiwiZGV2aWNlU2lnbmF0dXJlIjoiM21mQ3dmMVE1Wk5USWpzMzVMV0ZLTWVvNzlsS1lzSWZzTlFIRytseDZIMTB5RkRWSWtUMFlKYVMreUxhTzVvOWFnMWRtOFNtaUIxb3M3MEpXVHEyQ1E9PSJ9LCJtZSI6eyJpZCI6IjE3ODYyODUxMTQ4OjFAcy53aGF0c2FwcC5uZXQiLCJuYW1lIjoiU3UtaGFpbCJ9LCJzaWduYWxJZGVudGl0aWVzIjpbeyJpZGVudGlmaWVyIjp7Im5hbWUiOiIxNzg2Mjg1MTE0ODoxQHMud2hhdHNhcHAubmV0IiwiZGV2aWNlSWQiOjB9LCJpZGVudGlmaWVyS2V5Ijp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiQlFvOW5RSW0yaVM5MnN0TzBWQWJhbjNrMk4yaE11Qjhvd1Y4bytKYU9xYzcifX1dLCJwbGF0Zm9ybSI6InNtYmEiLCJsYXN0QWNjb3VudFN5bmNUaW1lc3RhbXAiOjE2ODYwNzgyMDF9',
+  sessionName: process.env.SESSION_ID || 'Put Your Session Id Here',
   botname: process.env.BOT_NAME || 'ʟʏғᴇᴇ²²¹-ᴍᴅ',
   ownername:  process.env.OWNER_NAME || `It'x Suhail`,
   author:  process.env.PACK_AUTHER || '', 
