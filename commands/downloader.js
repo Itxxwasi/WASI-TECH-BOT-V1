@@ -34,23 +34,28 @@ cmd({
 		let tgUrl = text.split("|")[0];
 		let find = tgUrl.split("/addstickers/")[1];
 		let { result } = await fetchJson(`https://api.telegram.org/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/getStickerSet?name=${encodeURIComponent(find)} `);
-
 		let check = text.split("|")[1] || "";
-		if (result.is_animated)  return citel.reply("Animated stickers are not supported");
-  		else {
-		  await citel.reply(`Total stickers: ${result.stickers.length}\n*Estimated complete in:* ${result.stickers.length * 1.5} seconds\nKeep in mind that there is a chance of a ban if used frequently`.trim());
-		  if (check.startsWith("info"))  return;
-		}
+		let res = `Total stickers: ${result.stickers.length}\n*Estimated complete in:* ${result.stickers.length * 1.5} seconds\nKeep in mind that there is a chance of a ban if used frequently`.trim()
+		if (result.is_animated) return await citel.reply("Animated stickers are not supported");
+  		else if (check.startsWith("info")) return await citel.reply(res);
 		
 		let limit = parseInt(check.split(",")[0]) || 10;
 		let count =  parseInt(check.split(",")[1]) ||  0   ;
 
-		for (let sticker of result.stickers) {
-		  if (count >= limit) break;
-		  let file_path = await fetchJson(`https://api.telegram.org/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/getFile?file_id=${sticker.file_id}`);
+		if(limit > result.stickers.length ) {  limit = result.stickers.length  }
+		if(count > limit )
+		{  
+			let temp = limit;
+			limit = count;
+			count = temp ;
+		}
+		await citel.reply(`${res}\n\n_Downloading stickers From index *${count}* to *${limit}*._\nIf you wants more to download then use Like \n\n .tgs ${tgUrl} |  10 ,  20`)
+		for ( count ; count <= limit ; count++) {
+		 // if (count >= limit) break;
+		  let file_path = await fetchJson(`https://api.telegram.org/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/getFile?file_id=${result.stickers[count].file_id}`);
 		  let a = await getBuffer(`https://api.telegram.org/file/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/${file_path.result.file_path}`);
 		  await citel.reply(a, { packname: Config.packname, author: '𓅋 ₊₉₂⃗⃗₃₁᩺₈ͦ₄ͪ₄ᷧ₇ͥ₄ᷞ₁⃗₇₆ 𓃮\nᴄʟօsᴇ ყσυɾ ᴇყᴇs...👁️🙈\nPlugin Creator\n\nʍɪss ʍᴇ...♥️\n' }, "sticker");
-		  count++;
+		  //count++;
 		}
 
 
