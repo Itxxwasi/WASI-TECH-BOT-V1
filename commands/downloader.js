@@ -39,7 +39,7 @@ cmd({
 		if (result.is_animated)  return citel.reply("Animated stickers are not supported");
   		else {
 		  await citel.reply(`Total stickers: ${result.stickers.length}\n*Estimated complete in:* ${result.stickers.length * 1.5} seconds\nKeep in mind that there is a chance of a ban if used frequently`.trim());
-		  if (check.startsWith(info))  return;
+		  if (check.startsWith("info"))  return;
 		}
 		
 		let limit = parseInt(check.split(",")[0]) || 10;
