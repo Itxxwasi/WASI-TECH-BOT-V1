@@ -1,4 +1,4 @@
-  ## ***Deploy on [`Heroku`](https://secktor-bot0001-54dadba75112.herokuapp.com/deploy)***
+  ## ***Deploy on [`Heroku`](https://dashboard.heroku.com/new?template=https://github.com/SuhailTechInfo/Secktor-bot)***
  **Deploy tutorial [`Youtube Video`](https://www.YouTube.com/c/SuhailTechInfo).**
   
 
@@ -43,7 +43,7 @@
 1. ***Get [`SESSION ID`](https://secktor-bot0001-54dadba75112.herokuapp.com/session)  by scanning QR code. `Whatapp>Three dots>Linked Devices`***
 2.  ***Get a Mongodb uri from [`Mongodb`](https://github.com/SamPandey001/Secktor-Md/wiki/Mongodb-URI) | [`Tutorial`](https://youtu.be/6rnftFl0fAI).***
 3.  ***Click [`FORK`](https://github.com/SamPandey001/Secktor-MD/fork)***
-4.  ***Deploy on [`HEROKU`](https://secktor-bot0001-54dadba75112.herokuapp.com/deploy)***
+4.  ***Deploy on [`HEROKU`](https://dashboard.heroku.com/new?template=https://github.com/SuhailTechInfo/Secktor-bot)***
 5.  ***Deploy tutorial [`Youtube Video`](https://youtu.be/6rnftFl0fAI).***
 6.  ***Deploy on [`Deploy on replit`]( https://repl.it/github/SuhailTechInfo/Secktor-bot)***
 ##
