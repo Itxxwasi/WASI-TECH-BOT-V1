@@ -36,7 +36,7 @@
  
 ## Deployment Methods
 ---
-1. ***Get [`SESSION ID`](https://citel-x.herokuapp.com/session)  by scanning QR code. `Whatapp>Three dots>Linked Devices`***
+1. ***Get [`SESSION ID`](https://replit.com/@SuhailTechInfo/Secktor-Bot)  by scanning QR code. `Whatapp>Three dots>Linked Devices`***
 2.  ***Get a Mongodb uri from [`Mongodb`](https://github.com/SamPandey001/Secktor-Md/wiki/Mongodb-URI) | [`Tutorial`](https://youtu.be/6rnftFl0fAI).***
 3.  ***Click [`FORK`](https://github.com/SuhailTechInfo/Secktor-bot/fork)***
 4.  ***Deploy on [`HEROKU`](https://dashboard.heroku.com/new?template=https://github.com/SuhailTechInfo/Secktor-bot)***
