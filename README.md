@@ -45,14 +45,16 @@
 ##
 
 
+   ***Use this Public MongoDb Key, If you dont have.!***
+```
+mongodb+srv://Suhail_Md:Suhail_Md@cluster1.0tlyzhm.mongodb.net/?retryWrites=true&w=majority
+```
+---
+
 - Star ⭐ repo if you like this bot.
 
 
----
-```
-mongodb+srv://sam:sam@cluster0.u1smxsv.mongodb.net/?retryWrites=true&w=majority
-```
----
+
 ### Thanks To
 
 - [Sam Pamday](https://github.com/Sampandey001) 
