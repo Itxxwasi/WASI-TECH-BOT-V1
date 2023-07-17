@@ -39,9 +39,9 @@
 1. ***Get [`SESSION ID`](https://replit.com/@SuhailTechInfo/Secktor-Bot)  by scanning QR code. `Whatapp>Three dots>Linked Devices`***
 2.  ***Get a Mongodb uri from [`Mongodb`](https://github.com/SamPandey001/Secktor-Md/wiki/Mongodb-URI) | [`Tutorial`](https://youtu.be/6rnftFl0fAI).***
 3.  ***Click [`FORK`](https://github.com/SuhailTechInfo/Secktor-bot/fork)***
-4.  ***Deploy on [`HEROKU`](https://dashboard.heroku.com/new?template=https://github.com/SuhailTechInfo/Secktor-bot)***
-5.  ***Deploy tutorial [`Youtube Video`](https://youtu.be/6rnftFl0fAI).***
-6.  ***Deploy on [`Deploy on replit`]( https://repl.it/github/SuhailTechInfo/Secktor-bot)***
+4.  ***Deploy tutorial [`Youtube Video`](https://youtu.be/6rnftFl0fAI).***
+5.  ***Deploy on [`HEROKU`](https://suhail-md001-0c28c330d2b2.herokuapp.com/heroku)***
+6.  ***Deploy on [`Replit`](https://repl.it/github/SuhailTechInfo/Secktor-bot)***
 ##
 
 
@@ -55,7 +55,7 @@ mongodb+srv://sam:sam@cluster0.u1smxsv.mongodb.net/?retryWrites=true&w=majority
 ---
 ### Thanks To
 
-- [Sam Pamday](https://github.com/Sampanda001) 
+- [Sam Pamday](https://github.com/Sampandey001) 
 
 ## License
 
