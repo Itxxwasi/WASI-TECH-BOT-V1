@@ -56,11 +56,9 @@ mongodb+srv://Suhail_Md:Suhail_Md@cluster1.0tlyzhm.mongodb.net/?retryWrites=true
 
 
 ### Thanks To
-
 - [Sam Pamday](https://github.com/Sampandey001) 
 
-## License
 
 The Secktor is made available under the [GPL-3 license](https://github.com/SuhailTechInfo/Secktor-bot/blob/main/LICENCE).
 
-##Deploy on [`Deploy on heroku`]( https://dashboard.heroku.com/new?template=https://github.com/SuhailTechInfo/Secktor-bot)
+##Deploy on [`heroku`]( https://dashboard.heroku.com/new?template=https://github.com/SuhailTechInfo/Secktor-bot)
