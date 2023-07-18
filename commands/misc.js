@@ -154,26 +154,59 @@ else return citel.reply("```This is Not A ViewOnce Message```")
 
      */
  //---------------------------------------------------------------------------
-/* cmd({
-             pattern: "attp",
-             desc: "Makes glowing sticker of text.",
-             category: "sticker",
-             filename: __filename
-         },
-         async(Void, citel, text) => {
-             Void.sendMessage(citel.chat, {
-                 sticker: {
-                     url: `https://api.xteam.xyz/attp?file&text=${encodeURI(text)}`
-                 }
-             }, {
-                 quoted: citel
-             })
- 
-         }
-     )
-*/
-     //---------------------------------------------------------------------------
+ cmd({
+        pattern: "quoted",
+        desc: "get reply Message from Replied Message",
+        category: "user",
+        filename: __filename
+    },
+    async(Void, citel, text) => {
+        if(!citel.quoted) return await citel.send("*_Uhh Dear, Reply to a Message_*")
+        var quote
+        try {
+             quote = await Void.serializeM(await citel.getQuotedObj())
+        } catch (error) {return console.log("error while geting Quoted Message : " , error )}
 
+        if (!quote.quoted) return await citel.replay('*Message you replied does not contain a reply Message*')
+        else await Void.sendMessage(citel.chat, { react: { text: '✨', key: citel.key }}); 
+        try {        
+            let quote2 = await Void.serializeM(await quote.getQuotedObj())
+            return await Void.copyNForward(citel.chat, quote2 , false ,)
+        } catch (error) 
+        {       
+            const contextInfo = {}
+            Void.forward(citel.chat ,quote.quoted, contextInfo , citel ); 
+        }
+        // attp | Void.sendMessage(citel.chat, { sticker: {url: `https://api.xteam.xyz/attp?file&text=${encodeURI(text)}`}}, {quoted: citel })
+    })
+
+     //---------------------------------------------------------------------------
+     cmd({
+        pattern: "blocklist",
+        desc: "get list of all Blocked Numbers",
+        category: "user",
+        filename: __filename,
+        use: '<text>',
+    },
+    async(Void, citel, text , {isCreator}) => {
+        if(!isCreator) return await citel.reply(tlang().owner);
+        await Void.fetchBlocklist().then(async data => {
+        if(data.length == 0 ) return await citel.reply(`*_Uhh Dear, You didn't have any Blocked Numbers_*`)
+        let txt = `\n*≡ List*\n\n*Total :* ${data.length}\n\n┌─⊷ \t*BLOCKED USERS*\n`;
+        let j=0;
+        for (let i of data) {
+                j++
+                txt += `▢ ${j}:- wa.me/${i.split("@")[0]}\n`
+        }
+        txt += "└───────────"
+        return Void.sendMessage(citel.chat, {text : txt},)
+        }).catch(err => {
+            console.log(err);
+            return await citel.reply('*_Error While getting Blocked Numbers_\nError : *'+err)
+        })
+    }
+    )
+     //---------------------------------------------------------------------------
  cmd({
              pattern: "location",
              desc: "Adds *readmore* in given text.",
