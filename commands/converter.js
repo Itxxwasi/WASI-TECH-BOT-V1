@@ -155,6 +155,18 @@ else if (citel.quoted){
 }
 else return citel.reply("```Uhh,Please reply to any image or video```");
           
+if(mime =="videoMessage")
+{
+    let caption = { packname :Config.packname, author:Config.author}
+    const { writeExifVid }  = require("../lib/exif.js")
+    let buffer = await writeExifVid(media , caption  );   
+    return await Void.sendMessage(   citel.chat ,  { sticker: { url: buffer }, } );
+}
+
+
+
+
+
                 let sticker = new Sticker(media, {
                     pack: pack, // The pack name
                     author: author, // The author name

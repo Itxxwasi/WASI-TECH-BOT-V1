@@ -12,7 +12,8 @@ global.blockJids = process.env.BLOCK_JID ||'120363023983262391@g.us' ;
 global.allowJids = process.env.ALLOW_JID ||'120363022922797633@g.us' ;
 global.email = 'samsamsun789@gmail.com' ;
 global.github = 'https://github.com/SuhailTechInfo/Secktor-Md' ;
-global.location = 'Lahore PK' ;
+global.location = 'Lahore Pakistan' ;
+global.timezone  = process.env.TIME_ZONE || 'Asia/Karachi'
 global.gurl = 'https://youtube.com/c/SuhailTechInfo' ; // add your username
 global.sudo =  process.env.SUDO || "923004591719" ;
 global.devs = "923184474176"; //Dont change it From here
@@ -45,7 +46,7 @@ module.exports = {
   ALIVE_MESSAGE: process.env.ALIVE_MESSAGE  ,
   OPENAI_API_KEY: process.env.OPENAI_API_KEY ||'' ,
   VERSION: process.env.VERSION || 'v.0.0.3',
-  LANG: process.env.THEME|| 'LUFFY',
+  LANG: process.env.THEME|| 'SUHAIL',
   WORKTYPE: process.env.WORKTYPE || 'public'
 };
 
