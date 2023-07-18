@@ -593,7 +593,7 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
   
              if (checkgroup.events == "true") return citel.reply(`*Events* is enabled in this Chat \n For deActive Welcome Msg *type ${prefix}deact events*`);
              else return citel.reply(`*Events* is Disabled in this Chat \n For Active Welcome Msg *type ${prefix}act events*`);
-
+ 
          }
      )
      //---------------------------------------------------------------------------

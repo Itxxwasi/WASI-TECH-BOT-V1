@@ -118,7 +118,7 @@ Secktor.cmd({
             desc: "list menu",
             category: "general",
             react: "🥀"
-        },
+         },
         async(Void, citel) => {
             const { commands } = require('../lib');
             let str = `

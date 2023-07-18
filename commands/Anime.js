@@ -74,7 +74,7 @@ cmd({
                 Void.sendMessage(citel.chat, { video: gif, gifPlayback: true, mentions: [citel.sender], caption: cap }, { quoted: citel });
             }
         }
-    )
+    ) 
 //-----------------------------------------------------------------------
 cmd({
             pattern: "hifi",

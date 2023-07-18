@@ -34,7 +34,7 @@ cmd({
                 headerType: 4,
             };
             return await Void.sendMessage(citel.chat, buttonMessaged );
-        
+         
             /*
             let buttonMessaged = {
                 image: { url: 'https://secktorbot.onrender.com/' },

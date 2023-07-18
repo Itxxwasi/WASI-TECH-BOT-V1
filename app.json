@@ -17,7 +17,7 @@
  "HEROKU_API_KEY": {
     "description": "Put Your Heroku Api Key Here",
      "value": "",
-	 "required" :true
+	 "required" :true 
     },
 "HEROKU_APP_NAME": {
     "description": "Put Your Heroku App Name Here",

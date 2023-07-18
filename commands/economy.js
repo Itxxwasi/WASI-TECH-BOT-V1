@@ -352,7 +352,7 @@ default:
         category: "economy",
         filename: __filename,
         react: "💷"
-    },
+    }, 
     async(Void, citel, text,{ isCreator }) => {
         let zerogroup = (await sck.findOne({ id: citel.chat,})) || (await new sck({ id: citel.chat, }).save());
         let mongoschemas = zerogroup.economy || "false";

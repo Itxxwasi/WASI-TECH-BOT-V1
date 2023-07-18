@@ -298,7 +298,7 @@ cmd({
             Void.sendMessage(citel.chat, { image: { url: random.male }, caption: `Couple Male` }, { quoted: citel })
             Void.sendMessage(citel.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: citel })
         }
-    )
+    ) 
     //---------------------------------------------------------------------------
 cmd({
         pattern: "iswa",

@@ -5,7 +5,7 @@ if (fs.existsSync('config.env')) require('dotenv').config({ path: __dirname+'/co
 //═══════[Required Variables]════════\\
 global.owner = process.env.OWNER_NUMBER || '923184474176' ;
 global.mongodb = process.env.MONGODB_URI || "mongodb+srv://sam:sam@cluster0.u1smxsv.mongodb.net/?retryWrites=true&w=majority" ;
-global.port=5000 ;
+global.port=5000  ;
 global.audio = '' ; 
 global.video = '' ;
 global.blockJids = process.env.BLOCK_JID ||'120363023983262391@g.us' ;
@@ -20,7 +20,7 @@ global.website = 'https://github.com/SuhailTechInfo/Secktor-Md' ; //wa.me/+91000
 global.THUMB_IMAGE = process.env.THUMB_IMAGE || 'https://raw.githubusercontent.com/SecktorBot/Brandimages/main/logos/SocialLogo%201.png' ;
 module.exports = {
   sessionName: process.env.SESSION_ID || '',      //Put Your Session Id Here
-  botname: process.env.BOT_NAME || 'ʟʏғᴇᴇ²²¹-ᴍᴅ',
+  botname: process.env.BOT_NAME || 'sᴜʜᴀɪʟ²²¹-ᴍᴅ',
   ownername:  process.env.OWNER_NAME || `It'x Suhail`,
   author:  process.env.PACK_AUTHER || '', 
   auto_read_status : process.env.AUTO_READ_STATUS || 'true',
@@ -41,7 +41,7 @@ module.exports = {
   BRANCH: process.env.BRANCH || 'main',
   HEROKU_APP_NAME: process.env.HEROKU_APP_NAME,
   HEROKU_API_KEY: process.env.HEROKU_API_KEY,
-  caption :process.env.CAPTION || "\t*•ᴘᴏᴡᴇʀᴇᴅ ʙʏ ʟʏғᴇᴇ²²¹-ᴍᴅ•* ",   //*『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n youtube.com/@suhailtechinfo0"),
+  caption :process.env.CAPTION || "\t*•ᴘᴏᴡᴇʀᴇᴅ ʙʏ sᴜʜᴀɪʟ²²¹-ᴍᴅ•* ",   //*『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n youtube.com/@suhailtechinfo0"),
   ALIVE_MESSAGE: process.env.ALIVE_MESSAGE  ,
   OPENAI_API_KEY: process.env.OPENAI_API_KEY ||'' ,
   VERSION: process.env.VERSION || 'v.0.0.3',

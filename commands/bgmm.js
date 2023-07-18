@@ -1,4 +1,4 @@
-const {TelegraPh , bgm  } = require('../lib/')
+const {TelegraPh , bgms  } = require('../lib/')
 
 const ffmpeg = require('fluent-ffmpeg');
 const axios = require('axios')
@@ -6,7 +6,7 @@ const { getBuffer, cmd , Config} = require('../lib/')
 const fs = require('fs-extra');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
-
+ 
 // -------------------------------------------------------------------
 
 
@@ -35,7 +35,7 @@ cmd({
     },
 async(Void,citel,text)=>{
 if(!text) return await citel.reply("*Give Me Song Name to Delete From BGM*")
- let bgmm= await bgm.findOne({ id:"3" }) || await new bgm({ id:"3"}).save();
+ let bgmm= await bgms.findOne({ id:"3" }) || await new bgms({ id:"3"}).save();
 //text = text.split(' ')[0];
 if (bgmm.bgmArray.has(text)) {
   bgmm.bgmArray.delete(text);
@@ -58,7 +58,7 @@ cmd({
 async(Void,citel,text)=>{
  text = ' *BGM SONG INFORMATION*\n'
 const {TelegraPh , bgm } = require('../lib/')
-  let bgmm= await bgm.findOne({ id:"3" }) || await new bgm({ id:"3"}).save();
+  let bgmm= await bgms.findOne({ id:"3" }) || await new bgms({ id:"3"}).save();
     for (const [name, url] of bgmm.bgmArray) 
     {
      text+=`*${name} :* _${url}_ \n`
@@ -96,7 +96,7 @@ if(res.result) {path = "./convertedVideo.mp4"}
  else return await citel.reply("Uhh Please, Reply to Audio/Video To Add In Bgm")
 if (!path) return await citel.reply("There's an Error While Adding Bgm Song")
  let url = await TelegraPh(path)
-  let bgmm= await bgm.findOne({ id:"3" }) || await new bgm({ id:"3"}).save();
+  let bgmm= await bgms.findOne({ id:"3" }) || await new bgms({ id:"3"}).save();
  try {
    //text = text.split(' ')[0];
     bgmm.bgmArray.set(text, url);
@@ -114,7 +114,7 @@ cmd({ on: "text" }, async (Void,citel,text)=> {
   if(Config.disablepm)
   {
     let citelText = ` ${citel.text} ` ; 
-     let bgmm= await bgm.findOne({ id:"3" }) || await new bgm({ id:"3"}).save();
+     let bgmm= await bgms.findOne({ id:"3" }) || await new bgms({ id:"3"}).save();
     for (const [name, url] of bgmm.bgmArray) 
     {
       let newName = `${name} `; 

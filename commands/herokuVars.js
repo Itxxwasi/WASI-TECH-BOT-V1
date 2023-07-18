@@ -202,7 +202,7 @@ if (!newVarValue) return citel.reply (`Please give me Value After ':' \n*Example
 fetch(`https://api.heroku.com/apps/${appName}/config-vars`, {
   method: 'GET',
   headers
-})
+}) 
   .then(response => {
             if (response.ok) { return response.json(); } 
             else { throw new Error(`Failed to fetch app variables. Status: ${response.status}`); }

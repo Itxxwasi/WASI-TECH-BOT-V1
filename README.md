@@ -32,7 +32,7 @@
     <h1 align="center">Tap on above Image</h1>
   </a>
 </p>
- 
+  
  
 ## Deployment Methods
 ---

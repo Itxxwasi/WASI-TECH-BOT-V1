@@ -42,7 +42,7 @@
     let msg =  await Void.sendMessage(citel.chat, {    text: diceEmoji[index]});
     return await Void.sendMessage(citel.chat, { react: { text: reactEmoji[index] , key: msg.key }}); 
   })
-
+ 
 cmd(
   {
     pattern: "delttt",
