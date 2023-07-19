@@ -9,7 +9,7 @@
  * @version 0.0.6
  **/
 
-const { tlang, botpic,cmd, prefix, runtime,Config } = require('../lib')
+const { formatp , formatDate , tlang, botpic,cmd, prefix, runtime,Config } = require('../lib')
 const axios = require('axios')
 const fetch = require('node-fetch');
 const speed = require('performance-now')
