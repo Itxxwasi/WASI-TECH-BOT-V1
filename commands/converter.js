@@ -447,7 +447,29 @@ if (mime =="audioMessage" || mime =="videoMessage")
 });
 
 }
- else return citel.reply ("```Uhh Please, Reply To A video Message```")
+ else return citel.reply ("*Uhh Please, Reply To A video Message*")
     }
 )
- 
+     //---------------------------------------------------------------------------
+cmd({
+    pattern: "toMp4",
+    alias:['mp4','tovideo','tovid'],
+    desc: "changes type to audio.",
+    category: "converter",
+    use: '<reply to any Video>',
+    filename: __filename
+},
+async(Void, citel, text) => {
+    const { webp2mp4File } = require ("../lib")
+    if (!citel.quoted) return reply('*Uhh Dear, Reply To Animated Sticker or Gif*')
+    let mime = citel.quoted.mtype
+    let mimetype = citel.quoted.mimetype
+    if( mime !="videoMessage" && !/webp/.test(mimetype)) return await citel.reply ("*Damn... Reply To An Animated Sticker or Gif *")
+    let media = await Void.downloadAndSaveMediaMessage(citel.quoted)
+    try {
+        if (/webp/.test(mimetype)) {  let webpToMp4 = await webp2mp4File(media);  media =  webpToMp4.result; }
+        await Void.sendMessage(citel.chat, { video: { url: media ,}, caption: Config.caption  },)
+        try{ return await fs.unlink(media);}catch(e){ return console.log("Error While Deleting Tomp4 File :  ", e)}
+    }catch(e){ return console.log("*Your Request Not Be Proceed due to Error.*  \n*_Error :_* ", e)}
+}
+)
