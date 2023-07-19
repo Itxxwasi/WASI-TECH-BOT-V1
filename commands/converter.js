@@ -461,10 +461,10 @@ cmd({
 },
 async(Void, citel, text) => {
     const { webp2mp4File } = require ("../lib")
-    if (!citel.quoted) return reply('*Uhh Dear, Reply To Animated Sticker or Gif*')
+    if (!citel.quoted) return citel.reply('*Uhh Dear, Reply To Animated Sticker or Gif*')
     let mime = citel.quoted.mtype
     let mimetype = citel.quoted.mimetype
-    if( mime !="videoMessage" && !/webp/.test(mimetype)) return await citel.reply ("*Damn... Reply To An Animated Sticker or Gif *")
+    if( mime !="videoMessage" && !/webp/.test(mimetype)) return await citel.send("*Damn... Reply To An Animated Sticker or Gif *")
     let media = await Void.downloadAndSaveMediaMessage(citel.quoted)
     try {
         if (/webp/.test(mimetype)) {  let webpToMp4 = await webp2mp4File(media);  media =  webpToMp4.result; }
