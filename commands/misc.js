@@ -469,7 +469,7 @@ return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
          },
          async(Void, citel, text) => {
              const upt = runtime(process.uptime())
-             citel.reply(`Uptime of ${tlang().title}: ${upt}`)
+             citel.reply(`*_Uptime of ${tlang().title}: ${upt}_*`)
          }
      )
      //---------------------------------------------------------------------------
