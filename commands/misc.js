@@ -190,20 +190,17 @@ else return citel.reply("```This is Not A ViewOnce Message```")
     },
     async(Void, citel, text , {isCreator}) => {
         if(!isCreator) return await citel.reply(tlang().owner);
-        await Void.fetchBlocklist().then(async data => {
-        if(data.length == 0 ) return await citel.reply(`*_Uhh Dear, You didn't have any Blocked Numbers_*`)
-        let txt = `\n*≡ List*\n\n*Total :* ${data.length}\n\n┌─⊷ \t*BLOCKED USERS*\n`;
-        let j=0;
-        for (let i of data) {
-                j++
-                txt += `▢ ${j}:- wa.me/${i.split("@")[0]}\n`
-        }
-        txt += "└───────────"
-        return Void.sendMessage(citel.chat, {text : txt},)
-        }).catch(err => {
-            console.log(err);
-            return await citel.reply('*_Error While getting Blocked Numbers_\nError : *'+err)
-        })
+        try {
+            const data = await Void.fetchBlocklist();
+            if (data.length === 0) return await citel.reply(`Uhh Dear, You don't have any Blocked Numbers.`);
+            let txt = `\n*≡ List*\n\n*_Total Users:* ${data.length}_\n\n┌─⊷ \t*BLOCKED USERS*\n`;
+            for (let i = 0; i < data.length; i++) {      txt += `▢ ${i + 1}:- wa.me/${data[i].split("@")[0]}\n`;    }
+            txt += "└───────────";
+            return await Void.sendMessage(citel.chat, { text: txt });
+          } catch (err) {
+            console.error(err);
+            return await citel.reply('*Error while getting Blocked Numbers.\nError: *' + err);
+          }
     }
     )
      //---------------------------------------------------------------------------
@@ -283,7 +280,7 @@ if (!citel.quoted) return citel.reply (`*Please Reply To A User*`)
                             //quoted: "923184474176@s.whatsapp.net", 
                             //contextInfo: { forwardingScore: 1999999, isForwarded: false },
                             image: { url: pfp },
-                            caption: '  *---Profile Pic Is Here---*\n\t\t'+Config.caption,
+                            caption: '  *---Profile Pic Is Here---*\n'+Config.caption,
                             footer: tlang().footer,
                             headerType: 4,
                    
@@ -296,13 +293,15 @@ if (!citel.quoted) return citel.reply (`*Please Reply To A User*`)
      //---------------------------------------------------------------------------
  cmd({
              pattern: "readmore",
+             alias:["rmore",'readmor'],
              desc: "Adds *readmore* in given text.",
              category: "misc",
              filename: __filename
          },
          async(Void, citel, text) => {
-             await citel.reply(text.replace(/\+/g, (String.fromCharCode(8206)).repeat(4001)))
- 
+            if(!text) {text = `*Uhh Dear, Give Text, Eg:- _.readmor text1 readmore text2_*`; }
+            else { text += " " }
+            text.includes("readmore")?await citel.reply(text.replace(/readmore/, (String.fromCharCode(8206)).repeat(4001))) : await citel.reply(text.replace(" ", (String.fromCharCode(8206)).repeat(4001)))
          }
      )
   //---------------------------------------------------------------------------
