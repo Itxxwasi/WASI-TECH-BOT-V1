@@ -901,15 +901,35 @@ cmd({
             }
         }
     )
-    //---------------------------------------------------------------------------
+    //--------------------------------------------------------------------------- 
 cmd({
             pattern: "getjids",
+            alias:['gjid','gjids'],
             desc: "Sends chat id of every groups.",
             category: "group",
             filename: __filename,
         },
         async(Void, citel, text,{ isCreator }) => {
             if (!isCreator) return citel.reply(tlang().owner)
+            n = await Void.groupFetchAllParticipating();
+            const c=Object.entries(n).slice(0).map(t=>t[1]);
+            let a="";
+            let onlyJids = false ; 
+            let onlyNames = false ; 
+            if(text.includes("jid")) {  onlyJids = true ; }
+            else if(text.includes("name")) {  onlyNames = true ; }
+            await citel.reply(`Fetching ${onlyJids ? "Only jids" : ( onlyNames ? "Only Names" : "Names and Jids") } from ${c.length} Groups`);
+            await sleep(2000); 
+            for(var i of c.map(t=>t.id))
+            {
+                a+= onlyJids ? "" : `\n*Group:* ${n[i].subject} `;
+                a+= onlyNames ? "" :`\n*JID:* ${i}\n`;
+            }
+            return await citel.send(a)
+
+
+	/*
+	
 
 let getGroups = await Void.groupFetchAllParticipating();
 let anu = Object.values(getGroups).map(v => v.id);
@@ -926,11 +946,10 @@ await Promise.all(anu.map(async i => {
 return await citel.reply(res);
 	//return await Void.sendMessage(citel.chat,{text:res},{quoted:citel})
 	
+	//----------------------------------------------------------------------
 	
 	
-	
-	/*
-	
+
 	let getGroups = await Void.groupFetchAllParticipating();
             let groups = Object.entries(getGroups)
                 .slice(0)
