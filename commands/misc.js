@@ -1,13 +1,43 @@
 /**
- Copyright (C) 2022.
- Licensed under the  GPL-3.0 License;
- You may not use this file except in compliance with the License.
- It is supplied in the hope that it may be useful.
- * @project_name : Secktor-Md By Suhail Tech
- * @author : SuhailTech <https://www.youtube.com/c/SuhailTechInfo>
- * @description : Secktor Bot ,A Multi-functional whatsapp bot.
- * @version 0.0.6
- **/
+
+//══════════════════════════════════════════════════════════════════════════════════════════════════════//
+//                                                                                                      //
+//                                ＷＨＡＴＳＡＰＰ ＢＯＴ－ＭＤ ＢＥＴＡ                                   //
+//                                                                                                      // 
+//                                         Ｖ：１．０．１                                                // 
+//                                                                                                      // 
+//            ███████╗██╗   ██╗██╗  ██╗ █████╗ ██╗██╗         ███╗   ███╗██████╗                        //
+//            ██╔════╝██║   ██║██║  ██║██╔══██╗██║██║         ████╗ ████║██╔══██╗                       //
+//            ███████╗██║   ██║███████║███████║██║██║         ██╔████╔██║██║  ██║                       //
+//            ╚════██║██║   ██║██╔══██║██╔══██║██║██║         ██║╚██╔╝██║██║  ██║                       //
+//            ███████║╚██████╔╝██║  ██║██║  ██║██║███████╗    ██║ ╚═╝ ██║██████╔╝                       //
+//            ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚══════╝    ╚═╝     ╚═╝╚═════╝                        //
+//                                                                                                      //
+//                                                                                                      //
+//                                                                                                      //
+//══════════════════════════════════════════════════════════════════════════════════════════════════════//
+
+CURRENTLY RUNNING ON BETA VERSION!!
+*
+   * @project_name : Suhail-Md
+   * @author : Suhail Tech Info
+   * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
+   * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
+   * @version 1.0.1
+*
+   * Licensed under the  GPL-3.0 License;
+* 
+   * Created By Suhail Tech Info.
+   * © 2023 Suhail-Md.
+* 
+   * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   * SOFTWARE.
+**/
 
  const {tlang, getAdmin, prefix, Config, sck,sck1, fetchJson,getBuffer, runtime,cmd } = require('../lib')
  let { dBinary, eBinary } = require("../lib/binary");
@@ -25,14 +55,11 @@ const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter")
 },
 async(Void, citel, text,{ isCreator }) => {
 
-    let grp =citel.chat;
-if (!citel.isGroup) return citel.reply(tlang().group);
-
-  //if (!isCreator) return citel.reply(tlang().owner)
- const groupAdmins = await getAdmin(Void, citel)	
- const isAdmins = groupAdmins.includes(citel.sender) 
- if (!isAdmins) return citel.reply(tlang().admin);
- 
+        let grp =citel.chat;
+        if (!citel.isGroup) return citel.reply(tlang().group);
+        const groupAdmins = await getAdmin(Void, citel)	
+        const isAdmins = groupAdmins.includes(citel.sender) 
+        if (!isAdmins && !isCreator) return citel.reply(tlang().admin);
  
       let Group = await sck.findOne({ id: citel.chat });
       if (!text)  {  return await citel.reply ("*Wellcome Message :* "+Group.welcome)  }
@@ -42,17 +69,8 @@ if (!citel.isGroup) return citel.reply(tlang().group);
       let num = citel.sender;
   
       var welcome_messages = text.replace(/@pp/g, '').replace(/@user/gi, `@${num.split("@")[0]}`).replace(/@gname/gi, metadata.subject).replace(/@desc/gi, metadata.desc);
-      try {  ppuser = await Void.profilePictureUrl(num, 'image') }catch { ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg' ; }
-       
-  
-       let buttonMessage = {
-                image: { url: ppuser },
-                caption: welcome_messages,
-                //footer: `${Config.botname}`,
-                // mentions: [num],
-                headerType: 4,
-          }
-          return await Void.sendMessage(citel.chat, buttonMessage)
+      try {  ppuser = await Void.profilePictureUrl(num, 'image') }catch { ppuser = 'https://telegra.ph/file/93f1e7e8a1d7c4486df9e.jpg' ; }
+      return await Void.sendMessage(citel.chat, { image: { url: ppuser }, caption: welcome_messages,} )
   
 
   
@@ -81,29 +99,22 @@ cmd({
 },
 async(Void, citel, text,{ isCreator }) => {
 
-if (!citel.isGroup) return citel.reply(tlang().group);
+    if (!citel.isGroup) return citel.reply(tlang().group);
+    const groupAdmins = await getAdmin(Void, citel)	
+    const isAdmins = groupAdmins.includes(citel.sender) 
+    if (!isAdmins && !isCreator) return citel.reply(tlang().admin);
+
+    let Group = await sck.findOne({ id: citel.chat })
+    if (!text)  {  return await citel.reply ("*_Goodbye Message Is:_* "+Group.goodbye)  }
+    await sck.updateOne({ id: citel.chat }, { goodbye:text,events:'true' }) 
  
- if (!isCreator) return citel.reply(tlang().owner)      
- let Group = await sck.findOne({ id: citel.chat })
- if (!text)  {  return await citel.reply ("*Goodbye Message Is:* "+Group.goodbye)  }
- await sck.updateOne({ id: citel.chat }, { goodbye:text,events:'true' }) 
- 
-      let metadata = await Void.groupMetadata(citel.chat);
-      var ppuser;
-      let num = citel.sender;
- 
-       var goodbye_messages = text.replace(/@pp/g, '').replace(/@user/gi, `@${num.split("@")[0]}`).replace(/@gname/gi, metadata.subject).replace(/@desc/gi, metadata.desc);
-      try {  ppuser = await Void.profilePictureUrl(num, 'image') }catch { ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg' ; }
-   
- 
-        let buttonMessage = {
-                image: { url: ppuser },
-                caption: goodbye_messages,
-                //footer: `${Config.botname}`,
-                // mentions: [num],
-                headerType: 4,
-          }
-          return await Void.sendMessage(citel.chat, buttonMessage)
+    let metadata = await Void.groupMetadata(citel.chat);
+    var ppuser;
+    let num = citel.sender;
+    var goodbye_messages = text.replace(/@pp/g, '').replace(/@user/gi, `@${num.split("@")[0]}`).replace(/@gname/gi, metadata.subject).replace(/@desc/gi, metadata.desc);
+    try {  ppuser = await Void.profilePictureUrl(num, 'image') }catch { ppuser = 'https://telegra.ph/file/93f1e7e8a1d7c4486df9e.jpg' ; }
+
+        return await Void.sendMessage(citel.chat, { image: { url: ppuser }, caption: goodbye_messages, })
   
 
  

@@ -43,7 +43,7 @@ module.exports = {
   HEROKU_APP_NAME: process.env.HEROKU_APP_NAME,
   HEROKU_API_KEY: process.env.HEROKU_API_KEY,
   caption :process.env.CAPTION || "\t*•ᴘᴏᴡᴇʀᴇᴅ ʙʏ sᴜʜᴀɪʟ²²¹-ᴍᴅ•* ",   //*『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n youtube.com/@suhailtechinfo0"),
-  ALIVE_MESSAGE: process.env.ALIVE_MESSAGE  ,
+  promote_demote_messages : process.env.PROMOTE_DEMOTE_MESSAGES || 'false' ,
   OPENAI_API_KEY: process.env.OPENAI_API_KEY ||'' ,
   VERSION: process.env.VERSION || 'v.0.0.3',
   LANG: process.env.THEME|| 'SUHAIL',
