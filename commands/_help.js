@@ -1,16 +1,44 @@
 /**
- Copyright (C) 2022.
- Licensed under the  GPL-3.0 License;
- You may not use this file except in compliance with the License.
- It is supplied in the hope that it may be useful.
- * @project_name : Secktor-Md By Suhail Tech
- * @author : SuhailTech <https://www.youtube.com/c/SuhailTechInfo>
- * @description : Secktor Bot ,A Multi-functional whatsapp bot.
- * @version 0.0.6
+
+//══════════════════════════════════════════════════════════════════════════════════════════════════════//
+//                                                                                                      //
+//                                ＷＨＡＴＳＡＰＰ ＢＯＴ－ＭＤ ＢＥＴＡ                                   //
+//                                                                                                      // 
+//                                         Ｖ：１．０．１                                                // 
+//                                                                                                      // 
+//            ███████╗██╗   ██╗██╗  ██╗ █████╗ ██╗██╗         ███╗   ███╗██████╗                        //
+//            ██╔════╝██║   ██║██║  ██║██╔══██╗██║██║         ████╗ ████║██╔══██╗                       //
+//            ███████╗██║   ██║███████║███████║██║██║         ██╔████╔██║██║  ██║                       //
+//            ╚════██║██║   ██║██╔══██║██╔══██║██║██║         ██║╚██╔╝██║██║  ██║                       //
+//            ███████║╚██████╔╝██║  ██║██║  ██║██║███████╗    ██║ ╚═╝ ██║██████╔╝                       //
+//            ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚══════╝    ╚═╝     ╚═╝╚═════╝                        //
+//                                                                                                      //
+//                                                                                                      //
+//                                                                                                      //
+//══════════════════════════════════════════════════════════════════════════════════════════════════════//
+
+CURRENTLY RUNNING ON BETA VERSION!!
+*
+   * @project_name : Suhail-Md
+   * @author : Suhail Tech Info
+   * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
+   * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
+   * @version 1.0.1 
+*
+   * Licensed under the  GPL-3.0 License;
+* 
+   * ┌┤Created By Suhail Tech Info.
+   * © 2023 Suhail-Md ✭ ⛥.
+* 
+   * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   * SOFTWARE.
  
- ✭
- ⛥
-  //┌┤\n`
+ 
  **/
 
 const os = require('os')
@@ -20,11 +48,36 @@ const Config = require('../config')
 let { fancytext, tlang, tiny, runtime, formatp, botpic, getBuffer ,prefix, sck1 } = require("../lib");
 const long = String.fromCharCode(8206)
 const readmore = long.repeat(4001)
-const Secktor = require('../lib/commands')
+const sᴜʜᴀɪʟ_ᴍᴅ = require('../lib/commands')
 
 
     //---------------------------------------------------------------------------
-Secktor.cmd({
+sᴜʜᴀɪʟ_ᴍᴅ.cmd({
+        pattern: "setcmd",
+        desc: "To check ping",
+        category: "general",
+        filename: __filename,
+    },
+    async(Void, citel,text) => {
+  let a = text.split(",")
+  if (!text || a.length < 2 ) return await citel.send("*_Uhh Dear, Give Cmd With New Name_*\n*Eg: _.setcmd New_Name,Cmd_Name_*")
+    
+    let newAlias = a[0].trim().toLowerCase()
+    let cmdName = a[1].trim().toLowerCase()
+  if (global.setCmdAlias[newAlias]) return await citel.send(`*_"${newAlias}" Already set for "${global.setCmdAlias[newAlias]}" Cmd, Please try another name_*`)
+  
+  const cmd = sᴜʜᴀɪʟ_ᴍᴅ.commands.find((cmd) => cmd.pattern === (cmdName)) || sᴜʜᴀɪʟ_ᴍᴅ.commands.find((cmd) => cmd.alias && cmd.alias.includes(cmdName))
+   if(cmd)
+   {
+     global.setCmdAlias[newAlias] = cmdName;
+     return await citel.send(`*_Cmd "${global.setCmdAlias[newAlias]}" Succesfully set to "${newAlias}"_*`)
+   }else return await citel.send(`*_Provided Cmd( ${cmdName}) not found in bot cmds. Please Provide Valid cmd Name_*`)
+
+});
+
+
+//------------------------------------------------------------------------------------
+sᴜʜᴀɪʟ_ᴍᴅ.cmd({
         pattern: "ping",
         desc: "To check ping",
         category: "general",
@@ -39,7 +92,7 @@ Secktor.cmd({
 
 
 //------------------------------------------------------------------------------------
-Secktor.cmd({
+sᴜʜᴀɪʟ_ᴍᴅ.cmd({
             pattern: "help",
             alias: ["menu"],
             desc: "Help list",
@@ -113,7 +166,7 @@ Secktor.cmd({
                 return await Void.sendMessage(citel.chat, buttonMessaged ,{ quoted : citel});
 })
     //---------------------------------------------------------------------------
-Secktor.cmd({
+sᴜʜᴀɪʟ_ᴍᴅ.cmd({
             pattern: "list",
             desc: "list menu",
             category: "general",
@@ -145,7 +198,7 @@ Secktor.cmd({
         }
     )
     //---------------------------------------------------------------------------
-Secktor.cmd({
+sᴜʜᴀɪʟ_ᴍᴅ.cmd({
         pattern: "owner",
         desc: "To check ping",
         category: "general",
@@ -183,19 +236,13 @@ Secktor.cmd({
     }
 )
 //------------------------------------------------------------------------------------
-const readDirectory = (text) => {
+const readDirectory = (path) => {
   return new Promise((resolve, reject) => {
-    fs.readdir(text, (err, files) => {
-      if (err) {reject('Error reading directory'); }
-      else {
-        //citel.reply("Files Here \n "+files.toString())
-        resolve(files);
-      }
-    });
+    fs.readdir(path, (err, files) => { if (err) {reject('Error reading directory'); }else { resolve(files); }  });
   });
 };
 //------------------------------------------------------------------------------------
-Secktor.cmd({
+sᴜʜᴀɪʟ_ᴍᴅ.cmd({
     pattern: "file",
     desc: "to get extact name where that command is in repo.\nSo user can edit that.",
     category: "general",
