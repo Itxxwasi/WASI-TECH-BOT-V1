@@ -40,7 +40,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
 **/
 
 
-
+ 
 const os = require('os')
 const moment = require("moment-timezone")
 const fs = require("fs")
@@ -137,7 +137,7 @@ sᴜʜᴀɪʟ_ᴍᴅ.cmd({
         var final = new Date().getTime();
         return await citel.reply('*Pong*\n *' + (final - inital) + ' ms* ');
     });
-    
+
 //------------------------------------------------------------------------------------
 sᴜʜᴀɪʟ_ᴍᴅ.cmd({
             pattern: "help",

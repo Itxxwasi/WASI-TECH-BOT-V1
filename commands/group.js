@@ -1046,7 +1046,7 @@ cmd({
         } catch(e) { return await Void.sendMessage(users , {text :"Error While Demote User : " + e, } ,{quoted : citel})   }
     }
 )
-
+ 
 //---------------------------------------------------------------------------
 cmd({
             pattern: "del",
