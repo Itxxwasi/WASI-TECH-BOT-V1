@@ -1,13 +1,43 @@
 /**
- Copyright (C) 2022.
- Licensed under the  GPL-3.0 License;
- You may not use this file except in compliance with the License.
- It is supplied in the hope that it may be useful.
- * @project_name : Secktor-Md
- * @author : SuhailTechInfo <https://github.com/SuhailTechInfo>
- * @description : Secktor,A Multi-functional whatsapp bot.
- * @version 0.0.6
- **/
+
+//══════════════════════════════════════════════════════════════════════════════════════════════════════//
+//                                                                                                      //
+//                                ＷＨＡＴＳＡＰＰ ＢＯＴ－ＭＤ ＢＥＴＡ                                   //
+//                                                                                                      // 
+//                                         Ｖ：１．０．１                                                // 
+//                                                                                                      // 
+//            ███████╗██╗   ██╗██╗  ██╗ █████╗ ██╗██╗         ███╗   ███╗██████╗                        //
+//            ██╔════╝██║   ██║██║  ██║██╔══██╗██║██║         ████╗ ████║██╔══██╗                       //
+//            ███████╗██║   ██║███████║███████║██║██║         ██╔████╔██║██║  ██║                       //
+//            ╚════██║██║   ██║██╔══██║██╔══██║██║██║         ██║╚██╔╝██║██║  ██║                       //
+//            ███████║╚██████╔╝██║  ██║██║  ██║██║███████╗    ██║ ╚═╝ ██║██████╔╝                       //
+//            ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚══════╝    ╚═╝     ╚═╝╚═════╝                        //
+//                                                                                                      //
+//                                                                                                      //
+//                                                                                                      //
+//══════════════════════════════════════════════════════════════════════════════════════════════════════//
+
+CURRENTLY RUNNING ON BETA VERSION!!
+*
+   * @project_name : Suhail-Md
+   * @author : Suhail Tech Info
+   * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
+   * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
+   * @version 1.0.1 
+*
+   * Licensed under the  GPL-3.0 License;
+* 
+   * ┌┤Created By Suhail Tech Info.
+   * © 2023 Suhail-Md ✭ ⛥.
+* 
+   * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   * SOFTWARE.
+**/
 
 const { sck, sck1,cmd, jsonformat, botpic, TelegraPh, RandomXP, Config, tlang, warndb, sleep,getAdmin,getBuffer, prefix } = require('../lib')
 const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter");
@@ -124,7 +154,27 @@ cmd({
             
         }
     )
+    
     //---------------------------------------------------------------------------
+    cmd({
+        pattern: "block",
+        desc: "blocks that person",
+        fromMe: true,
+        category: "owner",
+        filename: __filename,
+        use: '<quote/reply user.>'
+    },
+    async(Void, citel, text,{isCreator}) => {
+        if (!isCreator) citel.reply(tlang().owner);
+        let users = citel.quoted ? citel.quoted.sender : citel.mentionedJid[0] ? citel.mentionedJid[0] : "";
+        if(!users)  return await citel.reply("*Uhh dear, reply/mention an User*")
+        await Void.updateBlockStatus(users, "block")
+            .then((res) => { return Void.sendMessage(citel.chat, { react: { text: '✨', key: citel.key }});    })		    //console.log(jsonformat(res))
+            .catch((err) => console.log(jsonformat(err)));
+
+    }
+)
+//---------------------------------------------------------------------------
 cmd({
             pattern: "unblock",
             desc: "Unblocked to the quoted user.",
@@ -133,12 +183,12 @@ cmd({
 
         },
         async(Void, citel, text,{ isCreator }) => {
-            if (!citel.quoted) return citel.reply(`Please reply to user`);
             if (!isCreator) citel.reply(tlang().owner);
-            let users = citel.quoted ? citel.quoted.sender : citel.mentionedJid[0] ? citel.mentionedJid[0] : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
+            let users = citel.quoted ? citel.quoted.sender : citel.mentionedJid[0] ? citel.mentionedJid[0] : false ;
+            if(!users)  return await citel.reply("*Uhh dear, reply/mention an User*")
 	    let num = users.replace("@s.whatsapp.net","")
             await Void.updateBlockStatus(users, "unblock")
-                .then((res) => citel.reply(`${num} is Unblocked With Status : `+ jsonformat(res)))
+                .then((res) => citel.send(`*@${num} Unblocked Succesfully..!*`,{mentions : [ users , ]}))
                 .catch((err) => console.log(jsonformat(err)));
         }
     )
@@ -1014,8 +1064,7 @@ cmd({
                     id: citel.quoted.id,
                     participant: citel.quoted.sender
                 }
-                await Void.sendMessage(citel.chat, { delete: key })
-
+                return await Void.sendMessage(citel.chat, { delete: key })
             }
             if (!citel.quoted.isBot ) {
                 if (!citel.isGroup) return citel.reply(tlang().group)
@@ -1023,7 +1072,7 @@ cmd({
                 const botNumber = await Void.decodeJid(Void.user.id)
                 const isBotAdmins = citel.isGroup ? groupAdmins.includes(botNumber) : false;
                 const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
-                if (!isAdmins) return citel.reply('Only Admins are allowed to delete other persons message.')
+                if (!isAdmins) return citel.reply(tlang().admin)
                 if (!isBotAdmins) return citel.reply('I can\'t delete anyones message without getting Admin Role.')
                 if (!citel.quoted) return citel.reply(`Please reply to any message. ${tlang().greet}`);
                 let { chat, fromMe, id } = citel.quoted;
@@ -1065,27 +1114,7 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "block",
-            desc: "blocks that person",
-            fromMe: true,
-            category: "owner",
-            filename: __filename,
-            use: '<quote/reply user.>'
-        },
-        async(Void, citel, text,{isCreator}) => {
-            if (!citel.quoted) return citel.reply(`Please reply to user`);
-            if (!isCreator) citel.reply(tlang().owner);
-            let users = citel.quoted ? citel.quoted.sender : citel.mentionedJid[0] ? citel.mentionedJid[0] :  text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
-            await Void.updateBlockStatus(users, "block")
-                .then((res) => { return Void.sendMessage(citel.chat, { react: { text: '✨', key: citel.key }});    })		    //console.log(jsonformat(res))
-                .catch((err) => console.log(jsonformat(err)));
-
-        }
-    )
-    //---------------------------------------------------------------------------
-cmd({
         pattern: "broadcast",
-        alias: ["bc"],
         desc: "Bot makes a broadcast in all groups",
         fromMe: true,
         category: "group",

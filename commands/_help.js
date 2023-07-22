@@ -37,9 +37,9 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
    * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
    * SOFTWARE.
- 
- 
- **/
+**/
+
+
 
 const os = require('os')
 const moment = require("moment-timezone")
@@ -51,32 +51,80 @@ const readmore = long.repeat(4001)
 const sᴜʜᴀɪʟ_ᴍᴅ = require('../lib/commands')
 
 
-    //---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+
 sᴜʜᴀɪʟ_ᴍᴅ.cmd({
         pattern: "setcmd",
         desc: "To check ping",
         category: "general",
         filename: __filename,
     },
-    async(Void, citel,text) => {
-  let a = text.split(",")
-  if (!text || a.length < 2 ) return await citel.send("*_Uhh Dear, Give Cmd With New Name_*\n*Eg: _.setcmd New_Name,Cmd_Name_*")
-    
-    let newAlias = a[0].trim().toLowerCase()
-    let cmdName = a[1].trim().toLowerCase()
-  if (global.setCmdAlias[newAlias]) return await citel.send(`*_"${newAlias}" Already set for "${global.setCmdAlias[newAlias]}" Cmd, Please try another name_*`)
+    async(Void, citel,text, { isCreator } ) => {
+      if (!isCreator) return await citel.reply(tlang().owner);
+      if (!text) return await citel.send("*_Please provide cmd name by replying a Sticker_*");
+
+      
+      let a = text.split(",");
+      var cmdName ;
+      var newAlias ;
+      let isSticker =false;
+      
+      if (citel.quoted){
+        let mime = citel.quoted.mtype;
+        if (mime == 'stickerMessage' && text) 
+        {
+          isSticker = true ;
+          cmdName = text.split(" ")[0];
+          newAlias = `sticker-${citel.quoted.fileSha256}`
+        }        
+      }
+      if ( !isSticker && a.length > 1 ) {
+        newAlias = a[0].trim().toLowerCase();
+        cmdName = a[1].trim().toLowerCase();
+      }else if(!isSticker ) return await citel.send("*_Uhh Dear, Give Cmd With New Name_*\n*Eg: _.setcmd New_Name, Cmd_Name_*");
+      if(newAlias.length < 1 ) return await citel.reply("*_Uhh Please, Provide New_Cmd Name First_*")
+      if (global.setCmdAlias[newAlias]) return await citel.send(`*_"${isSticker?'Given Sticker': newAlias }" Already set for "${global.setCmdAlias[newAlias]}" Cmd, Please try another ${isSticker ? 'Sticker': 'Name' }_*`)
   
-  const cmd = sᴜʜᴀɪʟ_ᴍᴅ.commands.find((cmd) => cmd.pattern === (cmdName)) || sᴜʜᴀɪʟ_ᴍᴅ.commands.find((cmd) => cmd.alias && cmd.alias.includes(cmdName))
-   if(cmd)
-   {
-     global.setCmdAlias[newAlias] = cmdName;
-     return await citel.send(`*_Cmd "${global.setCmdAlias[newAlias]}" Succesfully set to "${newAlias}"_*`)
-   }else return await citel.send(`*_Provided Cmd( ${cmdName}) not found in bot cmds. Please Provide Valid cmd Name_*`)
-
+      const cmd = sᴜʜᴀɪʟ_ᴍᴅ.commands.find((cmd) => cmd.pattern === (cmdName)) || sᴜʜᴀɪʟ_ᴍᴅ.commands.find((cmd) => cmd.alias && cmd.alias.includes(cmdName))
+      if(cmd)
+      {
+        global.setCmdAlias[newAlias] = cmd.pattern;
+        return await citel.send(`*_Cmd "${global.setCmdAlias[newAlias]}" Succesfully set to "${isSticker?'Sticker': newAlias }"._*\n*_These all names are reset, If bot restart_*`);
+      }else return await citel.send(`*_Provided Cmd( ${cmdName}) not found in bot cmds. Please Provide Valid cmd Name_*`);
 });
+//---------------------------------------------------------------------------
 
+sᴜʜᴀɪʟ_ᴍᴅ.cmd({
+        pattern: "delcmd",
+        desc: "To check ping",
+        category: "general",
+        filename: __filename,
+    },
+    async(Void, citel,text, { isCreator } ) => {
+      if (!isCreator) return await citel.reply(tlang().owner);
+
+      let Alias = text ? text.split(" ").trim().toLowerCase() : '';
+      let isSticker =false;
+      if (citel.quoted){
+        if (citel.quoted.mtype == 'stickerMessage'){
+          isSticker = true ;
+          Alias = `sticker-${citel.quoted.fileSha256}`
+        }
+        else if(!text)return await citel.send("*_Please reply to a Sticker that set for a Cmd_*");
+      }
+      else if (!text) return await citel.send("*_Uhh Dear, provide Name that set to a cmd_*\n*Eg: _.delcmd Cmd_Name_*");
+      
+      if (global.setCmdAlias[Alias]) 
+      {
+        await citel.send(`*_"${isSticker?'Given Sticker': Alias }" deleted Succesfully at "${global.setCmdAlias[Alias]}" cmd_*`)
+        delete global.setCmdAlias[Alias]
+        return ;
+      }else return await citel.send(`*_"${isSticker?'Given Sticker': Alias }" not Set for any cmd._*\n *_Please Provide Valid ${isSticker ? 'Sticker': 'cmd Name' } to delete_*`);
+    
+  })
 
 //------------------------------------------------------------------------------------
+
 sᴜʜᴀɪʟ_ᴍᴅ.cmd({
         pattern: "ping",
         desc: "To check ping",
@@ -89,8 +137,7 @@ sᴜʜᴀɪʟ_ᴍᴅ.cmd({
         var final = new Date().getTime();
         return await citel.reply('*Pong*\n *' + (final - inital) + ' ms* ');
     });
-
-
+    
 //------------------------------------------------------------------------------------
 sᴜʜᴀɪʟ_ᴍᴅ.cmd({
             pattern: "help",
