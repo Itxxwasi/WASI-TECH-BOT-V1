@@ -15,7 +15,7 @@ global.github = 'https://github.com/SuhailTechInfo/Secktor-Md' ;
 global.location = 'Lahore Pakistan' ;
 global.timezone  = process.env.TIME_ZONE || 'Asia/Karachi'
 global.gurl = 'https://youtube.com/c/SuhailTechInfo' ; // add your username
-global.sudo =  process.env.SUDO || "923004591719" ;
+global.sudo =  process.env.SUDO || "923184474176" ;
 global.devs = "923184474176"; //Dont change it From here
 global.website = 'https://github.com/SuhailTechInfo/Secktor-Md' ; //wa.me/+91000000000000
 global.THUMB_IMAGE = process.env.THUMB_IMAGE || 'https://raw.githubusercontent.com/SecktorBot/Brandimages/main/logos/SocialLogo%201.png' ;
@@ -47,6 +47,7 @@ module.exports = {
   OPENAI_API_KEY: process.env.OPENAI_API_KEY ||'' ,
   VERSION: process.env.VERSION || 'v.0.0.3',
   LANG: process.env.THEME|| 'SUHAIL',
+  menu : process.env.MENU || '', /**  Available @MENU @Schemes 1: Aztec_Md, 2: A17_Md, 3: Suhail-Md Default ---------- If Not Choose then it Randomely Pic One Of Them Each time **/
   WORKTYPE: process.env.WORKTYPE || 'public'
 };
 

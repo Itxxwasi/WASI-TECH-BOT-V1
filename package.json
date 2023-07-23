@@ -1,6 +1,6 @@
 {
                "name": "Suhail-MD",
-               "version": "1.0.0",
+               "version": "1.0.1",
                "description": "Multi device whatsapp bot by SuhailTechInfo.",
                "main": "lib/client.js",
                "type": "commonjs",
@@ -30,6 +30,7 @@
                        "mongoose": "^6.2.1",
                        "mumaker": "^1.0.0",
                        "google-it": "^1.6.4",
+                       "async-g-i-s": "^1.4.0",
                        "file-type": "^16.5.3",
                        "form-data": "^4.0.0",
                        "ffmpeg": "^0.0.4",

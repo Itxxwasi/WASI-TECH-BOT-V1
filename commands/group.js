@@ -1123,14 +1123,13 @@ cmd({
     },
     async(Void, citel, text,{isCreator}) => {
         if (!isCreator) return citel.reply(tlang().owner)
+        if(!text) return await citel.reply(`*_Uhh Dear, Provide text to broadcast in all groups_*`)
         let getGroups = await Void.groupFetchAllParticipating();
         let groups = Object.entries(getGroups)
             .slice(0)
             .map((entry) => entry[1]);
         let anu = groups.map((v) => v.id);
-        citel.reply(`Send Broadcast To ${anu.length} Group Chat, Finish Time ${
-          anu.length * 1.5
-        } second`);
+        citel.send(`*_Send Broadcast To ${anu.length} Group Chat, Finish Time ${ anu.length * 1.5} second_*`);
         for (let i of anu) {
             await sleep(1500);
             let txt = `*--❗${tlang().title} Broadcast❗--*\n\n *🍀Author:* ${citel.pushName}\n\n${text}`;
@@ -1153,11 +1152,9 @@ cmd({
                     },
                 },
             };
-            await Void.sendMessage(i, buttonMessaged, {
-                quoted: citel,
-            });
+            await Void.sendMessage(i, buttonMessaged, { quoted: citel,});
         }
-        citel.reply(`*Successful Sending Broadcast To ${anu.length} Group(s)*`);
+        return await citel.reply(`*Successful Sending Broadcast To ${anu.length} Group(s)*`);
     }
 )
 
