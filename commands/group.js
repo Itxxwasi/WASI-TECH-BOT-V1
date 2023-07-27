@@ -625,7 +625,7 @@ cmd({
             Void.sendMessage(citel.chat, buttonMessage, { quoted: citel });
 
         }
-    )
+    ) 
     //---------------------------------------------------------------------------
 cmd({
             pattern: "rank",
