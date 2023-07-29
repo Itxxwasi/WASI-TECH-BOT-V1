@@ -132,7 +132,7 @@ cmd({
         
 
     //---------------------------------------------------------------------------
-/*
+
 
 cmd({
             pattern: "eval",
@@ -148,8 +148,8 @@ cmd({
                    if (typeof resultTest === "object") await citel.reply(JSON.stringify(resultTest));
                    else await citel.reply(resultTest.toString());
                } catch (err) { return  await citel.reply(err.toString()); }
-        })
-  */
+})
+  
 
 //---------------------------------------------------------------------------
 /*cmd({
