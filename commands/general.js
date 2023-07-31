@@ -21,7 +21,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
 *
    * @project_name : Suhail-Md
    * @author : Suhail Tech Info
-   * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
+   * @youtube : https://www.youtube.com/c/@SuhailTechInfo
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
    * @version 1.0.1 
 *
@@ -210,7 +210,7 @@ cmd({
 ╚══════════════════════════╝\n
 *⭐ Youtube Content :* How To Create Whatsapp Bot
 *🍽️ Total Subscriber:* 36 Subscribers
-*🍁 Channel Link:* _https://youtube.com/@suhailtechinfo0?sub_confirmation=1_\n
+*🍁 Channel Link:* _https://youtube.com/suhailtechinfo?sub_confirmation=1_\n
 ╭━━━━━━━━━━━━━━━━━━━━╮
 ┇  ╔═╦╗╔╦╗╔═╦═╦╦╦╦╗╔═╗
 ┇  ║╚╣║║║╚╣╚╣╔╣╔╣║╚╣═╣
