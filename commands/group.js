@@ -341,7 +341,7 @@ cmd({
 	    if (!citel.isGroup) return citel.reply(tlang().group);
 	    
         const groupAdmins = await getAdmin(Void, citel)	
-	const botNumber = await Void.decodeJid(Void.user.id)
+	    const botNumber = await Void.decodeJid(Void.user.id)
         const isBotAdmins =groupAdmins.includes(botNumber)
 	
 if (!isBotAdmins) return citel.reply("*_I'm Not Admin, So I can't Send Invite Link_*");
@@ -805,6 +805,7 @@ cmd({
             return citel.reply(leadtext)
         }
     )
+
     //---------------------------------------------------------------------------
 cmd({
             pattern: "promote",
@@ -813,30 +814,62 @@ cmd({
             filename: __filename,
             use: '<quote|reply|number>',
         },
-        async(Void, citel, text ,{ isCreator }) => {
-	if (!isCreator) return citel.reply("```Only My Owner Can Use This Command```")
-	
+        async(Void, citel, text ,{ isCreator }) => {	
             if (!citel.isGroup) return citel.reply(tlang().group);
             const groupAdmins = await getAdmin(Void, citel)
             const botNumber = await Void.decodeJid(Void.user.id)
             const isBotAdmins = citel.isGroup ? groupAdmins.includes(botNumber) : false;
             const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
-
-	    if (!isBotAdmins) return citel.reply("*_I'm Not Admin Here, So I Can't Promote Someone_*");
+	        if (!isBotAdmins) return citel.reply("*_I'm Not Admin Here, So I Can't Promote Someone_*");
             if (!isAdmins) return citel.reply(tlang().admin);
             
             try {
-                let users = citel.mentionedJid[0] ? citel.mentionedJid[0] : citel.quoted ? citel.quoted.sender : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
-                if (!users) return;
+                let users = citel.quoted ? citel.quoted.sender : citel.mentionedJid[0] ? citel.mentionedJid[0] : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
+                if (!users) return await citel.send("*_Uhh Dear, Reply/Mention to an User_*");
                 await Void.groupParticipantsUpdate(citel.chat, [users], "promote");
+                await citel.send(`*User promoted Succesfully!*`)
                 return await Void.sendMessage(citel.chat, { react: { text: '✨', key: citel.key }});
-            } catch {return await Void.sendMessage(citel.chat, { react: { text: '❌', key: citel.key }});
-                //		citel.reply(tlang().botAdmin);
-
+            } catch(e) {
+                console.log("Promote error : " , e )
+                await Void.sendMessage(citel.chat, { react: { text: '❌', key: citel.key }});
+                return await citel.reply(tlang().botAdmin);
             }
         }
     )
     //---------------------------------------------------------------------------
+cmd({
+    pattern: "demote",
+    desc: "Demotes replied/quoted user from group",
+    category: "group",
+    filename: __filename,
+    use: '<quote|reply|number>',
+},
+async(Void, citel, text,{ isCreator }) => {
+//if (!isCreator) return citel.reply("```Only My Owner Can Use This Command```")
+    if (!citel.isGroup) return citel.reply(tlang().group);
+    const groupAdmins = await getAdmin(Void, citel)
+    const botNumber = await Void.decodeJid(Void.user.id)
+    const isBotAdmins = citel.isGroup ? groupAdmins.includes(botNumber) : false;
+    const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
+    if (!isBotAdmins) return await citel.reply(`*_I'm Not Admin In This Group, Idiot_*`); 
+    if (!isAdmins) return citel.reply(tlang().admin);
+    
+    try {
+        let users = citel.quoted ? citel.quoted.sender : citel.mentionedJid[0] ? citel.mentionedJid[0] : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
+        if (!users) return await citel.send("*_Uhh Dear, Reply/Mention to an User_*");
+        await Void.groupParticipantsUpdate(citel.chat, [users], "demote");
+        await citel.send(`*User demoted Succesfully!*`)
+        return await Void.sendMessage(citel.chat, { react: { text: '✨', key: citel.key }});
+    } catch(e) {
+        console.log("Demote error : " , e )
+        await Void.sendMessage(citel.chat, { react: { text: '❌', key: citel.key }});
+        return await citel.reply(tlang().botAdmin);    
+    }
+
+}
+)
+
+//---------------------------------------------------------------------------
 cmd({
             pattern: "kick",
             desc: "Kicks replied/quoted user from group.",
@@ -845,7 +878,7 @@ cmd({
             use: '<quote|reply|number>',
         },
         async(Void, citel, text ,{ isCreator }) => {
-	if (!isCreator) return citel.reply("*_Only My Owner Can Use This Command_*")
+	//if (!isCreator) return citel.reply("*_Only My Owner Can Use This Command_*")
             if (!citel.isGroup) return citel.reply(tlang().group);
             const groupAdmins = await getAdmin(Void, citel)
             const botNumber = await Void.decodeJid(Void.user.id)
@@ -856,11 +889,14 @@ cmd({
             
             try {
                 let users = citel.quoted ? citel.quoted.sender : citel.mentionedJid[0] ? citel.mentionedJid[0] : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
-                if (!users) return;
+                if (!users) return citel.send("*_Uhh Dear, Reply/Mention to an User_*");
                 await Void.groupParticipantsUpdate(citel.chat, [users], "remove");
+                await citel.send(`*Hurray, User Kicked Succesfully!*`)
                 return await Void.sendMessage(citel.chat, { react: { text: '✨', key: citel.key }});
-            } catch {return await Void.sendMessage(citel.chat, { react: { text: '❌', key: citel.key }});
-                //		citel.reply(tlang().botAdmin);
+            } catch(e) {
+                console.log("Kick error : " , e )
+                await Void.sendMessage(citel.chat, { react: { text: '❌', key: citel.key }});
+                return await citel.reply(tlang().botAdmin);
 
             }
         }
@@ -1065,7 +1101,6 @@ cmd({
         },
         async(Void, citel, text,{isCreator}) => {
 	//if (!isCreator) return citel.reply("```Only My Owner Can Use This Command```")
-	        if (!text) return citel.reply("*_Uhh Dear, Please Provide An User._*");
             if (!citel.isGroup) return citel.reply(tlang().group);
             const groupAdmins = await getAdmin(Void, citel)
             const botNumber = await Void.decodeJid(Void.user.id)
@@ -1079,12 +1114,12 @@ cmd({
             let users = citel.quoted ? citel.quoted.sender : citel.mentionedJid[0] ? citel.mentionedJid[0] : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
             if (!users) return await citel.reply("*_Uhh Dear, Please Provide An User._*");
             if(citel.sender == botNumber ){
-            await Void.groupParticipantsUpdate(citel.chat, [users], "add");
-            return await Void.sendMessage(citel.chat, { react: { text: '✨', key: citel.key }});
-            }else 
-            {
+                await Void.groupParticipantsUpdate(citel.chat, [users], "add");
+                await citel.send(`*User Added Succesfully!*`)
+                return await Void.sendMessage(citel.chat, { react: { text: '✨', key: citel.key }});
+            }else {
                 await Void.sendMessage(citel.chat, { react: { text: '❌', key: citel.key }});
-                await Void.sendMessage(users , {text : `Here's The Group Invite Link\n @${citel.sender.split("@")[0]} Wants To Add You in This Group\n https://chat.whatsapp.com/${await Void.groupInviteCode(citel.chat)} _ \n ---------------  Join If YOu Feel Free?` ,} , {quoted : citel })
+                await Void.sendMessage(users , {text : `Here's The Group Invite Link\n User @${citel.sender.split("@")[0]} Wants To Add You in bellow Group\n https://chat.whatsapp.com/${await Void.groupInviteCode(citel.chat)} _ \n ------------ Join If YOu Feel Free?` ,mentions:[citel.sender,]} , {quoted : citel })
                 return await citel.reply(`_Can't Add User, Invite Sent_`)
             }
         }
@@ -1158,34 +1193,7 @@ return await citel.reply(res);
 
         }
     ) 
-    //---------------------------------------------------------------------------
-cmd({
-        pattern: "demote",
-        desc: "Demotes replied/quoted user from group",
-        category: "group",
-        filename: __filename,
-        use: '<quote|reply|number>',
-    },
-    async(Void, citel, text,{ isCreator }) => {
-	if (!isCreator) return citel.reply("```Only My Owner Can Use This Command```")
-        if (!citel.isGroup) return citel.reply(tlang().group);
-        const groupAdmins = await getAdmin(Void, citel)
-        const botNumber = await Void.decodeJid(Void.user.id)
-        const isBotAdmins = citel.isGroup ? groupAdmins.includes(botNumber) : false;
-        const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
-        if (!isBotAdmins) return await citel.reply(`*_I'm Not Admin In This Group, Idiot_*`); 
-        if (!isAdmins) return citel.reply(tlang().admin);
-        
-        try {
-            let users = citel.mentionedJid[0] ? citel.mentionedJid[0] : citel.quoted ? citel.quoted.sender : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
-            if (!users) return;
-           await Void.groupParticipantsUpdate(citel.chat, [users], "demote");
-           return await Void.sendMessage(citel.chat, { react: { text: '✨', key: citel.key }});
-        } catch(e) { return await Void.sendMessage(users , {text :"Error While Demote User : " + e, } ,{quoted : citel})   }
-    }
-)
- 
-//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
 cmd({
             pattern: "del",
             alias: ["delete" , "dlt"],
