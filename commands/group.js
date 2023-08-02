@@ -45,7 +45,7 @@ const moment = require("moment-timezone");
 const Levels = require("discord-xp");
 const fs = require('fs-extra')
 const Jimp = require("jimp");
-
+const sᴜʜᴀɪʟ_ᴍᴅ = require('../lib/commands')
 
      //---------------------------------------------------------------------------
      cmd({
