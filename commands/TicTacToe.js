@@ -153,9 +153,7 @@ cmd({ on: "text" },
       let isSurrender = !1;
       if (!/^([1-9]|(me)?give_up|surr?ender|off|skip)$/i.test(citel.text)) return;
       isSurrender = !/^[1-9]$/.test(citel.text);
-      if (citel.sender !== room.game.currentTurn) {
-        if (!isSurrender) return !0;
-      }
+      if (citel.sender !== room.game.currentTurn) {  if (!isSurrender) return !0;  }
       if (
         !isSurrender &&
         1 >
@@ -201,43 +199,18 @@ cmd({ on: "text" },
 ${arr.slice(0, 3).join("  ")}
 ${arr.slice(3, 6).join("  ")}
 ${arr.slice(6).join("  ")}
-${
-  isWin
-    ? `@${winner.split("@")[0]} Won ! and got 2000💎 in wallet🤑`
-    : isTie
-    ? `Game Tied,well done to both of you players.`
-    : `Current Turn ${["❌", "⭕"][1 * room.game._currentTurn]} @${
-        room.game.currentTurn.split("@")[0]
-      }`
-}
+${ isWin ? `@${winner.split("@")[0]} Won ! and got 2000💎 in wallet🤑` : isTie ? `Game Tied,well done to both of you players.` : `Current Turn ${["❌", "⭕"][1 * room.game._currentTurn]} @${ room.game.currentTurn.split("@")[0]}`  }
 ⭕:- @${room.game.playerO.split("@")[0]}
 ❌:- @${room.game.playerX.split("@")[0]}`;
 
       if ((room.game._currentTurn ^ isSurrender ? room.x : room.o) !== citel.chat)
         room[room.game._currentTurn ^ isSurrender ? "x" : "o"] = citel.chat;
-        if(isWin){
-        await eco.give(citel.sender, "secktor", 2000);
-        }
-      if (isWin || isTie) {
-        await Void.sendMessage(citel.chat, {
-          text: str,
-          buttons: [
-            {
-              buttonId: `${prefix}ttt`,
-              buttonText: { displayText: "Play again" },
-            },
-          ],
-          mentions: [room.game.playerO,room.game.playerX],
-        });
-      } else {
-        await Void.sendMessage(citel.chat, {
-          text: str,
-          mentions: [room.game.playerO,room.game.playerX],
-        });
-      }
-      if (isTie || isWin) {
+      if(isWin){  await eco.give(citel.sender, "Suhail", 2000);  }
+      if (isWin || isTie) { 
+        await Void.sendMessage(citel.chat, { text: str, mentions: [room.game.playerO,room.game.playerX], });
         delete this.game[room.id];
-      }
+      } 
+      else {  await Void.sendMessage(citel.chat, {  text: str,   mentions: [room.game.playerO,room.game.playerX], });  }
     }
   }
 );

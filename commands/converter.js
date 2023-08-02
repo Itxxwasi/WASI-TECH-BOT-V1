@@ -371,7 +371,7 @@ cmd({
             };
             let res = await axios.post("https://bot.lyo.su/quote/generate", body);
             let img = Buffer.alloc(res.data.result.image.length, res.data.result.image, "base64");
-            return citel.reply(img,{packname:Config.packname,author:''},"sticker")
+            return citel.send(img,{packname:Config.packname,author:''},"sticker")
 
         }
     )
@@ -396,7 +396,7 @@ cmd({
             }
 
             let fancytextt = await fancytext(`${text.slice(2)}`, text.split(" ")[0])
-            citel.reply(fancytextt)
+            citel.send(fancytextt)
 
         }
     )
@@ -414,7 +414,7 @@ cmd({
             try {
                 let link = text.split(" ")[0];
                 let anu = await axios.get(`https://tinyurl.com/api-create.php?url=${link}`);
-                citel.reply(`*🛡️Your Shortened URL*\n\n${anu.data}`);
+                citel.send(`*🛡️Your Shortened URL*\n\n${anu.data}`);
             } catch (e) {
                 console.log(e);
             }
@@ -447,7 +447,7 @@ if (mime =="audioMessage" || mime =="videoMessage")
 });
 
 }
- else return citel.reply ("*Uhh Please, Reply To A video Message*")
+ else return citel.send ("*Uhh Please, Reply To A video Message*")
     }
 )
      //---------------------------------------------------------------------------
@@ -461,7 +461,7 @@ cmd({
 },
 async(Void, citel, text) => {
     const { webp2mp4File } = require ("../lib")
-    if (!citel.quoted) return citel.reply('*Uhh Dear, Reply To Animated Sticker or Gif*')
+    if (!citel.quoted) return citel.send('*Uhh Dear, Reply To Animated Sticker or Gif*')
     let mime = citel.quoted.mtype
     let mimetype = citel.quoted.mimetype
     if( mime !="videoMessage" && !/webp/.test(mimetype)) return await citel.send("*Damn... Reply To An Animated Sticker or Gif *")
