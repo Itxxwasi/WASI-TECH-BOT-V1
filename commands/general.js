@@ -43,7 +43,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
 
 
 
-const { formatp , formatDate , tlang, botpic,cmd, prefix, runtime,Config } = require('../lib')
+const { formatp , formatDate , tlang, botpic,cmd, prefix, runtime,Config , parsedJid  } = require('../lib')
 const axios = require('axios')
 const fetch = require('node-fetch');
 const speed = require('performance-now')
