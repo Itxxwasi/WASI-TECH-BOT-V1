@@ -37,7 +37,7 @@ module.exports = {
   MsgsInLog:process.env.MSGS_IN_LOG ||'false',
   pmMsgsInLog:process.env.PM_MSGS_IN_LOGS ||'false',
   levelupmessage: process.env.LEVEL_UP_MESSAGE || 'true',
-  antilink: process.env.ANTILINK_VALUES || 'chat.whatsapp.com',
+  antilink_values: process.env.ANTILINK_VALUES || 'chat.whatsapp.com',
   antilinkaction: process.env.BRANCH || 'remove',
   BRANCH: process.env.BRANCH || 'main',
   HEROKU_APP_NAME: process.env.HEROKU_APP_NAME,
