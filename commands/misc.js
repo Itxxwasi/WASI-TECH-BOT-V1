@@ -264,30 +264,18 @@ cmd({
      //---------------------------------------------------------------------------
 
  cmd({
-             pattern: "getpp",
-             desc: "Get Profile Pic For Given User",
-             category: "user",
-             filename: __filename
-         },
-         async(Void, citel, text) => {
+        pattern: "getpp",
+        desc: "Get Profile Pic For Given User",
+        category: "user",
+        filename: __filename
+    },
+    async(Void, citel, text) => {
 
-if (!citel.quoted) return citel.reply (`*Please Reply To A User*`)
-    let pfp;
-     try  {  pfp = await Void.profilePictureUrl(citel.quoted.sender, "image"); } 
-     catch (e) {  return citel.reply("```Profile Pic Not Fetched```") } 
-//const ppUrl = await Void.profilePictureUrl(citel.quoted.sender, 'image')
-  
-                let buttonMessaged = {
-
-                            //quoted: "923184474176@s.whatsapp.net", 
-                            //contextInfo: { forwardingScore: 1999999, isForwarded: false },
-                            image: { url: pfp },
-                            caption: '  *---Profile Pic Is Here---*\n'+Config.caption,
-                            footer: tlang().footer,
-                            headerType: 4,
-                   
-                };
-                return await Void.sendMessage(citel.chat, buttonMessaged,{quoted:citel});
+        if (!citel.quoted) return citel.reply (`*Please Reply To A User*`)
+        let pfp;
+        try  { pfp = await Void.profilePictureUrl(citel.quoted.sender, "image"); } 
+        catch (e) {  return citel.reply("```Profile Pic Not Fetched```") } 
+        return await Void.sendMessage(citel.chat, {image: { url: pfp },caption: '  *---Profile Pic Is Here---*\n'+Config.caption, },{quoted:citel}); 
 
 
          }
@@ -309,7 +297,7 @@ if (!citel.quoted) return citel.reply (`*Please Reply To A User*`)
   //---------------------------------------------------------------------------
 cmd({
             pattern: "whois",
-            desc: "Makes photo of replied sticker.",
+            desc: "Get replied person info",
             category: "user",
             use: '<reply to any person>',
             filename: __filename
@@ -378,15 +366,40 @@ const vcard = 'BEGIN:VCARD\n' +
  
 })
      //---------------------------------------------------------------------------
-/*
+
 
  cmd({
              pattern: "calc",
-             desc: "Adds *readmore* in given text.",
+             desc: "Calculate two value.",
              category: "misc",
              filename: __filename
          },
          async(Void, citel, text) => {
+            
+            if (!text) return await citel.reply("Please enter a mathematical operation.");
+            text = text.replace(/\s+/g, '');
+            if (!/^(\d+([-+%*/]\d+)+)$/.test(text)) return await  citel.reply("Please enter a valid mathematical operation.");
+            const evaluate = (exp) => {  return new Function('return ' + exp)(); };
+            try {
+                const result = evaluate(text);
+                if (text.includes('/') && text.split('/').some((num) => num === '0')) return await citel.send("*Cannot divide by zero.*");
+                if (text.split(/[-+%*/]/).length <= 2) {
+                    const [num1, operator, num2] = text.match(/\d+|[-+%*/]/g);
+                    return citel.send(`${num1} ${operator} ${num2} = ${result}`);
+                } else {  return await citel.send(`Result: ${result}`); }
+            } catch (error) {  }
+
+
+
+
+
+
+
+
+
+
+/*
+
 let func  =  text.split(";")[0];
 let num1  =  +text.split(";")[1];
 let num2  =  +text.split(";")[2];
@@ -421,10 +434,10 @@ else
  {
 return citel.reply(`Give me Query Like :  ${prefix}calc add;10;50 `);
 }
- 
+ */
          }
      )
-*/
+
 
      //---------------------------------------------------------------------------
  cmd({
