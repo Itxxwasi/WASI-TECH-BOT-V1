@@ -219,7 +219,7 @@ const headers = {
   'Accept': 'application/vnd.heroku+json; version=3',
   'Authorization': `Bearer ${authToken}`
 };
-const varName = text.split(" ").toUpperCase()
+const varName = text.toUpperCase().split(" ")
 fetch(`https://api.heroku.com/apps/${appName}/config-vars`, { headers })
   .then(response => response.json())
   .then(data => {
