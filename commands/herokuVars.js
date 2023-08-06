@@ -55,16 +55,6 @@ const appName = Config.HEROKU_APP_NAME;
 const authToken = Config.HEROKU_API_KEY;
 const fetch = require('node-fetch');
 
-
-
-cmd({ pattern: "getsudo", desc: "Makes wa me of quoted or mentioned user.", category: "tools", filename: __filename},async(Void, citel, text) => {  return await  citel.reply(global.sudo);})
-
-
-
-
-
-
-
 if(Config.HEROKU_APP_NAME && Config.HEROKU_API_KEY ){
         
          cmd({
@@ -99,6 +89,13 @@ fetch(`https://api.heroku.com/apps/${appName}/config-vars`,
          })
 
 //--------------------------------------------------------------------
+ cmd({
+             pattern: "getsudo",
+             desc: "Makes wa me of quoted or mentioned user.",
+             category: "tools",
+             filename: __filename
+         },
+async(Void, citel, text) => {  return await  citel.reply(global.sudo);})
 //-------------------------------------------------------------------------
 
  cmd({
@@ -243,7 +240,7 @@ cmd({
         filename: __filename
     },
     async(Void, citel , text,{ isCreator }) => {
-else { if (!isCreator) return citel.reply(tlang().owner);}
+ if (!isCreator) return citel.reply(tlang().owner);
 if (!text) return citel.reply (`give me Variable Name\n*Example : ${prefix}setvar CAPTION: Powered By Suhail Tech*`);
 const headers = {
   'Accept': 'application/vnd.heroku+json; version=3',
@@ -253,6 +250,7 @@ const headers = {
 const commaIndex = text.indexOf(':');
 const varName = text.slice(0, commaIndex).toUpperCase().trim();
 const newVarValue = text.slice(commaIndex + 1).trim();
+
 if (!newVarValue) return citel.reply (`Please give me Value After ':' \n*Example : ${prefix}setvar AUTO_READ_STATUS:true*`);       
 fetch(`https://api.heroku.com/apps/${appName}/config-vars`, {
   method: 'GET',
@@ -275,8 +273,8 @@ fetch(`https://api.heroku.com/apps/${appName}/config-vars`, {
                         });
         }  else { throw new Error('Variable not found in app'); }
   }) 
-  .then(response => { if (response.ok) return citel.reply(`*${varName} updated successfully.*\n${varName}: ${newVarValue}`);  })
-  .catch(error => {   return citel.reply("*Uhh Please, Give me Valid Variable Name*") });
+  .then(response => { if (response.ok) return citel.reply(`${varName} updated successfully.\n${varName}: ${newVarValue}`);  })
+  .catch(error => {   return citel.reply("```Uhh Please, Give me Valid Variable Name```") });
     
     
         
