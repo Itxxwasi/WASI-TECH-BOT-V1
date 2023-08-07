@@ -43,7 +43,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
 
   const moment = require("moment-timezone")
   const Config = require('../config')
-  let { fancytext, tlang, tiny, botpic ,prefix, } = require("../lib");
+  let { fancytext, tlang, tiny, botpic ,prefix,cmd } = require("../lib");
   const long = String.fromCharCode(8206)
   const readmore = long.repeat(4001)
   let sᴜʜᴀɪʟ_ᴍᴅ ;
