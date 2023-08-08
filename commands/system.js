@@ -350,6 +350,10 @@ if(isCreator && text != "")
 {
        let aliv = await alive.findOne({ id:"1" }) || await new alive({ id:"1"}).save();
        if (text.startsWith("get")) return citel.reply(aliv.get);
+       if (text.toLowerCase().startsWith("info") ||  text.toLowerCase().startsWith("settings") ){
+        let cap = `*sᴜʜᴀɪʟ-ᴍᴅ • ᴀʟɪᴠᴇ ᴍᴇssᴀɢᴇ sᴇᴛᴛɪɴɢs*\n\n*KeyWords for Alive Message:*\n &user :`+ " ```To add user name,```\n &uptime: ```To add Uptime of bot,```\n &line : ```To add random pickup Line,```\n &quote: ```To add random quote with auther,```"+`\n\n*Update Alive by adding text with Alive*\n`+"```.alive Your_Alive_Message_here```"+`\n\n*Also Add photo and video url in Alive*\n`+"```.alive Your_Alive_Message_here``` https://telegra.ph/file/ec9bc5038601821f2eb84.jpg"+`\n\n*Alive Message With Url And All Keywords*\n`+"```.alive``` url_here \n```Hey &user``` 🍂\n```I Am Suhail-Md, A Multidevice Whatsapp User Bot.```\nBot alive since ```&uptime```\n*Quote:* ```&quote```\n*Pickup Line:* ```&line```\n\n"
+        return await Void.sendMessage(citel.chat, {image: { url: await botpic()} , caption:cap+Config.caption},{quoted : citel });
+       } 
        const linkPattern = /(https?:\/\/\S+)/gi;
        const imageExtensions = ['.jpg', '.jpeg', '.png'];
        const videoExtensions = ['.mp4', '.avi', '.mov', '.mkv', '.gif'];
@@ -377,13 +381,7 @@ if(isCreator && text != "")
      let quote = `${quoo.data.quote.body} By ${quoo.data.quote.author}`; 
      alivemessage = alivemessage.replace('&quote', quote);
   }
-   if(alivemessage.includes('&line'))
-   {
-       var resultt = await fetchJson(`https://api.popcat.xyz/pickuplines`);
-       var line = resultt.pickupline;
-       alivemessage = alivemessage.replace('&line', line);
-   }
-  
+   alivemessage = alivemessage.replace('&uptime', runtime(process.uptime())).replace('&user', citel.pushName).replace('&line', await (await fetchJson('https://api.popcat.xyz/pickuplines')).pickupline)  ;
          
         
           image = aliv.image || false;

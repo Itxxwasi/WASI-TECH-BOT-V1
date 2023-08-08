@@ -56,8 +56,9 @@ const _0x3c0522=_0x2ab3;(function(_0x42e49e,_0x4e2d41){const _0x1434b0=_0x2ab3,_
 }
 ///============================================================================================
 cmd({ pattern: "ptv", desc: "send ptv Message of video", category: "whatsapp",filename: __filename},async(Void, citel, text,{cmdName , isCreator}) => {
+    if(!citel.quoted) return await citel.send("*Uhh please, reply to a video Message*")
     let mtype = citel.quoted.mtype 
-    if(mtype !== "videoMessage") return await citel.send("*Uhh Dear, reply to a video message*")
+    if(mtype !== "videoMessage") return await citel.send("*Replied Message is not a video, Idiot.*")
     return await forwardMessage(citel.chat, Void, citel, cmdName )
 })////------------------------------------------------------------
 cmd({pattern: "#", desc: "Save whatsapp status",category: "whatsapp",filename: __filename},async(Void, citel, text,{cmdName , isCreator}) => {
@@ -67,7 +68,7 @@ cmd({pattern: "#", desc: "Save whatsapp status",category: "whatsapp",filename: _
 })//--------------------------------------------------------------------
 cmd({pattern: "save",desc: "Save Message to log number",category: "whatsapp",filename: __filename},async(Void, citel, text,{cmdName , isCreator}) => {
     if(!isCreator) return await citel.send(tlang().owner)
-    if(!citel.quoted) return await citel.send("*Uhh Please, reply to to a Message*")
+    if(!citel.quoted) return await citel.send("*Uhh Please, reply to a Message*")
     let sᴜʜᴀɪʟ_ᴍᴅ_num = await Void.decodeJid(Void.user.id)
     return await forwardMessage(sᴜʜᴀɪʟ_ᴍᴅ_num, Void, citel, cmdName )
 })///================================================================================

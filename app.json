@@ -26,7 +26,7 @@
     },
    "ANTILINK_VALUES": {
     "description": "Put words for antilink",
-     "value": "chat.whatsapp.com,fb.com,instagram.com",
+     "value": "https://,chat.whatsapp.com,fb.com,instagram.com",
      "required" :false
     },
   "LEVEL_UP_MESSAGE": {
@@ -44,7 +44,7 @@
      "required" :false,
      "value": "false"
     },
-      "READ_MESSAGE": {
+    "READ_MESSAGE": {
     "description": "Fill the value true if you want bot to read all messages.",
      "required" :false,
      "value": "false"
@@ -82,13 +82,13 @@
   },
   "MONGODB_URI": {
     "description": "Replace it, If you have your own Mongodb key. Its a secret String for Mongodb Connection.(Required)",
-     "value": "mongodb+srv://Suhail_Md:Suhail_Md@cluster1.0tlyzhm.mongodb.net/?retryWrites=true&w=majority"
+     "value": ""
   },
-    "WORKTYPE": {
+    "MODE": {
   "description": "Worktype of your bot. Use public or private, if it is private then only bot number can use it. If public then everyone can use it.",
          "value": "private"
   },
-      "AUTO_REACTION": {
+    "AUTO_REACTION": {
     "description": " Set it `true` If You Wants To Reacts emoji to all commands. \n And Set it `all` is You Wants to React Emojies to All Messages",
      "value": "false",
      "required": false 
