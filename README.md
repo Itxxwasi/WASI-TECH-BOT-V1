@@ -58,7 +58,7 @@
 4.  ***Deploy tutorial [`Youtube Video`](https://youtu.be/6rnftFl0fAI).***
 
 
-5.  ***Deploy FREE on [`Codespace,`] First see [`Codespace tutorial`](https://youtu.be/3NdJb6_1cJM) ***
+5.  ***Deploy FREE on `Codespace,` First see [`Codespace tutorial`](https://youtu.be/3NdJb6_1cJM)***
 6.  ***Deploy on [`HEROKU`](https://suhail-md-01-800bb9db72c8.herokuapp.com/heroku)***
 7.  ***Deploy on [`Replit`](https://suhail-md-01-800bb9db72c8.herokuapp.com/replit)***
 
