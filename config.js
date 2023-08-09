@@ -3,8 +3,8 @@ if (fs.existsSync('config.env')) require('dotenv').config({ path: __dirname+'/co
 
 
 //═══════[Required Variables]════════\\
-global.owner = process.env.OWNER_NUMBER || '923184474176' ;
-global.mongodb = process.env.MONGODB_URI || "mongodb+srv://sam:sam@cluster0.u1smxsv.mongodb.net/?retryWrites=true&w=majority" ;
+global.owner = process.env.OWNER_NUMBER ? process.env.OWNER_NUMBER.replace(/[\s+]/g, ''): '923184474176';
+global.mongodb = process.env.MONGODB_URI || "mongodb+srv://Suhail_Md:Suhail_Md@cluster1.0tlyzhm.mongodb.net/?retryWrites=true&w=majority" ;
 global.port=5000  ;
 global.audio = '' ; 
 global.video = '' ;
@@ -18,10 +18,11 @@ global.gurl = 'https://youtube.com/c/SuhailTechInfo' ; // add your username
 global.sudo =  process.env.SUDO || "923184474176" ;
 global.devs = "923184474176"; //Dont change it From here
 global.website = 'https://github.com/SuhailTechInfo/Secktor-Md' ; //wa.me/+91000000000000
-global.THUMB_IMAGE = process.env.THUMB_IMAGE || 'https://raw.githubusercontent.com/SecktorBot/Brandimages/main/logos/SocialLogo%201.png' ;
+global.THUMB_IMAGE = process.env.THUMB_IMAGE || 'https://i.imgur.com/NpA3ZsJ.jpeg' ;
 module.exports = {
   sessionName: process.env.SESSION_ID || '',      //Put Your Session Id Here
   botname: process.env.BOT_NAME || 'sᴜʜᴀɪʟ²²¹-ᴍᴅ',
+  botbgm: process.env.BOT_BGM || 'false',
   ownername:  process.env.OWNER_NAME || `It'x Suhail`,
   author:  process.env.PACK_AUTHER || '', 
   read_status : process.env.AUTO_READ_STATUS || 'true',

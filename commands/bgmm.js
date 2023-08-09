@@ -111,7 +111,7 @@ if (!path) return await citel.reply("There's an Error While Adding Bgm Song")
 
 
 cmd({ on: "text" }, async (Void,citel,text)=> {
-  if(Config.disablepm)
+  if(Config.botbgm === 'true' &&  citel.text.length > 1)
   {
     let citelText = ` ${citel.text} ` ; 
      let bgmm= await bgms.findOne({ id:"3" }) || await new bgms({ id:"3"}).save();

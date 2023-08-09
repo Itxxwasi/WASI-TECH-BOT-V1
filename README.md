@@ -3,7 +3,7 @@
 
 <p align="center">
   <a href="https://youtube.com/@suhailtechinfo">
-    <img alt="secktor docs" height="300" src="https://telegra.ph/file/ec9bc5038601821f2eb84.jpg">
+    <img alt="Suhail docs" height="300" src="https://telegra.ph/file/ec9bc5038601821f2eb84.jpg">
   </a>
 </p>
   
@@ -52,12 +52,16 @@
  
 ## Deployment Methods
 ---
-1. ***Get [`SESSION ID`](https://replit.com/@SuhailTechInfo/Secktor-Bot)  by scanning QR code. `Whatapp>Three dots>Linked Devices`***
-2.  ***Get a Mongodb uri from [`Mongodb`](https://github.com/SamPandey001/Secktor-Md/wiki/Mongodb-URI) | [`Tutorial`](https://youtu.be/6rnftFl0fAI).***
-3.  ***Click [`FORK`](https://github.com/SuhailTechInfo/Secktor-bot/fork) and `Star ⭐` Repo.***
+1.  ***Get [`SESSION ID`](https://replit.com/@SuhailTechInfo/Secktor-Bot) by scanning QR code. And Scan it `Go-to Whatapp>Three dots>Linked Devices`***
+2.  ***Get Mongodb_URI from [`Mongodb site`](https://www.mongodb.com/) | Watch Tutorial [`To Get Mongodb_URI`](https://youtu.be/6rnftFl0fAI).***
+3.  ***Click [`FORK`](https://github.com/SuhailTechInfo/Secktor-bot/fork) and `Star ⭐ Repository` if you Like that Bot.***
 4.  ***Deploy tutorial [`Youtube Video`](https://youtu.be/6rnftFl0fAI).***
-5.  ***Deploy on [`HEROKU`](https://suhail-md001-0c28c330d2b2.herokuapp.com/heroku)***
-6.  ***Deploy on [`Replit`](https://repl.it/github/SuhailTechInfo/Secktor-bot)***
+
+
+5.  ***Deploy FREE on [`Codespace,`] First see [`Codespace tutorial`](https://youtu.be/3NdJb6_1cJM) ***
+6.  ***Deploy on [`HEROKU`](https://suhail-md-01-800bb9db72c8.herokuapp.com/heroku)***
+7.  ***Deploy on [`Replit`](https://suhail-md-01-800bb9db72c8.herokuapp.com/replit)***
+
 ##
 
 
