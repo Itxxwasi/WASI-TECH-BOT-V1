@@ -1,13 +1,44 @@
 /**
- Copyright (C) 2022.
- Licensed under the  GPL-3.0 License;
- You may not use this file except in compliance with the License.
- It is supplied in the hope that it may be useful.
- * @project_name : Secktor-Md
- * @author : SamPandey001 <https://github.com/SamPandey001>
- * @description : Secktor,A Multi-functional whatsapp bot.
- * @version 0.0.6
+
+//══════════════════════════════════════════════════════════════════════════════════════════════════════//
+//                                                                                                      //
+//                                ＷＨＡＴＳＡＰＰ ＢＯＴ－ＭＤ ＢＥＴＡ                                   //
+//                                                                                                      // 
+//                                         Ｖ：１．０．１                                                // 
+//                                                                                                      // 
+//            ███████╗██╗   ██╗██╗  ██╗ █████╗ ██╗██╗         ███╗   ███╗██████╗                        //
+//            ██╔════╝██║   ██║██║  ██║██╔══██╗██║██║         ████╗ ████║██╔══██╗                       //
+//            ███████╗██║   ██║███████║███████║██║██║         ██╔████╔██║██║  ██║                       //
+//            ╚════██║██║   ██║██╔══██║██╔══██║██║██║         ██║╚██╔╝██║██║  ██║                       //
+//            ███████║╚██████╔╝██║  ██║██║  ██║██║███████╗    ██║ ╚═╝ ██║██████╔╝                       //
+//            ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚══════╝    ╚═╝     ╚═╝╚═════╝                        //
+//                                                                                                      //
+//                                                                                                      //
+//                                                                                                      //
+//══════════════════════════════════════════════════════════════════════════════════════════════════════//
+
+CURRENTLY RUNNING ON BETA VERSION!!
+*
+   * @project_name : Suhail-Md
+   * @author : Suhail Tech Info
+   * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
+   * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
+   * @version 1.0.1
+*
+   * Licensed under the  GPL-3.0 License;
+* 
+   * Created By Suhail Tech Info.
+   * © 2023 Suhail-Md.
+* 
+   * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   * SOFTWARE.
  **/
+
 
 const moment = require('moment-timezone')
 const {fetchJson,cmd, tlang, getBuffer, prefix, Config } = require('../lib')
@@ -24,7 +55,7 @@ const fetch = require('node-fetch')
            desc: "Finds info about song",
            filename: __filename,
        },
-       async(Void, citel, text) => {
+       async(Suhail, citel, text) => {
             let mime = citel.quoted.mtype
             if (!citel.quoted) return citel.reply(`Send/Reply audio  ${prefix}find`);
             if (!/audio/.test(mime)) return citel.reply(`Send/Reply audio ${prefix}shazam`);
@@ -53,11 +84,11 @@ const fetch = require('node-fetch')
                            thumbnail: log0,
                            mediaType: 2,
                            mediaUrl: ``,
-                           sourceUrl: ``,
+                           sourceUrl: gurl,
                        },
                    },
                };
-               await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel, });
+               await Suhail.bot.sendMessage(citel.chat, buttonMessaged, { quoted: citel, });
        }
     )
     //------------------------------------------------------------------------------------
@@ -69,14 +100,14 @@ cmd({
             use: '<text>',
             filename: __filename,
         },
-        async(Void, citel, text) => {
+        async(Suhail, citel, text) => {
 let limit = 5;
  try {
     if (!text) return citel.reply("```Uhh Please, Give me Url!```");
     var url = text;
     let urll = `https://s.vercel.app/api?url=${url.match(/\bhttps?:\/\/\S+/gi)[0]}&width=1280&height=720`
     let media  = await getBuffer(urll)
-    return await Void.sendMessage(citel.chat ,{image : media } , {quoted:citel} )
+    return await Suhail.bot.sendMessage(citel.chat ,{image : media } , {quoted:citel} )
  }
 catch (err) { return citel.reply("```Error While Fetching Snapshot```")}
         }
@@ -92,7 +123,7 @@ cmd({
             use: '<text>',
             filename: __filename,
         },
-        async(Void, citel, text) => {
+        async(Suhail, citel, text) => {
             if (!text) return citel.reply(`_Name a Series or movie ${tlang().greet}._`);
             let fids = await axios.get(`http://www.omdbapi.com/?apikey=742b2d09&t=${text}&plot=full`);
             let imdbt = "";
@@ -116,7 +147,7 @@ cmd({
             imdbt += "🌟imdbRating : " + fids.data.imdbRating + "\n";
             imdbt += "❎imdbVotes  : " + fids.data.imdbVotes + "\n";
             imdbt += Config.caption ;
-            Void.sendMessage(citel.chat, {  image: { url: fids.data.Poster, }, caption: imdbt,  }, {   quoted: citel,  });
+            Suhail.bot.sendMessage(citel.chat, {  image: { url: fids.data.Poster, }, caption: imdbt,  }, {   quoted: citel,  });
 
         }
     )
@@ -128,7 +159,7 @@ cmd({
             use: '<location>',
             filename: __filename,
         },
-        async(Void, citel, text) => {
+        async(Suhail, citel, text) => {
             if (!text) return citel.reply(`Give me location.Baka!!`);
             let wdata = await axios.get(
                 `https://api.openweathermap.org/data/2.5/weather?q=${text}&units=metric&appid=060a6bcfa19809c2cd4d97a212b19273&language=en`
@@ -147,7 +178,7 @@ cmd({
             textw += `*Country:-* ${wdata.data.sys.country}\n`;
             textw +=Config.caption ;
 
-            Void.sendMessage( citel.chat, {  text: textw }, {  quoted: citel } );
+            Suhail.bot.sendMessage( citel.chat, {  text: textw }, {  quoted: citel } );
 
         }
     )
@@ -159,7 +190,7 @@ cmd({
             use: '<sign>\n:Example: horo libra',
             filename: __filename,
         },
-        async(Void, citel, text) => {
+        async(Suhail, citel, text) => {
             if (!text) return citel.reply(`Provide me a sign!`)
             try {
                 const URL = `https://aztro.sameerkumar.website/?sign=${text}&day=today`;
@@ -197,7 +228,7 @@ cmd({
             use: '<text>',
             filename: __filename,
         },
-        async(Void, citel, text) => {
+        async(Suhail, citel, text) => {
 
           citel.reply (`*_Please Wait, Getting Cricket Info_*`);
 const response = await fetch('https://api.cricapi.com/v1/currentMatches?apikey=f68d1cb5-a9c9-47c5-8fcd-fbfe52bace78');
@@ -228,7 +259,7 @@ cmd({
             use: '<text>',
             filename: __filename,
         },
-        async(Void, citel, text) => {
+        async(Suhail, citel, text) => {
             if (!text) return citel.reply(`give me a query\n*Example : .google Who is Suhail Tech.*`);
             let google = require('google-it');
             google({ 'query': text}).then(res => {
@@ -252,7 +283,7 @@ cmd({
             use: '<text>',
             filename: __filename,
         },
-        async(Void, citel, text) => {
+        async(Suhail, citel, text) => {
 
    if (!text) return citel.reply(`Provide me a query!\n*Ex : .image luffy |10*`)
    let buttonMessage = {}
@@ -290,7 +321,7 @@ cmd({
         }
     }
 
-for (let url of urlsArray) { Void.sendMessage(citel.chat , {image : {url : url} } )  }
+for (let url of urlsArray) { Suhail.bot.sendMessage(citel.chat , {image : {url : url} } )  }
 } 
  catch (error) {   return citel.reply("*Google Images Not Working, Try it Later*"); }
 
@@ -322,7 +353,7 @@ else return citel.reply("*Google Images Not Working, Try it Later*");
              }else {  buttonMessage = {   image: { url: images },}   }
                     
              
-             Void.sendMessage(citel.chat, buttonMessage, { quoted: citel });
+             Suhail.bot.sendMessage(citel.chat, buttonMessage, { quoted: citel });
                 })
             }
             
@@ -336,11 +367,11 @@ cmd({
             desc: "Sends two couples pics.",
             filename: __filename,
         },
-        async(Void, citel, text) => {
+        async(Suhail, citel, text) => {
             let anu = await fetchJson('https://raw.githubusercontent.com/iamriz7/kopel_/main/kopel.json')
             let random = anu[Math.floor(Math.random() * anu.length)]
-            Void.sendMessage(citel.chat, { image: { url: random.male }, caption: `Couple Male` }, { quoted: citel })
-            Void.sendMessage(citel.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: citel })
+            Suhail.bot.sendMessage(citel.chat, { image: { url: random.male }, caption: `Couple Male` }, { quoted: citel })
+            Suhail.bot.sendMessage(citel.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: citel })
         }
     ) 
     //---------------------------------------------------------------------------
@@ -352,7 +383,7 @@ cmd({
         use: '9112345678xx',
         filename: __filename,
     },
-    async(Void, citel, text) => {
+    async(Suhail, citel, text) => {
  if(!text) return await citel.reply('Give Me Number without + sign. Example: .iswa 9231844741xx')
         var inputnumber = text.split(" ")[0]
         if (!inputnumber.includes('x')) return citel.reply(`*You did not add x*\nExample: iswa 9231844741xx  \n ${Config.caption}`)
@@ -382,11 +413,11 @@ cmd({
             else if (random_length == 3) {random = `${status1}${status2}${status3}` } 
             else if (random_length == 4) {random = `${status1}${status2}${status3}${dom4}` }
          
-            var anu = await Void.onWhatsApp(`${number0}${i}${number1}@s.whatsapp.net`);
+            var anu = await Suhail.bot.onWhatsApp(`${number0}${i}${number1}@s.whatsapp.net`);
             var anuu = anu.length !== 0 ? anu : false
             try 
             {
-                  try { var anu1 = await Void.fetchStatus(anu[0].jid); } 
+                  try { var anu1 = await Suhail.bot.fetchStatus(anu[0].jid); } 
                   catch { var anu1 = '401' ; }
                   if (anu1 == '401' || anu1.status.length == 0) { nobio += `wa.me/${anu[0].jid.split("@")[0]}\n` ; } 
                   else {  text += `🧐 *Number:* wa.me/${anu[0].jid.split("@")[0]}\n ✨*Bio :* ${anu1.status}\n🍁*Last update :* ${moment(anu1.setAt).tz('Asia/Kolkata').format('HH:mm:ss DD/MM/YYYY')}\n\n` ;   }
@@ -405,7 +436,7 @@ cmd({
         use: '9112345678xx',
         filename: __filename,
     },
-    async(Void, citel, text) => {
+    async(Suhail, citel, text) => {
 if(!text) return await citel.reply('Give Me Number without + sign. Example: .nowa 9231844741xx')
 const inputNumber = text.split(" ")[0]
 if (!inputNumber.includes('x')) return citel.reply(`*You did not add x in number.*\nExample: ${prefix}nowa 9231844741xx  \n ${Config.caption}`)
@@ -423,11 +454,11 @@ for (let i = 0; i < randomxx; i++)
     const nu = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
     const status = nu.slice(0, randomLength).map(() => nu[Math.floor(Math.random() * nu.length)]).join('');
     const random = `${status}${nu[Math.floor(Math.random() * nu.length)]}`.slice(0, randomLength);
-    const anu = await Void.onWhatsApp(`${number0}${i}${number1}`);
+    const anu = await Suhail.bot.onWhatsApp(`${number0}${i}${number1}`);
     const anuu = anu.length !== 0 ? anu : false;
     try 
     {
-         const anu1 = await Void.fetchStatus(anu[0].jid);
+         const anu1 = await Suhail.bot.fetchStatus(anu[0].jid);
          if (anu1 === '401' || anu1.status.length === 0) {  nobios += `wa.me/${anu[0].jid.split("@")[0]}\n`; } 
     } catch { nowhatsapp += `${number0}${i}${number1}\n`;  }
 }

@@ -5,7 +5,7 @@
   "keywords": ["whatsappbot", "suhailMd", "suhail Md Wa bot", "Suhail-Md", "SuhailMdWhatsaooBot", "SuhailWaBot","SuhailMD","Suhail Md Whatsapp Bot","multi device"],
   "success_url": "/",
   "stack": "container",
-"env": {
+"env": { 
   "OWNER_NAME": {
     "description": "Name of Bot Owner",    
     "value": "Suhail Tech Info"

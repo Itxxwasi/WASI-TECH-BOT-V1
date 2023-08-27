@@ -1,16 +1,46 @@
 /**
- Copyright (C) 2022.
- Licensed under the  GPL-3.0 License;
- You may not use this file except in compliance with the License.
- It is supplied in the hope that it may be useful.
- * @project_name : Secktor-Md
- * @author : SuhailTechInfo <https://youtube.com/SuhailTechInfo>
- * @description : Secktor,A Multi-functional whatsapp bot Created by Suhail Tech.
- * @version 0.0.6
+//══════════════════════════════════════════════════════════════════════════════════════════════════════//
+//                                                                                                      //
+//                                ＷＨＡＴＳＡＰＰ ＢＯＴ－ＭＤ ＢＥＴＡ                                   //
+//                                                                                                      // 
+//                                         Ｖ：１．０．１                                                // 
+//                                                                                                      // 
+//            ███████╗██╗   ██╗██╗  ██╗ █████╗ ██╗██╗         ███╗   ███╗██████╗                        //
+//            ██╔════╝██║   ██║██║  ██║██╔══██╗██║██║         ████╗ ████║██╔══██╗                       //
+//            ███████╗██║   ██║███████║███████║██║██║         ██╔████╔██║██║  ██║                       //
+//            ╚════██║██║   ██║██╔══██║██╔══██║██║██║         ██║╚██╔╝██║██║  ██║                       //
+//            ███████║╚██████╔╝██║  ██║██║  ██║██║███████╗    ██║ ╚═╝ ██║██████╔╝                       //
+//            ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚══════╝    ╚═╝     ╚═╝╚═════╝                        //
+//                                                                                                      //
+//                                                                                                      //
+//                                                                                                      //
+//══════════════════════════════════════════════════════════════════════════════════════════════════════//
+
+CURRENTLY RUNNING ON BETA VERSION!!
+*
+   * @project_name : Suhail-Md
+   * @author : Suhail Tech Info
+   * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
+   * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
+   * @version 1.0.1
+*
+   * Licensed under the  GPL-3.0 License;
+* 
+   * Created By Suhail Tech Info.
+   * © 2023 Suhail-Md.
+* 
+   * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   * SOFTWARE.
+
  **/
 
 const DB = require('../lib/scraper')
-const { tlang, Config, prefix,cmd , sleep } = require('../lib')
+const { tlang, Config, prefix,smd , sleep } = require('../lib')
 const simpleGit = require('simple-git');
 const git = simpleGit();
 const Heroku = require('heroku-client');
@@ -27,23 +57,25 @@ async function updateHerokuApp(heroku = '') {
 
   
 //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "update",
             desc: "Shows repo\'s refreshed commits.",
             category: "tools",
             filename: __filename
         },
-        async(Void, citel, text,{ isCreator }) => {
-            if (!isCreator) return citel.reply(`This command is only for my owner`)
+        async(Suhail, msg, text,{ isCreator }) => {
+            if (!isCreator) return msg.reply(`This command is only for my owner`)
             let commits = await DB.syncgit()
-            if (commits.total === 0) return await citel.reply(`*BOT IS UPTO DATE...!!*`) 
+            if (commits.total === 0) return await msg.reply(`*BOT IS UPTO DATE...!!*`) 
             let update = `*SUHAIL_MD New Updates:*\n\n${await DB.sync()}`
-            await Void.sendMessage(citel.chat, { text: update, },{ quoted : citel });
+            await Suhail.bot.sendMessage(msg.chat, { text: update, },{ quoted : msg });
             if(Config.HEROKU_APP_NAME && Config.HEROKU_API_KEY && text == 'start')
             {
-                citel.reply('Heroku Build started...');
+                msg.reply('Heroku Build started...');
+              try{
                 const update = await updateHerokuApp('yes');
-                return await citel.reply(update);
+              }catch(e){return await msg.error(e)}
+              return await msg.reply(update);
 
             }
 })
@@ -53,84 +85,30 @@ cmd({
 //---------------------------------------------------------------------------
 
         
-     cmd({
+     smd({
                  pattern: "updatenow",
                  desc: "Shows repo\'s refreshed commits.",
                  category: "tools",
                  filename: __filename
              },
-        async(Void, citel, text,{ isCreator }) => {
-                if(!isCreator) return await citel.reply("Only Owner Can Use This Command")
+        async(Suhail, msg, text,{ isCreator }) => {
+                if(!isCreator) return await msg.reply("Only Owner Can Use This Command")
                 let commits = await DB.syncgit()
-                if (commits.total === 0) return await citel.reply(`*YOU HAVE LATEST VERSION INSTALLED!*`)
+                if (commits.total === 0) return await msg.reply(`*YOU HAVE LATEST VERSION INSTALLED!*`)
                 let update = await DB.sync()
-                await citel.send(" *SUHAIL_MD Updater Started...!*\n\n*Please wait you have new updates*\n *───────────────────────────*\n"+update +"\n\n\n"+Config.caption);
+                await msg.send(" *SUHAIL_MD Updater Started...!*\n\n*Please wait you have new updates*\n *───────────────────────────*\n"+update +"\n\n\n"+Config.caption);
                 await sleep(3000);
+          try{
                 const updater = await updateHerokuApp('no');
-                await citel.reply(updater);
+          }catch(e){return await msg.error(e)}
+          await msg.reply(updater);
                 process.exit(0);
        })
 
-/*
-cmd({
-    pattern: "update start",
-    desc: "Shows repo\'s refreshed commits.",
-    category: "misc",
-    filename: __filename
-},
-async(Void, citel, text,{ isCreator }) => {
-    await git.fetch();
-    var commits = await git.log(['main' + '..origin/' + 'main']);
-    if (commits.total === 0) {
-        return await citel.reply('Bot is UP-TO-DATE')
- }
-// if (!isHeroku){
-   // await require("simple-git")().reset("hard",["HEAD"])
-   // await require("simple-git")().pull()
-   // await citel.reply("_Successfully updated. Please manually update npm modules if applicable!_")
-   // process.exit(0);    
-   // }
-    //else if (isHeroku) {
-       // await fixHerokuAppName(message)
-        await citel.reply('Update Started...')
 
- try { var app = await heroku.get('/apps/' + Config.HEROKU_APP_NAME)  }
- catch { await citel.reply('Heroku Information Wrong')
-        await new Promise(r => setTimeout(r, 1000)); }
- 
-        git.fetch('upstream', 'main');
-        git.reset('hard', ['FETCH_HEAD']);
-        var git_url = app.git_url.replace( "https://", "https://api:" + Config.HEROKU_API_KEY + "@"  )
-        try { await git.addRemote('heroku', git_url);  } 
-       catch { console.log('null '); }
-        await git.push('heroku', 'main');
-       await citel.reply("_Successfully updated_")
-       await citel.reply("_Restarting_")
-        } else {
-            await update("UPDATER",'default')
-            await citel.reply("_Update started!_")
-    }
- 
-}
-)
 
-//______________________________________________________________\\
-async function fixHerokuAppName(message){
-    if (!HEROKU_API_KEY) return await message.sendReply(`_You have not provided HEROKU_API_KEY\n\nPlease fill this var, get api key from heroku account settings_`)
-    let apps = await heroku.get('/apps')
-    let app_names = apps.map(e=>e.name)
-    if (!HEROKU_APP_NAME || !app_names.includes(Config.HEROKU_APP_NAME)){
-    function findGreatestNumber(e){let t=e[0];for(let n=1;n<e.length;n++)e[n]>t&&(t=e[n]);return t}
-    let times = apps.map(e=>new Date(e.updated_at).getTime())
-    let latest = findGreatestNumber(times)
-    let index = times.indexOf(latest)
-    let app_name = apps[index].name
-    Config.HEROKU_APP_NAME = app_name
-    process.env.HEROKU_APP_NAME = app_name
-    baseURI = '/apps/' + app_name;
-    await message.sendReply(`_You provided an incorrect heroku app name, and I have corrected your app name to "${app_name}"_\n\n_Please retry this command after restart!_`)    
-    Config.HEROKU_APP_NAME = app_name
-        return await setVar("HEROKU_APP_NAME",app_name,message)
-    }
-}
-*/
+
+
+       smd({   pattern: "restart", desc: "To restart bot",category: "tools", filename: __filename }, async(Suhail, msg,text,{ isCreator }) => {  if (!isCreator) return msg.reply(tlang().owner);  const { exec } = require("child_process"); msg.reply('Restarting'); exec('pm2 restart all'); });
+
+ 

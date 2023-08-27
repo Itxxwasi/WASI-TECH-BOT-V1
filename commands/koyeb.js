@@ -1,13 +1,44 @@
 /**
- Copyright (C) 2022.
- Licensed under the  GPL-3.0 License;
- You may not use this file except in compliance with the License.
- It is supplied in the hope that it may be useful.
- * @project_name : Secktor-Md
- * @author : @samapndey001 <https://github.com/SamPandey001>
- * @description : Secktor,A Multi-functional whatsapp bot.
- * @version 0.0.6
+
+//══════════════════════════════════════════════════════════════════════════════════════════════════════//
+//                                                                                                      //
+//                                ＷＨＡＴＳＡＰＰ ＢＯＴ－ＭＤ ＢＥＴＡ                                   //
+//                                                                                                      // 
+//                                         Ｖ：１．０．１                                                // 
+//                                                                                                      // 
+//            ███████╗██╗   ██╗██╗  ██╗ █████╗ ██╗██╗         ███╗   ███╗██████╗                        //
+//            ██╔════╝██║   ██║██║  ██║██╔══██╗██║██║         ████╗ ████║██╔══██╗                       //
+//            ███████╗██║   ██║███████║███████║██║██║         ██╔████╔██║██║  ██║                       //
+//            ╚════██║██║   ██║██╔══██║██╔══██║██║██║         ██║╚██╔╝██║██║  ██║                       //
+//            ███████║╚██████╔╝██║  ██║██║  ██║██║███████╗    ██║ ╚═╝ ██║██████╔╝                       //
+//            ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚══════╝    ╚═╝     ╚═╝╚═════╝                        //
+//                                                                                                      //
+//                                                                                                      //
+//                                                                                                      //
+//══════════════════════════════════════════════════════════════════════════════════════════════════════//
+
+CURRENTLY RUNNING ON BETA VERSION!!
+*
+   * @project_name : Suhail-Md
+   * @author : Suhail Tech Info
+   * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
+   * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
+   * @version 1.0.1
+*
+   * Licensed under the  GPL-3.0 License;
+* 
+   * Created By Suhail Tech Info.
+   * © 2023 Suhail-Md.
+* 
+   * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   * SOFTWARE.
  **/
+
 
 
  
@@ -25,12 +56,12 @@ cmd(
     filename: __filename,
     category: "misc",
   },
-  async (Void,citel,text,{isCreator}) => {
-       if(!isCreator) return citel.reply(tlang().owner);
+  async (Suhail,msg,text,{isCreator}) => {
+       if(!isCreator) return msg.reply(tlang().owner);
        let check = await get_deployments()
-       if(check==='true') return citel.reply('_Please wait..._\n_Currently 2 instances are running in Koyeb,wait to stop one of them._')
+       if(check==='true') return msg.reply('_Please wait..._\n_Currently 2 instances are running in Koyeb,wait to stop one of them._')
        let data = await redeploy();
-       return citel.reply(data)
+       return msg.reply(data)
   })
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 cmd(
@@ -40,11 +71,11 @@ cmd(
     filename: __filename,
     category: "misc",
   },
-  async (Void,citel,text,{isCreator}) => {
-       if(!isCreator) return citel.reply(tlang().owner);
-       if(!text) return citel.reply('Please provide key.\n_Eg: .getvar PORT_')
+  async (Suhail,msg,text,{isCreator}) => {
+       if(!isCreator) return msg.reply(tlang().owner);
+       if(!text) return msg.reply('Please provide key.\n_Eg: .getvar PORT_')
        let data = await getvar(text);
-       return citel.reply(data)
+       return msg.reply(data)
   })
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 cmd(
@@ -54,10 +85,10 @@ cmd(
     filename: __filename,
     category: "misc",
   },
-  async (Void,citel,text,{isCreator}) => {
-       if(!isCreator) return citel.reply(tlang().owner);
+  async (Suhail,msg,text,{isCreator}) => {
+       if(!isCreator) return msg.reply(tlang().owner);
        let data = await getallvar();
-       return citel.reply(data)
+       return msg.reply(data)
   })
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 cmd(
@@ -67,13 +98,13 @@ cmd(
     filename: __filename,
     category: "misc",
   },
-  async (Void,citel,text,{isCreator}) => {
-       if(!isCreator) return citel.reply(tlang().owner);
-       if(!text.split(':')[1]) return citel.reply('*Wrong Format.*\nPlease provide key and value.\n_Eg: .setvar THEME:SECKTOR_')
+  async (Suhail,msg,text,{isCreator}) => {
+       if(!isCreator) return msg.reply(tlang().owner);
+       if(!text.split(':')[1]) return msg.reply('*Wrong Format.*\nPlease provide key and value.\n_Eg: .setvar THEME:SECKTOR_')
        let check = await get_deployments()
-       if(check==='true') return citel.reply('_Please wait..._\n_Currently 2 instances are running in Koyeb,wait to stop one of them._')
+       if(check==='true') return msg.reply('_Please wait..._\n_Currently 2 instances are running in Koyeb,wait to stop one of them._')
        let data = await change_env(text)
-       return citel.reply(data)
+       return msg.reply(data)
   })
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -84,12 +115,12 @@ cmd(
     filename: __filename,
     category: "misc",
   },
-  async (Void,citel,text,{isCreator}) => {
-       if(!isCreator) return citel.reply(tlang().owner);
-       if(!text) return citel.reply('Please provide key.\n_Eg: .delvar PORT_')
+  async (Suhail,msg,text,{isCreator}) => {
+       if(!isCreator) return msg.reply(tlang().owner);
+       if(!text) return msg.reply('Please provide key.\n_Eg: .delvar PORT_')
        let check = await get_deployments()
-       if(check==='true') return citel.reply('_Please wait..._\n_Currently 2 instances are running in Koyeb,wait to stop one of them._')
+       if(check==='true') return msg.reply('_Please wait..._\n_Currently 2 instances are running in Koyeb,wait to stop one of them._')
        let data = await delvar(text)
-       return citel.reply(data)
+       return msg.reply(data)
   })
 **/

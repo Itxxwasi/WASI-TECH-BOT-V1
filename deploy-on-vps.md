@@ -4,7 +4,7 @@
       ```
        sudo apt -y update &&  sudo apt -y upgrade 
        sudo apt -y install git ffmpeg curl
-      ```
+      ``` 
    2. Install nodejs 
       ```
       sudo apt -y remove nodejs

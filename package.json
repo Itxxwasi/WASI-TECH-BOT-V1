@@ -1,6 +1,6 @@
 {
                "name": "suhail-md",
-               "version": "1.0.2",
+               "version": "1.0.3",
                "description": "Multi device whatsapp bot by SuhailTechInfo.",
                "main": "lib/client.js",
                "type": "commonjs",

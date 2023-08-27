@@ -1,13 +1,46 @@
 /**
- Copyright (C) 2022.
- Licensed under the  GPL-3.0 License;
- You may not use this file except in compliance with the License.
- It is supplied in the hope that it may be useful.
- * @project_name : Secktor-Md
- * @author : SamPandey001 <https://github.com/SamPandey001>
- * @description : Secktor,A Multi-functional whatsapp bot.
- * @version 0.0.6
- **/
+
+//══════════════════════════════════════════════════════════════════════════════════════════════════════//
+//                                                                                                      //
+//                                ＷＨＡＴＳＡＰＰ ＢＯＴ－ＭＤ ＢＥＴＡ                                   //
+//                                                                                                      // 
+//                                         Ｖ：１．０．１                                                // 
+//                                                                                                      // 
+//            ███████╗██╗   ██╗██╗  ██╗ █████╗ ██╗██╗         ███╗   ███╗██████╗                        //
+//            ██╔════╝██║   ██║██║  ██║██╔══██╗██║██║         ████╗ ████║██╔══██╗                       //
+//            ███████╗██║   ██║███████║███████║██║██║         ██╔████╔██║██║  ██║                       //
+//            ╚════██║██║   ██║██╔══██║██╔══██║██║██║         ██║╚██╔╝██║██║  ██║                       //
+//            ███████║╚██████╔╝██║  ██║██║  ██║██║███████╗    ██║ ╚═╝ ██║██████╔╝                       //
+//            ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚══════╝    ╚═╝     ╚═╝╚═════╝                        //
+//                                                                                                      //
+//                                                                                                      //
+//                                                                                                      //
+//══════════════════════════════════════════════════════════════════════════════════════════════════════//
+
+CURRENTLY RUNNING ON BETA VERSION!!
+*
+   * @project_name : Suhail-Md
+   * @author : Suhail Tech Info
+   * @youtube : https://www.youtube.com/SuhailTechInfo
+   * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
+   * @version 1.0.1
+*
+   * Licensed under the  GPL-3.0 License;
+* 
+   * Created By Suhail Tech Info.
+   * © 2023 Suhail-Md.
+* 
+   * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   * SOFTWARE.
+**/
+
+
+
 
  const { tlang,sck,prefix,cmd } = require('../lib')
  cmd({
@@ -15,19 +48,19 @@
      desc: "sets auto mute time in group.",
      category: "moderation",
  },
- async(Void, citel, text,{ isCreator }) => {
-     if (!isCreator) return citel.reply(tlang().owner)
-     if(!citel.isGroup) return citel.reply(tlang().group)
-     if(!text.split(':')[1]) return citel.reply(`Please provide correct form.\nEg: setmute ${prefix}22:00`)
-     //if(!Number.isInteger(text.split(':')[0])) return citel.reply(`Please provide correct form.\nEg: setmute ${prefix}22:00`);
-     //if(!Number.isInteger(text.split(':')[1])) return citel.reply(`Please provide correct form.\nEg: setmute ${prefix}22:00`)
-           let Group = await sck.findOne({ id: citel.chat })
+ async(Suhail, msg, text,{ isCreator }) => {
+     if (!isCreator) return msg.reply(tlang().owner)
+     if(!msg.isGroup) return msg.reply(tlang().group)
+     if(!text.split(':')[1]) return msg.reply(`Please provide correct form.\nEg: setmute ${prefix}22:00`)
+     //if(!Number.isInteger(text.split(':')[0])) return msg.reply(`Please provide correct form.\nEg: setmute ${prefix}22:00`);
+     //if(!Number.isInteger(text.split(':')[1])) return msg.reply(`Please provide correct form.\nEg: setmute ${prefix}22:00`)
+           let Group = await sck.findOne({ id: msg.chat })
              if (!Group) {
-                 await new sck({ id: citel.chat, mute: text }).save()
-                 return citel.reply('Mute added.')
+                 await new sck({ id: msg.chat, mute: text }).save()
+                 return msg.reply('Mute added.')
              } else {
-                 await await sck.updateOne({ id: citel.chat }, { mute:text })
-                 return citel.reply(`_Mute added for ${text} successfully._`)     
+                 await await sck.updateOne({ id: msg.chat }, { mute:text })
+                 return msg.reply(`_Mute added for ${text} successfully._`)     
              }      
  }
  )
@@ -38,19 +71,19 @@
     desc: "sets unmute time in group.",
     category: "moderation",
 },
-async(Void, citel, text,{ isCreator }) => {
-    if (!isCreator) return citel.reply(tlang().owner)
-    if(!citel.isGroup) return citel.reply(tlang().group)
-    if(!text.split(':')[0]) return citel.reply(`Please provide correct form.\nEg: setmute ${prefix}22:00`)
-   // if(!Number.isInteger(text.split(':')[0])) return citel.reply(`Please provide correct form.\nEg: setmute ${prefix}22:00`);
-   // if(!Number.isInteger(text.split(':')[1])) return citel.reply(`Please provide correct form.\nEg: setmute ${prefix}22:00`)
-          let Group = await sck.findOne({ id: citel.chat })
+async(Suhail, msg, text,{ isCreator }) => {
+    if (!isCreator) return msg.reply(tlang().owner)
+    if(!msg.isGroup) return msg.reply(tlang().group)
+    if(!text.split(':')[0]) return msg.reply(`Please provide correct form.\nEg: setmute ${prefix}22:00`)
+   // if(!Number.isInteger(text.split(':')[0])) return msg.reply(`Please provide correct form.\nEg: setmute ${prefix}22:00`);
+   // if(!Number.isInteger(text.split(':')[1])) return msg.reply(`Please provide correct form.\nEg: setmute ${prefix}22:00`)
+          let Group = await sck.findOne({ id: msg.chat })
             if (!Group) {
-                await new sck({ id: citel.chat, unmute: text }).save()
-                return citel.reply('Mute added.')
+                await new sck({ id: msg.chat, unmute: text }).save()
+                return msg.reply('Mute added.')
             } else {
-                await await sck.updateOne({ id: citel.chat }, { unmute:text })
-                return citel.reply(`_Unmute updated for ${text} successfully._`)
+                await await sck.updateOne({ id: msg.chat }, { unmute:text })
+                return msg.reply(`_Unmute updated for ${text} successfully._`)
                 
             }      
 } 
@@ -61,15 +94,15 @@ async(Void, citel, text,{ isCreator }) => {
     desc: "Delete unmute from group.",
     category: "moderation",
 },
-async(Void, citel, text,{ isCreator }) => {
-    if (!isCreator) return citel.reply(tlang().owner)
-    if(!citel.isGroup) return citel.reply(tlang().group)
-          let Group = await sck.findOne({ id: citel.chat })
+async(Suhail, msg, text,{ isCreator }) => {
+    if (!isCreator) return msg.reply(tlang().owner)
+    if(!msg.isGroup) return msg.reply(tlang().group)
+          let Group = await sck.findOne({ id: msg.chat })
             if (!Group) {
-                return citel.reply('There\'s no unmute set in group.')
+                return msg.reply('There\'s no unmute set in group.')
             } else {
-                await await sck.updateOne({ id: citel.chat }, { unmute:'false' })
-                return citel.reply('Unmute deleted successfully.')
+                await await sck.updateOne({ id: msg.chat }, { unmute:'false' })
+                return msg.reply('Unmute deleted successfully.')
                 
             }      
 }
@@ -80,15 +113,15 @@ async(Void, citel, text,{ isCreator }) => {
     desc: "Delete mute from group.",
     category: "moderation",
 },
-async(Void, citel, text,{ isCreator }) => {
-    if (!isCreator) return citel.reply(tlang().owner)
-    if(!citel.isGroup) return citel.reply(tlang().group)
-          let Group = await sck.findOne({ id: citel.chat })
+async(Suhail, msg, text,{ isCreator }) => {
+    if (!isCreator) return msg.reply(tlang().owner)
+    if(!msg.isGroup) return msg.reply(tlang().group)
+          let Group = await sck.findOne({ id: msg.chat })
             if (!Group) {
-                return citel.reply('There\'s no mute set in group.')
+                return msg.reply('There\'s no mute set in group.')
             } else {
-                await await sck.updateOne({ id: citel.chat }, { mute:'false' })
-                return citel.reply('Mute deleted successfully.')
+                await await sck.updateOne({ id: msg.chat }, { mute:'false' })
+                return msg.reply('Mute deleted successfully.')
                 
             }      
 }
