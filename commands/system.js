@@ -23,7 +23,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.1
+   * @version 1.0.4
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -342,68 +342,5 @@ CURRENTLY RUNNING ON BETA VERSION!!
  })
  
      //---------------------------------------------------------------------------
- cmd({
-             pattern: "alive",
-             category: "general",
-             filename: __filename,
-             desc: "is bot alive??"
-         },
-         async(Suhail, msg, text, {isCreator}) => {
-           let get = text;
-           let alivemessage = `*ι αм σηℓιηє нσω ¢αη ι нєℓρ уσυ* \n\n_ι αм ᴍυℓтι ԃєνιᴄє ωнαтѕαρρ вσт_ \n_Cʀєαtєd вყ : ѕυнαιℓ tєᴄʜ info_\n_If any query : wa.me/923184474176_\n\n\n*_Update Alive Message by adding text with Alive_* \n*Eg: _.alive Your_Alive_Message_*`;
-           let urll = '';     
-           let image = false;
-           let video = false;
-           
- if(isCreator && text != "")
- {
-        let aliv = await alive.findOne({ id:"Suhail_Md" }) || await new alive({ id:"Suhail_Md"}).save();
-        if (text.startsWith("get")) return msg.reply(aliv.get);
-        if (text.toLowerCase().startsWith("info") ||  text.toLowerCase().startsWith("settings") ){
-         let cap = `*sᴜʜᴀɪʟ-ᴍᴅ • ᴀʟɪᴠᴇ ᴍᴇssᴀɢᴇ sᴇᴛᴛɪɴɢs*\n\n*KeyWords for Alive Message:*\n &user :`+ " ```To add user name,```\n &uptime: ```To add Uptime of bot,```\n &line : ```To add random pickup Line,```\n &quote: ```To add random quote with auther,```"+`\n\n*Update Alive by adding text with Alive*\n`+"```.alive Your_Alive_Message_here```"+`\n\n*Also Add photo and video url in Alive*\n`+"```.alive Your_Alive_Message_here``` https://telegra.ph/file/ec9bc5038601821f2eb84.jpg"+`\n\n*Alive Message With Url And All Keywords*\n`+"```.alive``` url_here \n```Hey &user``` 🍂\n```I Am Suhail-Md, A Multidevice Whatsapp User Bot.```\nBot alive since ```&uptime```\n*Quote:* ```&quote```\n*Pickup Line:* ```&line```\n\n"
-         return await Suhail.bot.sendMessage(msg.chat, {image: { url: await botpic()} , caption:cap+Config.caption},{quoted : msg });
-        } 
-        const linkPattern = /(https?:\/\/\S+)/gi;
-        const imageExtensions = ['.jpg', '.jpeg', '.png'];
-        const videoExtensions = ['.mp4', '.avi', '.mov', '.mkv', '.gif'];
-        let match = text.match(linkPattern) || false ; 
-        if(match)
-        {
-             let i = 0;
-             while (i < match.length && !image && !video ) 
-             {
-                   urll = match[i];
-                   const extension = urll.substring(urll.lastIndexOf('.')).toLowerCase();
-                   if (imageExtensions.includes(extension)) { image = true;  video = false; } 
-                   else if (videoExtensions.includes(extension)) { video = true; image = false; }
-                   else { console.log(`Unknown link: ${urll}`)  }
-                   i++;
-              }
-        }
-        if( video || image) { text = text.replace(urll, ''); }
-        await alive.updateOne({ id: 'Suhail_Md' }, { text: text, get : get, url: urll,  image: image,   video: video });
- }
-    let aliv = await alive.findOne({ id:"Suhail_Md" }) || await new alive({ id:"Suhail_Md"}).save() ;   
-    alivemessage = aliv.text;
-   if(alivemessage.includes('&quote')){
-      var quoo = await axios.get(`https://favqs.com/api/qotd`);
-      let quote = `${quoo.data.quote.body} By ${quoo.data.quote.author}`; 
-      alivemessage = alivemessage.replace('&quote', quote);
-   }
-    alivemessage = alivemessage.replace('&uptime', runtime(process.uptime())).replace('&user', msg.pushName).replace('&line', await (await fetchJson('https://api.popcat.xyz/pickuplines')).pickupline)  ;
-          
-         
-           image = aliv.image || false;
-           video=aliv.video || false ;
-           urll = aliv.url || await botpic() ;
- 
-           
- const alivtxt = `${alivemessage}\n\n*Type ${prefix}menu for my command list.*`;
-  const messageOptions = image ? { image: { url: urll }, caption: alivtxt }
-                         : video? { video: { url: urll },gifPlayback: true, caption: alivtxt }
-                         : {  text: alivtxt }
- 
-   return Suhail.bot.sendMessage(msg.chat, messageOptions,{quoted : msg });
-         }
-     )
+const _0x4d8b98=_0x2b2a;function _0x9d6c(){const _0x832377=['get','\x20```To\x20add\x20user\x20name,```\x0a\x20&uptime:\x20```To\x20add\x20Uptime\x20of\x20bot,```\x0a\x20&line\x20:\x20```To\x20add\x20random\x20pickup\x20Line,```\x0a\x20&quote:\x20```To\x20add\x20random\x20quote\x20with\x20auther,```','```.alive\x20Your_Alive_Message_here```\x20https://telegra.ph/file/ec9bc5038601821f2eb84.jpg','5623289Fidvkr','Unknown\x20link:\x20','\x0a\x0a*Update\x20Alive\x20by\x20adding\x20text\x20with\x20Alive*\x0a','5350626eLOetV','&user','\x0a\x0a*Type\x20','info','video','substring','reply','bot','url','.avi','length','toLowerCase','lastIndexOf','```.alive```\x20url_here\x20\x0a```Hey\x20&user```\x20🍂\x0a```I\x20Am\x20Suhail-Md,\x20A\x20Multidevice\x20Whatsapp\x20User\x20Bot.```\x0aBot\x20alive\x20since\x20```&uptime```\x0a*Quote:*\x20```&quote```\x0a*Pickup\x20Line:*\x20```&line```\x0a\x0a','body','3316rUpaeQ','&uptime','.jpg','351768mypsPd','chat','quote','updateOne','\x0a\x0a*Alive\x20Message\x20With\x20Url\x20And\x20All\x20Keywords*\x0a','680625tFLsxb','.mp4','general','replace','https://api.popcat.xyz/pickuplines','985476SdYPwn','image','&quote','findOne','startsWith','log','caption','uptime','*sᴜʜᴀɪʟ-ᴍᴅ\x20•\x20ᴀʟɪᴠᴇ\x20ᴍᴇssᴀɢᴇ\x20sᴇᴛᴛɪɴɢs*\x0a\x0a*KeyWords\x20for\x20Alive\x20Message:*\x0a\x20&user\x20:','.png','Suhail_Md','5784296vWuqAW','pickupline','settings','includes','.gif','data','\x0a\x0a*Also\x20Add\x20photo\x20and\x20video\x20url\x20in\x20Alive*\x0a','1635ufCJRd','*ι\x20αм\x20σηℓιηє\x20нσω\x20¢αη\x20ι\x20нєℓρ\x20уσυ*\x20\x0a\x0a_ι\x20αм\x20ᴍυℓтι\x20ԃєνιᴄє\x20ωнαтѕαρρ\x20вσт_\x20\x0a_Cʀєαtєd\x20вყ\x20:\x20ѕυнαιℓ\x20tєᴄʜ\x20info_\x0a_If\x20any\x20query\x20:\x20wa.me/923184474176_\x0a\x0a\x0a*_Update\x20Alive\x20Message\x20by\x20adding\x20text\x20with\x20Alive_*\x20\x0a*Eg:\x20_.alive\x20Your_Alive_Message_*','text','\x20By\x20','alive'];_0x9d6c=function(){return _0x832377;};return _0x9d6c();}function _0x2b2a(_0x4b2ac5,_0x283f59){const _0x9d6c9e=_0x9d6c();return _0x2b2a=function(_0x2b2ae2,_0x3968f0){_0x2b2ae2=_0x2b2ae2-0x150;let _0x48f02a=_0x9d6c9e[_0x2b2ae2];return _0x48f02a;},_0x2b2a(_0x4b2ac5,_0x283f59);}(function(_0x19163f,_0x554f74){const _0x1dc3d6=_0x2b2a,_0x496c79=_0x19163f();while(!![]){try{const _0x1c54fa=-parseInt(_0x1dc3d6(0x16f))/0x1+parseInt(_0x1dc3d6(0x179))/0x2+parseInt(_0x1dc3d6(0x174))/0x3+-parseInt(_0x1dc3d6(0x16c))/0x4*(parseInt(_0x1dc3d6(0x152))/0x5)+-parseInt(_0x1dc3d6(0x15d))/0x6+parseInt(_0x1dc3d6(0x15a))/0x7+parseInt(_0x1dc3d6(0x184))/0x8;if(_0x1c54fa===_0x554f74)break;else _0x496c79['push'](_0x496c79['shift']());}catch(_0x48bff2){_0x496c79['push'](_0x496c79['shift']());}}}(_0x9d6c,0xb28db),cmd({'pattern':_0x4d8b98(0x156),'category':_0x4d8b98(0x176),'filename':__filename,'desc':'is\x20bot\x20alive??'},async(_0x564492,_0x1a64f0,_0x2fcce7,{isCreator:_0xc160a9})=>{const _0x55252d=_0x4d8b98;let _0x4dbfcf=_0x2fcce7,_0x469b7a=_0x55252d(0x153),_0x554727='',_0x5458bc=![],_0x2de10b=![];if(_0xc160a9&&_0x2fcce7!=''){let _0x4ed104=await alive[_0x55252d(0x17c)]({'id':_0x55252d(0x183)})||await new alive({'id':_0x55252d(0x183)})['save']();if(_0x2fcce7[_0x55252d(0x17d)](_0x55252d(0x157)))return _0x1a64f0[_0x55252d(0x163)](_0x4ed104[_0x55252d(0x157)]);if(_0x2fcce7['toLowerCase']()[_0x55252d(0x17d)](_0x55252d(0x160))||_0x2fcce7[_0x55252d(0x168)]()['startsWith'](_0x55252d(0x186))){let _0x256f50=_0x55252d(0x181)+_0x55252d(0x158)+_0x55252d(0x15c)+'```.alive\x20Your_Alive_Message_here```'+_0x55252d(0x151)+_0x55252d(0x159)+_0x55252d(0x173)+_0x55252d(0x16a);return await _0x564492[_0x55252d(0x164)]['sendMessage'](_0x1a64f0['chat'],{'image':{'url':await botpic()},'caption':_0x256f50+Config[_0x55252d(0x17f)]},{'quoted':_0x1a64f0});}const _0x5cdb9b=/(https?:\/\/\S+)/gi,_0x3cee89=[_0x55252d(0x16e),'.jpeg',_0x55252d(0x182)],_0xeaacdf=[_0x55252d(0x175),_0x55252d(0x166),'.mov','.mkv',_0x55252d(0x188)];let _0x912294=_0x2fcce7['match'](_0x5cdb9b)||![];if(_0x912294){let _0x30d667=0x0;while(_0x30d667<_0x912294[_0x55252d(0x167)]&&!_0x5458bc&&!_0x2de10b){_0x554727=_0x912294[_0x30d667];const _0x18c53c=_0x554727[_0x55252d(0x162)](_0x554727[_0x55252d(0x169)]('.'))[_0x55252d(0x168)]();if(_0x3cee89[_0x55252d(0x187)](_0x18c53c))_0x5458bc=!![],_0x2de10b=![];else _0xeaacdf[_0x55252d(0x187)](_0x18c53c)?(_0x2de10b=!![],_0x5458bc=![]):console[_0x55252d(0x17e)](_0x55252d(0x15b)+_0x554727);_0x30d667++;}}(_0x2de10b||_0x5458bc)&&(_0x2fcce7=_0x2fcce7[_0x55252d(0x177)](_0x554727,'')),await alive[_0x55252d(0x172)]({'id':_0x55252d(0x183)},{'text':_0x2fcce7,'get':_0x4dbfcf,'url':_0x554727,'image':_0x5458bc,'video':_0x2de10b});}let _0x571f82=await alive[_0x55252d(0x17c)]({'id':_0x55252d(0x183)})||await new alive({'id':_0x55252d(0x183)})['save']();_0x469b7a=_0x571f82[_0x55252d(0x154)];if(_0x469b7a[_0x55252d(0x187)]('&quote')){var _0x44f209=await axios['get']('https://favqs.com/api/qotd');let _0x546d70=_0x44f209[_0x55252d(0x150)][_0x55252d(0x171)][_0x55252d(0x16b)]+_0x55252d(0x155)+_0x44f209[_0x55252d(0x150)]['quote']['author'];_0x469b7a=_0x469b7a[_0x55252d(0x177)](_0x55252d(0x17b),_0x546d70);}_0x469b7a=_0x469b7a[_0x55252d(0x177)](_0x55252d(0x16d),runtime(process[_0x55252d(0x180)]()))[_0x55252d(0x177)](_0x55252d(0x15e),_0x1a64f0['pushName'])[_0x55252d(0x177)]('&line',await(await fetchJson(_0x55252d(0x178)))[_0x55252d(0x185)]),_0x5458bc=_0x571f82[_0x55252d(0x17a)]||![],_0x2de10b=_0x571f82[_0x55252d(0x161)]||![],_0x554727=_0x571f82[_0x55252d(0x165)]||await botpic();const _0x4c376b=_0x469b7a+_0x55252d(0x15f)+prefix+'menu\x20for\x20my\x20command\x20list.*',_0x3a7c4e=_0x5458bc?{'image':{'url':_0x554727},'caption':_0x4c376b}:_0x2de10b?{'video':{'url':_0x554727},'gifPlayback':!![],'caption':_0x4c376b}:{'text':_0x4c376b};return _0x564492[_0x55252d(0x164)]['sendMessage'](_0x1a64f0[_0x55252d(0x170)],_0x3a7c4e,{'quoted':_0x1a64f0});}));
  

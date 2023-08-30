@@ -2,7 +2,7 @@ const { cmd, parseJid, getAdmin, tlang, prefix } = require("../lib/");
 const sᴜʜᴀɪʟ_ᴍᴅ_numGuess =  {};
 
 
-
+ 
 const sᴜʜᴀɪʟ_ᴍᴅ_cfg = {};
 const quotes = [
  "Connect Four: Where strategy meets fun!",

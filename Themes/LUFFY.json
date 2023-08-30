@@ -10,7 +10,7 @@
           "NEW_UPDATE": "*it's time to update the bot!*\n\n*Changes:*\n",
           "UPDATED_LOCAL": "*Successfully Updated!*"
       }, 
-      "global": {
+      "global": { 
           "botName": " 𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝚋𝚢 Suhail Tech Info",
           "body": "𝑊ℎ𝑎𝑡𝑠𝑎𝑝𝑝 𝐵𝑜𝑡",
           "greet2" : "Suhail king",
