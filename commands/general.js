@@ -23,7 +23,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.4
+   * @version 1.0.5
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -43,7 +43,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
 
 
 
-const { formatp , formatDate , tlang, botpic,cmd, prefix, runtime,Config , parsedJid ,sleep } = require('../lib')
+const { formatp , formatDate , tlang, botpic,smd, prefix, runtime,Config , parsedJid ,sleep } = require('../lib')
 const axios = require('axios')
 const fetch = require('node-fetch');
  const os = require('os')
@@ -57,7 +57,7 @@ const API_KEY = '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'
         return { date, time };
       }
 ///=============================================
-cmd({
+smd({
   pattern: "uptime",
   alias: ["runtime"],
   desc: "Tells runtime/uptime of bot.",
@@ -72,7 +72,7 @@ async(Suhail, msg, text) => {
 //---------------------------------------------------------------------------
 //                  RREPOSITORY  COMMAND
 //---------------------------------------------------------------------------
-cmd({
+smd({
         pattern: "repo",
         alias: ["git", "sc", "script"],
         desc: "Sends info about repo",
@@ -100,7 +100,7 @@ ${Config.caption?'\n\n'+Config.caption : ''}`.trim();
 //---------------------------------------------------------------------------
 //                  BOT STATUS COMMAND
 //---------------------------------------------------------------------------
-cmd({
+smd({
         pattern: "status",
         alias: ["about" , "info"],
         desc: "To check bot status",
@@ -128,7 +128,7 @@ ${Config.caption?'\n\n'+Config.caption : ''}`.trim();
 )
 //========================================================================
 
-cmd({
+smd({
   pattern: "cpu",
   desc: "To check bot status",
   category: "general",

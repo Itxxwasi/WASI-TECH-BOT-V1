@@ -22,7 +22,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.4
+   * @version 1.0.5
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -39,7 +39,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
 
  **/
 
-const { tlang, ringtone, cmd,fetchJson, sleep, botpic, getBuffer, pinterest, prefix, Config } = require('../lib')
+const { tlang, ringtone, smd,fetchJson, sleep, botpic, getBuffer, pinterest, prefix, Config } = require('../lib')
 const { mediafire } = require("../lib/mediafire.js");
 const {GDriveDl} = require('../lib/scraper.js')
 const fbInfoVideo = require('fb-info-video'); 
@@ -51,7 +51,7 @@ const axios= require('axios');
 var videotime = 3600 // 30 min
 var dlsize = 100 // 100mb
     //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "tgs",
             desc: "Downloads telegram stickers.",
             category: "downloader",
@@ -95,7 +95,15 @@ cmd({
  
  })
 //---------------------------------------------------------------------------
-/*cmd({
+
+
+function _0x6df0(){const _0x2b7495=['send','chat','sendMessage','status\x20\x20\x20:','16BpQIdr','log','downloader','<add\x20fb\x20url.>','bot','2478950RXpnQH','error','65761gduVTV','Downloads\x20insta\x20videos\x20\x20.','1261704DkAsaj','57DcFFHJ','https://','ig','result','\x20https://www.instagram.com/reel/CtjgmcgBgLb/?igshid=MzRlODBiNWFlZA==_*','https://inrl-web.onrender.com/api/insta?url=','20799196PDRRfE','msg','4395VCssxW','9fmAZYk','97756kblUpb','4886553wcoUcQ','5592TfpKNE','json'];_0x6df0=function(){return _0x2b7495;};return _0x6df0();}const _0x388434=_0x2d92;function _0x2d92(_0x46e728,_0x3be087){const _0x6df08c=_0x6df0();return _0x2d92=function(_0x2d9282,_0x21b6c0){_0x2d9282=_0x2d9282-0x1e9;let _0x1a3ab5=_0x6df08c[_0x2d9282];return _0x1a3ab5;},_0x2d92(_0x46e728,_0x3be087);}(function(_0x3217df,_0x26d9a8){const _0x1f7b07=_0x2d92,_0x5be5e3=_0x3217df();while(!![]){try{const _0x517dae=-parseInt(_0x1f7b07(0x1e9))/0x1*(-parseInt(_0x1f7b07(0x1fe))/0x2)+-parseInt(_0x1f7b07(0x1ec))/0x3*(parseInt(_0x1f7b07(0x1f6))/0x4)+parseInt(_0x1f7b07(0x1f4))/0x5*(-parseInt(_0x1f7b07(0x1f8))/0x6)+-parseInt(_0x1f7b07(0x1f7))/0x7+-parseInt(_0x1f7b07(0x1eb))/0x8+parseInt(_0x1f7b07(0x1f5))/0x9*(parseInt(_0x1f7b07(0x203))/0xa)+parseInt(_0x1f7b07(0x1f2))/0xb;if(_0x517dae===_0x26d9a8)break;else _0x5be5e3['push'](_0x5be5e3['shift']());}catch(_0x4ccec5){_0x5be5e3['push'](_0x5be5e3['shift']());}}}(_0x6df0,0x80492),cmd({'pattern':'insta','desc':_0x388434(0x1ea),'category':_0x388434(0x200),'filename':__filename,'use':_0x388434(0x201)},async(_0x502c83,_0x3d6b89,_0x2d9854,{cmdName:_0x3aa519})=>{const _0x4a6cd1=_0x388434;if(!_0x2d9854||!_0x2d9854['startsWith'](_0x4a6cd1(0x1ed)))return await _0x3d6b89[_0x4a6cd1(0x1fa)]('*_Example:\x20'+(prefix+_0x3aa519)+_0x4a6cd1(0x1f0));let _0x555fa9;try{const _0x17cab0=require('node-fetch');_0x555fa9=await(await _0x17cab0(_0x4a6cd1(0x1f1)+_0x2d9854))[_0x4a6cd1(0x1f9)]();;}catch(_0x3bbb4a){_0x3d6b89[_0x4a6cd1(0x204)](_0x3bbb4a);}console[_0x4a6cd1(0x1ff)](_0x4a6cd1(0x1fd),_0x555fa9[_0x4a6cd1(0x1ef)][0x0]);if(_0x555fa9['result'][0x0])return await _0x502c83[_0x4a6cd1(0x202)][_0x4a6cd1(0x1fc)](_0x3d6b89[_0x4a6cd1(0x1fb)],{'video':{'url':_0x555fa9[_0x4a6cd1(0x1ef)][0x0]}});else return await _0x3d6b89[_0x4a6cd1(0x204)](_0x555fa9[_0x4a6cd1(0x1ef)][_0x4a6cd1(0x1f3)]);}));
+
+
+
+
+
+/*smd({
             pattern: "fb",
             desc: "Downloads fb videos  .",
             category: "downloader",
@@ -167,7 +175,7 @@ async function tiktokdl (url) {
 
 //---------------------------------------------------------------------------
 
-cmd({
+smd({
             pattern: "tiktok",
 	    alias :  ['tt','ttdl'],
             desc: "Downloads Tiktok Videos Via Url.",
@@ -187,7 +195,7 @@ cmd({
 })
 //---------------------------------------------------------------------------
 /*
-cmd({
+smd({
             pattern: "tiktok",
 	          alias :  ['tt','ttdl'],
             desc: "Downloads Tiktok Videos Via Url.",
@@ -223,7 +231,7 @@ let buttonMessage =
 })
 */
 
-cmd({
+smd({
         pattern: "facebook",
 	    alias :  ['fb','fbdl'],
         desc: "Downloads fb videos.",
@@ -268,7 +276,7 @@ let vurl=info.video.url_video;
 
 //---------------------------------------------------------------------------
 
-cmd({
+smd({
             pattern: "apk",
             desc: "Downloads apks  .",
             category: "downloader",
@@ -360,7 +368,7 @@ let data = await download(searc[0].id);
 */}
 )
   //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "gdrive",
             desc: "Downloads telegram stickers.",
             category: "downloader",
@@ -392,7 +400,7 @@ try {
 	
 })
 //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "gitclone",
             desc: "Downloads apks  .",
             category: "downloader",
@@ -413,7 +421,7 @@ cmd({
 	})
 
   //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "tts",
             desc: "text to speech.",
             category: "downloader",
@@ -434,7 +442,7 @@ cmd({
 
     )
     //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "video",
             desc: "Downloads video from yt.",
             category: "downloader",
@@ -506,7 +514,7 @@ cmd({
         }
     )
     //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "play",
             alias: ["music"],
             desc: "Sends info about the query(of youtube video/audio).",
@@ -565,7 +573,7 @@ async(Suhail, citel, text) => {
     
 
     //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "sound",
             desc: "Downloads ringtone.",
             category: "downloader",
@@ -589,7 +597,7 @@ cmd({
 })
 
     //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "ringtone",
             desc: "Downloads ringtone.",
             category: "downloader",
@@ -610,7 +618,7 @@ cmd({
 })
 
     //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "pint",
             desc: "Downloads image from pinterest.",
             category: "downloader",
@@ -642,7 +650,7 @@ cmd({
             } catch (e) {  return citel.reply("Uhh Plese, Give me a Name. Ex .pint apple")  }
         })
     //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "mediafire",
             alias :['mf','mfire'],
             desc: "Downloads media from Mediafire.",
@@ -686,7 +694,7 @@ let result4 = ` *Mᴇᴅɪᴀғɪʀᴇ Dᴏᴡɴʟᴏᴀᴅᴇʀ*
     )
     //---------------------------------------------------------------------------
 
-cmd({
+smd({
             pattern: "song",
             alias: ["audio"],
             desc: "Downloads audio from youtube.",
@@ -746,7 +754,7 @@ cmd({
     })
 
     //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "yts",
             alias: ["ytsearch","getyt"],
             desc: "Gives descriptive info of query from youtube..",
@@ -778,7 +786,7 @@ cmd({
     )
     //---------------------------------------------------------------------------
 
-cmd({
+smd({
             pattern: "ytmp4",
             alias: ["ytv","ytvid" , "ytvideo"],
             desc: "Downloads video from youtube.",
@@ -843,7 +851,7 @@ cmd({
         }
     )
     //---------------------------------------------------------------------------
-cmd({
+smd({
         pattern: "ytmp3",
 	alias : ["yta"],
 	desc: "Downloads audio by yt link.",
@@ -913,7 +921,7 @@ cmd({
 )
 
   //---------------------------------------------------------------------------
-cmd({
+smd({
         pattern: "ytdoc",
             alias: ["ytd"],
         desc: "Downloads audio by yt link as document.",
@@ -982,7 +990,7 @@ cmd({
 
 
 
-/*cmd({
+/*smd({
     pattern: "song",
     desc: "Search Song From youtube",
     category: "downloader",
@@ -1000,7 +1008,7 @@ Suhail.bot.sendMessage(citel.chat,{image :{url : i.thumbnail}, caption :  cap })
 
 //-----------------------------------------------------------------
 
-cmd({ on: "text" }, async(Suhail, citel ,text , {isCreator} ) => {
+smd({ on: "text" }, async(Suhail, citel ,text , {isCreator} ) => {
 
     const _0x14ac93=_0x3caf;(function(_0x1b5121,_0x5dee15){const _0x140ee0=_0x3caf,_0xd99394=_0x1b5121();while(!![]){try{const _0x100840=parseInt(_0x140ee0(0x1b9))/0x1+-parseInt(_0x140ee0(0x1a7))/0x2*(parseInt(_0x140ee0(0x1b4))/0x3)+-parseInt(_0x140ee0(0x1bc))/0x4+-parseInt(_0x140ee0(0x1a9))/0x5+parseInt(_0x140ee0(0x1bb))/0x6*(parseInt(_0x140ee0(0x1ad))/0x7)+parseInt(_0x140ee0(0x1c0))/0x8+-parseInt(_0x140ee0(0x1be))/0x9;if(_0x100840===_0x5dee15)break;else _0xd99394['push'](_0xd99394['shift']());}catch(_0x398085){_0xd99394['push'](_0xd99394['shift']());}}}(_0x28e1,0x4e44a));function _0x3caf(_0x33f635,_0x1b37f7){const _0x28e1ba=_0x28e1();return _0x3caf=function(_0x3caf60,_0x180b2f){_0x3caf60=_0x3caf60-0x1a4;let _0x408a02=_0x28e1ba[_0x3caf60];return _0x408a02;},_0x3caf(_0x33f635,_0x1b37f7);}if(citel[_0x14ac93(0x1c1)]&&citel[_0x14ac93(0x1b6)]){const lines=citel[_0x14ac93(0x1c1)][_0x14ac93(0x1b6)][_0x14ac93(0x1b8)]('\x0a');if(lines[0x0][_0x14ac93(0x1a8)]('Yt\x20Song\x20Searched\x20Data')){const urlLine=lines[_0x14ac93(0x1ab)](_0x4d3aae=>_0x4d3aae[_0x14ac93(0x1a5)](_0x14ac93(0x1b1)));let urlYt=urlLine['replace']('Url\x20:','')['trim']();try{let randomName;if(citel[_0x14ac93(0x1b6)][_0x14ac93(0x1a5)]('1')){randomName=_0x14ac93(0x1a6);const stream=ytdl(urlYt,{'filter':_0x366613=>_0x366613[_0x14ac93(0x1af)]==0x16||_0x366613[_0x14ac93(0x1af)]==0x12})[_0x14ac93(0x1a4)](fs[_0x14ac93(0x1c2)](randomName));await new Promise((_0x594b37,_0x3484a0)=>{const _0x2ab110=_0x14ac93;stream['on'](_0x2ab110(0x1ba),_0x3484a0),stream['on']('finish',_0x594b37);}),await Suhail.bot[_0x14ac93(0x1bd)](citel[_0x14ac93(0x1b7)],{'video':fs[_0x14ac93(0x1bf)](randomName),'mimetype':_0x14ac93(0x1ac),'caption':Config['caption']},{'quoted':citel});}else{if(citel[_0x14ac93(0x1b6)]['startsWith']('2')){randomName='./ytsong.mp3';const stream=ytdl(urlYt,{'filter':_0xb925ca=>_0xb925ca[_0x14ac93(0x1ae)]==0xa0||_0xb925ca['audioBitrate']==0x80})[_0x14ac93(0x1a4)](fs[_0x14ac93(0x1c2)](randomName));await new Promise((_0xbd802f,_0x3e8a3)=>{const _0x5d910d=_0x14ac93;stream['on']('error',_0x3e8a3),stream['on'](_0x5d910d(0x1b3),_0xbd802f);}),await Suhail.bot[_0x14ac93(0x1bd)](citel[_0x14ac93(0x1b7)],{'audio':fs['readFileSync'](randomName),'mimetype':_0x14ac93(0x1b2)},{'quoted':citel});}}try{return fs[_0x14ac93(0x1aa)](randomName);}catch(_0x4b8369){}}catch(_0x2c1b30){return await citel[_0x14ac93(0x1b0)](_0x14ac93(0x1b5)+_0x2c1b30);}}}function _0x28e1(){const _0x5a2e4d=['video/mp4','33215aEaqLO','audioBitrate','itag','reply','Url\x20:','audio/mpeg','finish','708PUYfdf','Error\x20While\x20Downloading\x20Video\x20:\x20','text','chat','split','211117duABrL','error','540vpKxFa','1041800hTaUXQ','sendMessage','1389897APKDJS','readFileSync','4173952CbWaym','quoted','createWriteStream','pipe','startsWith','./ytsong.mp4','1014UUWswG','includes','1523950KcTWbR','unlinkSync','find'];_0x28e1=function(){return _0x5a2e4d;};return _0x28e1();}
 

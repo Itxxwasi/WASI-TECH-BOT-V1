@@ -22,7 +22,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.4
+   * @version 1.0.5
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -39,11 +39,11 @@ CURRENTLY RUNNING ON BETA VERSION!!
 
  **/
 
-const { tlang, ffmpeg,cmd } = require('../lib')
+const { tlang, ffmpeg,smd } = require('../lib')
 const fs = require('fs')
 const { exec } = require('child_process')
 //---------------------------------------------------------------------------
-cmd({
+smd({
         pattern: "bass",
         desc: "adds bass in given sound",
         category: "audio",
@@ -78,7 +78,7 @@ cmd({
     }
 )
 //---------------------------------------------------------------------------
-cmd({
+smd({
         pattern: "blown",
         desc: "adds blown in given audio",
         category: "audio",
@@ -113,7 +113,7 @@ cmd({
     }
 )
 //---------------------------------------------------------------------------
-cmd({
+smd({
         pattern: "deep",
         desc: "adds deep effect in given audio",
         category: "audio",
@@ -148,7 +148,7 @@ cmd({
     }
 )
 //---------------------------------------------------------------------------
-cmd({
+smd({
         pattern: "fast",
         desc: "Adds fast(equilizer) in quoted audio.",
         category: "audio",
@@ -183,7 +183,7 @@ cmd({
     }
 )
 //---------------------------------------------------------------------------
-cmd({
+smd({
         pattern: "reverse",
         desc: "Adds reverse(equilizer) in quoted audio.",
         category: "audio",

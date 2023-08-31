@@ -50,7 +50,7 @@ module.exports = {
   REMOVE_BG_KEY: process.env.REMOVE_BG_KEY || "",
   caption :process.env.CAPTION || "```ᴘᴏᴡᴇʀᴇᴅ ʙʏ sᴜʜᴀɪʟ²²¹-ᴍᴅ```",   //*『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n youtube.com/@suhailtechinfo0"),
   OPENAI_API_KEY: process.env.OPENAI_API_KEY ||'' ,
-  VERSION: process.env.VERSION || 'v.1.0.3',
+  VERSION: process.env.VERSION || 'v.1.0.5',
   LANG: process.env.THEME || 'SUHAIL',
   menu : process.env.MENU || '', /**  Available @MENU @Schemes 1: Aztec_Md, 2: A17_Md, 3: Suhail-Md Default ---------- If Not Choose then it Randomely Pic One Of Them Each time **/
   WORKTYPE: process.env.WORKTYPE || process.env.MODE || 'private'

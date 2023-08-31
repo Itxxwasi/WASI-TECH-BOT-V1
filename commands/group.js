@@ -23,7 +23,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.4
+   * @version 1.0.5
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -39,7 +39,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * SOFTWARE.
 **/
 
-const { sck, sck1,cmd, jsonformat, botpic, TelegraPh, RandomXP, Config, tlang, warndb, sleep,getAdmin,getBuffer, prefix } = require('../lib')
+const { sck, sck1,smd, jsonformat, botpic, TelegraPh, RandomXP, Config, tlang, warndb, sleep,getAdmin,getBuffer, prefix } = require('../lib')
 const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter");
 const moment = require("moment-timezone");
 const Levels = require("discord-xp");
@@ -48,7 +48,7 @@ const Jimp = require("jimp");
 const sᴜʜᴀɪʟ_ᴍᴅ = require('../lib/commands')
 
      //---------------------------------------------------------------------------
-     cmd({
+     smd({
         pattern: "onlyadmin",
         alias:["antimessge"],
         desc: "Only Admins Allow to Send Message, Others kick.",
@@ -61,7 +61,7 @@ const sᴜʜᴀɪʟ_ᴍᴅ = require('../lib/commands')
 
 
 //---------------------------------------------------------------------------
-cmd({
+smd({
     pattern: "antibot",
     desc: "kick Bot Users from Group!",
     category: "group",
@@ -72,7 +72,7 @@ async(Suhail, msg, text , { cmdName ,isCreator}) => {
 })
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
-cmd({
+smd({
     pattern: "disable",
     desc: "disable cmds in Group.!",
     category: "group",
@@ -83,7 +83,7 @@ async(Suhail, msg, text , {isCreator}) => {
 
 })
 //---------------------------------------------------------------------------
-cmd({
+smd({
     pattern: "enable",
     desc: "enable a cmd in Group.!",
     category: "group",
@@ -96,7 +96,7 @@ async(Suhail, msg, text , {isCreator}) => {
 })
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "join",
             desc: "joins group by link",
             category: "owner",
@@ -117,7 +117,7 @@ cmd({
     //---------------------------------------------------------------------------
 /*
 
-cmd({
+smd({
         pattern: "support",
         desc: "Sends official support group link.",
         category: "group",
@@ -134,7 +134,7 @@ cmd({
 )
 */
 //===========================================================================
-cmd({
+smd({
     pattern: "gdesc",
     alias : ['setgdesc','gdesc'],
     desc: "Set Description of Group",
@@ -160,7 +160,7 @@ async(Suhail, msg, text,{ isCreator }) => {
 }
 )
 //---------------------------------------------------------------------------
-cmd({
+smd({
     pattern: "gname",
     alias : ['setgname','gname'],
     desc: "Set Description of Group",
@@ -186,7 +186,7 @@ async(Suhail, msg, text,{ isCreator }) => {
 }
 )
     //---------------------------------------------------------------------------
-cmd({
+    smd({
         pattern: "antifake",
         desc: "Allow to Join Group For Specific Country Code",
         category: "group",
@@ -197,7 +197,7 @@ cmd({
 });
 
 //---------------------------------------------------------------------------
-    cmd({
+smd({
         pattern: "antidemote",
         desc: "Detects Promote and Automaticaly demote promoted person.", 
         category: "group",
@@ -224,7 +224,7 @@ cmd({
       else return await msg.reply(`*Uhh Dear, Please Toggle between "On" And "Off".* \n*_To Enable & Disable Stop Demoting Peoples!_*`)
 });
     //---------------------------------------------------------------------------
-cmd({
+    smd({
         pattern: "antipromote",
         desc: "Detects Promote and Automaticaly demote promoted person.", 
         category: "group",
@@ -251,7 +251,7 @@ cmd({
       else return await msg.reply(`*Uhh Dear, Please Toggle between "On" And "Off".* \n*_To Stop Promoting Peoples in Chat_*`)
 });
     //---------------------------------------------------------------------------
-cmd({
+    smd({
         pattern: "pdm",
         desc: "Detect Promote/Demote Users And Send Alerts in Chat ",
         category: "group",
@@ -278,7 +278,7 @@ cmd({
       else return await msg.reply(`*Uhh Dear, Please Toggle between "On" And "Off".* \n*_To get And Stop Promote/Demote Alerts_*`)
 });
     //---------------------------------------------------------------------------
-cmd({
+    smd({
             pattern: "warn",
             desc: "Warns user in Group.",
             category: "group",
@@ -295,7 +295,7 @@ cmd({
         }
     )
     //---------------------------------------------------------------------------
-cmd({
+    smd({
     pattern: "common",
     desc: "Get common participants in two groups, and kick using .common kick, jid",
     category: "owner",
@@ -305,7 +305,7 @@ async(Suhail, citel, text,{ isCreator }) => {
 var _0x87a531=_0xd64c;(function(_0x26f08a,_0x14609e){var _0x98c35b=_0xd64c,_0x1aec32=_0x26f08a();while(!![]){try{var _0x14857e=-parseInt(_0x98c35b(0xcb))/0x1+-parseInt(_0x98c35b(0xcf))/0x2+parseInt(_0x98c35b(0xe7))/0x3*(parseInt(_0x98c35b(0xdb))/0x4)+-parseInt(_0x98c35b(0xe4))/0x5+-parseInt(_0x98c35b(0xd0))/0x6+parseInt(_0x98c35b(0xd2))/0x7+parseInt(_0x98c35b(0xda))/0x8*(parseInt(_0x98c35b(0xdf))/0x9);if(_0x14857e===_0x14609e)break;else _0x1aec32['push'](_0x1aec32['shift']());}catch(_0x311bff){_0x1aec32['push'](_0x1aec32['shift']());}}}(_0x4a96,0xef9b1));let jids=await parsedJid(text);var group1,group2;if(jids[_0x87a531(0xee)]>0x1)group1=jids[0x0][_0x87a531(0xca)](_0x87a531(0xd5))?jids[0x0]:citel[_0x87a531(0xdd)],group2=jids[0x1][_0x87a531(0xca)](_0x87a531(0xd5))?jids[0x1]:citel[_0x87a531(0xdd)];else{if(jids[_0x87a531(0xee)]==0x1)group1=citel[_0x87a531(0xdd)],group2=jids[0x0]['includes']('@g.us')?jids[0x0]:citel[_0x87a531(0xdd)];else return await citel['send'](_0x87a531(0xdc));}if(group2===group1)return await citel[_0x87a531(0xd1)](_0x87a531(0xe2));var g1=await Suhail.bot['groupMetadata'](group1),g2=await Suhail.bot['groupMetadata'](group2),common=g1[_0x87a531(0xe8)]['filter'](({id:_0x215617})=>g2['participants'][_0x87a531(0xd3)](({id:_0xa9d3a3})=>_0xa9d3a3===_0x215617))||[];if(common[_0x87a531(0xee)]==0x0)return await citel[_0x87a531(0xd1)]('Theres\x20no\x20Common\x20Users\x20in\x20Both\x20Groups');let kick=text[_0x87a531(0xe9)](',')[0x0][_0x87a531(0xce)]()===_0x87a531(0xe3)?!![]:![],reason=![];var heading=_0x87a531(0xec);if(kick){let chat={'chat':group1};heading='\x20\x20*Kicking\x20Common\x20Participants*';const groupAdmins=await getAdmin(Suhail.bot,chat)||[];var botNumber=await Suhail.bot['decodeJid'](Suhail.bot['user']['id']),isBotAdmins=groupAdmins[_0x87a531(0xca)](botNumber)||![],isAdmins=groupAdmins[_0x87a531(0xca)](citel[_0x87a531(0xe0)])||![];(!isBotAdmins||!isAdmins)&&(kick=![],heading=_0x87a531(0xe6)),!isBotAdmins&&(reason='*❲❒❳\x20Reason:*\x20_I\x20Can\x27t\x20Kick\x20Common\x20Participants\x20Without\x20Getting\x20Admin\x20Role,So\x20Provide\x20Admin\x20Role\x20First,_\x0a'),!isAdmins&&(reason='*❲❒❳\x20Reason:*\x20_Uhh\x20Dear,\x20Only\x20Group\x20Admin\x20Can\x20Kick\x20Common\x20Users\x20Through\x20This\x20Cmd_\x0a');}function _0xd64c(_0x32c6f8,_0x2d697c){var _0x4a96f3=_0x4a96();return _0xd64c=function(_0xd64cbf,_0x5aabfa){_0xd64cbf=_0xd64cbf-0xc9;var _0x256505=_0x4a96f3[_0xd64cbf];return _0x256505;},_0xd64c(_0x32c6f8,_0x2d697c);}function _0x4a96(){var _0x375d41=['sender','push','Please\x20Provide\x20Valid\x20Group\x20Jid','kick','7605210eeYGmA','923184474176@s.whatsapp.net','\x20\x20*乂\x20Can\x27t\x20Kick\x20Common\x20Participants*','138543ZVCNcn','participants','split','@s.whatsapp.net','\x0a*❲❒❳\x20Group2:*\x20','\x20\x20\x20*List\x20Of\x20Common\x20Participants*','user','length','caption','includes','946278jKrKhT','_Members_\x0a\x0a\x0a','\x0a*❲❒❳\x20Group1:*\x20','trim','1283014cwDqub','6253704DutAwi','send','12524057XHlruT','some','\x0a\x0a\x0a©','@g.us','923004591719@s.whatsapp.net','\x20\x20*⬡*\x20@','\x20\x20\x20\x0a','groupParticipantsUpdate','3132728ehxlpC','120EgDLWk','*_Uhh\x20Dear,\x20Please\x20Provide\x20a\x20Group\x20Jid,_*\x0a*To\x20Get\x20common\x20participants\x20in\x20two\x20groups,*\x0a*Also\x20kick\x20using\x20.common\x20kick,\x20jid*','chat','Error\x20removing\x20participants:','45UpvHCU'];_0x4a96=function(){return _0x375d41;};return _0x4a96();}var msg='\x20'+heading+_0x87a531(0xd8)+(reason?reason:'')+_0x87a531(0xcd)+g1['subject']+_0x87a531(0xeb)+g2['subject']+'\x0a*❲❒❳\x20Common\x20Counts:*\x20_'+common[_0x87a531(0xee)]+_0x87a531(0xcc),commons=[];common['map'](async _0x5484ff=>{var _0x4ac9dd=_0x87a531;msg+=_0x4ac9dd(0xd7)+_0x5484ff['id'][_0x4ac9dd(0xe9)]('@')[0x0]+'\x0a',commons[_0x4ac9dd(0xe1)](_0x5484ff['id']['split']('@')[0x0]+_0x4ac9dd(0xea));}),await citel[_0x87a531(0xd1)](msg+(_0x87a531(0xd4)+Config[_0x87a531(0xc9)]),{'mentions':commons});if(kick&&!reason)try{var botNumber=await Suhail.bot['decodeJid'](Suhail.bot[_0x87a531(0xed)]['id']);for(const user of commons){if(botNumber===user||user===_0x87a531(0xd6)||user===_0x87a531(0xe5))continue;await new Promise(_0x5d963f=>setTimeout(_0x5d963f,0x3e8)),await Suhail.bot[_0x87a531(0xd9)](group1,[user],'remove');}}catch(_0x5636c1){console['error'](_0x87a531(0xde),_0x5636c1);}return;
 });
 //---------------------------------------------------------------------------
-cmd({
+smd({
     pattern: "diff",
     desc: "Get difference of participants in two groups",
     category: "owner",
@@ -317,7 +317,7 @@ function _0x32d6(_0x1c5452,_0xd9c18b){var _0x2c296b=_0x2c29();return _0x32d6=fun
 });
 
 //---------------------------------------------------------------------------
-    cmd({
+smd({
         pattern: "block",
         desc: "blocks that person",
         fromMe: true,
@@ -336,7 +336,7 @@ function _0x32d6(_0x1c5452,_0xd9c18b){var _0x2c296b=_0x2c29();return _0x32d6=fun
     }
 )
 //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "unblock",
             desc: "Unblocked to the quoted user.",
             category: "owner",
@@ -354,7 +354,7 @@ cmd({
         }
     )
     //---------------------------------------------------------------------------
-    cmd({
+    smd({
         pattern: "invite",
         desc: "get group link.",
         category: "group",
@@ -377,7 +377,7 @@ return msg.reply("*Group Invite Link Is Here* \n*"+mergedString+"*");
 	)
 	
   //---------------------------------------------------------------------------
-    cmd({
+  smd({
         pattern: "revoke",
         desc: "get group link.",
         category: "group",
@@ -397,7 +397,7 @@ return msg.reply("*_Group Link Revoked SuccesFully_*");
     }
 	)
     //---------------------------------------------------------------------------
-    cmd({
+    smd({
         pattern: "jid",
         desc: "get jid of all user in a group.",
         category: "owner",
@@ -419,8 +419,19 @@ return msg.reply("*_Group Link Revoked SuccesFully_*");
     }
 )
 
-    //---------------------------------------------------------------------------
-cmd({
+//  kic lic dic yic
+
+const _0x53154c=_0x3f47;function _0x3f47(_0x292b76,_0x9a6373){const _0x4cb906=_0x4cb9();return _0x3f47=function(_0x3f478d,_0x31fd43){_0x3f478d=_0x3f478d-0xd6;let _0x19cbb6=_0x4cb906[_0x3f478d];return _0x19cbb6;},_0x3f47(_0x292b76,_0x9a6373);}function _0x4cb9(){const _0x4b653e=['startsWith','owner','2pzhwvW','190663NFptvl','774310iBpZLt','Error\x20While\x20lefting\x20Group\x20:\x20','891725JwRqMr','log','reply','sure','bot','1083288LAEatK','user','22orWuIp','send','*_Group\x20Left!_*','isGroup','left\x20from\x20a\x20group.','2012193rKxIwg','left','groupParticipantsUpdate','16oGwGYu','7218QUoIVT','decodeJid','\x20sure/yes/ok,\x20For\x20security\x20threats_*','error','yes','76706bNQiOw','200uSbkTK','*_Use:\x20','group'];_0x4cb9=function(){return _0x4b653e;};return _0x4cb9();}(function(_0x44f2fd,_0x25576b){const _0x594c82=_0x3f47,_0x1d60e9=_0x44f2fd();while(!![]){try{const _0x1cdedd=-parseInt(_0x594c82(0xed))/0x1*(-parseInt(_0x594c82(0xec))/0x2)+-parseInt(_0x594c82(0xe1))/0x3*(-parseInt(_0x594c82(0xe7))/0x4)+-parseInt(_0x594c82(0xf0))/0x5+-parseInt(_0x594c82(0xd6))/0x6+-parseInt(_0x594c82(0xe6))/0x7+-parseInt(_0x594c82(0xe0))/0x8*(-parseInt(_0x594c82(0xdd))/0x9)+parseInt(_0x594c82(0xee))/0xa*(-parseInt(_0x594c82(0xd8))/0xb);if(_0x1cdedd===_0x25576b)break;else _0x1d60e9['push'](_0x1d60e9['shift']());}catch(_0x1f1d8f){_0x1d60e9['push'](_0x1d60e9['shift']());}}}(_0x4cb9,0x38fbc),smd({'pattern':_0x53154c(0xde),'desc':_0x53154c(0xdc),'category':_0x53154c(0xe9),'filename':__filename},async(_0x1a7da7,_0x45b78b,_0x130854,{cmdName:_0x1096fc,isCreator:_0x5d8385})=>{const _0x5dd7c7=_0x53154c;if(!_0x45b78b[_0x5dd7c7(0xdb)])return await _0x45b78b[_0x5dd7c7(0xd9)](tlang()[_0x5dd7c7(0xe9)],{},'',_0x45b78b);if(!_0x5d8385)return await _0x45b78b[_0x5dd7c7(0xf2)](tlang()[_0x5dd7c7(0xeb)]);let _0x40fb82=_0x130854['toLowerCase']()['trim']();if(_0x40fb82['startsWith'](_0x5dd7c7(0xf3))||_0x40fb82[_0x5dd7c7(0xea)]('ok')||_0x40fb82[_0x5dd7c7(0xea)](_0x5dd7c7(0xe5)))try{const _0x2ce27d=await _0x1a7da7[_0x5dd7c7(0xf4)][_0x5dd7c7(0xe2)](_0x1a7da7[_0x5dd7c7(0xf4)][_0x5dd7c7(0xd7)]['id']);await _0x45b78b['send'](_0x5dd7c7(0xda)),await sleep(0x3e8),await _0x1a7da7[_0x5dd7c7(0xf4)][_0x5dd7c7(0xdf)](_0x45b78b['chat'],[_0x2ce27d],'remove');}catch(_0x44a5eb){return await _0x45b78b[_0x5dd7c7(0xe4)](_0x44a5eb),console[_0x5dd7c7(0xf1)](_0x5dd7c7(0xef),_0x44a5eb);}else return await _0x45b78b[_0x5dd7c7(0xd9)](_0x5dd7c7(0xe8)+(prefix+_0x1096fc)+_0x5dd7c7(0xe3),{},'',_0x45b78b);}));
+   
+ // tug shug hug buddy
+ 
+ const _0x1b0fce=_0x13a5;function _0x2fad(){const _0x2e52ba=['mtype','text','videoMessage','quoted','147277fjkhNj','participants','catch','tag\x20Hi\x20Everyone,\x20How\x20are\x20you\x20Doing*','tag','download','39771QKCkGl','chat','video','hidetag','472683XoeHnO','1617MmxJEM','4yiKFyy','fakeObj','140778bmXXhQ','8LcSEDY','reply','499341tLgtrh','1800SuGalg','1008dayYvB','group','140YZgsDf','send','712jFjIzo','*_Uhh\x20dear,\x20reply\x20to\x20message!!!_*','1132855BCgUZI','groupMetadata','sender','admin','bot','isGroup'];_0x2fad=function(){return _0x2e52ba;};return _0x2fad();}function _0x13a5(_0x3884de,_0x2b0806){const _0x2fad39=_0x2fad();return _0x13a5=function(_0x13a5f2,_0x45ef32){_0x13a5f2=_0x13a5f2-0x1d8;let _0x357d87=_0x2fad39[_0x13a5f2];return _0x357d87;},_0x13a5(_0x3884de,_0x2b0806);}(function(_0x119ba9,_0x3dbfe0){const _0x29d5a5=_0x13a5,_0x18dbfd=_0x119ba9();while(!![]){try{const _0x13f706=-parseInt(_0x29d5a5(0x1ed))/0x1+parseInt(_0x29d5a5(0x1e8))/0x2*(-parseInt(_0x29d5a5(0x1e6))/0x3)+parseInt(_0x29d5a5(0x1eb))/0x4*(-parseInt(_0x29d5a5(0x1f5))/0x5)+-parseInt(_0x29d5a5(0x1ef))/0x6*(-parseInt(_0x29d5a5(0x1e7))/0x7)+-parseInt(_0x29d5a5(0x1f3))/0x8*(parseInt(_0x29d5a5(0x1e2))/0x9)+-parseInt(_0x29d5a5(0x1f1))/0xa*(-parseInt(_0x29d5a5(0x1ea))/0xb)+-parseInt(_0x29d5a5(0x1ee))/0xc*(-parseInt(_0x29d5a5(0x1dc))/0xd);if(_0x13f706===_0x3dbfe0)break;else _0x18dbfd['push'](_0x18dbfd['shift']());}catch(_0x5a6afe){_0x18dbfd['push'](_0x18dbfd['shift']());}}}(_0x2fad,0x3e9b2),smd({'pattern':_0x1b0fce(0x1e0),'alias':[_0x1b0fce(0x1e5)],'desc':'Tags\x20everyperson\x20of\x20group\x20without\x20mentioning\x20their\x20numbers','category':_0x1b0fce(0x1f0),'filename':__filename,'use':'<text>'},async(_0x18bd48,_0x1143f0,_0x445f4f,{isCreator:_0xda7c59})=>{const _0x427e8b=_0x1b0fce;if(!_0x1143f0[_0x427e8b(0x1fa)])return _0x1143f0[_0x427e8b(0x1ec)](tlang()[_0x427e8b(0x1f0)]);if(!_0x445f4f&&!_0x1143f0['quoted'])return _0x1143f0[_0x427e8b(0x1ec)]('*Example\x20:\x20'+prefix+_0x427e8b(0x1df));const _0x5de751=_0x1143f0[_0x427e8b(0x1fa)]?await _0x18bd48[_0x427e8b(0x1f9)][_0x427e8b(0x1f6)](_0x1143f0[_0x427e8b(0x1e3)])[_0x427e8b(0x1de)](_0x4e806b=>{}):'',_0x2a6ea2=_0x1143f0['isGroup']?await _0x5de751[_0x427e8b(0x1dd)]:'',_0x33a8f0=await getAdmin(_0x18bd48[_0x427e8b(0x1f9)],_0x1143f0),_0x4a3b55=_0x1143f0['isGroup']?_0x33a8f0['includes'](_0x1143f0[_0x427e8b(0x1f7)]):![];if(!_0x4a3b55&&!_0xda7c59)return _0x1143f0['reply'](tlang()[_0x427e8b(0x1f8)]);let _0x84afa7='',_0x1dcb8f,_0x1fbe11=_0x1143f0[_0x427e8b(0x1db)]?_0x1143f0[_0x427e8b(0x1db)][_0x427e8b(0x1d8)]:_0x1143f0[_0x427e8b(0x1d8)],_0x4d88fa=_0x1143f0['quoted']?_0x1143f0['quoted']:_0x1143f0,_0x8c519=_0x1143f0[_0x427e8b(0x1db)]?_0x1143f0[_0x427e8b(0x1db)][_0x427e8b(0x1d9)]:_0x445f4f,_0x500fb4=_0x1143f0[_0x427e8b(0x1db)]?_0x1143f0[_0x427e8b(0x1db)][_0x427e8b(0x1e9)]:_0x1143f0;if(_0x1fbe11=='imageMessage')_0x84afa7='image',_0x1dcb8f=await _0x4d88fa[_0x427e8b(0x1e1)]();else{if(_0x1fbe11==_0x427e8b(0x1da))_0x84afa7=_0x427e8b(0x1e4),_0x1dcb8f=await _0x4d88fa[_0x427e8b(0x1e1)]();else{if(!_0x445f4f&&_0x1143f0['quoted'])_0x1dcb8f=_0x1143f0['quoted'][_0x427e8b(0x1d9)];else _0x1dcb8f=_0x445f4f;}}if(!_0x1dcb8f)return await _0x1143f0['send'](_0x427e8b(0x1f4));return await _0x1143f0[_0x427e8b(0x1f2)](_0x1dcb8f,{'caption':_0x8c519,'mentions':_0x2a6ea2['map'](_0x59838e=>_0x59838e['id'])},_0x84afa7,_0x500fb4);}));
+ //---------------------------------------------------------------------------
+
+
+
+//---------------------------------------------------------------------------
+    smd({
         pattern: "tagall",
         desc: "Tags every person of group.",
         category: "group",
@@ -446,7 +457,7 @@ cmd({
 )
 
     //---------------------------------------------------------------------------
-cmd({
+    smd({
         pattern: "kik",
         desc: "Kick all numbers from a certain country",
         category: "group",
@@ -487,7 +498,7 @@ cmd({
         else return await msg.reply(`*_Hurray, ${hmanykik.toString()} Users With ${find} Country Code kicked_*`)
 })
 //---------------------------------------------------------------------------
-cmd({
+smd({
         pattern: "num",
         desc: "get all numbers from a certain country",
         category: "group",
@@ -512,7 +523,7 @@ cmd({
 })
 //---------------------------------------------------------------------------
 /*
-cmd({
+smd({
             pattern: "request",
             desc: "Sends requst to main Bot developer.",
             category: "group",
@@ -546,7 +557,7 @@ cmd({
 
     //---------------------------------------------------------------------------
 /*
-cmd({
+smd({
             pattern: "retrive",
 	    alias: ["vv"],
             desc: "Copies and Forwords viewonce message.",
@@ -572,7 +583,7 @@ cmd({
     )*/
 
     //---------------------------------------------------------------------------
-cmd({
+    smd({
             pattern: "resetwarn",
             desc: "Deletes all previously given warns to quoted user.",
             category: "group",
@@ -586,7 +597,7 @@ cmd({
         }
     )
     //---------------------------------------------------------------------------
-cmd({
+    smd({
             pattern: "poll",
             desc: "Makes poll in group.",
             category: "group",
@@ -603,7 +614,7 @@ cmd({
         }
     )
     //---------------------------------------------------------------------------
-cmd({
+    smd({
             pattern: "profile",
             desc: "Shows profile of user.",
             category: "group",
@@ -674,7 +685,7 @@ cmd({
         }
     ) 
     //---------------------------------------------------------------------------
-cmd({
+    smd({
             pattern: "rank",
             desc: "Sends rank card of user.",
             category: "group",
@@ -754,7 +765,7 @@ cmd({
         }
     )
     //---------------------------------------------------------------------------
-cmd({
+    smd({
             pattern: "leaderboard",
             alias: ["deck"],
             desc: "To check leaderboard",
@@ -830,7 +841,7 @@ cmd({
     )
 
     //---------------------------------------------------------------------------
-cmd({
+    smd({
             pattern: "promote",
             desc: "Provides admin role to replied/quoted user",
             category: "group",
@@ -860,7 +871,7 @@ cmd({
         }
     )
     //---------------------------------------------------------------------------
-cmd({
+    smd({
     pattern: "demote",
     desc: "Demotes replied/quoted user from group",
     category: "group",
@@ -893,7 +904,7 @@ async(Suhail, msg, text,{ isCreator }) => {
 )
 
 //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "kick",
             desc: "Kicks replied/quoted user from group.",
             category: "group",
@@ -948,7 +959,7 @@ cmd({
     */
 
     //---------------------------------------------------------------------------
-cmd({
+    smd({
             pattern: "group",
             desc: "mute and unmute group.",
             category: "group",
@@ -1019,7 +1030,7 @@ _3:- .group Info_
         }
     )
     //---------------------------------------------------------------------------
-cmd({
+    smd({
             pattern: "gpp",
 	    alias:['grouppic'],
             desc: "Sets a profile pic in Group..",
@@ -1060,28 +1071,9 @@ const _0x4abbbf=_0x5bb4;(function(_0x13d7c6,_0x8bc947){const _0x259bc2=_0x5bb4,_
         }
     )
     //---------------------------------------------------------------------------
-cmd({
-            pattern: "tag",
-            alias:["hidetag"],
-            desc: "Tags everyperson of group without mentioning their numbers",
-            category: "group",
-            filename: __filename,
-            use: '<text>',
-        },
-        async(Suhail, msg, text , {isCreator}) => {
-	if(!text && !msg.quoted) return msg.reply(`*Example : ${prefix}tag Hi Everyone, How are you Doing*` )
-	    if(!text){text = msg.quoted.text;}
-            if (!msg.isGroup) return msg.reply(tlang().group);
-            const groupMetadata = msg.isGroup ? await Suhail.bot.groupMetadata(msg.chat).catch((e) => {}) : "";
-            const participants = msg.isGroup ? await groupMetadata.participants : "";
-            const groupAdmins = await getAdmin(Suhail.bot, msg)
-            const isAdmins = msg.isGroup ? groupAdmins.includes(msg.sender) : false;
-            if (!isAdmins && !isCreator) return msg.reply(tlang().admin);
-            Suhail.bot.sendMessage(msg.chat, { text: text, mentions: participants.map((a) => a.id)}, { quoted: msg});
-        }
-    )
+ 
         //---------------------------------------------------------------------------
-cmd({
+        smd({
     pattern: "tagadmin",
     desc: "Tags only Admin numbers",
     category: "group",
@@ -1114,7 +1106,7 @@ return await Suhail.bot.sendMessage(msg.chat,{text : tag ,mentions: [msg.sender,
 }
 )
     //---------------------------------------------------------------------------
-cmd({
+    smd({
             pattern: "add",
             desc: "Add that person in group",
             fromMe: true,
@@ -1148,7 +1140,7 @@ cmd({
         }
     )
     //--------------------------------------------------------------------------- 
-cmd({
+    smd({
             pattern: "getjids",
             alias:['gjid','gjids'],
             desc: "Sends chat id of every groups.",
@@ -1217,7 +1209,7 @@ return await msg.reply(res);
         }
     ) 
 //---------------------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "del",
             alias: ["delete" , "dlt"],
             desc: "Deletes message of any user",
@@ -1257,7 +1249,7 @@ cmd({
         }
     )
     //---------------------------------------------------------------------------
-cmd({
+    smd({
             pattern: "checkwarn",
             desc: "Check warns",
             category: "group",
@@ -1282,7 +1274,7 @@ cmd({
 
     )
     //---------------------------------------------------------------------------
-cmd({
+    smd({
         pattern: "broadcast",
         desc: "Bot makes a broadcast in all groups",
         fromMe: true,
@@ -1328,7 +1320,7 @@ cmd({
 )
 
 //---------------------------------------------------------------------------
-	cmd({ on: "text" }, async(Suhail, msg) => {
+smd({ on: "text" }, async(Suhail, msg) => {
 	    const randomXp = 8;
 	    let usrname = msg.pushName
 	    const hasLeveledUp = await Levels.appendXp(msg.sender, "RandomXP", randomXp);

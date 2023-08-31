@@ -23,7 +23,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.4
+   * @version 1.0.5
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -38,19 +38,19 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
    * SOFTWARE.
  **/
-const { sck,sck1,cmd, getBuffer, tlang, prefix } = require('../lib')
+const { sck,sck1,smd, getBuffer, tlang, prefix } = require('../lib')
 const Config = require('../config')
 const eco = require('discord-mongoose-economy')
 const ty = eco.connect(mongodb);
 /*
- cmd({
+ smd({
         pattern: "economy",
         desc: "daily gold.",
         category: "economy",
     },
     */
     //---------------------------------------------------------------------------
-cmd({
+smd({
         pattern: "daily",
         desc: "daily gold.",
         category: "economy",
@@ -72,7 +72,7 @@ cmd({
 }
 )
 
-cmd({
+smd({
         pattern: "resetwallet",
         desc: "reset wallet of quoted user.",
         category: "economy",
@@ -92,7 +92,7 @@ cmd({
 }
 )
    //---------------------------------------------------------------------------
-cmd({
+smd({
    pattern: "capacity",
    desc: "update capacity.",
    category: "economy",
@@ -148,7 +148,7 @@ await msg.reply('*What are you trying to do📉*.')
 )
 
     //---------------------------------------------------------------------------
-    cmd({
+    smd({
        pattern: "deposit",
        desc: "deposit gold.",
        category: "economy",
@@ -169,7 +169,7 @@ await msg.reply('*What are you trying to do📉*.')
    //return await Aviator.bot.sendButtonText(msg.chat,  `⛩️ Sender: ${msg.pushName}\n🍀Successfully 💰Deposited 🪙${deposit.amount} to your bank.Upgrade your bank capacity to add more money📈.`, `${Config.ownername.split(' ')[0]}-Economy Version: 0.0.6`, msg);
    }
 )
-    cmd({
+    smd({
        pattern: "lb",
        desc: "check leaderboard.",
        category: "economy",
@@ -196,7 +196,7 @@ str+= `*${i+1}*\n╭─────────────◆\n│ *Name:-* _${
         
     })
 
-cmd({
+smd({
    pattern: "transfer",
    desc: "transfer gold.",
    category: "economy",
@@ -232,7 +232,7 @@ async(Aviator, msg, text,{ isCreator }) => {
 )
 
     //---------------------------------------------------------------------------
-    cmd({
+    smd({
        pattern: "wallet",
        desc: "shows wallet.",
        category: "economy",
@@ -256,7 +256,7 @@ async(Aviator, msg, text,{ isCreator }) => {
 )
 
     //---------------------------------------------------------------------------
-    cmd({
+    smd({
        pattern: "give",
        desc: "Add money in wallet.",
        category: "economy",
@@ -274,7 +274,7 @@ async(Aviator, msg, text,{ isCreator }) => {
 )
 
     //---------------------------------------------------------------------------
-    cmd({
+    smd({
        pattern: "bank",
        desc: "shows bank amount.",
        category: "economy",
@@ -293,7 +293,7 @@ async(Aviator, msg, text,{ isCreator }) => {
 )
 
     //---------------------------------------------------------------------------
-    cmd({
+    smd({
        pattern: "rob",
        desc: "rob bank amount.",
        category: "economy",
@@ -345,7 +345,7 @@ await msg.reply('*What are you trying to do👀*.')
 )
 
     //---------------------------------------------------------------------------
-    cmd({
+    smd({
        pattern: "withdraw",
        desc: "withdraw money from bank account.",
        category: "economy",
@@ -367,7 +367,7 @@ await msg.reply('*What are you trying to do👀*.')
 )
 
     //---------------------------------------------------------------------------
-    cmd({
+    smd({
        pattern: "gamble",
        desc: "gamble money.",
        category: "economy",
@@ -428,7 +428,7 @@ await msg.reply('*What are you trying to do👀*.')
 
 
     //---------------------------------------------------------------------------
-    cmd({
+    smd({
        pattern: "slot2",
        desc: "withdraw money from bank account.",
        category: "economy",
@@ -533,7 +533,7 @@ if(value<=balance.wallet){
    }
 )
 
-cmd({
+smd({
    pattern: "slot",
    desc: "slot game.",
    category: "economy",

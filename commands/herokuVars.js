@@ -24,7 +24,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.4
+   * @version 1.0.5
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -49,7 +49,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
 
 
 const Config = require('../config')
-let { fancytext, tlang, tiny, runtime, formatp, botpic, prefix, sck1,cmd } = require("../lib");
+let { fancytext, tlang, tiny, runtime, formatp, botpic, prefix, sck1,smd } = require("../lib");
 const axios = require('axios');
 
 const fetch = require('node-fetch');
@@ -59,7 +59,7 @@ if(Config.HEROKU_APP_NAME && Config.HEROKU_API_KEY ){
   const authToken = Config.HEROKU_API_KEY;
   
   
-         cmd({
+         smd({
              pattern: "setsudo",
              desc: "Makes wa me of quoted or mentioned user.",
              category: "tools",
@@ -91,7 +91,7 @@ fetch(`https://api.heroku.com/apps/${appName}/config-vars`,
          })
 
 //--------------------------------------------------------------------
- cmd({
+ smd({
              pattern: "getsudo",
              desc: "Makes wa me of quoted or mentioned user.",
              category: "tools",
@@ -100,7 +100,7 @@ fetch(`https://api.heroku.com/apps/${appName}/config-vars`,
 async(Suhail, msg, text) => {  return await  msg.reply(global.sudo);})
 //-------------------------------------------------------------------------
 
- cmd({
+ smd({
              pattern: "delsudo",
              desc: "Makes wa me of quoted or mentioned user.",
              category: "tools",
@@ -145,7 +145,7 @@ fetch(`https://api.heroku.com/apps/${appName}/config-vars`,
  //------------------------------------------------------------------------       
         
         
-cmd({
+smd({
         pattern: "allvar",
         alias:['getallvar','allvars'],
         desc: "To get All  Heroku Vars",
@@ -173,7 +173,7 @@ fetch(`https://api.heroku.com/apps/${appName}/config-vars`, { headers })
   
 });
 //----------------------------------------------------------------------------------
-cmd({
+smd({
         pattern: "addvar",
         desc: "To Set Heroku Vars",
         category: "tools",
@@ -207,7 +207,7 @@ fetch(`https://api.heroku.com/apps/${appName}/config-vars`,
   });
 //-----------------------------------------------------------------------------------
 
-cmd({
+smd({
         pattern: "getvar",
         desc: "To Get A Heroku Var",
         category: "tools",
@@ -235,7 +235,7 @@ fetch(`https://api.heroku.com/apps/${appName}/config-vars`, { headers })
 
 
 //----------------------------------------------------------------------------------
-cmd({
+smd({
         pattern: "setvar",
         desc: "To Set Heroku Vars",
         category: "tools",
