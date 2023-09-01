@@ -23,7 +23,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.5
+   * @version 1.0.6
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -40,10 +40,10 @@ CURRENTLY RUNNING ON BETA VERSION!!
  **/
 
 
- const { cmd,sck,sck1, getAdmin, tlang, prefix } = require('../lib')
+ const { smd,sck,sck1, getAdmin, tlang, prefix } = require('../lib')
  const Config = require('../config')
      //---------------------------------------------------------------------------
- cmd({
+ smd({
          pattern: "act",
          alias:['activate','active'],
          desc: "Switches for varios works.",

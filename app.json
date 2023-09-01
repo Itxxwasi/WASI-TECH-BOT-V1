@@ -67,8 +67,13 @@
     "value": "",
     "required" :false
   },
+  "REMOVE_BG_KEY": {
+    "description": "Please put your REMOVE BG KEY here.Get it from removeBg.com ",
+    "value": "",
+    "required" :false
+  },
   "MONGODB_URI": {
-    "description": "Replace it, If you have your own Mongodb key. Its a secret String for Mongodb Connection.(Required)",
+    "description": "Put your own Mongodb key. Its a secret String for Mongodb Connection.(Required)",
     "value": ""
   },
   "MODE": {

@@ -23,7 +23,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.5
+   * @version 1.0.6
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -41,7 +41,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
 
 
 const moment = require('moment-timezone')
-const {fetchJson,cmd, tlang, getBuffer, prefix, Config } = require('../lib')
+const {fetchJson,smd, tlang, getBuffer, prefix, Config } = require('../lib')
 let gis ='' // require("g-i-s");
 const axios = require('axios')
 const fetch = require('node-fetch')
@@ -49,7 +49,7 @@ const fetch = require('node-fetch')
    //---------------------------------------------------------------------------
    const { shazam } = require('../lib')
    let yts = require("secktor-pack");
-   cmd({
+   smd({
            pattern: "find",
            category: "misc",
            desc: "Finds info about song",
@@ -92,7 +92,7 @@ const fetch = require('node-fetch')
        }
     )
     //------------------------------------------------------------------------------------
-cmd({
+smd({
             pattern: 'ss',
             alias :['webss' , 'fullss'],
             category: "search",
@@ -116,7 +116,7 @@ catch (err) { return citel.reply("```Error While Fetching Snapshot```")}
 
 
     //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "imdb",
             category: "search",
             desc: "Sends image of asked Movie/Series.",
@@ -152,7 +152,7 @@ cmd({
         }
     )
     //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "weather",
             category: "search",
             desc: "Sends weather info about asked place.",
@@ -183,7 +183,7 @@ cmd({
         }
     )
     //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "horo",
             category: "search",
             desc: "Gives horoscope info of user.",
@@ -220,7 +220,7 @@ cmd({
     )
     //---------------------------------------------------------------------------
 
-cmd({
+smd({
             pattern: "cric",
             alias :['search','gsearch'],
             category: "search",
@@ -251,7 +251,7 @@ text +="\n*Match Ended:* " + dat.data[i].matchEnded;
 })
 
 //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "google",
             alias :['search','gsearch'],
             category: "search",
@@ -275,7 +275,7 @@ cmd({
         }
     )
     //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "image",
             alias: ["img" , "pic"],
             category: "search",
@@ -361,7 +361,7 @@ else return citel.reply("*Google Images Not Working, Try it Later*");
             */
  })
     //---------------------------------------------------------------------------
-cmd({
+smd({
             pattern: "couplepp",
             category: "search",
             desc: "Sends two couples pics.",
@@ -375,7 +375,7 @@ cmd({
         }
     ) 
     //---------------------------------------------------------------------------
-cmd({
+smd({
         pattern: "iswa",
         alias: ["oldwa","bio","onwa"],
         category: "search",
@@ -429,7 +429,7 @@ cmd({
 )
 
 
-cmd({
+smd({
         pattern: "nowa",
         category: "search",
         desc: "Searches in given rage about given number.",

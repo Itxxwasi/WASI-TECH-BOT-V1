@@ -22,7 +22,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.5
+   * @version 1.0.6
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -100,6 +100,236 @@ const _0x2dcdaa=_0x1b6b;function _0x3732(){const _0x820118=['errors\x20:\x20','c
 
 
 
+////=============================================================================================================================
 
+
+
+
+const countries = {
+   "Afghanistan": "Kabul",
+   "Albania": "Tirana",
+   "Algeria": "Algiers",
+   "Andorra": "Andorra la Vella",
+   "Angola": "Luanda",
+   "Argentina": "Buenos Aires",
+   "Armenia": "Yerevan",
+   "Australia": "Canberra",
+   "Austria": "Vienna",
+   "Azerbaijan": "Baku",
+   "Bahamas": "Nassau",
+   "Bahrain": "Manama",
+   "Bangladesh": "Dhaka",
+   "Barbados": "Bridgetown",
+   "Belarus": "Minsk",
+   "Belgium": "Brussels",
+   "Belize": "Belmopan",
+   "Benin": "Porto-Novo",
+   "Bhutan": "Thimphu",
+   "Bolivia": "Sucre",
+   "Bosnia and Herzegovina": "Sarajevo",
+   "Botswana": "Gaborone",
+   "Brazil": "Brasília",
+   "Bulgaria": "Sofia",
+   "Burkina Faso": "Ouagadougou",
+   "Burundi": "Gitega",
+   "Cabo Verde": "Praia",
+   "Cambodia": "Phnom Penh",
+   "Cameroon": "Yaoundé",
+   "Canada": "Ottawa",
+   "Central African Republic": "Bangui",
+   "Chad": "N'Djamena",
+   "Chile": "Santiago",
+   "China": "Beijing",
+   "Colombia": "Bogotá",
+   "Comoros": "Moroni",
+   "Congo, Democratic Republic of the": "Kinshasa",
+   "Congo, Republic of the": "Brazzaville",
+   "Costa Rica": "San jose",
+   "Cote d'Ivoire": "Yamoussoukro",
+   "Croatia": "Zagreb",
+   "Cuba": "Havana",
+   "Cyprus": "Nicosia",
+   "Czech Republic": "Prague",
+   "Denmark": "Copenhagen",
+   "Djibouti": "Djibouti",
+   "Dominica": "Roseau",
+   "Dominican Republic": "Santo Domingo",
+   "Ecuador": "Quito",
+   "Egypt": "Cairo",
+   "El Salvador": "San Salvador",
+   "Equatorial Guinea": "Malabo",
+   "Eritrea": "Asmara",
+   "Estonia": "Tallinn",
+   "Eswatini": "Mbabane",
+   "Ethiopia": "Addis Ababa",
+   "Fiji": "Suva",
+   "Finland": "Helsinki",
+   "France": "Paris",
+   "Gabon": "Libreville",
+   "Gambia": "Banjul",
+   "Georgia": "Tbilisi",
+   "Germany": "Berlin",
+   "Ghana": "Accra",
+   "Greece": "Athens",
+   "Grenada": "St. George's",
+   "Guatemala": "Guatemala City",
+   "Guinea": "Conakry",
+   "Guinea-Bissau": "Bissau",
+   "Guyana": "Georgetown",
+   "Haiti": "Port prince",
+   "Honduras": "Tegucigalpa",
+   "Hungary": "Budapest",
+   "Iceland": "Reykjavik",
+   "India": "New Delhi",
+   "Indonesia": "Jakarta",
+   "Iran": "Tehran",
+   "Iraq": "Baghdad",
+   "Ireland": "Dublin",
+   "Israel": "Jerusalem",
+   "Italy": "Rome",
+   "Jamaica": "Kingston",
+   "Japan": "Tokyo",
+   "Jordan": "Amman",
+   "Kazakhstan": "Nur-Sultan",
+   "Kenya": "Nairobi",
+   "Kiribati": "Tarawa",
+   "Korea, North": "Pyongyang",
+   "Korea, South": "Seoul",
+   "Kosovo": "Pristina",
+   "Kuwait": "Kuwait",
+   "Kyrgyzstan": "Bishkek",
+   "Laos": "Vientiane",
+   "Latvia": "Riga",
+   "Lebanon": "Beirut",
+   "Lesotho": "Maseru",
+   "Liberia": "Monrovia",
+   "Libya": "Tripoli",
+   "Liechtenstein": "Vaduz",
+   "Lithuania": "Vilnius",
+   "Luxembourg": "Luxembourg City",
+   "Madagascar": "Antananarivo",
+   "Malawi": "Lilongwe",
+   "Malaysia": "Kuala Lumpur",
+   "Maldives": "Male",
+   "Mali": "Bamako",
+   "Malta": "Valletta",
+   "Marshall Islands": "Majuro",
+   "Mauritania": "Nouakchott",
+   "Mauritius": "Port Louis",
+   "Mexico": "Mexico City",
+   "Micronesia": "Palikir",
+   "Moldova": "Chisinau",
+   "Monaco": "Monaco",
+   "Mongolia": "Ulaanbaatar",
+   "Montenegro": "Podgorica",
+   "Morocco": "Rabat",
+   "Mozambique": "Maputo",
+   "Myanmar": "Naypyidaw",
+   "Namibia": "Windhoek",
+   "Nauru": "Yaren",
+   "Nepal": "Kathmandu",
+   "Netherlands": "Amsterdam",
+   "New Zealand": "Wellington",
+   "Nicaragua": "Managua",
+   "Niger": "Niamey",
+   "Nigeria": "Abuja",
+   "North Macedonia": "Skopje",
+   "Norway": "Oslo",
+   "Oman": "Muscat",
+   "Pakistan": "Islamabad",
+   "Palau": "Ngerulmud",
+   "Palestine": "Ramallah",
+   "Panama": "Panama City",
+   "Paraguay": "Asunción",
+   "Peru": "Lima",
+   "Philippines": "Manila",
+   "Poland": "Warsaw",
+   "Portugal": "Lisbon",
+   "Qatar": "Doha",
+   "Romania": "Bucharest",
+   "Russia": "Moscow",
+   "Rwanda": "Kigali",
+   "Saint Kitts": "Basseterre",
+   "Saint Lucia": "Castries",
+   "Samoa": "Apia",
+   "San Marino": "San Marino",
+   "Saudi Arabia": "Riyadh",
+   "Senegal": "Dakar",
+   "Serbia": "Belgrade",
+   "Seychelles": "Victoria",
+   "Sierra Leone": "Freetown",
+   "Singapore": "Singapore",
+   "Slovakia": "Bratislava",
+   "Slovenia": "Ljubljana",
+   "Solomon Islands": "Honiara",
+   "Somalia": "Mogadishu",
+   "South Africa": "Pretoria",
+   "South Sudan": "Juba",
+   "Spain": "Madrid",
+   "Sri Lanka": "Colombo",
+   "Sudan": "Khartoum",
+   "Suriname": "Paramaribo",
+   "Sweden": "Stockholm",
+   "Switzerland": "Bern",
+   "Syria": "Damascus",
+   "Taiwan": "Taipei",
+   "Tajikistan": "Dushanbe",
+   "Tanzania": "Dodoma",
+   "Thailand": "Bangkok",
+   "Timor-Leste": "Dili",
+   "Togo": "Lome",
+   "Tonga": "Nuku'alofa",
+   "Trinidad and Tobago": "Port of Spain",
+   "Tunisia": "Tunis",
+   "Turkey": "Ankara",
+   "Turkmenistan": "Ashgabat",
+   "Tuvalu": "Funafuti",
+   "Uganda": "Kampala",
+   "Ukraine": "Kyiv",
+   "United Arab Emirates": "Abu Dhabi",
+   "United Kingdom": "London",
+   "United States": "Washington",
+   "Uruguay": "Montevideo",
+   "Uzbekistan": "Tashkent",
+   "Vanuatu": "Port Vila",
+   "Vatican": "Vatican City",
+   "Venezuela": "Caracas",
+   "Vietnam": "Hanoi",
+   "Yemen": "Sana'a",
+   "Zambia": "Lusaka",
+   "Zimbabwe": "Harare"
+ };
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ const eco = require('discord-mongoose-economy')
+ 
+ let captions = {
+   waitTime:15,
+   winReward:2000,
+   onStart :`*Capital Finding Game Started*\n*Player:* _@$player_\n*Task :* _Tell the Capital of *$country*_\n\n_Your Time Starts Now, You Have $waitTime seconds to Answer_`,
+   onTimeOut:`*Game Over, run out of time*\n\n*Player:* _@$player_\n*Reason:* _TimeOut!, You're not responed_\n\n*Answer:*\n The Capital of *$country* is *$capital*`,
+   onLimitEnd:`*Game Over, Attempts limit Exceed*\n\n*Player:* _@$player_\n*Reason:* _Not responed right answer in 3 attemps_\n\n*Answer:*\n The Capital of *$country* is *$capital*`,
+   onWrongAns:`*_Uhh dear, Your answer is not correct_*\n\n*Player:* _@$player_\n_You have *$attempt more attempt!*_\n\n*You have $waitTime seconds to answer!*`,
+   onWinGame:`*_Waoww, Your Answer is Correct_*\n*Player:* _@$player_\n\n_Capital of *$country* is *$capital*._\n_You give right answer in *$attempt attepmt*_\n_$amount cash added in your wallet_`
+   }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ function _0x455d(_0x19a369,_0x17c2f2){const _0x225780=_0x2257();return _0x455d=function(_0x455d59,_0x4dfd2a){_0x455d59=_0x455d59-0x7c;let _0x4bb43b=_0x225780[_0x455d59];return _0x4bb43b;},_0x455d(_0x19a369,_0x17c2f2);}const _0x259e67=_0x455d;function _0x2257(){const _0x408ee6=['capital\x20:\x20','2hhSARH','winReward','36MwFkia','split','144185JiHuem','country','previousAnswer','Find\x20capital\x20of\x20the\x20city','303680nTclZx','417989FpPxYC','$country','preAns','bot','3228bKvtHH','log','249276Xxhxwy','$attempt','chat','onWrongAns','$waitTime','timer','toLowerCase','$capital','sendMessage','$player','game','capital','sender','random','text','attempts','2372382ZOSdoc','give','onStart','replace','3443790MdStOl','floor','567RMycJd','waitTime','player','isBaileys'];_0x2257=function(){return _0x408ee6;};return _0x2257();}(function(_0x556560,_0x36c892){const _0x135f27=_0x455d,_0xcb5434=_0x556560();while(!![]){try{const _0x8a4fc8=-parseInt(_0x135f27(0x96))/0x1+parseInt(_0x135f27(0x8d))/0x2*(-parseInt(_0x135f27(0x9c))/0x3)+-parseInt(_0x135f27(0x8f))/0x4*(-parseInt(_0x135f27(0x91))/0x5)+parseInt(_0x135f27(0x9a))/0x6*(-parseInt(_0x135f27(0x88))/0x7)+parseInt(_0x135f27(0x95))/0x8+parseInt(_0x135f27(0x82))/0x9+parseInt(_0x135f27(0x86))/0xa;if(_0x8a4fc8===_0x36c892)break;else _0xcb5434['push'](_0xcb5434['shift']());}catch(_0x5dff63){_0xcb5434['push'](_0xcb5434['shift']());}}}(_0x2257,0x5816b));let sᴜʜᴀɪʟ_ᴍᴅ_Capital={'id':'','player':'','country':'','capital':'','attempts':0x0,'waitTime':0x14,'preAns':_0x259e67(0x93),'timer':''};async function timerFuntions(_0x3e9926,_0x493d46,_0x8ad985){const _0x235783=_0x259e67;await _0x3e9926[_0x235783(0x99)]['sendMessage'](_0x493d46[_0x235783(0x9e)],{'text':captions['onTimeOut'][_0x235783(0x85)]('$player',_0x8ad985[_0x235783(0x8a)][_0x235783(0x90)]('@')[0x0])[_0x235783(0x85)](_0x235783(0x97),_0x8ad985['country'])[_0x235783(0x85)](_0x235783(0xa3),_0x8ad985[_0x235783(0x7d)]),'mentions':[_0x8ad985[_0x235783(0x8a)]]}),delete sᴜʜᴀɪʟ_ᴍᴅ_Capital[_0x493d46[_0x235783(0x7e)]];return;}smd({'pattern':'co','alias':[_0x259e67(0x7d)],'desc':_0x259e67(0x94),'category':_0x259e67(0x7c),'filename':__filename},async(_0x28f5a6,_0x1e0316,_0x466d76)=>{const _0x5baccb=_0x259e67,_0x24ba0c=Object['keys'](countries);let _0x2d7a91=_0x24ba0c[Math[_0x5baccb(0x87)](Math[_0x5baccb(0x7f)]()*_0x24ba0c['length'])],_0x5a1955=countries[_0x2d7a91];console['log']('country\x20:\x20',_0x2d7a91),console[_0x5baccb(0x9b)](_0x5baccb(0x8c),_0x5a1955);!sᴜʜᴀɪʟ_ᴍᴅ_Capital[_0x1e0316['sender']]&&(sᴜʜᴀɪʟ_ᴍᴅ_Capital[_0x1e0316['sender']]={'id':_0x1e0316[_0x5baccb(0x9e)],'player':_0x1e0316[_0x5baccb(0x7e)],'country':_0x2d7a91,'capital':_0x5a1955,'attempts':0x0,'waitTime':captions[_0x5baccb(0x89)],'preAns':_0x1e0316['text'],'timer':''});let _0x240fbc=sᴜʜᴀɪʟ_ᴍᴅ_Capital[_0x1e0316[_0x5baccb(0x7e)]];await _0x28f5a6[_0x5baccb(0x99)][_0x5baccb(0xa4)](_0x1e0316[_0x5baccb(0x9e)],{'text':captions[_0x5baccb(0x84)][_0x5baccb(0x85)](_0x5baccb(0xa5),_0x240fbc['player'][_0x5baccb(0x90)]('@')[0x0])[_0x5baccb(0x85)]('$country',_0x240fbc[_0x5baccb(0x92)])[_0x5baccb(0x85)](_0x5baccb(0xa0),_0x240fbc[_0x5baccb(0x89)]),'mentions':[_0x240fbc[_0x5baccb(0x8a)]]}),_0x240fbc[_0x5baccb(0xa1)]=setTimeout(()=>{const _0x98c36a=_0x5baccb;timerFuntions(_0x28f5a6[_0x98c36a(0x99)],_0x1e0316,_0x240fbc);},_0x240fbc[_0x5baccb(0x89)]*0x3e8);}),smd({'on':_0x259e67(0x80)},async(_0x21d991,_0x30e9e6,_0x47bea1)=>{const _0x6c2819=_0x259e67,_0x50f708=sᴜʜᴀɪʟ_ᴍᴅ_Capital[_0x30e9e6['sender']];if(!_0x50f708)return;if(_0x50f708['id']===_0x30e9e6[_0x6c2819(0x9e)]&&_0x50f708[_0x6c2819(0x8a)]===_0x30e9e6['sender']&&_0x50f708[_0x6c2819(0x98)]!==_0x30e9e6['text']&&!_0x30e9e6[_0x6c2819(0x8b)]){_0x50f708['attempts']+=0x1,clearTimeout(_0x50f708['timer']),_0x50f708[_0x6c2819(0x98)]=_0x30e9e6['text'];if(_0x30e9e6['text']['toLowerCase']()===_0x50f708[_0x6c2819(0x7d)][_0x6c2819(0xa2)]()){let _0x4f3427=parseInt(captions[_0x6c2819(0x8e)])||0x7d0;await eco[_0x6c2819(0x83)](_0x50f708[_0x6c2819(0x8a)],'Suhail',_0x4f3427),await _0x21d991[_0x6c2819(0x99)][_0x6c2819(0xa4)](_0x30e9e6[_0x6c2819(0x9e)],{'text':captions['onWinGame'][_0x6c2819(0x85)](_0x6c2819(0xa5),_0x50f708[_0x6c2819(0x8a)][_0x6c2819(0x90)]('@')[0x0])[_0x6c2819(0x85)](_0x6c2819(0x97),_0x50f708['country'])[_0x6c2819(0x85)](_0x6c2819(0xa3),_0x50f708['capital'])[_0x6c2819(0x85)]('$amount',''+_0x4f3427)[_0x6c2819(0x85)](_0x6c2819(0x9d),''+_0x50f708[_0x6c2819(0x81)]),'mentions':[_0x50f708[_0x6c2819(0x8a)]]}),delete sᴜʜᴀɪʟ_ᴍᴅ_Capital[_0x30e9e6[_0x6c2819(0x7e)]];}else{if(_0x50f708[_0x6c2819(0x81)]<=0x3)await _0x21d991[_0x6c2819(0x99)]['sendMessage'](_0x30e9e6['chat'],{'text':captions[_0x6c2819(0x9f)][_0x6c2819(0x85)](_0x6c2819(0xa5),_0x50f708[_0x6c2819(0x8a)]['split']('@')[0x0])[_0x6c2819(0x85)](_0x6c2819(0x9d),''+(0x3-_0x50f708[_0x6c2819(0x81)]))[_0x6c2819(0x85)](_0x6c2819(0xa0),_0x50f708[_0x6c2819(0x89)]),'mentions':[_0x50f708[_0x6c2819(0x8a)]]}),_0x50f708[_0x6c2819(0xa1)]=setTimeout(()=>{const _0xa2cf49=_0x6c2819;timerFuntions(_0x21d991[_0xa2cf49(0x99)],_0x30e9e6,_0x50f708);},_0x50f708['waitTime']*0x3e8);else _0x50f708[_0x6c2819(0x81)]>0x3&&(await _0x21d991['bot'][_0x6c2819(0xa4)](_0x30e9e6[_0x6c2819(0x9e)],{'text':captions['onLimitEnd'][_0x6c2819(0x85)]('$player',_0x50f708['player'][_0x6c2819(0x90)]('@')[0x0])[_0x6c2819(0x85)](_0x6c2819(0x97),_0x50f708[_0x6c2819(0x92)])[_0x6c2819(0x85)](_0x6c2819(0xa3),_0x50f708[_0x6c2819(0x7d)]),'mentions':[_0x50f708[_0x6c2819(0x8a)]]}),delete sᴜʜᴀɪʟ_ᴍᴅ_Capital[_0x30e9e6['sender']]);}}});
+ 
+ 
+ 
+ 
 
 

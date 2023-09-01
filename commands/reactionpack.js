@@ -22,7 +22,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.5
+   * @version 1.0.6
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -39,7 +39,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
 
  **/
 
-
+/*
 const { smd,sendAnimeReaction,} = require('../lib')
 //-----------------------------------------------------------------------
 smd({pattern: "poke", category: "reaction", use: '<quote|reply|tag>', filename: __filename,  desc: "send Anime poke reaction." },async(Suhail, msg ,text, {cmdName}) => { await sendAnimeReaction(msg,'poke', 'poked to' , 'poked to everyone.' ) })
@@ -87,3 +87,4 @@ smd({pattern: "cuddle",category: "reaction", use: '<quote|reply|tag>', filename:
 
 
 
+*/

@@ -23,7 +23,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.5
+   * @version 1.0.6
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -51,8 +51,21 @@ CURRENTLY RUNNING ON BETA VERSION!!
   const long = String.fromCharCode(8206)
   const readmore = long.repeat(4001)
   const sᴜʜᴀɪʟ_ᴍᴅ = require('../lib/commands')
-  
-  
+  let { dBinary, eBinary } = require("../lib/binary");
+const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter");
+const axios = require('axios')
+const fetch = require("node-fetch");
+const util = require("util");
+const events = sᴜʜᴀɪʟ_ᴍᴅ;
+
+
+const eco = require('discord-mongoose-economy')
+const ty = eco.connect(mongodb);
+
+
+
+
+
       //---------------------------------------------------------------------------
   sᴜʜᴀɪʟ_ᴍᴅ.smd({
           pattern: "setcmd",
@@ -142,7 +155,7 @@ async(Suhail, citel) => {
           pattern: "owner",
           desc: "To check ping",
           category: "general",
-          react: "💜",
+          //react: "💜",
           filename: __filename
       },
       async(Suhail, msg) => {
@@ -219,7 +232,6 @@ async(Suhail, citel) => {
 
 
 
- const util = require("util");
 
 
 smd({ on: "body" }, async(Suhail, msg,text,{isCreator}) => {

@@ -23,7 +23,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.5
+   * @version 1.0.6
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -44,7 +44,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
 
 
 
-/*const { tlang, cmd, sleep, getBuffer, prefix, Config } = require('../lib')
+/*const { tlang, smd, sleep, getBuffer, prefix, Config } = require('../lib')
 const ytdl = require('ytdl-secktor')
 const yts = require('secktor-pack')
 const fs = require('fs')
@@ -52,7 +52,7 @@ var videotime = 60000 // 1000 min
 var dlsize = 250 // 250mb
 
  
-cmd({
+smd({
             pattern: "playlist",
             desc: "Downloads video from playlist.",
             category: "downloader",

@@ -23,7 +23,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.5
+   * @version 1.0.6
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -40,12 +40,12 @@ CURRENTLY RUNNING ON BETA VERSION!!
  **/
 
 //---------------------------------------------------------------------------
-const { cmd }   = require('../lib');
+const { smd }   = require('../lib');
 const util = require('util');
 const axios = require('axios');
 const PastebinAPI = require("pastebin-js");
 pastebin = new PastebinAPI("EMWTMkQAVfJa9kM-MRUrxd5Oku1U7pgL");
-cmd({
+smd({
         pattern: "pastebin",
         desc: "To check ping",
         category: "converter",
@@ -59,7 +59,7 @@ cmd({
     }
 );
 //----------------------------------------------- ---------------------------
-cmd({
+smd({
         pattern: "paste",
         desc: "create paste of text.",
         category: "converter",

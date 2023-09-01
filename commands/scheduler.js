@@ -23,7 +23,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/SuhailTechInfo
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.5
+   * @version 1.0.6
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -42,8 +42,8 @@ CURRENTLY RUNNING ON BETA VERSION!!
 
 
 
- const { tlang,sck,prefix,cmd } = require('../lib')
- cmd({
+ const { tlang,sck,prefix,smd } = require('../lib')
+ smd({
      pattern: "amute",
      desc: "sets auto mute time in group.",
      category: "moderation",
@@ -66,7 +66,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
  )
 
  //--------------------------------------------------------------------------------
- cmd({
+ smd({
     pattern: "aunmute",
     desc: "sets unmute time in group.",
     category: "moderation",
@@ -89,7 +89,7 @@ async(Suhail, msg, text,{ isCreator }) => {
 } 
 )
  //--------------------------------------------------------------------------------
- cmd({
+ smd({
     pattern: "dunmute",
     desc: "Delete unmute from group.",
     category: "moderation",
@@ -108,7 +108,7 @@ async(Suhail, msg, text,{ isCreator }) => {
 }
 )
  //--------------------------------------------------------------------------------
- cmd({
+ smd({
     pattern: "dmute",
     desc: "Delete mute from group.",
     category: "moderation",
