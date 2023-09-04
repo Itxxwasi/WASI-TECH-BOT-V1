@@ -15,7 +15,7 @@
     "description": "Put Your Heroku Api Key Here",
     "value": "",
 	  "required" :true 
-  }, 
+  },  
   "HEROKU_APP_NAME": {
     "description": "Put Your Heroku App Name Here",
     "value": "",

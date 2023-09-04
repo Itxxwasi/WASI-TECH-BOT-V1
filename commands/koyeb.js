@@ -23,7 +23,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.7
+   * @version 1.0.8
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -45,9 +45,9 @@ CURRENTLY RUNNING ON BETA VERSION!!
  const axios = require('axios');
 const { tlang,smd } = require('../lib')
 const { redeploy , getvar , delvar , getallvar , change_env , get_deployments} = require('../lib/koyeb')
+const Config = require('../config')
 
-
-if(KOYEB_API && process.env.KOYEB_API){
+if(Config.KOYEB_API && process.env.KOYEB_API){
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 smd(
   {

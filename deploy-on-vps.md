@@ -22,7 +22,7 @@
       ```
       sudo yarn global add pm2
       ```
- 
+  
    5. Clone Repo and install required packages
       ```
       git clone https://github.com/SamPandey001/Secktor-Md
