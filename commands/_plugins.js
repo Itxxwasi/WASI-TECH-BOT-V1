@@ -22,7 +22,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.6
+   * @version 1.0.5
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -41,8 +41,8 @@ CURRENTLY RUNNING ON BETA VERSION!!
 
 const axios = require('axios');
 const fs = require('fs-extra')
-const {plugins, isUrl, plugindb, remove,smd , tlang  , Config } = require('../lib')
-
+const { exec } = require("child_process"); 
+const {plugins, isUrl, pluginsdb,smd , tlang  , Config } = require('../lib')
 //---------------------------------------------------------------------------
 smd({pattern: "plugins",alias :['plugin'],category: "owner",desc: "Shows list of all externally installed modules", filename: __filename },async(Aviator, msg, text, { isCreator }) => {
   if (!isCreator) return msg.send(tlang().owner);
@@ -53,14 +53,25 @@ smd({ pattern: "remove",alias :['uninstall'],category: "owner", desc: "removes e
     async(Aviator, msg, text,{ isCreator}) => { 
       if (!isCreator) return msg.reply(tlang().owner);
       if(!text) return await msg.reply("*_Uhh Please, Provide Me Plugin Name_*");
-      if(text==='alls') return await msg.reply(await plugins('remove' ,'all') ); 
-      try{ 
-          let plugin = await plugins('remove' ,text); delete require.cache[require.resolve(__dirname+"/" + text + ".js")]; 
-        fs.unlinkSync(__dirname + "/" + text+ ".js"); 
-        await msg.reply(`${plugin} \n*_Please Wait ${Config.botname} Restarting_*`);
-        const { exec } = require("child_process"); exec('pm2 restart all') ;
-      }catch (e) {return await msg.send("*_Plugin Not Found In Mongodb Server_*")} });
+      if(text==='alls') return await msg.reply(await plugins('remove' ,'all',__dirname) );
+
+      try{
+        await msg.send( await plugins('remove' ,text,__dirname),{},"",msg) 
+        delete require.cache[require.resolve(__dirname+"/" + text + ".js")];
+
+
+        //await msg.send( `${plugin} \n*_Please Wait ${Config.botname} Restarting_*` , { edit: msgg.key } , "", msg );
+         exec('pm2 restart all')
+      }catch(e){  console.log("Error while removing plugin\n",e)}
+    })
 //---------------------------------------------------------------------------
-smd({ pattern: "install",category: "owner", desc: "Installs external modules..",filename: __filename},async(Aviator, msg, text, {isCreator}) => {if (!isCreator) return msg.reply(tlang().owner);let url = text ? text : msg.quoted && msg.quoted.text ? msg.quoted.text : '';if(!url.toLowerCase().includes("https")) return await msg.send("*_Uhh Please, Provide Me Plugin Url_*");await msg.reply( await plugins('install' ,url , __dirname ) ) ;});
+smd({ pattern: "install",category: "owner", desc: "Installs external modules..",filename: __filename},
+    async(Aviator, msg, text, {isCreator}) => {
+      if (!isCreator) return msg.reply(tlang().owner);
+      let url = text ? text : msg.quoted ?  msg.quoted.text : '';
+      if(!url.toLowerCase().includes("https")) return await msg.send("*_Uhh Please, Provide Me Plugin Url_*");
+      await msg.reply( await plugins('install' ,url , __dirname ) ) ;
+    
+    });
 
 

@@ -22,7 +22,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.6
+   * @version 1.0.7
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -39,171 +39,33 @@ CURRENTLY RUNNING ON BETA VERSION!!
 
  **/
 
-const { tlang, ffmpeg,smd } = require('../lib')
+const { tlang, ffmpeg ,smd , audioEditor} = require('../lib')
 const fs = require('fs')
 const { exec } = require('child_process')
+
+
 //---------------------------------------------------------------------------
-smd({
-        pattern: "bass",
-        desc: "adds bass in given sound",
-        category: "audio",
-        use: '<reply to any audio>',
-      //  react:"✅",
-    },
-    async(Suhail, msg) => {
-        let mime = msg.quoted.mtype
-        let set = "-af equalizer=f=54:width_type=o:width=2:g=20";
-        if (/audio/.test(mime)) {
-            msg.send(tlang().wait);
-            let media = await Suhail.bot.downloadAndSaveMediaMessage(msg.quoted);
-            let ran = msg.sender.slice(6) + (".mp3");
-            exec(`ffmpeg -i ${media} ${set} ${ran}`, (err, stderr, stdout) => {
-                fs.unlinkSync(media);
-                if (err) return msg.error(err);
-                let buff = fs.readFileSync(ran);
-                Suhail.bot.sendMessage(
-                    msg.chat, {
-                        audio: buff,
-                        mimetype: "audio/mpeg",
-                    }, {
-                        quoted: msg,
-                    }
-                );
-                fs.unlinkSync(ran);
-            });
-        } else
-            msg.send(
-                `Reply to the audio you want to change with*`
-            );
-    }
-)
+smd({pattern: "bass",desc: "adds bass in given sound",category: "audio",use: '<reply to any audio>',},async(Suhail, msg , text , {cmdName , isCreator}) => {try{return await audioEditor(Suhail,msg,cmdName,msg);}catch(e){ return await msg.error(e),console.log("Error in Audio Editing\n",e); } })
 //---------------------------------------------------------------------------
-smd({
-        pattern: "blown",
-        desc: "adds blown in given audio",
-        category: "audio",
-        use: '<reply to any audio>',
-       // react:"✅",
-    },
-    async(Suhail, msg) => {
-        let mime = msg.quoted.mtype
-        let set = "-af acrusher=.1:1:64:0:log";
-        if (/audio/.test(mime)) {
-            msg.send(tlang().wait);
-            let media = await Suhail.bot.downloadAndSaveMediaMessage(msg.quoted);
-            let ran = msg.sender.slice(6) + (".mp3");
-            exec(`ffmpeg -i ${media} ${set} ${ran}`, (err, stderr, stdout) => {
-                fs.unlinkSync(media);
-                if (err) return msg.error(err);
-                let buff = fs.readFileSync(ran);
-                Suhail.bot.sendMessage(
-                    msg.chat, {
-                        audio: buff,
-                        mimetype: "audio/mpeg",
-                    }, {
-                        quoted: msg,
-                    }
-                );
-                fs.unlinkSync(ran);
-            });
-        } else
-            msg.send(
-                `Reply to the audio you want to change with.*`
-            );
-    }
-)
+smd({pattern: "blown",desc: "adds blown in given sound",category: "audio",use: '<reply to any audio>',},async(Suhail, msg , text , {cmdName , isCreator}) => {try{return await audioEditor(Suhail,msg,cmdName,msg);}catch(e){ return await msg.error(e),console.log("Error in Audio Editing\n",e); } })
 //---------------------------------------------------------------------------
-smd({
-        pattern: "deep",
-        desc: "adds deep effect in given audio",
-        category: "audio",
-        use: '<reply to any audio>',
-      //  react:"✅",
-    },
-    async(Suhail, msg) => {
-        let mime = msg.quoted.mtype
-        let set = "-af atempo=4/4,asetrate=44500*2/3";
-        if (/audio/.test(mime)) {
-            msg.send(tlang().wait);
-            let media = await Suhail.bot.downloadAndSaveMediaMessage(msg.quoted);
-            let ran = msg.sender.slice(6) + (".mp3");
-            exec(`ffmpeg -i ${media} ${set} ${ran}`, (err, stderr, stdout) => {
-                fs.unlinkSync(media);
-                if (err) return msg.error(err);
-                let buff = fs.readFileSync(ran);
-                Suhail.bot.sendMessage(
-                    msg.chat, {
-                        audio: buff,
-                        mimetype: "audio/mpeg",
-                    }, {
-                        quoted: msg,
-                    }
-                );
-                fs.unlinkSync(ran);
-            });
-        } else
-            msg.send(
-                `Reply to the audio you want to change with.*`
-            );
-    }
-)
+smd({pattern: "deep",desc: "adds deep in given sound",category: "audio",use: '<reply to any audio>',},async(Suhail, msg , text , {cmdName , isCreator}) => {try{return await audioEditor(Suhail,msg,cmdName,msg);}catch(e){ return await msg.error(e),console.log("Error in Audio Editing\n",e); } })
 //---------------------------------------------------------------------------
-smd({
-        pattern: "fast",
-        desc: "Adds fast(equilizer) in quoted audio.",
-        category: "audio",
-        use: '<reply to any audio>',
-       // react:"✅",
-    },
-    async(Suhail, msg) => {
-        let mime = msg.quoted.mtype
-        let set = '-filter:a "atempo=1.63,asetrate=44100"';
-        if (/audio/.test(mime)) {
-            msg.send(tlang().wait);
-            let media = await Suhail.bot.downloadAndSaveMediaMessage(msg.quoted);
-            let ran = msg.sender.slice(6) + (".mp3");
-            exec(`ffmpeg -i ${media} ${set} ${ran}`, (err, stderr, stdout) => {
-                fs.unlinkSync(media);
-                if (err) return msg.error(err);
-                let buff = fs.readFileSync(ran);
-                Suhail.bot.sendMessage(
-                    msg.chat, {
-                        audio: buff,
-                        mimetype: "audio/mpeg",
-                    }, {
-                        quoted: msg,
-                    }
-                );
-                fs.unlinkSync(ran);
-            });
-        } else
-            msg.send(
-                `Reply to the audio you want to change with.*`
-            );
-    }
-)
+smd({pattern: "earrape",desc: "adds earrape in given sound",category: "audio",use: '<reply to any audio>',},async(Suhail, msg , text , {cmdName , isCreator}) => {try{return await audioEditor(Suhail,msg,cmdName,msg);}catch(e){ return await msg.error(e),console.log("Error in Audio Editing\n",e); } })
 //---------------------------------------------------------------------------
-smd({
-        pattern: "reverse",
-        desc: "Adds reverse(equilizer) in quoted audio.",
-        category: "audio",
-        use: '<reply to any audio>',
-      //  react:"✅",
-    },
-    async(Suhail, msg) => {
-        let mime = msg.quoted.mtype
-        let set = '-filter_complex "areverse"';
-        if (/audio/.test(mime)) {
-            msg.send(tlang().wait);
-            let media = await Suhail.bot.downloadAndSaveMediaMessage(msg.quoted);
-            let ran = msg.sender.slice(6) + (".mp3");
-            exec(`ffmpeg -i ${media} ${set} ${ran}`, (err, stderr, stdout) => {
-                fs.unlinkSync(media);
-                if (err) return msg.error(err);
-                let buff = fs.readFileSync(ran);
-                Suhail.bot.sendMessage( msg.chat, {  audio: buff, mimetype: "audio/mpeg",}, { quoted: msg, });
-                fs.unlinkSync(ran);
-            });
-        } else  msg.send(`Reply to the audio you want to change with.*`);
-    }
-)
+smd({pattern: "fast",desc: "adds fast in given sound",category: "audio",use: '<reply to any audio>',},async(Suhail, msg , text , {cmdName , isCreator}) => {try{return await audioEditor(Suhail,msg,cmdName,msg);}catch(e){ return await msg.error(e),console.log("Error in Audio Editing\n",e); } })
+//---------------------------------------------------------------------------
+smd({pattern: "fat",desc: "adds fat in given sound",category: "audio",use: '<reply to any audio>',},async(Suhail, msg , text , {cmdName , isCreator}) => {try{return await audioEditor(Suhail,msg,cmdName,msg);}catch(e){ return await msg.error(e),console.log("Error in Audio Editing\n",e); } })
+//---------------------------------------------------------------------------
+smd({pattern: "nightcore",desc: "adds nightcore in given sound",category: "audio",use: '<reply to any audio>',},async(Suhail, msg , text , {cmdName , isCreator}) => {try{return await audioEditor(Suhail,msg,cmdName,msg);}catch(e){ return await msg.error(e),console.log("Error in Audio Editing\n",e); } })
+//---------------------------------------------------------------------------
+smd({pattern: "reverse",desc: "adds reverse in given sound",category: "audio",use: '<reply to any audio>',},async(Suhail, msg , text , {cmdName , isCreator}) => {try{return await audioEditor(Suhail,msg,cmdName,msg);}catch(e){ return await msg.error(e),console.log("Error in Audio Editing\n",e); } })
+//---------------------------------------------------------------------------
+smd({pattern: "robot",desc: "adds robot in given sound",category: "audio",use: '<reply to any audio>',},async(Suhail, msg , text , {cmdName , isCreator}) => {try{return await audioEditor(Suhail,msg,cmdName,msg);}catch(e){ return await msg.error(e),console.log("Error in Audio Editing\n",e); } })
+//---------------------------------------------------------------------------
+smd({pattern: "slow",desc: "adds slow in given sound",category: "audio",use: '<reply to any audio>',},async(Suhail, msg , text , {cmdName , isCreator}) => {try{return await audioEditor(Suhail,msg,cmdName,msg);}catch(e){ return await msg.error(e),console.log("Error in Audio Editing\n",e); } })
+//---------------------------------------------------------------------------
+smd({pattern: "smooth",desc: "adds smooth in given sound",category: "audio",use: '<reply to any audio>',},async(Suhail, msg , text , {cmdName , isCreator}) => {try{return await audioEditor(Suhail,msg,cmdName,msg);}catch(e){ return await msg.error(e),console.log("Error in Audio Editing\n",e); } })
+//---------------------------------------------------------------------------
+smd({pattern: "tupai",desc: "adds tupai in given sound",category: "audio",use: '<reply to any audio>',},async(Suhail, msg , text , {cmdName , isCreator}) => {try{return await audioEditor(Suhail,msg,cmdName,msg);}catch(e){ return await msg.error(e),console.log("Error in Audio Editing\n",e); } })
+//---------------------------------------------------------------------------

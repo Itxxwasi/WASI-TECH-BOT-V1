@@ -22,7 +22,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.6
+   * @version 1.0.7
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -46,14 +46,14 @@ CURRENTLY RUNNING ON BETA VERSION!!
 const axios = require('axios')
 const {Config, randomeFunfacts ,smd } = require('../lib')
 const fetch = require('node-fetch');
-    //---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 
-    //---------------------------------------------------------------------------
-    smd({pattern: "question", desc: "Random Question.", category: "fun",filename: __filename, },async(Void, citel, text , {cmdName}) => { return await citel.reply(await randomeFunfacts(cmdName)); });
-    //---------------------------------------------------------------------------
-    smd({pattern: "truth",desc: "truth and dare(truth game.).",category: "fun",filename: __filename, },async(Void, citel, text , {cmdName}) => { return await citel.reply(await randomeFunfacts(cmdName)); });
-    //---------------------------------------------------------------------------
-    smd({pattern: "dare",desc: "truth and dare(dare game.).",category: "fun",filename: __filename, },async(Void, citel, text , {cmdName}) => { return await citel.reply(await randomeFunfacts(cmdName)); });
+//---------------------------------------------------------------------------
+smd({pattern: "question", desc: "Random Question.", category: "fun",filename: __filename, },async(Void, citel, text , {cmdName}) => { return await citel.reply(await randomeFunfacts(cmdName)); });
+//---------------------------------------------------------------------------
+smd({pattern: "truth",desc: "truth and dare(truth game.).",category: "fun",filename: __filename, },async(Void, citel, text , {cmdName}) => { return await citel.reply(await randomeFunfacts(cmdName)); });
+//---------------------------------------------------------------------------
+smd({pattern: "dare",desc: "truth and dare(dare game.).",category: "fun",filename: __filename, },async(Void, citel, text , {cmdName}) => { return await citel.reply(await randomeFunfacts(cmdName)); });
 //--------------------------------------------------------------------------------
 smd({pattern: "joke",desc: "Sends Joke in chat.",category: "fun",filename: __filename, },async(Void, citel, text , {cmdName}) => { return await citel.reply(await randomeFunfacts(cmdName)); });
 //---------------------------------------------------------------------------

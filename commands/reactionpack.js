@@ -22,7 +22,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.6
+   * @version 1.0.7
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -39,7 +39,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
 
  **/
 
-/*
+
 const { smd,sendAnimeReaction,} = require('../lib')
 //-----------------------------------------------------------------------
 smd({pattern: "poke", category: "reaction", use: '<quote|reply|tag>', filename: __filename,  desc: "send Anime poke reaction." },async(Suhail, msg ,text, {cmdName}) => { await sendAnimeReaction(msg,'poke', 'poked to' , 'poked to everyone.' ) })
@@ -79,12 +79,3 @@ smd({pattern: "bully", category: "reaction", use: '<quote|reply|tag>', filename:
 smd({pattern: "cringe",category: "reaction", use: '<quote|reply|tag>', filename: __filename,  desc: "send Anime cringe reaction."},async(Suhail, msg ,text , {cmdName}) => {  await sendAnimeReaction(msg,cmdName, 'cringed to' , 'cringed to everyone' ) })
     //---------------------------------------------------------------------------
 smd({pattern: "cuddle",category: "reaction", use: '<quote|reply|tag>', filename: __filename,  desc: "send Anime cuddle reaction."},async(Suhail, msg ,text , {cmdName}) => {  await sendAnimeReaction(msg,cmdName, 'cuddled with' , 'cuddled with everyone' ) })
-
-
-
-
-
-
-
-
-*/

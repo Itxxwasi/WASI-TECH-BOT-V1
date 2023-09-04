@@ -23,7 +23,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.6
+   * @version 1.0.7
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -41,7 +41,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
 
 
 const moment = require('moment-timezone')
-const {fetchJson,smd, tlang, getBuffer, prefix, Config } = require('../lib')
+const {fetchJson,smd, tlang, getBuffer,send, prefix, Config } = require('../lib')
 let gis ='' // require("g-i-s");
 const axios = require('axios')
 const fetch = require('node-fetch')
@@ -92,26 +92,28 @@ const fetch = require('node-fetch')
        }
     )
     //------------------------------------------------------------------------------------
-smd({
-            pattern: 'ss',
-            alias :['webss' , 'fullss'],
-            category: "search",
-            desc: "Searches Image on Google",
-            use: '<text>',
-            filename: __filename,
-        },
-        async(Suhail, citel, text) => {
-let limit = 5;
- try {
-    if (!text) return citel.reply("```Uhh Please, Give me Url!```");
-    var url = text;
-    let urll = `https://s.vercel.app/api?url=${url.match(/\bhttps?:\/\/\S+/gi)[0]}&width=1280&height=720`
-    let media  = await getBuffer(urll)
-    return await Suhail.bot.sendMessage(citel.chat ,{image : media } , {quoted:citel} )
- }
-catch (err) { return citel.reply("```Error While Fetching Snapshot```")}
-        }
-    )
+    smd({
+        pattern: 'ss',
+        alias :['webss' , 'fullss'],
+        category: "search",
+        desc: "Searches Image on Google",
+        use: '<text>',
+        filename: __filename,
+    },
+    async(Suhail, citel, text) => {
+try {
+let textt =citel.quoted ? citel.quoted.text : text
+var url = textt.match(/\bhttps?:\/\/\S+/gi) || text.match(/\bhttps?:\/\/\S+/gi);
+if (!url) return send(citel,"*_Uhh Please, provide Url to fetch Snapshot!_*");
+let urll = `https://s.vercel.app/api?url=${url[0]}&width=1280&height=720`
+let media  = await getBuffer(urll)
+return await send(citel,media,{},"image",citel)
+}
+catch (err) { return send(citel,"```Error While Fetching Snapshot```")}
+    }
+)
+
+
 
 
 

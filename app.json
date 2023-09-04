@@ -26,6 +26,11 @@
     "required" :false,
     "value": "true"
   },
+  "WAPRESENCE": {
+    "description": "Fill the value: 'unavailable'(nothing) | 'available'(alwaysonline) | 'composing'(typing) | 'recording' | 'paused' ",
+    "required" :false,
+    "value": "unavailable"
+  },
   "AUTO_READ_STATUS": {
     "description": "Fill the value true if you want bot view your Statuses.",
     "required" :false,
@@ -66,7 +71,7 @@
     "description": "Please put your OPENAI api key here.Get it from beta.openai.com ",
     "value": "",
     "required" :false
-  },
+  }, 
   "REMOVE_BG_KEY": {
     "description": "Please put your REMOVE BG KEY here.Get it from removeBg.com ",
     "value": "",

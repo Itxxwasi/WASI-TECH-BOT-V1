@@ -5,13 +5,13 @@
     "LANGUAGE": "English",
     "LANGCODE": "en",
     "STRINGS": { 
-        "updater": { 
+        "updater": {  
             "UPDATE": "*Your bot is already on latest version Darling*",
             "NEW_UPDATE": "*There is a new update available for the bot!*\n\n*Changes:*\n",
             "UPDATED_LOCAL": "*Successfully Updated!*"
         }, 
         "global": {
-            "botName": " 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐆𝐢𝐝𝐞𝐨𝐧",
+            "botName": "𝐆𝐢𝐝𝐞𝐨𝐧",
             "body": "𝑊ℎ𝑎𝑡𝑠𝑎𝑝𝑝 𝐵𝑜𝑡",
             "greet2" : "Hey Mr",
             "pic1": "https://cdn.mos.cms.futurecdn.net/JGFMHxCo5ZFfjLduDamRXD-1200-80.jpg",

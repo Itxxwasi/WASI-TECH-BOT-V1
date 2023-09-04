@@ -22,7 +22,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.6
+   * @version 1.0.7
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -85,26 +85,9 @@ smd({pattern: "animepic",category: "Anime Pics",filename: __filename,desc: "Anim
 //-----------------------------------------------------------------------
 smd({ pattern: "animewall",category: "Anime Pics",desc: "Anime Wallpaper Random",filename: __filename},async(Suhail, msg, text) => {return await sendGImages(msg ,text+"anime wallpaper for desktop full hd", `*---「 Anime Wallpaper 」---*` , text );});
 //-----------------------------------------------------------------------
-let qq = ["Anime News Today","New Anime","Uocoming Anime News","New Anime Info","Whats news in Anime","Anime Series","Manga News today","Anime New News","Anime News today",];
-smd({ pattern: "animenews",category: "Anime Pics", desc: "Sends Anime News in chat",filename: __filename},async(Suhail,msg,text,{cmdName}) => {let q1=qq[Math.floor(Math.random()*qq.length)]+text;return await sendAnime(Suhail,msg,cmdName, q1);});
+let qq = ["Anime News Today","New Anime","Uocoming Anime News","New Anime Info","Whats news in Anime","Anime Series","Manga News today","Anime New News","Anime News today",];smd({ pattern: "animenews",category: "Anime Pics", desc: "Sends Anime News in chat",filename: __filename},async(Suhail,msg,text,{cmdName}) => {let q1=qq[Math.floor(Math.random()*qq.length)]+text;return await sendAnime(Suhail,msg,cmdName, q1);});
 //---------------------------------------------------------------------------
-smd({
-    pattern: "pokemon",
-    category: "Anime Pics",
-    filename: __filename,
-    desc: "Sends info of pokemon in current chat."
-},
-async(Suhail, msg, text) => {
-        if(!text) return msg.reply("*Uhh Please Give Me Poki Name/num*")
-    try {
-        let { data: data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${text}`)
-        if (!data.name) return msg.reply(`❌ Could not found any pokemon with that name`)
-        let poinfo = `*•Name: ${data.name}*\n*•Pokedex ID: ${data.id}*\n*•Height: ${data.height}*\n*•Weight: ${data.weight}*\n*•Abilities: ${data.abilities[0].ability.name}, ${data.abilities[1].ability.name}*\n*•Base Experience: ${data.base_experience}*\n*•Type: ${data.types[0].type.name}*\n*•Base Stat: ${data.stats[0].base_stat}*\n*•Attack: ${data.stats[1].base_stat}*\n*•Defense: ${data.stats[2].base_stat}*\n*•Special Attack: ${data.stats[3].base_stat}*\n*•Special Defense:${data.stats[4].base_stat}*\n*•Speed: ${data.stats[5].base_stat}*\n`
-        Suhail.bot.sendMessage(msg.chat, { image: { url: data.sprites.front_default }, caption: poinfo }, { quoted: msg })
-    } catch (err) {  msg.reply("*_Ahh,Couldn't found any pokemon._*") }
-
-}
-)
+smd({pattern: "pokemon",category: "Anime Pics", filename: __filename, desc: "Sends info of pokemon in current chat."},async(Suhail, msg, text) => { if(!text) return msg.reply("*Uhh Please Give Me Poki Name/num*");try {let { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${text}`);if (!data.name) return msg.reply(`❌ Could not found any pokemon with that name`);let poinfo = `*•Name: ${data.name}*\n*•Pokedex ID: ${data.id}*\n*•Height: ${data.height}*\n*•Weight: ${data.weight}*\n*•Abilities: ${data.abilities[0].ability.name}, ${data.abilities[1].ability.name}*\n*•Base Experience: ${data.base_experience}*\n*•Type: ${data.types[0].type.name}*\n*•Base Stat: ${data.stats[0].base_stat}*\n*•Attack: ${data.stats[1].base_stat}*\n*•Defense: ${data.stats[2].base_stat}*\n*•Special Attack: ${data.stats[3].base_stat}*\n*•Special Defense:${data.stats[4].base_stat}*\n*•Speed: ${data.stats[5].base_stat}*\n`;return await Suhail.bot.sendMessage(msg.chat, { image: { url: data.sprites.front_default }, caption: poinfo }, { quoted: msg });} catch (err) {  msg.reply("*_Ahh,Couldn't found any pokemon._*") }})
 //---------------------------------------------------------------------------
 
 

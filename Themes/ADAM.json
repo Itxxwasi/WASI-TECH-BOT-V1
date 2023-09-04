@@ -1,16 +1,17 @@
 {
 "_JSON_": true,
 "AUTHOR": "SuhailTechInfo",
+"theme": "Adam",
 "LANGUAGE": "English",
 "LANGCODE": "en",
 "STRINGS": {    
-"updater": {  
+"updater": {   
 "UPDATE": "Your bot is already on latest version Buddy",
 "NEW_UPDATE": "There is a new update available for the bot!\n\n*Changes:*\n",
 "UPDATED_LOCAL": "Fresh Updates Installed!"
 },
 "global": {
-"botName": " Powered by Suhail Tech Info",
+"botName": "ADAM",
 
 "body": "SHAZAM!",
 "greet2" : "Hey Buddy",

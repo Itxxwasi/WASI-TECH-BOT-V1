@@ -4,13 +4,13 @@
   "Theme": "Friday",
   "LANGCODE": "en",
   "STRINGS": {  
-      "updater": { 
+      "updater": {  
           "UPDATE": "*Your bot is already on latest version Sir*",
           "NEW_UPDATE": "*There is a new update available for the bot!*\n\n*Changes:*\n",
           "UPDATED_LOCAL": "*Successfully Updated!*"
       },
       "global": {
-          "botName": " 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐅𝐫𝐢𝐝𝐚𝐲",
+          "botName": "𝐅𝐫𝐢𝐝𝐚𝐲",
           "body": "As always Sir.",
         "greet2" : "Hello Sir",
           "pic1": "https://img-9gag-fun.9cache.com/photo/aer54jB_460s.jpg",

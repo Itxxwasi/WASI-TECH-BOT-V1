@@ -22,7 +22,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.6
+   * @version 1.0.5
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -62,7 +62,7 @@ smd({pattern: "sticker",alias: ["s"], desc: "Makes sticker of replied image/vide
             if (mime =="imageMessage" || mime =="videoMessage" || mime =="stickerMessage") {  media = await msg.quoted.download(); }
             else return msg.reply("*Uhh Dear, Reply to image/video*")
           }else return msg.reply("*Uhh Dear, Reply to image/video*");
-          let options={pack: Config.packname,author: Config.author,type: StickerTypes.FULL,quality: 60, }
+          let options={pack: Config.packname,author: Config.author,type: StickerTypes.FULL,quality: 15, }
           return await generateSticker(Suhail, msg, 'sticker', media, options ) , media = false; 
            
 })

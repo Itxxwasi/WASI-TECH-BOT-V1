@@ -5,13 +5,13 @@
   "LANGUAGE": "English",
   "LANGCODE": "en",
   "STRINGS": { 
-      "updater": {
+      "updater": { 
           "UPDATE": "*Believe it.\nYour bot is already up-to-date*",
           "NEW_UPDATE": "*it's time to update the bot!*\n\n*Changes:*\n",
           "UPDATED_LOCAL": "*Successfully Updated!*"
       }, 
       "global": { 
-          "botName": " 𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝚋𝚢 Suhail Tech Info",
+          "botName": "LUFFY",
           "body": "𝑊ℎ𝑎𝑡𝑠𝑎𝑝𝑝 𝐵𝑜𝑡",
           "greet2" : "Suhail king",
           "pic1": "https://telegra.ph/file/4b31b5e22992c04ab68c2.jpg",

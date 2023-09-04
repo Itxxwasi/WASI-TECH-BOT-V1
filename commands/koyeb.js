@@ -23,7 +23,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.6
+   * @version 1.0.7
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -42,14 +42,14 @@ CURRENTLY RUNNING ON BETA VERSION!!
 
 
  
-
-
-/**const axios = require('axios');
-const { tlang,cmd } = require('../lib')
+ const axios = require('axios');
+const { tlang,smd } = require('../lib')
 const { redeploy , getvar , delvar , getallvar , change_env , get_deployments} = require('../lib/koyeb')
 
+
+if(KOYEB_API && process.env.KOYEB_API){
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-cmd(
+smd(
   {
     pattern: "updatenow",
     desc: "update bot with refreshed commit.",
@@ -64,7 +64,7 @@ cmd(
        return msg.reply(data)
   })
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-cmd(
+smd(
   {
     pattern: "koyebgetvar",
     desc: "get desired var from koyeb.",
@@ -78,7 +78,7 @@ cmd(
        return msg.reply(data)
   })
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-cmd(
+smd(
   {
     pattern: "getallvar",
     desc: "get all vars from koyeb.",
@@ -91,7 +91,7 @@ cmd(
        return msg.reply(data)
   })
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-cmd(
+smd(
   {
     pattern: "koyebsetvar",
     desc: "set var in koyeb.",
@@ -108,7 +108,7 @@ cmd(
   })
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-cmd(
+smd(
   {
     pattern: "koyebdelvar",
     desc: "delete var from koyeb.",
@@ -123,4 +123,5 @@ cmd(
        let data = await delvar(text)
        return msg.reply(data)
   })
-**/
+
+}
