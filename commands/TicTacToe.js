@@ -23,7 +23,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.8
+   * @version 1.0.9
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -46,7 +46,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
 
 const { smd, parseJid,getAdmin,tlang } = require("../lib/");
 const eco = require('discord-mongoose-economy')
-const ty = eco.connect(mongodb);
+
 
 
 const stickers = [
@@ -239,7 +239,7 @@ ${ isWin ? `@${winner.split("@")[0]} Won ! and got 2000💎 in wallet🤑` : isT
 
      if ((room.game._currentTurn ^ isSurrender ? room.x : room.o) !== msgs.chat)
        room[room.game._currentTurn ^ isSurrender ? "x" : "o"] = msgs.chat;
-     if(isWin){  await eco.give(msgs.sender, "Suhail", 2000);  }
+     if(isWin && isMongodb){ await eco.give(msgs.sender, "Suhail", 2000); }
      if (isWin || isTie) { 
        await Suhail.bot.sendMessage(msgs.chat, { text: str, mentions: [room.game.playerO,room.game.playerX], });
        delete this.game[room.id];
@@ -288,3 +288,5 @@ smd({ pattern: "ship" , category: "fun" }, async(Suhail, msgs, text) => {
   }
 )
 // IDEA of Shipcent from => https://github.com/iamherok/WhatsApp-Botto-Ruka/blob/master/handler/message.js#L842
+
+

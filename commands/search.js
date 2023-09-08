@@ -2,9 +2,9 @@
 
 //══════════════════════════════════════════════════════════════════════════════════════════════════════//
 //                                                                                                      //
-//                                ＷＨＡＴＳＡＰＰ ＢＯＴ－ＭＤ ＢＥＴＡ                                   //
+//                                ＷＨＡＴＳＡＰＰ ＢＯＴ－ＭＤ ＢＥＴＡ                                      //
 //                                                                                                      // 
-//                                         Ｖ：１．０．１                                                // 
+//                                         Ｖ：１．０．１                                                 // 
 //                                                                                                      // 
 //            ███████╗██╗   ██╗██╗  ██╗ █████╗ ██╗██╗         ███╗   ███╗██████╗                        //
 //            ██╔════╝██║   ██║██║  ██║██╔══██╗██║██║         ████╗ ████║██╔══██╗                       //
@@ -23,7 +23,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.8
+   * @version 1.0.9
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -41,7 +41,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
 
 
 const moment = require('moment-timezone')
-const {fetchJson,smd, tlang, getBuffer,send, prefix, Config } = require('../lib')
+const {fetchJson,smd, tlang,send, getBuffer, prefix, Config } = require('../lib')
 let gis ='' // require("g-i-s");
 const axios = require('axios')
 const fetch = require('node-fetch')
@@ -56,9 +56,9 @@ const fetch = require('node-fetch')
            filename: __filename,
        },
        async(Suhail, citel, text) => {
-            let mime = citel.quoted.mtype
-            if (!citel.quoted) return citel.reply(`Send/Reply audio  ${prefix}find`);
-            if (!/audio/.test(mime)) return citel.reply(`Send/Reply audio ${prefix}shazam`);
+            let mime = citel.quoted ? citel.quoted.mtype : ''
+            //if (!citel.quoted) return citel.reply(`Send/Reply audio  ${prefix}find`);
+            if (!/audio/.test(mime)) return citel.reply(`Reply audio ${prefix}find`);
             let buff = await citel.quoted.download();
             let data = await shazam(buff);
             if (!data.status) return citel.send(data);
@@ -92,27 +92,31 @@ const fetch = require('node-fetch')
        }
     )
     //------------------------------------------------------------------------------------
-    smd({
-        pattern: 'ss',
-        alias :['webss' , 'fullss'],
-        category: "search",
-        desc: "Searches Image on Google",
-        use: '<text>',
-        filename: __filename,
-    },
-    async(Suhail, citel, text) => {
-try {
-let textt =citel.quoted ? citel.quoted.text : text
-var url = textt.match(/\bhttps?:\/\/\S+/gi) || text.match(/\bhttps?:\/\/\S+/gi);
-if (!url) return send(citel,"*_Uhh Please, provide Url to fetch Snapshot!_*");
-let urll = `https://s.vercel.app/api?url=${url[0]}&width=1280&height=720`
-let media  = await getBuffer(urll)
-return await send(citel,media,{},"image",citel)
-}
-catch (err) { return send(citel,"```Error While Fetching Snapshot```")}
-    }
-)
+smd({
+            pattern: 'ss',
+            alias :['webss' , 'fullss'],
+            category: "search",
+            desc: "Searches Image on Google",
+            use: '<text>',
+            filename: __filename,
+        },
+        async(Suhail, citel, text) => {
+let limit = 5;
+ try {
+    let textt =citel.quoted ? citel.quoted.text : text
+console.log("text : " , textt)
+    var url = textt.match(/\bhttps?:\/\/\S+/gi) || text.match(/\bhttps?:\/\/\S+/gi)  ;
 
+    if (!url) return send(citel,"*_Uhh Please, provide Url to fetch SS!_*");
+     send(citel,url[0]);
+    let urll = `https://s.vercel.app/api?url=${url[0]}&width=1280&height=720`
+    let media  = await getBuffer(urll)
+    return await send(citel,media,{},"image",citel)
+    //return await Suhail.bot.sendMessage(citel.chat ,{image : media } , {quoted:citel} )
+ }
+catch (err) { return send(citel,"```Error While Fetching Snapshot```")}
+        }
+    )
 
 
 

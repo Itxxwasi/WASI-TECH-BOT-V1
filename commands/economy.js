@@ -23,7 +23,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.8
+   * @version 1.0.9
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -38,18 +38,30 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
    * SOFTWARE.
  **/
-const { sck,sck1,smd, getBuffer, tlang, prefix } = require('../lib')
+
+
+
+
+
+const { groupdb,smd, getBuffer, tlang, prefix } = require('../lib')
 const Config = require('../config')
 const eco = require('discord-mongoose-economy')
-const ty = eco.connect(mongodb);
+let ty = false ; 
+try {if(isMongodb){ ty =  eco.connect(mongodb) }else{ty = eco.connect("mongodb+srv://suhail:md@cluster0.ybz60ak.mongodb.net/?retryWrites=true&w=majority") ; }console.log("Connected with discord economy!!");} catch(e) { ty = false  }
+const sck = groupdb ;
+if(ty){let activegc = ''; 
+
+
+
 /*
  smd({
         pattern: "economy",
         desc: "daily gold.",
         category: "economy",
     },
-    */
-    //---------------------------------------------------------------------------
+    */ 
+
+
 smd({
         pattern: "daily",
         desc: "daily gold.",
@@ -58,7 +70,7 @@ smd({
         react: "💷"
     },
     async(Aviator, msg, text,{ isCreator }) => {
-       let zerogroup = (await sck.findOne({  id: msg.chat,   })) || (await new sck({  id: msg.chat, }).save());
+       let zerogroup = await sck.findOne({  id: msg.chat,   }) || {}
        let mongoschemas = zerogroup.economy || "false";
        if (mongoschemas == "false") return msg.reply("*🚦Economy* is not active in current group.");
        if (!msg.isGroup) return msg.reply(tlang().group);
@@ -80,7 +92,7 @@ smd({
         react: "💷"
     },
     async(Aviator, msg, text,{ isCreator }) => {
-       let zerogroup = (await sck.findOne({ id: msg.chat,})) || (await new sck({id: msg.chat,}).save());
+       let zerogroup = (await sck.findOne({ id: msg.chat,})) || await sck.new({id: msg.chat,})
        let mongoschemas = zerogroup.economy || "false";
        if (mongoschemas == "false") return msg.reply("*🚦Economy* is not active in current group.");
        if(!isCreator) return msg.reply(tlang().owner)
@@ -100,7 +112,7 @@ smd({
    react: "💷"
 },
 async(Aviator, msg, text,{ isCreator }) => {
-   let zerogroup = (await sck.findOne({ id: msg.chat, })) || (await new sck({  id: msg.chat,  }).save());
+   let zerogroup = (await sck.findOne({ id: msg.chat, })) || await sck.new({  id: msg.chat,  })
    let mongoschemas = zerogroup.economy || "false";
    if (mongoschemas == "false") return msg.reply("*🚦Economy* is not active in current group.");
    if (!msg.isGroup) return msg.reply(tlang().group);
@@ -156,7 +168,7 @@ await msg.reply('*What are you trying to do📉*.')
        react: "💷"
    },
    async(Aviator, msg, text,{ isCreator }) => {
-       let zerogroup = (await sck.findOne({ id: msg.chat,  })) || (await new sck({  id: msg.chat, }) .save());
+       let zerogroup = (await sck.findOne({ id: msg.chat,  })) || {};
        let mongoschemas = zerogroup.economy || "false";
        if (mongoschemas == "false") return msg.reply("*🚦Economy* is not active in current group.");
      //  let users = msg.mentionedJid ? msg.mentionedJid[0] : msg.msg.contextInfo.participant || false;
@@ -179,10 +191,10 @@ await msg.reply('*What are you trying to do📉*.')
    async(Aviator, msg, text,{ isCreator }) => {
    let h = await eco.lb("Suhail",10);
    let str = `*Top ${h.length} users with more money in wallet.*\n`
-   const { sck1 } = require('../lib');
+   const { userdb } = require('../lib');
    let arr = []
     for(let i=0;i<h.length;i++){
-           let username = await sck1.findOne({ id: h[i].userID })
+           let username = await userdb.findOne({ id: h[i].userID }) || {name : false};
            var tname;
            if (username.name && username.name !== undefined) {
                tname = username.name
@@ -204,7 +216,7 @@ smd({
    react: "💷"
 },
 async(Aviator, msg, text,{ isCreator }) => {
-   let zerogroup = (await sck.findOne({  id: msg.chat, })) || (await new sck({   id: msg.chat,   })  .save());
+   let zerogroup =await sck.findOne({  id: msg.chat, }) || {} ;
    let mongoschemas = zerogroup.economy || "false";
    if (mongoschemas == "false") return msg.reply("*🚦Economy* is not active in current group.");
    let value = text.trim().split(" ");
@@ -242,10 +254,7 @@ async(Aviator, msg, text,{ isCreator }) => {
    async(Aviator, msg, text,{ isCreator }) => {
        let zerogroup = (await sck.findOne({
            id: msg.chat,
-       })) || (await new sck({
-               id: msg.chat,
-           })
-           .save());
+       })) || await sck.new({id: msg.chat,})
        let mongoschemas = zerogroup.economy || "false";
        if (mongoschemas == "false") return msg.reply("*🚦Economy* is not active in current group.");
         const balance = await eco.balance(msg.sender,"Suhail"); //Returns wallet, bank, and bankCapacity. Also creates a USer if it doesn't exist.
@@ -282,7 +291,7 @@ async(Aviator, msg, text,{ isCreator }) => {
        react: "💷"
    },
    async(Aviator, msg, text,{ isCreator }) => {
-       let zerogroup = (await sck.findOne({  id: msg.chat,  })) || (await new sck({   id: msg.chat,   }) .save());
+       let zerogroup = (await sck.findOne({  id: msg.chat,  })) || (await sck.new({   id: msg.chat,   }) );
        let mongoschemas = zerogroup.economy || "false";
        if (mongoschemas == "false") return msg.reply("*🚦Economy* is not active in current group.");
        const balance = await eco.balance(msg.sender, "Suhail"); //Returns wallet, bank, and bankCapacity. Also creates a USer if it doesn't exist.
@@ -300,7 +309,7 @@ async(Aviator, msg, text,{ isCreator }) => {
        filename: __filename,
    },
    async(Aviator, msg, text,{ isCreator }) => {
-       let zerogroup = (await sck.findOne({   id: msg.chat,  })) || (await new sck({  id: msg.chat,   })  .save());
+       let zerogroup = (await sck.findOne({   id: msg.chat,  })) || (await sck.new({  id: msg.chat,   }));
        let mongoschemas = zerogroup.economy || "false";
        if (mongoschemas == "false") return msg.reply("*🚦Economy* is not active in current group.");
        let users = msg.mentionedJid ? msg.mentionedJid[0] : msg.msg.contextInfo.participant || false;
@@ -353,7 +362,7 @@ await msg.reply('*What are you trying to do👀*.')
        react: "💷"
    },
    async(Aviator, msg, text,{ isCreator }) => {
-       let zerogroup = (await sck.findOne({   id: msg.chat,  })) || (await new sck({  id: msg.chat,   }).save());
+       let zerogroup = (await sck.findOne({   id: msg.chat,  })) || {} ;
        let mongoschemas = zerogroup.economy || "false";
        if (mongoschemas == "false") return msg.reply("*🚦Economy* is not active in current group.");
        const user = msg.sender
@@ -375,7 +384,7 @@ await msg.reply('*What are you trying to do👀*.')
        react: "💷"
    }, 
    async(Aviator, msg, text,{ isCreator }) => {
-       let zerogroup = (await sck.findOne({ id: msg.chat,})) || (await new sck({ id: msg.chat, }).save());
+       let zerogroup = (await sck.findOne({ id: msg.chat,})) || {};
        let mongoschemas = zerogroup.economy || "false";
        if (mongoschemas == "false") return msg.reply("*🚦Economy* is not active in current group.");
        const user = msg.sender
@@ -436,7 +445,7 @@ await msg.reply('*What are you trying to do👀*.')
        react: "💷"
    },
    async(Aviator, msg, text,{ isCreator }) => {
-       let zerogroup = (await sck.findOne({  id: msg.chat,    })) || (await new sck({  id: msg.chat, }).save());
+       let zerogroup = (await sck.findOne({  id: msg.chat,    })) || {};
        let mongoschemas = zerogroup.economy || "false";
        if (mongoschemas == "false") return msg.reply("*🚦Economy* is not active in current group.");
        var today = new Date();
@@ -541,7 +550,7 @@ smd({
    react: "💷"
 },
 async(Aviator, msg, text,{ isCreator }) => {
-   let zerogroup = (await sck.findOne({ id: msg.chat, })) || (await new sck({ id: msg.chat,}).save());
+   let zerogroup = (await sck.findOne({ id: msg.chat, })) || {};
    let mongoschemas = zerogroup.economy || "false";
    if (mongoschemas == "false") return msg.reply("*🚦Economy* is not active in current group.");
    const kg = 100
@@ -610,3 +619,9 @@ async(Aviator, msg, text,{ isCreator }) => {
 }
 }
 ) 
+
+
+
+
+
+}

@@ -22,7 +22,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.0.8
+   * @version 1.0.9
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -62,7 +62,7 @@ smd({ pattern: "remove",alias :['uninstall'],category: "owner", desc: "removes e
 
         //await msg.send( `${plugin} \n*_Please Wait ${Config.botname} Restarting_*` , { edit: msgg.key } , "", msg );
          exec('pm2 restart all')
-      }catch(e){  console.log("Error while removing plugin\n",e)}
+      }catch{}
     })
 //---------------------------------------------------------------------------
 smd({ pattern: "install",category: "owner", desc: "Installs external modules..",filename: __filename},
