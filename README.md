@@ -6,7 +6,7 @@
     <img alt="Suhail docs" height="300" src="https://telegra.ph/file/ec9bc5038601821f2eb84.jpg">
   </a>
 </p>
-  
+   
    
 <p align="center">
   <a href="" target="_blank">
@@ -44,7 +44,9 @@
 2.  ***Tic Tac Toe.***
 3.  ***Number Guessing Game.***
 4.  ***Word chain Game.***
-5.  ***Rolling Dice.***
+5.  ***Hidden Queen Card.***
+6.  ***Rolling Dice.***
+6.  ***Capital of city.***
 ##
 
 

@@ -22,7 +22,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.2.0
+   * @version 1.2.1
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -45,7 +45,7 @@ let hcg_Logo = `
 █   █`.trim()
 
  const eco = require('discord-mongoose-economy')
-const { smd, parseJid, getAdmin, tlang, prefix } = require("../lib/");
+const { smd, parseJid, getAdmin, tlang,send, prefix } = require("../lib/");
 const sᴜʜᴀɪʟ_ᴍᴅ_numGuess =  {};
 const sᴜʜᴀɪʟ_ᴍᴅ_cfg = {};
 const sᴜʜᴀɪʟ_ᴍᴅ_hcg = {};
