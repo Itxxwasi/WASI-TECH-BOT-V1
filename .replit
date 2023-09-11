@@ -9,7 +9,7 @@ pattern = "**/{*.js,*.jsx,*.ts,*.tsx}"
  
 [languages.javascript.languageServer]
 start = "typescript-language-server --stdio"
-  
+   
 [debugger] 
 support = true
 

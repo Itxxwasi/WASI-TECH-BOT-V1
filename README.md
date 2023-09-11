@@ -28,7 +28,7 @@
 </p>
 
 ---
-
+ 
  
 
 
@@ -63,8 +63,8 @@
 4.  ***Deploy tutorial [`Youtube Video`](https://youtu.be/6rnftFl0fAI).***
 
 5.  ***Deploy FREE on `Codespace,` First see [`Codespace tutorial`](https://youtu.be/3NdJb6_1cJM)***
-6.  ***Deploy on [`HEROKU`](https://dashboard.heroku.com/new?template=https://github.com/SuhailTechInfo/Suhail-Md)***
-7.  ***Deploy on [`Replit`](https://replit.com/github/SuhailTechInfo/Suhail-Md)***
+6.  ***Deploy on [`HEROKU`](https://suhail-web01.vercel.app/deploy.html)***
+7.  ***Deploy on [`Replit`](https://suhail-web01.vercel.app/replit.html)***
 
 ##
 

@@ -1,6 +1,6 @@
 {
                "name": "suhail-md",
-               "version": "1.0.9",
+               "version": "1.2.0",
                "description": "Multi device whatsapp bot by SuhailTechInfo.",
                "main": "lib/client.js",
                "type": "commonjs",
@@ -60,6 +60,7 @@
                        "util": "^0.12.4",           
                        "secktor-pack": "latest",
                        "ytdl-secktor": "^0.0.1-development",
+                       "youtubei.js" : "6.4.0",
                        "pastebin-js": "latest",
                        "wa-sticker-formatter": "^4.3.2"
                       },

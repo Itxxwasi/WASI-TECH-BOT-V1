@@ -25,7 +25,7 @@
     "description": "Fill the value true if you want bot send Level up message in chat.",
     "required" :false,
     "value": "true"
-  },
+  }, 
   "WAPRESENCE": {
     "description": "Fill the value: 'unavailable'(nothing) | 'available'(alwaysonline) | 'composing'(typing) | 'recording' | 'paused' ",
     "required" :false,
