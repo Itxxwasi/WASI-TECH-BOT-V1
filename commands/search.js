@@ -23,7 +23,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.2.1
+   * @version 1.2.2
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -257,30 +257,7 @@ text +="\n*Match Ended:* " + dat.data[i].matchEnded;
 })
 
 //---------------------------------------------------------------------------
-smd({
-            pattern: "google",
-            alias :['search','gsearch'],
-            category: "search",
-            desc: "Sends info of given query from Google Search.",
-            use: '<text>',
-            filename: __filename,
-        },
-        async(Suhail, citel, text) => {
-            if (!text) return citel.reply(`give me a query\n*Example : .google Who is Suhail Tech.*`);
-            let google = require('google-it');
-            google({ 'query': text}).then(res => {
-                let msg= `Google Search From : ${text} \n\n`;
-                for (let g of res) {
-                    msg+= `➣ Title : ${g.title}\n`;
-                    msg+= `➣ Description : ${g.snippet}\n`;
-                    msg+= `➣ Link : ${g.link}\n\n────────────────────────\n\n`;
-                }
-             
-                return citel.reply(msg);
-            })
-        }
-    )
-    //---------------------------------------------------------------------------
+   //---------------------------------------------------------------------------
 smd({
             pattern: "image",
             alias: ["img" , "pic"],
@@ -367,19 +344,8 @@ else return citel.reply("*Google Images Not Working, Try it Later*");
             */
  })
     //---------------------------------------------------------------------------
-smd({
-            pattern: "couplepp",
-            category: "search",
-            desc: "Sends two couples pics.",
-            filename: __filename,
-        },
-        async(Suhail, citel, text) => {
-            let anu = await fetchJson('https://raw.githubusercontent.com/iamriz7/kopel_/main/kopel.json')
-            let random = anu[Math.floor(Math.random() * anu.length)]
-            Suhail.bot.sendMessage(citel.chat, { image: { url: random.male }, caption: `Couple Male` }, { quoted: citel })
-            Suhail.bot.sendMessage(citel.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: citel })
-        }
-    ) 
+smd({pattern: "couplepp",category: "search",desc: "Sends two couples pics.",filename: __filename,},async(Suhail, citel, text) => {try{let anu = await fetchJson('https://raw.githubusercontent.com/iamriz7/kopel_/main/kopel.json'); let random = anu[Math.floor(Math.random() * anu.length)];await Suhail.bot.sendMessage(citel.chat, { image: { url: random.male }, caption: `Couple Male` }, { quoted: citel });return await Suhail.bot.sendMessage(citel.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: citel }); }catch(e){console.log(" error while finding couplepp info", e);return await citel.error(`${e}\n\n cmdNAme: couplepp\n`) } });/**lyris**/function _0x1d0e(){const _0x30ac6d=['*There\x27s\x20a\x20problem,\x20try\x20again\x20later!*','377997DdlgQt','1334601dtTIec','487530AxMrmd','\x20error\x20while\x20finding\x20lyris','32EyZaqG','*_Uhh\x20please,\x20give\x20me\x20song\x20name_*\x0a*_Example\x20','\x20blue\x20eyes\x20punjabi_*','1100CeFuyn','search','2771920kOJHpf','log','result','10293570qVIQQp','𝗦𝗨𝗛𝗔𝗜𝗟-𝗠𝗗','Lyris-','33bfrDpl','reply','send','https://inrl-web.onrender.com/api/lyrics?text=','6469850KIiwwj','<text\x20|\x20song>','44pjqFjN','lyrics','34110ZZYMWK','\x0a\x0a\x20cmdNAme:\x20lyris','error'];_0x1d0e=function(){return _0x30ac6d;};return _0x1d0e();}function _0x43fa(_0x184672,_0x3d816e){const _0x1d0e50=_0x1d0e();return _0x43fa=function(_0x43faaa,_0x2689ce){_0x43faaa=_0x43faaa-0xd0;let _0x1af376=_0x1d0e50[_0x43faaa];return _0x1af376;},_0x43fa(_0x184672,_0x3d816e);}const _0x3ce2d6=_0x43fa;(function(_0x44d207,_0x24d96a){const _0x471ac8=_0x43fa,_0x5ed5db=_0x44d207();while(!![]){try{const _0x22bdca=parseInt(_0x471ac8(0xdf))/0x1+parseInt(_0x471ac8(0xe7))/0x2+parseInt(_0x471ac8(0xde))/0x3*(-parseInt(_0x471ac8(0xd8))/0x4)+-parseInt(_0x471ac8(0xe5))/0x5*(parseInt(_0x471ac8(0xda))/0x6)+-parseInt(_0x471ac8(0xea))/0x7+parseInt(_0x471ac8(0xe2))/0x8*(parseInt(_0x471ac8(0xe0))/0x9)+-parseInt(_0x471ac8(0xd6))/0xa*(-parseInt(_0x471ac8(0xd2))/0xb);if(_0x22bdca===_0x24d96a)break;else _0x5ed5db['push'](_0x5ed5db['shift']());}catch(_0x42f41a){_0x5ed5db['push'](_0x5ed5db['shift']());}}}(_0x1d0e,0xbc3b5),smd({'pattern':_0x3ce2d6(0xd9),'category':_0x3ce2d6(0xe6),'desc':'Searche\x20lyrics\x20of\x20given\x20song\x20name','use':_0x3ce2d6(0xd7),'filename':__filename},async(_0x1edbf4,_0xd5f579,_0x2be334,{cmdName:_0xffe819,cmd:_0x2b415a})=>{const _0x363edb=_0x3ce2d6;if(!_0x2be334)return _0xd5f579[_0x363edb(0xd3)](_0x363edb(0xe3)+(prefix+_0x2b415a)+_0x363edb(0xe4));try{const _0x369189=await(await fetch(_0x363edb(0xd5)+_0x2be334))['json']();if(!_0x369189['status'])return _0xd5f579[_0x363edb(0xd4)]('*Please\x20Provide\x20valid\x20name!!!*');if(!_0x369189['result'])return _0xd5f579[_0x363edb(0xd4)](_0x363edb(0xdd));const {thumb:_0x3e9a88,lyrics:_0x590be4,title:_0x50c765,artist:_0x165074}=_0x369189[_0x363edb(0xe9)],_0x1e472e='```',_0x403214='*',_0x4a6a90='*',_0x1442b6={'externalAdReply':{'title':_0x363edb(0xd0),'body':_0x363edb(0xd1)+_0x2be334,'renderLargerThumbnail':!![],'thumbnail':log0,'mediaType':0x2,'mediaUrl':gurl,'sourceUrl':gurl}};await send(_0xd5f579,''+_0x1e472e+_0x590be4+_0x1e472e+'\x20',{'contextInfo':_0x1442b6},'');}catch(_0x47fa32){return console[_0x363edb(0xe8)](_0x363edb(0xe1),_0x47fa32),await _0xd5f579[_0x363edb(0xdc)](_0x47fa32+_0x363edb(0xdb));}})); /**goggle*/smd({ pattern: "google",alias :['search','gsearch'],category: "search",desc: "Sends info of given query from Google Search.",use: '<text>',filename: __filename,},async(Suhail, citel, text,{cmd}) => {if (!text) return citel.reply(`*_Uhh Please,give me a query_*\n*Ex : ${prefix+cmd} Suhail Tech info yt.*`);let google = require('google-it'),msg=`Google Search From : ${text} \n\n`;google({ 'query': text}).then(res => {for (let g of res) { msg+= `*➣ Title:* ${g.title}\n*➣ Description*: ${g.snippet}\n*➣ Link:* ${g.link}\n\n────────────────────────\n\n`;} });return citel.reply(msg); })
+ 
     //---------------------------------------------------------------------------
 smd({
         pattern: "iswa",

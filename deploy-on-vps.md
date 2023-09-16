@@ -6,7 +6,7 @@
        sudo apt -y install git ffmpeg curl
       ``` 
    2. Install nodejs 
-      ``` 
+      ```  
       sudo apt -y remove nodejs
       curl -fsSl https://deb.nodesource.com/setup_lts.x | sudo bash - && sudo apt -y install nodejs
       ```

@@ -15,7 +15,7 @@
     "description": "Put Your Heroku Api Key Here",
     "value": "",
 	  "required" :true 
-  },  
+  },   
   "HEROKU_APP_NAME": {
     "description": "Put Your Heroku App Name Here",
     "value": "",
@@ -86,7 +86,7 @@
     "value": "private"
   },
   "AUTO_REACTION": {
-    "description": " Set it `true` If You Wants To Reacts emoji to all commands. \n And Set it `all` is You Wants to React Emojies to All Messages",
+    "description": "Available option : cmd(react only cmds) | all (all emojis) | true (facial + hearts emojies)    ",
     "value": "false",
     "required": false 
   },

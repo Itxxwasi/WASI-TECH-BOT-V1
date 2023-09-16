@@ -49,7 +49,7 @@
 6.  ***Capital of city.***
 ##
 
-
+ 
 
 
 

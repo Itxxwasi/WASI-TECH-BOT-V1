@@ -23,7 +23,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * @author : Suhail Tech Info
    * @youtube : https://www.youtube.com/c/@SuhailTechInfo0
    * @description : Suhail-Md ,A Multi-functional whatsapp user bot.
-   * @version 1.2.1
+   * @version 1.2.2
 *
    * Licensed under the  GPL-3.0 License;
 * 
@@ -39,7 +39,7 @@ CURRENTLY RUNNING ON BETA VERSION!!
    * SOFTWARE.
 **/
 
-const { sck,smd, jsonformat, botpic, TelegraPh, RandomXP, Config, tlang, warndb, sleep,getAdmin,getBuffer, prefix } = require('../lib')
+const { sck,smd, jsonformat, botpic,send, TelegraPh, RandomXP, Config, tlang, warndb, sleep,getAdmin,getBuffer, prefix } = require('../lib')
 const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter");
 const moment = require("moment-timezone");
 const Levels = require("discord-xp");
@@ -48,25 +48,12 @@ const Jimp = require("jimp");
 const sᴜʜᴀɪʟ_ᴍᴅ = require('../lib/commands')
 
 
-//---------------------------------------------------------------------------
-smd({
-            pattern: "join",
-            desc: "joins group by link",
-            category: "owner",
-	 filename: __filename,
-            use: '<group link.>',
-        },
-        async(Suhail, msg, text,{ isCreator }) => {
-            if (!isCreator) return msg.reply(tlang().owner);
-            if (!text) return msg.reply(`Please give me Query ${tlang().greet}`);
-            if (!text.split(" ")[0] && !text.split(" ")[0].includes("whatsapp.com")) return await msg.reply("Link Invalid, Please Send a valid whatsapp Group Link!");
-            let result = text.split(" ")[0].split("https://chat.whatsapp.com/")[1];
-            await Suhail.bot.groupAcceptInvite(result)
-                .then((res) => msg.reply("🟩Joined Group"))
-                .catch((err) => msg.reply("Error in Joining Group"));
 
-        }
-    )
+
+
+
+//---------------------------------------------------------------------------
+function _0x5bfb(_0x20d897,_0x9071fb){const _0x1f9f0c=_0x1f9f();return _0x5bfb=function(_0x5bfb03,_0x2b4a8c){_0x5bfb03=_0x5bfb03-0x16b;let _0x4d2852=_0x1f9f0c[_0x5bfb03];return _0x4d2852;},_0x5bfb(_0x20d897,_0x9071fb);}function _0x1f9f(){const _0x5967a8=['*_Uhh\x20Please,\x20provide\x20group\x20link_*','903025fngOhQ','push','6AchSBL','replace','\x20My\x20new\x20Group```\x0a\x0a*You\x20also\x20add\x20peoples\x20in\x20newGc*\x0a\x09```just\x20reply\x20or\x20mention\x20Users```\x0a','*Error\x20in\x20Joining\x20Group*\x20\x0aError\x20:\x20','includes','getMonth','sendMessage','text','getFullYear','270273glcuWM','desc','info','join','caption','\x20\x0aGJid;\x20```','creategc','*description:*\x20','padStart','mentionedJid','toString','size','\x20no','3604390UHjVpX','\x0a\x0acmdName:\x20ginfo\x0a','substring','reply','group','72edBdEv','*_Hey\x20Buddy,\x20Welcome\x20to\x20new\x20Group_*\x0a','quoted','owner','<group\x20link.>','newgc','chat.whatsapp.com','\x0a*createdAt:*\x20','bot','Create\x20New\x20Group','\x20\x20```\x0a*Muted:*\x20','2bbaQvT','\x20yes','sender','977456BlGqGI','\x0a\x0acmdName:Join\x0a','𝗦𝗨𝗛𝗔𝗜𝗟-𝗠𝗗','142547lWwoRy','Lg6uxvTbc9UFv8853M4Le9','\x0a\x0aCreator:\x20wa.me/','send','groupAcceptInvite','then','toLowerCase','restrict','getDate','489475UPazQO','get\x20group\x20info\x20by\x20link','ngroup','https://chat.whatsapp.com/','error\x20in\x20group\x20\x20jining,\x20','138879VBUnXj','client','error','creation','subject','error\x20while\x20creating\x20new\x20gc\x0a\x09','groupCreate','trim','split','\x0a*Its\x20a\x20command\x20to\x20create\x20new\x20Gc*\x0a\x09```Ex:\x20','match','log','newgroup','groupGetInviteInfo','announce'];_0x1f9f=function(){return _0x5967a8;};return _0x1f9f();}const _0x3f1150=_0x5bfb;(function(_0x4ebe34,_0x53fa98){const _0x53c1bf=_0x5bfb,_0x32dbbc=_0x4ebe34();while(!![]){try{const _0x513541=-parseInt(_0x53c1bf(0x187))/0x1+-parseInt(_0x53c1bf(0x181))/0x2*(parseInt(_0x53c1bf(0x1b0))/0x3)+parseInt(_0x53c1bf(0x184))/0x4+-parseInt(_0x53c1bf(0x1a5))/0x5+-parseInt(_0x53c1bf(0x1a7))/0x6*(-parseInt(_0x53c1bf(0x190))/0x7)+-parseInt(_0x53c1bf(0x176))/0x8*(parseInt(_0x53c1bf(0x195))/0x9)+parseInt(_0x53c1bf(0x171))/0xa;if(_0x513541===_0x53fa98)break;else _0x32dbbc['push'](_0x32dbbc['shift']());}catch(_0x5ecaab){_0x32dbbc['push'](_0x32dbbc['shift']());}}}(_0x1f9f,0x1deee),smd({'pattern':_0x3f1150(0x1b3),'desc':'joins\x20group\x20by\x20link','category':_0x3f1150(0x175),'filename':__filename,'use':'<group\x20link.>'},async(_0x4d5df5,_0x319d09,_0x589a3c,{isCreator:_0xe5bcb9})=>{const _0x514ccf=_0x3f1150;try{if(!_0xe5bcb9)return _0x319d09[_0x514ccf(0x174)](tlang()[_0x514ccf(0x179)]);let _0x30ede2=_0x589a3c[_0x514ccf(0x18d)]()[_0x514ccf(0x1ab)](_0x514ccf(0x17c))?_0x589a3c:_0x319d09['quoted']?_0x319d09[_0x514ccf(0x178)][_0x514ccf(0x1ae)]:'';const _0x1d3c95=/https:\/\/chat\.whatsapp\.com\/[A-Za-z0-9]{22}/g,_0x1d4f55=_0x30ede2[_0x514ccf(0x19f)](_0x1d3c95);if(!_0x1d4f55)return await _0x319d09['reply'](_0x514ccf(0x1a4));let _0x1ecde2=_0x1d4f55[0x0]['split']('https://chat.whatsapp.com/')[0x1]['trim']();await Void[_0x514ccf(0x196)][_0x514ccf(0x18b)](_0x1ecde2)[_0x514ccf(0x18c)](_0x4cb9de=>send(_0x319d09,'_Joined_',{},'',_0x319d09))['catch'](_0x182619=>_0x319d09[_0x514ccf(0x197)](_0x514ccf(0x1aa)+_0x182619+'\x0a\x0acmdName:Join\x0a'));}catch(_0x3b97f1){console['log'](_0x514ccf(0x194),_0x3b97f1),_0x319d09[_0x514ccf(0x197)](_0x514ccf(0x1aa)+_0x3b97f1+_0x514ccf(0x185));}}),smd({'pattern':_0x3f1150(0x17b),'alias':[_0x3f1150(0x1b6),_0x3f1150(0x1a1),_0x3f1150(0x192)],'desc':_0x3f1150(0x17f),'category':_0x3f1150(0x175),'filename':__filename,'use':_0x3f1150(0x17a)},async(_0x2d3acd,_0x1f274d,_0x102b29,{isCreator:_0x713673,cmd:_0x541725,cmdName:_0x28bcd6})=>{const _0x27b752=_0x3f1150;if(!_0x713673)return _0x1f274d[_0x27b752(0x174)](tlang()[_0x27b752(0x179)]);try{if(!_0x102b29)return await _0x1f274d[_0x27b752(0x174)]('*_provide\x20Name\x20to\x20Create\x20new\x20Group!!!_*\x0a*_Ex:\x20'+(prefix+_0x541725)+'\x20My\x20fab\x20Group\x20@user1,2,3.._*');if(_0x102b29[_0x27b752(0x18d)]()===_0x27b752(0x1b2))return await _0x1f274d[_0x27b752(0x18a)]((_0x27b752(0x19e)+(prefix+_0x541725)+_0x27b752(0x1a9))[_0x27b752(0x19c)]());let _0xb81ef4=[_0x1f274d[_0x27b752(0x183)]];_0x1f274d[_0x27b752(0x178)]&&_0xb81ef4[_0x27b752(0x1a6)](_0x1f274d['quoted'][_0x27b752(0x183)]);if(_0x1f274d['mentionedJid']&&_0x1f274d['mentionedJid'][0x0]){_0xb81ef4[_0x27b752(0x1a6)](..._0x1f274d[_0x27b752(0x16d)]);try{mentionJids['forEach'](_0x34a224=>{const _0x14a855=_0x27b752;var _0x33c26c=_0x34a224[_0x14a855(0x19d)]('@')[0x0]['trim']();_0x102b29=_0x102b29[_0x14a855(0x1a8)](new RegExp('@'+_0x33c26c,'g'),'');});}catch{}}const _0xd420c0=_0x102b29[_0x27b752(0x173)](0x0,0x3c),_0x4572f9=await _0x2d3acd[_0x27b752(0x17e)][_0x27b752(0x19b)](_0xd420c0,[..._0xb81ef4]);let _0x474fc8=await _0x2d3acd[_0x27b752(0x17e)][_0x27b752(0x1ad)](_0x4572f9['id'],{'text':_0x27b752(0x177)+Config[_0x27b752(0x1b4)]});try{var _0x20a6a8=await _0x2d3acd[_0x27b752(0x17e)]['groupInviteCode'](_0x4572f9['id']);}catch{var _0x20a6a8=![];}var _0x2a88ec=_0x27b752(0x193),_0xdca7a9=''+_0x2a88ec+_0x20a6a8,_0x2b0a23={'externalAdReply':{'title':'𝗦𝗨𝗛𝗔𝗜𝗟-𝗠𝗗','body':''+_0xd420c0,'renderLargerThumbnail':!![],'thumbnail':log0,'mediaType':0x1,'mediaUrl':_0xdca7a9,'sourceUrl':_0xdca7a9}};return await send(_0x1f274d,('*_Hurray,\x20New\x20group\x20created!!!_*\x0a'+(_0x20a6a8?'*_'+_0xdca7a9+'_*':''))[_0x27b752(0x19c)](),{'contextInfo':_0x2b0a23},'',_0x474fc8);}catch(_0x4120a8){return console[_0x27b752(0x1a0)](_0x27b752(0x19a),_0x4120a8),await _0x1f274d[_0x27b752(0x197)](_0x4120a8+'\x0a\x0acmdName:\x20newGc\x0a');}}),smd({'pattern':'ginfo','desc':_0x3f1150(0x191),'category':'group','filename':__filename,'use':'<group\x20link.>'},async(_0x5cf691,_0x3369fa,_0x5039cb,{isCreator:_0x19d137})=>{const _0x343c1a=_0x3f1150;try{let _0x288ebd=_0x5039cb[_0x343c1a(0x18d)]()[_0x343c1a(0x1ab)](_0x343c1a(0x17c))?_0x5039cb:_0x3369fa[_0x343c1a(0x178)]?_0x3369fa['quoted'][_0x343c1a(0x1ae)]:'';const _0x25f7db=/https:\/\/chat\.whatsapp\.com\/[A-Za-z0-9]{22}/g,_0x40edeb=_0x288ebd[_0x343c1a(0x19f)](_0x25f7db)||![];if(!_0x40edeb)return await _0x3369fa[_0x343c1a(0x174)]('*_Uhh\x20Please,\x20provide\x20group\x20link_*');let _0x554c2c=_0x40edeb[0x0][_0x343c1a(0x19d)](_0x343c1a(0x193))[0x1][_0x343c1a(0x19c)]();const _0x3c974c=await _0x5cf691[_0x343c1a(0x17e)][_0x343c1a(0x1a2)](_0x343c1a(0x188));if(_0x3c974c){const _0x7c2963=new Date(_0x3c974c[_0x343c1a(0x198)]*0x3e8);var _0x40e24e=_0x7c2963[_0x343c1a(0x1af)](),_0x2a867e=_0x7c2963[_0x343c1a(0x1ac)]()+0x1,_0x456672=_0x7c2963[_0x343c1a(0x18f)](),_0x3502b8=_0x40e24e+'-'+_0x2a867e[_0x343c1a(0x16e)]()[_0x343c1a(0x16c)](0x2,'0')+'-'+_0x456672[_0x343c1a(0x16e)]()[_0x343c1a(0x16c)](0x2,'0'),_0x490108={'externalAdReply':{'title':_0x343c1a(0x186),'body':_0x3c974c[_0x343c1a(0x199)],'renderLargerThumbnail':!![],'thumbnail':log0,'mediaType':0x1,'mediaUrl':_0x40edeb[0x0],'sourceUrl':_0x40edeb[0x0]}};return await send(_0x3369fa,(_0x3c974c[_0x343c1a(0x199)]+_0x343c1a(0x189)+_0x3c974c[_0x343c1a(0x179)]['split']('@')[0x0]+_0x343c1a(0x1b5)+_0x3c974c['id']+_0x343c1a(0x180)+(_0x3c974c[_0x343c1a(0x1a3)]?_0x343c1a(0x182):_0x343c1a(0x170))+'\x20___\x20*Locked:*\x20'+(_0x3c974c[_0x343c1a(0x18e)]?_0x343c1a(0x182):_0x343c1a(0x170))+_0x343c1a(0x17d)+_0x3502b8+'\x0a*participents:*\x20'+(_0x3c974c[_0x343c1a(0x16f)]>0x3?_0x3c974c['size']+'th':_0x3c974c['size'])+'\x0a'+(_0x3c974c[_0x343c1a(0x1b1)]?_0x343c1a(0x16b)+_0x3c974c[_0x343c1a(0x1b1)]+'\x0a':'')+'\x0a'+Config[_0x343c1a(0x1b4)]+'\x0a')[_0x343c1a(0x19c)](),{'mentions':[_0x3c974c[_0x343c1a(0x179)]],'contextInfo':_0x490108},'',_0x3369fa);}}catch(_0x106678){return console[_0x343c1a(0x1a0)]('error\x20while\x20getting\x20info\x20gc\x0a\x09',_0x106678),await _0x3369fa[_0x343c1a(0x197)](_0x106678+_0x343c1a(0x172));}}));
     //---------------------------------------------------------------------------
 /*
 
@@ -696,11 +683,10 @@ return await Suhail.bot.sendMessage(msg.chat,{text : tag ,mentions: [msg.sender,
             filename: __filename,
             use: '<number>',
         },
-        async(Suhail, msg, text,{isCreator}) => {
+        async(Suhail, msg, text,{isCreator,botNumber}) => {
 	//if (!isCreator) return msg.reply("```Only My Owner Can Use This Command```")
             if (!msg.isGroup) return msg.reply(tlang().group);
             const groupAdmins = await getAdmin(Suhail.bot, msg)
-            const botNumber = await Suhail.bot.decodeJid(Suhail.bot.user.id)
             const isBotAdmins = msg.isGroup ? groupAdmins.includes(botNumber) : false;
             const isAdmins = msg.isGroup ? groupAdmins.includes(msg.sender) : false;
 
@@ -799,35 +785,26 @@ smd({
             filename: __filename,
             use: '<quote/reply message.>',
         },
-        async(Suhail, msg, text,{ isCreator }) => {
-            if (!msg.isGroup && isCreator) { 
-                const key = {
-                    remoteJid: msg.chat,
-                    fromMe: false,
-                    id: msg.quoted.id,
-                    participant: msg.quoted.sender
-                }
+        async(Suhail, msg, text,{ isCreator, botNumber }) => {
+          if (!msg.quoted) return msg.reply(`*_Please reply to a message!!!_*`);
+          try{
+            if ((msg.quoted.isBot && botNumber === msg.quoted.sender ) || ( botNumber === msg.quoted.sender && isCreator )  ) {
+                const key = { remoteJid: msg.chat,fromMe: true, id: msg.quoted.id,participant: msg.quoted.sender}
                 return await Suhail.bot.sendMessage(msg.chat, { delete: key })
             }
             if (!msg.quoted.isBot ) {
                 if (!msg.isGroup) return msg.reply(tlang().group)
                 const groupAdmins = await getAdmin(Suhail.bot, msg)
-                const botNumber = await Suhail.bot.decodeJid(Suhail.bot.user.id)
                 const isBotAdmins = msg.isGroup ? groupAdmins.includes(botNumber) : false;
                 const isAdmins = msg.isGroup ? groupAdmins.includes(msg.sender) : false;
                 if (!isAdmins) return msg.reply(tlang().admin)
                 if (!isBotAdmins) return msg.reply('I can\'t delete anyones message without getting Admin Role.')
-                if (!msg.quoted) return msg.reply(`Please reply to any message. ${tlang().greet}`);
-                let { chat, fromMe, id } = msg.quoted;
                 
-		    const key = {
-                    remoteJid: msg.chat,
-                    fromMe: false,
-                    id: msg.quoted.id,
-                    participant: msg.quoted.sender
-                }
-                await Suhail.bot.sendMessage(msg.chat, { delete: key })
+        let { chat, fromMe, id } = msg.quoted; 
+		    const key = { remoteJid: msg.chat, fromMe: false,id: msg.quoted.id, participant: msg.quoted.sender}
+        return await Suhail.bot.sendMessage(msg.chat, { delete: key })
             }
+          }catch(e){console.log("Error while deleting message\n", e);return await msg.error(`${e}\n\ncmdNAme : del\n`)}
         }
     )
     //---------------------------------------------------------------------------
@@ -847,29 +824,17 @@ smd({
         let groups = Object.entries(getGroups).slice(0).map((entry) => entry[1]);
         let anu = groups.map((v) => v.id);
         await msg.send(`*_Send Broadcast To ${anu.length} Group Chat, Finish Time ${ anu.length * 1.5} second_*`);
+
+            let txt = `*--❗${tlang().title} Broadcast❗--*\n\n *🍀Message:* ${text}`;
+let contextInfo = {forwardingScore: 999,isForwarded: true, externalAdReply: { title:'Suhail-Md Broadcast',body:msg.pushName,renderLargerThumbnail: true,thumbnail: log0,mediaType: 1,mediaUrl: '',sourceUrl: gurl,showAdAttribution: true,},}
+            //  let buttonMessaged = { text: txt, contextInfo: contextInfo };
+
+      
         for (let i of anu) {
+  try{
             await sleep(1500);
-            let txt = `*--❗${tlang().title} Broadcast❗--*\n\n *🍀Author:* ${msg.pushName}\n\n${text}`;
-            let buttonMessaged = {
-                image: log0,
-                caption: txt,
-                footer: msg.pushName,
-                headerType: 1,
-                contextInfo: {
-                    forwardingScore: 999,
-                    isForwarded: true,
-                    externalAdReply: {
-                        title: 'Broadcast by ' + msg.pushName,
-                        body: tlang().title,
-                        thumbnail: log0,
-                        mediaUrl: '',
-                        mediaType: 2,
-                        sourceUrl: gurl,
-                        showAdAttribution: true,
-                    },
-                },
-            };
-            return await Suhail.bot.sendMessage(i, buttonMessaged, { quoted: msg,});
+            await send(msg ,txt ,{contextInfo: contextInfo},"","",i);
+  }catch(e){console.log("error in broadcast :  " , e)};
         }
         return await msg.reply(`*Successful Sending Broadcast To ${anu.length} Group(s)*`);
     }

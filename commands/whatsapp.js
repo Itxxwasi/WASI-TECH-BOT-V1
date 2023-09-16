@@ -77,18 +77,16 @@ smd({ on: "text" }, async (Suhail,msg,text)=> {
 })//==================================================================
 
 smd({pattern: "pp",desc: "Set profile picture",category: "whatsapp",use: '<reply to image>', filename: __filename,},
-async(Suhail, msg,text) => {
-   if (!msg.quoted) return await msg.reply("*Reply to an image, dear*");
+async(Suhail, msg,text,{cmdName , isCreator}) => {
+   if(!isCreator) return await msg.send(tlang().owner);if (!msg.quoted) return await msg.reply("*Reply to an image, dear*");
    if(msg.quoted.mtype !='imageMessage') return await msg.reply("*_Uhh please, Reply to an image._*");    
-   const sᴜʜᴀɪʟ_ᴍᴅ_num = await Suhail.bot.decodeJid(msg.user)
-   return await updateProfilePicture(Suhail , sᴜʜᴀɪʟ_ᴍᴅ_num , msg , 'pp' );
+   const sᴜʜᴀɪʟ_ᴍᴅ_num = await Suhail.bot.decodeJid(msg.user); return await updateProfilePicture(Suhail , sᴜʜᴀɪʟ_ᴍᴅ_num , msg , 'pp' );
  })
 smd({ pattern: "fullpp", desc: "Set full screen profile picture", category: "whatsapp", use: '<reply to image>', filename: __filename,},
- async(Suhail, msg,text) => {
-   if (!msg.quoted) return await msg.reply("*Reply to an image, dear*");
+ async(Suhail, msg,text,{cmdName , isCreator}) => {
+   if(!isCreator) return await msg.send(tlang().owner);if (!msg.quoted) return await msg.reply("*Reply to an image, sir*");
    if(msg.quoted.mtype !='imageMessage') return await msg.reply("*_Uhh please, Reply to an image._*");
-   const sᴜʜᴀɪʟ_ᴍᴅ_num = await Suhail.bot.decodeJid(msg.user)
-   return await updateProfilePicture(Suhail , sᴜʜᴀɪʟ_ᴍᴅ_num , msg , 'fullpp' );    
+   const sᴜʜᴀɪʟ_ᴍᴅ_num = await Suhail.bot.decodeJid(msg.user); return await updateProfilePicture(Suhail , sᴜʜᴀɪʟ_ᴍᴅ_num , msg , 'fullpp' );    
 });
 
 
