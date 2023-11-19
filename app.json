@@ -1,8 +1,8 @@
 {
   "name": "Suhail-Md By Suhail Tech Info",
   "description": "A Whatsapp bot built in NodeJs to make experience better\n\t if Any Problem : www.youtube.com/c/SuhailTechInfo",
-  "logo": "https://i.imgur.com/NpA3ZsJ.jpeg",
-  "keywords": ["whatsappbot", "suhailMd", "suhail Md Wa bot", "Suhail-Md", "SuhailMdWhatsaooBot", "SuhailWaBot","SuhailMD","Suhail Md Whatsapp Bot","multi device"],
+  "logo": "https://telegra.ph/file/d5b1c3544fedc23e11a06.jpg",
+  "keywords": ["whatsappbot", "suhailMd", "suhail Md bot", "Suhail-Md", "SuhailMdWhatsaooBot", "SuhailWaBot","SuhailMD","Suhail Md Whatsapp Bot","multi device"],
   "success_url": "/",
   "stack": "container",
 "env": {
@@ -10,7 +10,7 @@
     "description": "Name of Bot Owner",    
     "value": "Suhail Tech Info",
     "required" :true
-  }, 
+  },  
   "HEROKU_API_KEY": {
     "description": "Put Your Heroku Api Key Here",
     "value": "",
@@ -20,11 +20,6 @@
     "description": "Put Your Heroku App Name Here",
     "value": "",
 	 "required" :false
-  },
-  "LEVEL_UP_MESSAGE": {
-    "description": "Fill the value true if you want bot send Level up message in chat.",
-    "required" :false,
-    "value": "true"
   }, 
   "WAPRESENCE": {
     "description": "Fill the value: 'unavailable'(nothing) | 'available'(alwaysonline) | 'composing'(typing) | 'recording' | 'paused' ",
@@ -51,11 +46,6 @@
     "value": "false",
     "required" :false
   },
-  "ALWAYS_ONLINE": {
-    "description": "Take it 'true' if you wanna show Always Onlline",
-    "value": "false",
-    "required" :false
-  },
   "PREFIX": {
     "description": "Enter your desired prefix for bot.",
     "value": "."
@@ -72,23 +62,29 @@
     "value": "",
     "required" :false
   }, 
+  "ELEVENLAB_API_KEY": {
+    "description": "Put your ElevenLab api key here for Aitts. Get it from https://elevenlabs.io/ ",
+    "value": "",
+    "required" :false
+  }, 
   "REMOVE_BG_KEY": {
     "description": "Please put your REMOVE BG KEY here.Get it from removeBg.com ",
     "value": "",
     "required" :false
   },
   "MONGODB_URI": {
-    "description": "Put your own Mongodb key. Its a secret String for Mongodb Connection.(Required)",
-    "value": ""
+    "description": "Put your Mongodb key. Not neccesory, but some cmds are not works.",
+    "value": "null",
+    "required" :false
+  },
+  "USER_IMAGES": {
+    "description": "Put USER IMAGES/VIDEOS URL, Make Sure Url have extention like .mp4,.jpg,.png etc",
+    "value": "https://telegra.ph/file/d5b1c3544fedc23e11a06.jpg,https://telegra.ph/file/d9a63ef4f8110a6d87167.mp4,https://telegra.ph/file/41c41e73c1c5f11bdb1df.mp4,https://telegra.ph/file/acaba47a11c6975248c84.mp4",
+    "required" :false
   },
   "MODE": {
     "description": "Worktype of your bot. Use public or private, if it is private then only bot number can use it. If public then everyone can use it.",
     "value": "private"
-  },
-  "AUTO_REACTION": {
-    "description": "Available option : cmd(react only cmds) | all (all emojis) | true (facial + hearts emojies)    ",
-    "value": "false",
-    "required": false 
   },
   "PACK_NAME": {
     "description": "Put Sticker Pack_Name.",
