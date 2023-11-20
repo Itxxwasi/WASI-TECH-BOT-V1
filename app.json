@@ -22,7 +22,7 @@
 	 "required" :false
   }, 
   "WAPRESENCE": {
-    "description": "Fill the value: 'unavailable'(nothing) | 'available'(alwaysonline) | 'composing'(typing) | 'recording' | 'paused' ",
+    "description": "Fill the value: 'unavailable'(for nothing) | 'available'(for alwaysonline) | 'composing'(for typing) | 'recording' | 'paused' ",
     "required" :false,
     "value": "unavailable"
   },
@@ -79,7 +79,7 @@
   },
   "USER_IMAGES": {
     "description": "Put USER IMAGES/VIDEOS URL, Make Sure Url have extention like .mp4,.jpg,.png etc",
-    "value": "https://telegra.ph/file/d5b1c3544fedc23e11a06.jpg,https://telegra.ph/file/d9a63ef4f8110a6d87167.mp4,https://telegra.ph/file/41c41e73c1c5f11bdb1df.mp4,https://telegra.ph/file/acaba47a11c6975248c84.mp4",
+    "value": "",
     "required" :false
   },
   "MODE": {
@@ -88,12 +88,12 @@
   },
   "PACK_NAME": {
     "description": "Put Sticker Pack_Name.",
-    "value": "",
+    "value": "Suhail Md",
     "required": false 
   },
   "PACK_AUTHER": {
     "description": "Put Sticker Author_Name.",
-    "value": "",
+    "value": "wahtsapp bot",
     "required": false 
   }
 },
