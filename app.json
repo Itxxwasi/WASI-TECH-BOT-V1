@@ -10,7 +10,7 @@
     "description": "Name of Bot Owner",    
     "value": "Suhail Tech Info",
     "required" :true
-  },  
+  },   
   "HEROKU_API_KEY": {
     "description": "Put Your Heroku Api Key Here",
     "value": "",

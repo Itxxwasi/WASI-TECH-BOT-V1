@@ -11,7 +11,7 @@ pattern = "**/{*.js,*.jsx,*.ts,*.tsx}"
 start = "typescript-language-server --stdio"
    
 [debugger] 
-support = true
+support = true 
 
 [debugger.interactive]
 transport = "localhost:0"

@@ -7,7 +7,7 @@ global.owner = process.env.OWNER_NUMBER ? process.env.OWNER_NUMBER.replace(/[\s+
 global.mongodb = process.env.MONGODB_URI  || ""; // "mongodb+srv://suhail:suhail@cluster0.tuhzpez.mongodb.net/?retryWrites=true&w=majority" ;//process.env.MONGODB_URI || "mongodb+srv://Suhail:suhail@cluster0.rzhkoqf.mongodb.net/?retryWrites=true&w=majority" ;
 global.DATABASE_URI = process.env.DATABASE_URI || "" ; // "postgres://drchnhfxnxvkhb:fe7e6999d202f14f61af1837ef5e1eb07980f37b854ba57c34add33a21453009@ec2-3-221-177-27.compute-1.amazonaws.com:5432/d74crch1e6dgt0";
 global.port= false // Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000  ; 
-global.audio = '' ; 
+global.audio = '' ;  
 global.video = '' ;
 global.blockJids = process.env.BLOCK_JID || "120363023983262391@g.us" ;
 global.allowJids = process.env.ALLOW_JID || "null" ;//'120363022922797633@g.us' ;
@@ -42,7 +42,7 @@ module.exports = {
   HANDLERS: process.env.PREFIX || '.',
   warncount: process.env.WARN_COUNT || '3',
   disablepm: process.env.DISABLE_PM || "true",
-  MsgsInLog: process.env.MSGS_IN_LOG || 'log', // "true"  to see messages , "log" to open logs messages , "false" to hide logs messages
+  MsgsInLog: process.env.MSGS_IN_LOG || 'false', // "true"  to see messages , "log" to open logs messages , "false" to hide logs messages
   // pmMsgsInLog:process.env.PM_MSGS_IN_LOGS ||'true',
   // levelupmessage: process.env.LEVEL_UP_MESSAGE || 'false',  //  | 'false' | 'true' | 
   antilink_values: process.env.ANTILINK_VALUES || 'https://,chat.whatsapp.com',
@@ -54,7 +54,7 @@ module.exports = {
   userImages: process.env.USER_IMAGES || "",// 'https://i.imgur.com/NpA3ZsJ.jpeg,https://telegra.ph/file/d9a63ef4f8110a6d87167.mp4,https://telegra.ph/file/41c41e73c1c5f11bdb1df.mp4,https://telegra.ph/file/acaba47a11c6975248c84.mp4' ,
   // antiDelete: process.env.ANTIDELETE ||  'true' ,
   // antiCallMessage: process.env.ANTICALL_MESSAGE ||  "\`\`\`Hii this is Suhail-Md a Personal Assistant!!\n\n\tSorry for now, we cannot receive calls, whether in a group or personal \n\n if you need help or request features please chat owner\n\n\nPowered by Suhail-Md Chatbot\`\`\`" ,
-  VERSION: process.env.VERSION || 'v.1.2.3',
+  VERSION: process.env.VERSION || 'v.1.2.5',
   LANG: process.env.THEME ? process.env.THEME.toUpperCase() : 'SUHAIL',
   menu: process.env.MENU || '', /**  Available @MENU @Schemes 1: Aztec_Md, 2: A17_Md, 3: Suhail-Md Default ---------- If Not Choose then it Randomely Pic One Of Them Each time **/
   WORKTYPE: process.env.WORKTYPE || process.env.MODE || 'private',
