@@ -3,7 +3,7 @@
     "AUTHOR": "Suhail",
     "theme": "Suhail-Md",
     "LANGUAGE": "English",
-    "LANGCODE": "en",
+    "LANGCODE": "en", 
     "STRINGS": { 
         "updater": { 
             "UPDATE": "*Believe it.\nYour bot is already up-to-date*",

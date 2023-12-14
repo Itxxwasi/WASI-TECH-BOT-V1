@@ -4,7 +4,7 @@ const yts = require('secktor-pack')
 const fs = require('fs')
 var videotime = 60000 // 1000 min
 var dlsize = 250 // 250mb
-
+// 1.2.6
 let Suhail = "huh"
 smd({
             pattern: "playlist",
@@ -58,7 +58,7 @@ yts( opts, async function ( err, playlist ) {
                     }
                    Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
                 } else { citel.reply(`❌ File size bigger than ${dlsize}mb.`);  }
-                fs.unlinkSync(`./${randomName}`);
+                try { fs.unlinkSync(`./${randomName}`); } catch{}
     } catch (e) {   console.log(e)   }
             }})
 

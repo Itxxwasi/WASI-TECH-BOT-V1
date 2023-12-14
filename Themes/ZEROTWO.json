@@ -2,7 +2,7 @@
   "__JSON__": true,
   "AUTHOR": "SamPandey001",
   "LANGUAGE": "English",
-  "LANGCODE": "en",
+  "LANGCODE": "en", 
   "STRINGS": { 
       "updater": { 
           "UPDATE": "*Your bot is already on latest version Darling*",

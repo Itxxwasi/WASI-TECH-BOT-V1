@@ -5,7 +5,7 @@ RUN git clone https://github.com/SuhailTechInfo/Suhail-Md /root/Suhail
 WORKDIR /root/Suhail/
 RUN npm install
 EXPOSE 8000
-CMD ["npm","start","yarn" ]
+CMD ["npm","start" ] 
   
 # -  /SuhailTechInfo/ Don't change this name,
 

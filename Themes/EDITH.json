@@ -4,7 +4,7 @@
     "theme": "Edith",
     "LANGUAGE": "English",
     "LANGCODE": "en",
-    "STRINGS": { 
+    "STRINGS": {  
         "updater": {   
             "UPDATE": "*Edith is already on latest version Sir*",
             "NEW_UPDATE": "*There is a new update available for the bot!*\n\n*Changes:*\n",

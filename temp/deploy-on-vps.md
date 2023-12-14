@@ -6,7 +6,7 @@
        sudo apt -y install git ffmpeg curl
       ``` 
    2. Install nodejs  
-      ```  
+      ```   
       sudo apt -y remove nodejs
       curl -fsSl https://deb.nodesource.com/setup_lts.x | sudo bash - && sudo apt -y install nodejs
       ```
@@ -25,8 +25,8 @@
   
    5. Clone Repo and install required packages
       ```
-      git clone https://github.com/SamPandey001/Secktor-Md
-      cd Secktor-Md
+      git clone https://github.com/SuhailTechInfo/Suhail-Md
+      cd Suhail-Md
       yarn install --network-concurrency 1
       ```
 
@@ -38,27 +38,16 @@
       copy paste lines below.
 
       ```
-      OWNER_NUMBER="911234567890"
-      MONGODB_URI="mongodb+srv://*************"
-      SESSION_ID = "secktorbot.herokuapp.com/session"
-      THUMB_IMAGE = "https://raw.githubusercontent.com/SecktorBot/Brandimages/main/logos/SocialLogo%201.png"
-      port = 5000
-      email = "sam@secktor.live"
-      global_url = "instagram.com"
-      OWNER_NAME = "SamPandey001"
-      AUTO_REACTION = false
-      FAKE_COUNTRY_CODE = 92
-      READ_MESSAGE = false
+      OWNER_NUMBER="923184474176"
+      SESSION_ID = "SESSION_85_23_59_01_kjgfgfclhj"
+      THUMB_IMAGE = "https://telegra.ph/file/d5b1c3544fedc23e11a06.jpg"
+      OWNER_NAME = "Suhail"
       PREFIX = .
       WARN_COUNT = 3
-      DISABLE_PM = false
-      ANTI_BAD_WORD = "fuck"
-      LEVEL_UP_MESSAGE= true
-      WELCOME_MESSAGE =  "*Hi,* @user \n*Welcome in* @gname \n*Member count* : @count th"
-      THEME= SECKTOR
-      WORKTYPE = public
-      PACK_INFO = "Sam;Pandey"
-      ANTILINK_VALUES = "chat.whatsapp.com"
+      DISABLE_PM = "false"
+      THEME= "SUHAIL"
+      MODE = "public"
+      ANTILINK_VALUES = "https://,chat.whatsapp.com"
       
       ```
       ctrl + o and ctrl + x, To save and exit

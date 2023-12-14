@@ -1,107 +1,117 @@
 {
-  "name": "Suhail-Md By Suhail Tech Info",
-  "description": "A Whatsapp bot built in NodeJs to make experience better\n\t if Any Problem : www.youtube.com/c/SuhailTechInfo",
+  "name": "suhail-md",
+  "description": "I am Suhail-Md Whatsapp Chuddy Buddy built in NodeJs to make experience better\n\t if Any Problem : www.youtube.com/c/SuhailTechInfo",
   "logo": "https://telegra.ph/file/d5b1c3544fedc23e11a06.jpg",
   "keywords": ["whatsappbot", "suhailMd", "suhail Md bot", "Suhail-Md", "SuhailMdWhatsaooBot", "SuhailWaBot","SuhailMD","Suhail Md Whatsapp Bot","multi device"],
-  "success_url": "/",
-  "stack": "container",
-"env": {
-  "OWNER_NAME": {
-    "description": "Name of Bot Owner",    
-    "value": "Suhail Tech Info",
-    "required" :true
-  },   
-  "HEROKU_API_KEY": {
-    "description": "Put Your Heroku Api Key Here",
-    "value": "",
-	  "required" :true 
-  },   
-  "HEROKU_APP_NAME": {
-    "description": "Put Your Heroku App Name Here",
-    "value": "",
-	 "required" :false
-  }, 
-  "WAPRESENCE": {
-    "description": "Fill the value: 'unavailable'(for nothing) | 'available'(for alwaysonline) | 'composing'(for typing) | 'recording' | 'paused' ",
-    "required" :false,
-    "value": "unavailable"
-  },
-  "AUTO_READ_STATUS": {
-    "description": "Fill the value true if you want bot view your Statuses.",
-    "required" :false,
-    "value": "true"
-  }, 
-  "MSGS_IN_LOG": {
-    "description": "Fill the value true if you want to see Messages in Console.",
-    "required" :false,
-    "value": "false"
-  },
-  "READ_MESSAGE": {
-    "description": "Fill the value true if you want bot to read all messages.",
-    "required" :false,
-    "value": "false"
-  },
-  "DISABLE_PM": {
-    "description": "Disable bot in pm, Take it false if you wanna run bot in your pm",
-    "value": "false",
-    "required" :false
-  },
-  "PREFIX": {
-    "description": "Enter your desired prefix for bot.",
-    "value": "."
-  },
-  "OWNER_NUMBER": {
-    "description": "The phone numbers of the users who you want to be admin for the bot (should be in international format without + and multiple numbers must be separated by a comma \",\")",
-    "value": "923184474176"
-  },
-   "SESSION_ID": {
-    "description": "Please put your SESSION_ID here,if you don't have visit\nhttps://replit.com/@SuhailTechInfo/Secktor-Bot"
-  },
-  "OPENAI_API_KEY": {
-    "description": "Please put your OPENAI api key here.Get it from beta.openai.com ",
-    "value": "",
-    "required" :false
-  }, 
-  "ELEVENLAB_API_KEY": {
-    "description": "Put your ElevenLab api key here for Aitts. Get it from https://elevenlabs.io/ ",
-    "value": "",
-    "required" :false
-  }, 
-  "REMOVE_BG_KEY": {
-    "description": "Please put your REMOVE BG KEY here.Get it from removeBg.com ",
-    "value": "",
-    "required" :false
-  },
-  "MONGODB_URI": {
-    "description": "Put your Mongodb key. Not neccesory, but some cmds are not works.",
-    "value": "null",
-    "required" :false
-  },
-  "USER_IMAGES": {
-    "description": "Put USER IMAGES/VIDEOS URL, Make Sure Url have extention like .mp4,.jpg,.png etc",
-    "value": "",
-    "required" :false
-  },
-  "MODE": {
-    "description": "Worktype of your bot. Use public or private, if it is private then only bot number can use it. If public then everyone can use it.",
-    "value": "private"
-  },
-  "PACK_NAME": {
-    "description": "Put Sticker Pack_Name.",
-    "value": "Suhail Md",
-    "required": false 
-  },
-  "PACK_AUTHER": {
-    "description": "Put Sticker Author_Name.",
-    "value": "wahtsapp bot",
-    "required": false 
-  }
-},
+  "success_url": "/suhail/",
 
-"addons": [
-		{
-			"plan": "heroku-postgresql"
-		}
-	]
- 
+  "env": {
+    "OWNER_NAME": {
+      "description": "Name of Bot Owner",    
+      "value": "Suhail Tech Info",
+      "required" :true
+    },   
+    "HEROKU_API_KEY": {
+      "description": "Put Your Heroku Api Key Here",
+      "value": "",
+      "required" :true 
+    },   
+    "HEROKU_APP_NAME": {
+      "description": "Put Your Heroku App Name Here",
+      "value": "",
+    "required" :false
+    }, 
+    "WAPRESENCE": {
+      "description": "Fill the value: 'unavailable'(for nothing) | 'available'(for alwaysonline) | 'composing'(for typing) | 'recording' | 'paused' ",
+      "required" :false,
+      "value": "unavailable"
+    },
+    "AUTO_READ_STATUS": {
+      "description": "Fill the value true if you want bot view your Statuses.",
+      "required" :false,
+      "value": "true"
+    }, 
+    "MSGS_IN_LOG": {
+      "description": "Fill the value true if you want to see Messages in Console.",
+      "required" :false,
+      "value": "false"
+    },
+    "READ_MESSAGE": {
+      "description": "Fill the value true if you want bot to read all messages.",
+      "required" :false,
+      "value": "false"
+    },
+    "DISABLE_PM": {
+      "description": "Disable bot in pm, Take it false if you wanna run bot in your pm",
+      "value": "false",
+      "required" :false
+    },
+    "PREFIX": {
+      "description": "Enter your desired prefix for bot.",
+      "value": "."
+    },
+    "OWNER_NUMBER": {
+      "description": "The phone numbers of the users who you want to be admin for the bot (should be in international format without + and multiple numbers must be separated by a comma \",\")",
+      "value": "923184474176"
+    },
+    "SESSION_ID": {
+      "description": "Please put your SESSION_ID here,if you don't have visit\nhttps://replit.com/@SuhailTechInfo/Secktor-Bot",
+      "value": ""
+  
+    },
+    "OPENAI_API_KEY": {
+      "description": "Please put your OPENAI api key here.Get it from beta.openai.com ",
+      "value": "",
+      "required" :false
+    }, 
+    "ELEVENLAB_API_KEY": {
+      "description": "Put your ElevenLab api key here for Aitts. Get it from https://elevenlabs.io/ ",
+      "value": "",
+      "required" :false
+    }, 
+    "REMOVE_BG_KEY": {
+      "description": "Please put your REMOVE BG KEY here.Get it from removeBg.com ",
+      "value": "",
+      "required" :false
+    },
+    "MONGODB_URI": {
+      "description": "Put your Mongodb key. Not neccesory, but some cmds are not works.",
+      "value": "",
+      "required" :false
+    },
+    "USER_IMAGES": {
+      "description": "Put IMAGES/VIDEOS URL, Make Sure Url have extention like .mp4,.jpg,.png etc",
+      "value": "https://telegra.ph/file/d90855d13352c8aae3981.mp4",
+      "required" :false
+    },
+    "MODE": {
+      "description": "Worktype of your bot. Use public or private, if it is private then only bot number can use it. If public then everyone can use it.",
+      "value": "private"
+    },
+    "PACK_NAME": {
+      "description": "Put Sticker Pack_Name.",
+      "value": "Suhail Md",
+      "required": false 
+    },
+    "PACK_AUTHER": {
+      "description": "Put Sticker Author_Name.",
+      "value": "wahtsapp bot",
+      "required": false 
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql:basic"
+    }
+  ],
+  "buildpacks": [
+    { "url": "https://github.com/heroku/heroku-buildpack-nodejs#latest" },
+    { "url": "https://github.com/carlosdommor/heroku-buildpack-ffmpeg-latest" }
+  ],
+  "formation": {
+      "web": {
+          "quantity": 1,
+          "size": "standard-2x"
+      }
+  }
 }
