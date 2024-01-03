@@ -81,7 +81,7 @@
  
 ## Deployment Methods
 ---
-1.  ***Get `SESSION ID` by [`PAIRING CODE`](https://replit.com/@SuhailTechInfo/SuhailMdPairingCode?v=1) or [`SCAN QR`](https://replit.com/@SuhailTechInfo/Secktor-Bot) code. And then `Go-to Whatapp>Three dots>Linked Devices`***
+1.  ***Get `SESSION ID` by [`SCAN QR`](https://suhail-md-g1y0.onrender.com/) code. And then `Go-to Whatapp>Three dots>Linked Devices`***
 2.  ***Get Mongodb_URI from [`Mongodb site`](https://www.mongodb.com/) | Watch Tutorial [`To Get Mongodb_URI`](https://youtu.be/6rnftFl0fAI). `Optional`***
 3.  ***Click [`FORK`](https://github.com/SuhailTechInfo/Suhail-Md/fork) and `Star ⭐ Repository` if you Like that Bot.***
 4.  ***Deploy tutorial [`Youtube Video`](https://youtu.be/6rnftFl0fAI).***
