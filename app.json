@@ -4,7 +4,8 @@
   "logo": "https://telegra.ph/file/d5b1c3544fedc23e11a06.jpg",
   "keywords": ["whatsappbot", "suhailMd", "suhail Md bot", "Suhail-Md", "SuhailMdWhatsaooBot", "SuhailWaBot","SuhailMD","Suhail Md Whatsapp Bot","multi device"],
   "success_url": "/suhail/",
-
+  "app_url": "/suhail/",
+  
   "env": {
     "OWNER_NAME": {
       "description": "Name of Bot Owner",    
