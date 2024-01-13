@@ -14,7 +14,7 @@ global.mongodb= process.env.MONGODB_URI || ""
 global.DATABASE_URI=process.env.DATABASE_URL
 global.allowJids= process.env.ALLOW_JID || "null" 
 global.blockJids= process.env.BLOCK_JID || "120363023983262391@g.us"
-global.scan = "https://suhail-md-g1y0.onrender.com/";
+global.scan = "https://suhail-md-vtsf.onrender.com/";
 global.timezone= process.env.TZ || process.env.TIME_ZONE || "Asia/Karachi";
 global.github=process.env.GITHUB|| "https://github.com/SuhailTechInfo/Suhail-Md";
 global.gurl = process.env.GURL  || "https://whatsapp.com/channel/0029Va9thusJP20yWxQ6N643";
@@ -24,7 +24,7 @@ global.THUMB_IMAGE=process.env.THUMB_IMAGE|| "https://telegra.ph/file/d5b1c3544f
 
 
 
-global.sudo = process.env.SUDO ? process.env.SUDO.replace(/[\s+]/g, '') : "null,923184474176";
+global.sudo = process.env.SUDO ? process.env.SUDO.replace(/[\s+]/g, '') : "null";
 global.owner= process.env.OWNER_NUMBER ? process.env.OWNER_NUMBER.replace(/[\s+]/g, '') : "923184474176";
 
 module.exports = {
