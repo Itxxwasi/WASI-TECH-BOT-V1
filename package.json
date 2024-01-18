@@ -1,6 +1,6 @@
 {
    "name": "suhail-md",
-   "version": "1.2.7",
+   "version": "1.2.7-qr",
    "description": "Multi device whatsapp bot by SuhailTechInfo.",
    "main": "lib/client.js",
    "type": "commonjs",
@@ -49,7 +49,7 @@
              "path": "^0.12.7",
              "pg": "^8.11.3",
              "pm2": "^5.2.0",
-             "qrcode-terminal": "^0.12.0",
+
              "qrcode": "latest",
              "secktor-pack": "latest",
              "simple-git": "^3.15.1",

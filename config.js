@@ -5,7 +5,6 @@ if (fs.existsSync('config.env')) require('dotenv').config({ path: __dirname+'/co
 //═══════[Required Variables]════════\\
 global.audio= "" ;  
 global.video= "" ;
-global.devs = "923184474176"
 global.port =process.env.PORT
 global.appUrl=process.env.APP_URL||""                       // put your app url here,
 global.email="samsamsun789@gmail.com"
@@ -24,18 +23,27 @@ global.THUMB_IMAGE=process.env.THUMB_IMAGE|| "https://telegra.ph/file/d5b1c3544f
 
 
 
+
+global.disablepm = process.env.DISABLE_PM || "false",
+global.userImages = process.env.USER_IMAGES|| "text",
+global.style = process.env.STYLE || "5",  // put '1' to "5" here to check bot styles
+
+
+
+
+global.devs = "923184474176" // Developer Conatact
 global.sudo = process.env.SUDO ? process.env.SUDO.replace(/[\s+]/g, '') : "null";
 global.owner= process.env.OWNER_NUMBER ? process.env.OWNER_NUMBER.replace(/[\s+]/g, '') : "923184474176";
 
 module.exports = {
 
   menu: process.env.MENU || "", /**  Available @MENU @Schemes 1: Aztec_Md, 2: A17_Md, 3: Suhail-Md Default ---------- If Not Choose then it Randomely Pic One Of Them Each time **/
-  style:process.env.STYLE|| "2",  // put '1' & "2" here to check bot styles
+  //style:process.env.STYLE|| "2",  // put '1' & "2" here to check bot styles
 
 
   HANDLERS:process.env.PREFIX || ".",
   BRANCH: process.env.BRANCH  || "main",
-  VERSION:process.env.VERSION || "v.1.2.7",
+  VERSION:process.env.VERSION || "v.1.2.7-qr",
   caption:process.env.CAPTION || "©sᴜʜᴀɪʟ²²¹-ᴍᴅ" , // ```『 ᴘᴏᴡᴇʀᴇᴅ ʙʏ sᴜʜᴀɪʟ²²¹-ᴍᴅ 』```", //*『sᴜʙsᴄʀɪʙᴇ • sᴜʜᴀɪʟ ᴛᴇᴄʜ』*\n youtube.com/@suhailtechinfo0"),
 
  
@@ -48,8 +56,8 @@ module.exports = {
   sessionName:process.env.SESSION_ID|| "",  // PUT SESSION ID HERE 
   errorChat: process.env.ERROR_CHAT || "",
   warncount: process.env.WARN_COUNT || 3,
-  userImages:process.env.USER_IMAGES|| "text",  // SET IMAGE AND VIDEO URL FOR BOT MENUS 
-  disablepm: process.env.DISABLE_PM || "false",
+  //userImages:process.env.USER_IMAGES|| "text",  // SET IMAGE AND VIDEO URL FOR BOT MENUS 
+  //disablepm: process.env.DISABLE_PM || "false",
   MsgsInLog: process.env.MSGS_IN_LOG|| "false", // "true"  to see messages , "log" to open logs , "false" to hide logs messages
   readcmds:process.env.READ_COMMANDS|| "false", 
   KOYEB_API: process.env.KOYEB_API  || "false",

@@ -1,1 +1,1 @@
-web: npm start --size=standard-2x 
+web: npm start
