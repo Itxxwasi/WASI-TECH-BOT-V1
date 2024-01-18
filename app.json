@@ -89,7 +89,7 @@
       "value": "wahtsapp bot",
       "required": false 
     }
-  },
+  }, 
   "addons": [
     {
       "plan": "heroku-postgresql:basic"

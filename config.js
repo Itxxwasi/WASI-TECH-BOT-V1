@@ -63,9 +63,9 @@ module.exports = {
   KOYEB_API: process.env.KOYEB_API  || "false",
 readmessage:process.env.READ_MESSAGE|| "false",
  aitts_Voice_Id:process.env.AITTS_ID|| "37",
- alwaysonline:process.env.WAPRESENCE|| "unavailable", // 'unavailable' | 'available' | 'composing' | 'recording' | 'paused'
+ alwaysonline:process.env.WAPRESENCE|| "unavailable", // 'unavailable' | 'online' | 'composing' | 'recording' | 'paused'
  
-
+ 
   REMOVE_BG_KEY : process.env.REMOVE_BG_KEY || "",
   OPENAI_API_KEY: process.env.OPENAI_API_KEY|| "",
   read_status: process.env.AUTO_READ_STATUS || "false",
