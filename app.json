@@ -9,9 +9,44 @@
   "env": {
     "OWNER_NAME": {
       "description": "Name of Bot Owner",    
-      "value": "Suhail Tech Info",
+      "value": "Suhail Ser",
       "required" :true
     },   
+    "BOT_NAME": {
+      "description": " NAME FOR BOT",
+      "required" :false,    
+      "value": "sᴜʜᴀɪʟ-ᴍᴅ"
+    }, 
+    "IMAGE": {
+      "description": "Image for bot",
+      "required" :false,    
+      "value": "https://telegra.ph/file/d5b1c3544fedc23e11a06.jpg"
+    }, 
+    "TZ": {
+      "description": "Put TIME_ZONE according to your location",
+      "required" :false,    
+      "value": "Asia/Karachi"
+    },  
+    "FLUSH": {
+      "description": " Make it 'true' if bot connected but not responed (After deployement!)",
+      "required" :false,    
+      "value": "false"
+    }, 
+    "WARN_COUNT": {
+      "description": " Warn count for users to kick/block when warn limit exceed!",
+      "required" :false,    
+      "value": "3"
+    }, 
+    "READ_COMMAND": {
+      "description": " Read bot cmds",
+      "required" :false,    
+      "value": "false"
+    }, 
+    "AUTO_SAVE_STATUS": {
+      "description": " Auto save whatsapp status", 
+      "required" :false,   
+      "value": "false"
+    }, 
     "HEROKU_API_KEY": {
       "description": "Put Your Heroku Api Key Here",
       "value": "",
@@ -20,7 +55,7 @@
     "HEROKU_APP_NAME": {
       "description": "Put Your Heroku App Name Here",
       "value": "",
-    "required" :false
+    "required" :true
     }, 
     "WAPRESENCE": {
       "description": "Fill the value: 'unavailable'(for nothing) | 'available'(for alwaysonline) | 'composing'(for typing) | 'recording' | 'paused' ",
@@ -43,7 +78,7 @@
       "value": "false"
     },
     "DISABLE_PM": {
-      "description": "Disable bot in pm, Take it false if you wanna run bot in your pm",
+      "description": "Disable bot in pm, Take it false if you wanna run bot in your pm (if MODE is Public)",
       "value": "false",
       "required" :false
     },
@@ -56,22 +91,22 @@
       "value": "923184474176"
     },
     "SESSION_ID": {
-      "description": "Please put your SESSION_ID here,if you don't have visit\nhttps://replit.com/@SuhailTechInfo/Secktor-Bot",
+      "description": "put your SESSION_ID here.",
       "value": ""
   
     },
     "OPENAI_API_KEY": {
-      "description": "Please put your OPENAI api key here.Get it from beta.openai.com ",
+      "description": "put your OPENAI api key here.Get it from beta.openai.com ",
       "value": "",
       "required" :false
     }, 
     "ELEVENLAB_API_KEY": {
-      "description": "Put your ElevenLab api key here for Aitts. Get it from https://elevenlabs.io/ ",
+      "description": "Put your ElevenLab api key here for Aitts. Watch tutorial from https://youtu.be/HCDcdPtkwg4 ",
       "value": "",
       "required" :false
     }, 
     "REMOVE_BG_KEY": {
-      "description": "Please put your REMOVE BG KEY here.Get it from removeBg.com ",
+      "description": "put your REMOVE BG KEY here.Get it from removeBg.com ",
       "value": "",
       "required" :false
     },
@@ -86,7 +121,7 @@
     },
     "PACK_AUTHER": {
       "description": "Put Sticker Author_Name.",
-      "value": "wahtsapp bot",
+      "value": "",
       "required": false 
     }
   }, 

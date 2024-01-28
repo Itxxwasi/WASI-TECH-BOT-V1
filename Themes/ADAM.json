@@ -3,7 +3,7 @@
 "AUTHOR": "SuhailTechInfo",
 "theme": "Adam",
 "LANGUAGE": "English",
-"LANGCODE": "en",
+"LANGCODE": "en", 
 "STRINGS": {    
 "updater": {    
 "UPDATE": "Your bot is already on latest version Buddy",

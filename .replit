@@ -2,7 +2,7 @@ run = "pm2 start lib/client.js --deep-monitoring --attach --name Suhail_Bot"
 entrypoint = "lib/client.js"
 hidden = [".config", "package-lock.json"]
  
-[languages]
+[languages] 
         
 [languages.javascript]
 pattern = "**/{*.js,*.jsx,*.ts,*.tsx}"

@@ -5,7 +5,7 @@
     "theme": "Genos",
     "LANGCODE": "en",
     "STRINGS": {   
-        "updater": { 
+        "updater": {  
             "UPDATE": "*Your bot is already on latest version Master*",
             "NEW_UPDATE": "*There is a new update available for the bot!*\n\n*Changes:*\n",
             "UPDATED_LOCAL": "*Fresh Updates Installed!*"
