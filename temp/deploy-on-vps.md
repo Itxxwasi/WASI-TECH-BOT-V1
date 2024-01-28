@@ -53,7 +53,7 @@
       ctrl + o and ctrl + x, To save and exit
 
    7. start and stop bot
-
+ 
       To start bot ``` npm start ```,
       To stop bot ``` npm stop ```
 

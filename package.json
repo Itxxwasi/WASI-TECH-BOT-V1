@@ -6,7 +6,7 @@
    "type": "commonjs",
    "scripts": {
              "start": "pm2 start lib/client.js --deep-monitoring --attach --name Suhail",
-             "stop": "pm2 stop Suhail"
+             "stop": "pm2 stop Suhail"             
    },
    "author": "SuhailTechInfo",
   

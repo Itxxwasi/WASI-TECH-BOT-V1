@@ -27,7 +27,7 @@ global.sudo = process.env.SUDO ? process.env.SUDO.replace(/[\s+]/g, '') : "null"
 global.owner= process.env.OWNER_NUMBER ? process.env.OWNER_NUMBER.replace(/[\s+]/g, '') : "923184474176";
 
 
-
+ 
 
 
 
@@ -39,7 +39,7 @@ global.disablepm = process.env.DISABLE_PM || "false",
 global.userImages = process.env.USER_IMAGES|| "text",
 global.style = process.env.STYLE || "5",  // put '1' to "5" here to check bot styles
 global.waPresence = process.env.WAPRESENCE  ||  "set according to your need" ; // 'unavailable' | 'available' | 'composing' | 'recording' | 'paused'
-global.MsgsInLog = process.env.MSGS_IN_LOG || "log", // "true"  to see messages , "log" to open logs , "false" to hide logs messages
+global.MsgsInLog = process.env.MSGS_IN_LOG || "false", // "true"  to see messages , "log" to open logs , "false" to hide logs messages
  
 
 //========================= [ AUTO READ MSGS & CMDS ] =========================\\

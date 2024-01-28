@@ -33,7 +33,7 @@ supportsProgressReporting = true
 supportsRunInTerminalRequest = true
 supportsVariablePaging = true
 supportsVariableType = true
-
+ 
 [debugger.interactive.launchMessage]
 command = "launch"
 type = "request"
