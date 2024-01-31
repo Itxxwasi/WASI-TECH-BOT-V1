@@ -78,7 +78,7 @@
 
 
     
-  
+   
 ## Deployment Methods
 ---
 1.  ***Get `SESSION ID` by [`SCANING QR`](https://suhail-md-vtsf.onrender.com/) Or [`PARING CODE`](https://sohitechs.com/blog/18/#lin=SuhailMdPair). And then `Go-to Whatapp>Three dots>Linked Devices`***

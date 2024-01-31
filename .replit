@@ -37,7 +37,7 @@ supportsVariableType = true
 [debugger.interactive.launchMessage]
 command = "launch"
 type = "request"
-
+ 
 [debugger.interactive.launchMessage.arguments]
 console = "externalTerminal"
 cwd = "."

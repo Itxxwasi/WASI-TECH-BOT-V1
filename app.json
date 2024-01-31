@@ -12,6 +12,18 @@
       "value": "Suhail Ser",
       "required" :true
     },   
+     
+    "WELCOME": {
+      "description": "put 'false' if you don't want to enable WELCOME ",
+      "value": "true",
+      "required" :false
+    },
+     
+    "GOODBYE": {
+      "description": "put 'false' or 'true' to enable & disable GOODBYE ",
+      "value": "false",
+      "required" :false
+    },
     "BOT_NAME": {
       "description": " NAME FOR BOT",
       "required" :false,    

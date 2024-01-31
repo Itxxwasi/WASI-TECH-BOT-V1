@@ -57,7 +57,7 @@
       To start bot ``` npm start ```,
       To stop bot ``` npm stop ```
 
-
+ 
 <h2 align="center">  NOTICE </h2>
 ---
 - *Suhail-Md is not made by `WhatsApp Inc.` Sometimes or misusing the bot might `ban` your `WhatsApp account!`*
