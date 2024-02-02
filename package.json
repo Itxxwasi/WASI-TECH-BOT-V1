@@ -1,15 +1,16 @@
 {
    "name": "suhail-md",
-   "version": "1.2.8-pdm",
+   "version": "1.2.8-repl",
    "description": "Multi device whatsapp bot by SuhailTechInfo.",
    "main": "lib/client.js",
    "type": "commonjs",
+   "engines" : { "node": "v18.16.0", "npm": "9.5.1" },
    "scripts": {
              "start": "pm2 start lib/client.js --deep-monitoring --attach --name Suhail",
              "stop": "pm2 stop Suhail"             
    },
    "author": "SuhailTechInfo",
-  
+   "license" :"Apache-2.0",
    "dependencies": { 
              "@adiwajshing/keyed-db": "^0.2.4",
              "@hapi/boom": "^9.1.4",
@@ -49,7 +50,6 @@
              "path": "^0.12.7",
              "pg": "^8.11.3",
              "pm2": "^5.2.0",
-
              "qrcode": "latest",
              "secktor-pack": "latest",
              "simple-git": "^3.15.1",
@@ -61,7 +61,7 @@
    },
    "directories": {
              "lib": "lib",
-             "assets": "lib/assets"
+             "assets": "temp"
    },
    "devDependencies": {
              "pino": "^7.0.5"
