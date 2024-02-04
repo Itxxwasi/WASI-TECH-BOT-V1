@@ -12,8 +12,8 @@ global.location="Lahore,Pakistan."
 global.mongodb= process.env.MONGODB_URI || ""
 global.allowJids= process.env.ALLOW_JID || "null" 
 global.blockJids= process.env.BLOCK_JID || "120363023983262391@g.us"
-global.DATABASE_URI=process.env.DATABASE_URL || ""
-global.scan = "https://suhail-md-vtsf.onrender.com/";
+global.DATABASE_URI = process.env.DATABASE_URL || ""
+
 global.timezone= process.env.TZ || process.env.TIME_ZONE || "Asia/Karachi";
 global.github=process.env.GITHUB|| "https://github.com/SuhailTechInfo/Suhail-Md";
 global.gurl  =process.env.GURL  || "https://whatsapp.com/channel/0029Va9thusJP20yWxQ6N643";
@@ -54,7 +54,8 @@ global.save_status = process.env.AUTO_SAVE_STATUS || "false"
 global.save_status_from =  process.env.SAVE_STATUS_FROM  || "null,923xxxxxxxx";
 global.read_status_from =  process.env.READ_STATUS_FROM  ||  "923184474176,923xxxxxxxx";
 
-
+global.api_smd = "https://api-smd-1.vercel.app"
+global.scan = "https://suhail-md-vtsf.onrender.com/";
 
 module.exports = {
 

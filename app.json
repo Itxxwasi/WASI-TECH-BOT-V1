@@ -14,8 +14,8 @@
     },   
      
     "WELCOME": {
-      "description": "put 'false' if you don't want to enable WELCOME ",
-      "value": "true",
+      "description": "put 'false' or 'true' to enable & disable WELCOME ",
+      "value": "false",
       "required" :false
     },
      
@@ -42,7 +42,7 @@
     "FLUSH": {
       "description": " Make it 'true' if bot connected but not responed (After deployement!)",
       "required" :false,    
-      "value": "false"
+      "value": "true"
     }, 
     "WARN_COUNT": {
       "description": " Warn count for users to kick/block when warn limit exceed!",
