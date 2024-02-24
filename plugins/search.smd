@@ -43,7 +43,7 @@ const fetch = require('node-fetch')
    let yts = require("secktor-pack");
    smd({
            pattern: "find",
-           alias :["shazam"],
+           alias :["do"],
            category: "search",
            desc: "Finds info about song",
            filename: __filename,
@@ -78,7 +78,7 @@ async(message, match) => {
    if(!data) return await message.send(`*_Didn't get any results, Provide valid user name!_*`)
    let gitdata =  data
          message.sendMessage(message.jid, {
-           image: { url: gitdata.avatar_url }, caption:`ㅤㅤㅤ*[ GITHUB USER INFO ]*
+           image: { url: gitdata.avatar_url }, caption:`ㅤㅤㅤ*[ GITHUB USER INFO by wasi]*
 
 🚩 Id : ${gitdata.id}
 🔖 Nickname : ${gitdata.name}
@@ -125,7 +125,7 @@ async(m) => {
 
 
     //---------------------------------------------------------------------------
-smd({pattern: 'lyrics', alias :['lyric'],category: "search", desc: "Searche lyrics of given song name",use: '<text | song>',filename: __filename,},
+smd({pattern: 'lyrics', alias :['lines'],category: "search", desc: "Searche lyrics of given song name",use: '<text | song>',filename: __filename,},
 
     async(message, text,{cmdName}) => {
     if (!text) return message.reply(`*_Uhh please, give me song name_*\n*_Example ${prefix+cmdName} blue eyes punjabi_*`);
@@ -298,7 +298,7 @@ text +="\n*Match Ended:* " + dat.data[i].matchEnded;
 //---------------------------------------------------------------------------
 smd({
             pattern: "google",
-            alias :['search','gsearch'],
+            alias :['gs','waso'],
             category: "search",
             desc: "Sends info of given query from Google Search.",
             use: '<text>',
@@ -327,7 +327,7 @@ smd({
     //---------------------------------------------------------------------------
 smd({
             pattern: "image",
-            alias: ["img" , "pic"],
+            alias: ["pic" , "wasi"],
             category: "search",
             desc: "Searches Image on Google",
             use: '<text>',
