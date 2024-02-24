@@ -5,9 +5,9 @@
    "main": "lib/smd.js",
    "type": "commonjs",  
    "scripts": {
-            "run": "pm2 start lib/smd.js --deep-monitoring --attach --name Suhail || node lib/smd.js",
-            "start": "pm2 start lib/smd.js --attach --name Suhail",
-            "stop": "pm2 stop Suhail"
+            "run": "pm2 start lib/smd.js --deep-monitoring --attach --name wasi || node lib/smd.js",
+            "start": "pm2 start lib/smd.js --attach --name wasi",
+            "stop": "pm2 stop wasi"
    },
    "author": "SuhailTechInfo",
    "license" :"Apache-2.0",
