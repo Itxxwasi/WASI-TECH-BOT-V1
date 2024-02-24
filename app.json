@@ -1,38 +1,28 @@
 {
-  "name": "suhail-md@1.2.8",
-  "description": "I am Suhail-Md Whatsapp Chuddy Buddy built in NodeJs to make experience better\n\t if Any Problem : www.youtube.com/c/SuhailTechInfo",
-  "logo": "https://telegra.ph/file/d5b1c3544fedc23e11a06.jpg",
-  "keywords": ["whatsappbot", "suhailMd", "suhail Md bot", "Suhail-Md", "SuhailMdWhatsaooBot", "SuhailWaBot","SuhailMD","Suhail Md Whatsapp Bot","multi device"],
+  "name": "wasi-md@1.2.8",
+  "description": "I am Wasi-Md Whatsapp Chuddy Buddy built in NodeJs to make experience better\n\t if Any Problem : www.youtube.com/c/wasitech1",
+  "logo": "https://telegra.ph/file/733b2d3b5f1d1e1aeec0f.jpg",
+  "keywords": ["whatsappbot", "wasi", "wasi Md bot", "wasi-Md", "wasiMdWhatsaooBot", "wasiWaBot","wasiMD","wasi Md Whatsapp Bot","multi device"],
   "success_url": "/suhail/",
   "app_url": "/qr/",
   
   "env": {
     "OWNER_NAME": {
       "description": "Name of Bot Owner",    
-      "value": "Suhail Ser",
+      "value": "WASI",
       "required" :true
     },   
      
-    "WELCOME": {
-      "description": "put 'false' or 'true' to enable & disable WELCOME ",
-      "value": "false",
-      "required" :false
-    },
-     
-    "GOODBYE": {
-      "description": "put 'false' or 'true' to enable & disable GOODBYE ",
-      "value": "false",
-      "required" :false
-    },
+
     "BOT_NAME": {
       "description": " NAME FOR BOT",
       "required" :false,    
-      "value": "sᴜʜᴀɪʟ-ᴍᴅ"
+      "value": "WASI MD"
     }, 
     "IMAGE": {
       "description": "Image for bot",
       "required" :false,    
-      "value": "https://telegra.ph/file/d5b1c3544fedc23e11a06.jpg"
+      "value": "https://telegra.ph/file/733b2d3b5f1d1e1aeec0f.jpg"
     }, 
     "TZ": {
       "description": "Put TIME_ZONE according to your location",
@@ -41,7 +31,7 @@
     },  
     "FLUSH": {
       "description": " Make it 'true' if bot connected but not responed (After deployement!)",
-      "required" :false,    
+      "required" : true,    
       "value": "true"
     }, 
     "WARN_COUNT": {
@@ -100,7 +90,7 @@
     },
     "OWNER_NUMBER": {
       "description": "The phone numbers of the users who you want to be admin for the bot (should be in international format without + and multiple numbers must be separated by a comma \",\")",
-      "value": "923184474176"
+      "value": "923192173398"
     },
     "SESSION_ID": {
       "description": "put your SESSION_ID here.",
@@ -128,12 +118,12 @@
     },
     "PACK_NAME": {
       "description": "Put Sticker Pack_Name.",
-      "value": "Suhail Md",
+      "value": "WASI",
       "required": false 
     },
     "PACK_AUTHER": {
       "description": "Put Sticker Author_Name.",
-      "value": "",
+      "value": "MD",
       "required": false 
     }
   }, 
