@@ -109,7 +109,7 @@
     }, 
     "REMOVE_BG_KEY": {
       "description": "put your REMOVE BG KEY here.Get it from removeBg.com ",
-      "value": "",
+      "value": "RybcWhfzZJ7Wd46dgGE21kLt",
       "required" :false
     },
     "MODE": {
